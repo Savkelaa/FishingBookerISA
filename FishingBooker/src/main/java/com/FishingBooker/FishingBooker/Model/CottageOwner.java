@@ -1,4 +1,4 @@
-package com.FishingBooker.Model;
+package com.FishingBooker.FishingBooker.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
