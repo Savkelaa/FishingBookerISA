@@ -34,8 +34,8 @@ public class Cottage {
 	@Column(name = "status")
 	private String status;
 	
-	@Column(name = "description")
-	private String description;
+	@Column(name = "promo_description")
+	private String promoDescription;
 	
 	@Column(name = "price")
 	private int price;

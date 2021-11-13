@@ -46,8 +46,8 @@ public class CottageReservation {
     private Cottage cottage;
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY)
-    private List<AdditionalService> AdditionalServices ;
+    @OneToMany(mappedBy="cottageReservation",fetch=FetchType.LAZY)
+    private List<AdditionalService> additionalServices ;
 	
 	@JsonIgnore
     @OneToMany(mappedBy="cottageReservation",fetch=FetchType.LAZY)

@@ -53,10 +53,28 @@ public class Client {
 
 	@JsonIgnore
     @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
-    private List<CottageRate> rates ;
+    private List<CottageRate> cottageRates ;
 	
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<BoatRate> boatRates ;
 	
-
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<CottageReservation> cottageReservations ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<CottageQuickReservation> cottageQuickReservations ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<BoatReservation> boatReservations ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<BoatQuickReservation> boatQuickReservations ;
+	
 public Client() {
 		super();
 	}

@@ -31,8 +31,20 @@ public class AdditionalService {
 	private int price;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="cottage_reservation_id", nullable = false)
+    private CottageReservation cottageReservation;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="cottage_quick_reservation_id", nullable = false)
     private CottageQuickReservation cottageQuickReservation;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="boat_reservation_id", nullable = false)
+    private BoatReservation boatReservation;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="boat_quick_reservation_id", nullable = false)
+    private BoatQuickReservation boatQuickReservation;
 	
 	
 	

@@ -19,9 +19,9 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "cottage_quick_reservation")
+@Table(name = "boat_quick_reservation")
 @DynamicUpdate
-public class CottageQuickReservation {
+public class BoatQuickReservation {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -33,26 +33,29 @@ public class CottageQuickReservation {
 	@Column(name = "finish_date")
 	private Date finishDate;
 	
-	@Column(name = "discount")
-	private float discount;
-	
 	@Column(name = "max_people")
 	private int maxPeople;
+	
+	@Column(name = "discount")
+	private int discount;
+	
+	@Column(name = "cancellation_condition")
+	private int cancellationCondition;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="client_id", nullable = false)
     private Client client;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="cottage_id", nullable = false)
-    private Cottage cottage;
+    @JoinColumn(name="boat_id", nullable = false)
+    private Boat boat;
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="boatQuickReservation",fetch=FetchType.LAZY)
     private List<AdditionalService> additionalServices ;
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY)
-    private List<CottageReport> cottageReports ;
-	
+    @OneToMany(mappedBy="boatQuickReservation",fetch=FetchType.LAZY)
+    private List<FishingEquipment> fishingEquipment ;
+
 }

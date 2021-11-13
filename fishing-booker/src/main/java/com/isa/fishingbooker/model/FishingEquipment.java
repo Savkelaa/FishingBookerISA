@@ -1,7 +1,5 @@
 package com.isa.fishingbooker.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,28 +13,25 @@ import javax.persistence.Table;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table(name = "cottage_report")
+@Table(name = "fishing_equipment")
 @DynamicUpdate
-public class CottageReport {
-	
+public class FishingEquipment {
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name = "name")
+	private String name;
 	
 	@Column(name = "description")
 	private String description;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="cottage_owner_id", nullable = false)
-    private CottageOwner cottageOwner;
+    @JoinColumn(name="boat_reservation_id", nullable = false)
+    private BoatReservation boatReservation;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="cottage_reservation_id", nullable = false)
-    private CottageReservation cottageReservation;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="cottage_quick_reservation_id", nullable = false)
-    private CottageReservation cottageQuickReservation;
-	
-
+    @JoinColumn(name="boat_quick_reservation_id", nullable = false)
+    private BoatQuickReservation boatQuickReservation;
 }
