@@ -1,4 +1,4 @@
-package com.FishingBooker.FishingBooker.Model;
+package com.isa.fishingbooker.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,10 +9,10 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
-@Entity(name="cottage_owner")
-@Table(name="cottage_owner")
+@Entity
+@Table(name = "instructor")
 @DynamicUpdate
-public class CottageOwner {
+public class Instructor {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -44,12 +44,32 @@ public class CottageOwner {
 	
 	@Column(name = "explanation")
 	private String explanation;
+	
+	@Column(name = "short_biography")
+	private String shortBiography;
 
 	
 	
-public CottageOwner(){super();}
 
-public CottageOwner(Integer id,String name,String surname,String address,String city,String country,String email,String password,String number,String explanation){super();this.id=id;this.name=name;this.surname=surname;this.address=address;this.city=city;this.country=country;this.email=email;this.password=password;this.number=number;this.explanation=explanation;}
+public Instructor() {
+		super();
+	}
+
+public Instructor(Integer id, String name, String surname, String address, String city, String country,
+			String email, String password, String number, String explanation, String shortBiography) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.address = address;
+		this.city = city;
+		this.country = country;
+		this.email = email;
+		this.password = password;
+		this.number = number;
+		this.explanation = explanation;
+		this.shortBiography = shortBiography;
+	}
 
 public Integer getId() {
 return id;}
@@ -110,8 +130,4 @@ return explanation;}
 
 public void setExplanation(String explanation) {
 this.explanation = explanation;}
-	
-	
-	
 }
-
