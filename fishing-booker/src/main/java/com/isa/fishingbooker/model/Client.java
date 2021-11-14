@@ -36,6 +36,9 @@ public class Client {
 	@Column(name = "city")
 	private String city;
 	
+	@Column(name = "penalty")
+	private int penalty;
+	
 	@Column(name = "country")
 	private String country;
 	
@@ -57,7 +60,19 @@ public class Client {
 	
 	@JsonIgnore
     @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<CottageOwnerRate> cottageOwnerRates ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<InstructorRate> instructorRates ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
     private List<BoatRate> boatRates ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<FishingClassRate> fishingClassRates ;
 	
 	@JsonIgnore
     @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
@@ -74,6 +89,15 @@ public class Client {
 	@JsonIgnore
     @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
     private List<BoatQuickReservation> boatQuickReservations ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<CottageComplaint> cottageComplaints ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+    private List<BoatComplaint> boatComplaints ;
+	
 	
 public Client() {
 		super();

@@ -42,6 +42,9 @@ public class Admin {
 	@Column(name = "number")
 	private String number;
 	
+	@Column(name = "money")
+	private int money;
+	
 	@Column(name = "explanation")
 	private String explanation;
 

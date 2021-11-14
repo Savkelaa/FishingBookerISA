@@ -34,4 +34,12 @@ public class FishingEquipment {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="boat_quick_reservation_id", nullable = false)
     private BoatQuickReservation boatQuickReservation;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="fishing_class_reservation_id", nullable = false)
+    private FishingClassReservation fishingClassReservation;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="fishing_class_quick_reservation_id", nullable = false)
+    private FishingClassQuickReservation fishingClassQuickReservation;
 }

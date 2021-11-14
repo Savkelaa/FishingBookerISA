@@ -59,6 +59,7 @@ public class BoatReservation {
     @OneToMany(mappedBy="boatReservation",fetch=FetchType.LAZY)
     private List<FishingEquipment> fishingEquipment ;
 	
-	
-
+	@JsonIgnore
+    @OneToMany(mappedBy="boatReservation",fetch=FetchType.LAZY)
+    private List<BoatComplaint> boatComplaints ;
 }

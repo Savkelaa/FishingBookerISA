@@ -13,29 +13,22 @@ import javax.persistence.Table;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table(name = "boat_report")
+@Table(name = "instructor_rate")
 @DynamicUpdate
-public class BoatReport {
-	
+public class InstructorRate {
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "description")
-	private String description;
+	@Column(name = "rate")
+	private int rate;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="boat_owner_id", nullable = false)
-    private BoatOwner boatOwner;
+    @JoinColumn(name="instructor_id", nullable = false)
+    private Instructor instructor;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="boat_reservation_id", nullable = false)
-    private BoatReservation boatReservation;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="boat_quick_reservation_id", nullable = false)
-    private BoatQuickReservation boatQuickReservation;
-	
-	
-
+    @JoinColumn(name="client_id", nullable = false)
+    private Client client;
 }

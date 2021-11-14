@@ -1,6 +1,5 @@
 package com.isa.fishingbooker.model;
 
-import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -19,10 +18,10 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "cottage")
+@Table(name = "fishing_class")
 @DynamicUpdate
-public class Cottage {
-	
+public class FishingClass {
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Integer id;
@@ -42,46 +41,20 @@ public class Cottage {
 	@Column(name = "price")
 	private int price;
 	
-	@JsonIgnore
-    @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
-       private List<CottageRate> rates ;
+	@Column(name = "cancellation_condition")
+	private String cancellationCondition;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="cottage_owner_id", nullable = false)
-    private CottageOwner cottageOwner;
-	/*
-	 * @Column(name = "enteries_photos")
-	private String enteries_photos;
-	
-	@Column(name = "exterier_photos")
-	private String exterier_photos;
-	 * 
-	 * 
-	 */
-	
-	/*
-	 * @Column(name = "quick_appointment")
-	private String quick_appointment;
-	
-	 * 
-	 * 
-	 */
-	
+    @JoinColumn(name="instructor_id", nullable = false)
+    private Instructor instructor;
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
-       private List<CottageBehavioralRule> behavioralRules ;
+    @OneToMany(mappedBy="fishingClass",fetch=FetchType.LAZY)
+    private List<FishingClassBehavioralRule> behavioralRules ;
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
-       private List<CottageRoom> Rooms ;
-	
-	
-	
-	
-	
-	
-	
+    @OneToMany(mappedBy="fishingClass",fetch=FetchType.LAZY)
+    private List<FishingClassRate> fishingClassRates ;
 	
 	
 }

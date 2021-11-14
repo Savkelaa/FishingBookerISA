@@ -1,13 +1,19 @@
 package com.isa.fishingbooker.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "instructor")
@@ -47,6 +53,14 @@ public class Instructor {
 	
 	@Column(name = "short_biography")
 	private String shortBiography;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
+    private List<FishingClass> fishingClasses ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
+    private List<InstructorRate> instructorRates ;
 
 	
 	

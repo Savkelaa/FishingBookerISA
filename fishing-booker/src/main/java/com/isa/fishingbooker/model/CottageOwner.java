@@ -54,6 +54,14 @@ public class CottageOwner {
 	@JsonIgnore
     @OneToMany(mappedBy="cottageOwner",fetch=FetchType.LAZY)
     private List<CottageReport> cottageReports ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="cottageOwner",fetch=FetchType.LAZY)
+    private List<CottageOwnerRate> cottageOwnerRates ;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="cottageOwner",fetch=FetchType.LAZY)
+    private List<Cottage> cottages ;
 
 	
 	

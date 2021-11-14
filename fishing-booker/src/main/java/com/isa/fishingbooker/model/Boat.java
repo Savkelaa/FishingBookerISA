@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -82,6 +84,10 @@ public class Boat {
 	@JsonIgnore
     @OneToMany(mappedBy="boat",fetch=FetchType.LAZY)
     private List<BoatBehavioralRule> behavioralRules ;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="boat_owner_id", nullable = false)
+    private BoatOwner boatOwner;
 	
 	
 }
