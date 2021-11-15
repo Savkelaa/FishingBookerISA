@@ -12,9 +12,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "boat_navigation_equipment")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class BoatNavigationEquipment {
 	
 	@Id
@@ -24,57 +33,10 @@ public class BoatNavigationEquipment {
 	@Column(name = "name")
 	private String name;
 	
-	public BoatNavigationEquipment() {
-		super();
-	}
-
-	public BoatNavigationEquipment(Integer id, String name, String description, Boat boat) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.boat = boat;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Boat getBoat() {
-		return boat;
-	}
-
-	public void setBoat(Boat boat) {
-		this.boat = boat;
-	}
-
 	@Column(name = "description")
 	private String description;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="boat_id", nullable = false)
     private Boat boat;
-	
-	
-
 }

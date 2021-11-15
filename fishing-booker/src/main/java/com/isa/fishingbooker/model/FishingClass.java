@@ -17,9 +17,18 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "fishing_class")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class FishingClass {
 
 	@Id
@@ -55,6 +64,4 @@ public class FishingClass {
 	@JsonIgnore
     @OneToMany(mappedBy="fishingClass",fetch=FetchType.LAZY)
     private List<FishingClassRate> fishingClassRates ;
-	
-	
 }

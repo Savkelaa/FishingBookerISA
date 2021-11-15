@@ -12,9 +12,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "additional_service")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class AdditionalService {
 	
 	@Id
@@ -53,5 +62,4 @@ public class AdditionalService {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="fishing_class_quick_reservation_id", nullable = false)
     private FishingClassQuickReservation fishingClassQuickReservation;
-
 }

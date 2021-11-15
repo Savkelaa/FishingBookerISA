@@ -19,9 +19,18 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "cottage_reservation")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class CottageReservation {
 	
 	@Id
@@ -56,7 +65,4 @@ public class CottageReservation {
 	@JsonIgnore
     @OneToMany(mappedBy="cottageReservation",fetch=FetchType.LAZY)
     private List<CottageComplaint> cottageComplaint ;
-	
-	
-
 }

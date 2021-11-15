@@ -12,9 +12,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "boat_owner_rate")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class BoatOwnerRate {
 
 	@Id

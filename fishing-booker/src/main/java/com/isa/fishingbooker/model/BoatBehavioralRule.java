@@ -17,9 +17,18 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "boat_behavioral_rule")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class BoatBehavioralRule {
 
 	@Id
@@ -35,51 +44,4 @@ public class BoatBehavioralRule {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="boat_id", nullable = false)
     private Boat boat;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Boat getBoat() {
-		return boat;
-	}
-
-	public void setBoat(Boat boat) {
-		this.boat = boat;
-	}
-
-	public BoatBehavioralRule(Integer id, String name, String description, Boat boat) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.boat = boat;
-	}
-
-	public BoatBehavioralRule() {
-		super();
-	}
-	
-	
-
 }

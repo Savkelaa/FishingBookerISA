@@ -12,9 +12,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "cottage_rate")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class CottageRate {
 	
 	@Id
@@ -31,7 +40,4 @@ public class CottageRate {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="client_id", nullable = false)
     private Client client;
-	
-	
-	
 }

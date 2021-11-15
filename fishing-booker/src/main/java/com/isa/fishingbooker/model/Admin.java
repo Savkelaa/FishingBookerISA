@@ -9,9 +9,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "admin")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Admin {
 
 	@Id
@@ -47,85 +56,4 @@ public class Admin {
 	
 	@Column(name = "explanation")
 	private String explanation;
-
-	
-	
-public Admin() {
-		super();
-	}
-
-public Admin(Integer id, String name, String surname, String address, String city, String country, String email,
-			String password, String number, String explanation) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
-		this.address = address;
-		this.city = city;
-		this.country = country;
-		this.email = email;
-		this.password = password;
-		this.number = number;
-		this.explanation = explanation;
-	}
-
-public Integer getId() {
-return id;}
-
-public void setId(Integer id) {
-this.id = id;}
-
-public String getName() {
-return name;}
-
-public void setName(String name) {
-this.name = name;}
-
-public String getSurname() {
-return surname;}
-
-public void setSurname(String surname) {
-this.surname = surname;}
-
-public String getAddress() {
-return address;}
-
-public void setAddress(String address) {
-this.address = address;}
-
-public String getCity() {
-return city;}
-
-public void setCity(String city) {
-this.city = city;}
-
-public String getCountry() {
-return country;}
-
-public void setCountry(String country) {
-this.country = country;}
-
-public String getEmail() {
-return email;}
-
-public void setEmail(String email) {
-this.email = email;}
-
-public String getPassword() {
-return password;}
-
-public void setPassword(String password) {
-this.password = password;}
-
-public String getNumber() {
-return number;}
-
-public void setNumber(String number) {
-this.number = number;}
-
-public String getExplanation() {
-return explanation;}
-
-public void setExplanation(String explanation) {
-this.explanation = explanation;}
 }

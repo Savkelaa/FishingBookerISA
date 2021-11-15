@@ -17,9 +17,18 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "boat")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Boat {
 	
 	@Id
@@ -66,10 +75,6 @@ public class Boat {
 	@Column(name = "type")
 	private String type;
 	
-	
-	
-	
-	
 	@Column(name = "price")
 	private int price;
 	
@@ -88,6 +93,4 @@ public class Boat {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="boat_owner_id", nullable = false)
     private BoatOwner boatOwner;
-	
-	
 }

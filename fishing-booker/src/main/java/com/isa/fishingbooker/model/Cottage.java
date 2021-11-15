@@ -18,9 +18,18 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "cottage")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Cottage {
 	
 	@Id
@@ -44,7 +53,7 @@ public class Cottage {
 	
 	@JsonIgnore
     @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
-       private List<CottageRate> rates ;
+    private List<CottageRate> rates ;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="cottage_owner_id", nullable = false)
@@ -70,18 +79,9 @@ public class Cottage {
 	
 	@JsonIgnore
     @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
-       private List<CottageBehavioralRule> behavioralRules ;
+    private List<CottageBehavioralRule> behavioralRules ;
 	
 	@JsonIgnore
     @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
-       private List<CottageRoom> Rooms ;
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    private List<CottageRoom> Rooms ;
 }

@@ -14,9 +14,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "cottage_report")
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class CottageReport {
 	
 	@Id
@@ -37,6 +46,4 @@ public class CottageReport {
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name="cottage_quick_reservation_id", nullable = true)
     private CottageReservation cottageQuickReservation;
-	
-
 }
