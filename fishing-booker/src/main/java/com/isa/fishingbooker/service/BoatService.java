@@ -55,6 +55,7 @@ public class BoatService {
 		boat.setPromoDescription(boatDetails.getPromoDescription());
 		boat.setStatus(boatDetails.getStatus());
 		boat.setType(boatDetails.getType());
+		boat.setCancellationCondition(boatDetails.getCancellationCondition());
 		
 		final Boat updatedBoat = BoatRepository.save(boat);
 		return ResponseEntity.ok(updatedBoat);

@@ -66,6 +66,9 @@ public class Boat {
 	 * 
 	 */
 	
+	@Column(name="cancellation_condition")
+	private int cancellationCondition;
+	
 	@Column(name = "capacity")
 	private int capacity;
 	
@@ -93,4 +96,6 @@ public class Boat {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="boat_owner_id", nullable = false)
     private BoatOwner boatOwner;
+	
+	
 }

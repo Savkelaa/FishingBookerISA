@@ -49,6 +49,7 @@ public class CottageService {
 		cottage.setPrice(cottageDetails.getPrice());
 		cottage.setPromoDescription(cottageDetails.getPromoDescription());
 		cottage.setStatus(cottageDetails.getStatus());
+		
 	
 		final Cottage updatedCottage = CottageRepository.save(cottage);
 		return ResponseEntity.ok(updatedCottage);
