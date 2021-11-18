@@ -45,6 +45,9 @@ public class BoatOwner {
 	@Column(name = "city")
 	private String city;
 	
+	@Column(name = "biography")  
+	private String biography;
+	
 	@Column(name = "country")
 	private String country;
 	

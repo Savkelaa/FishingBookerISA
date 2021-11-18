@@ -53,6 +53,7 @@ public class BoatOwnerService {
 		boatOwner.setNumber(boatOwnerDetails.getNumber());
 		boatOwner.setPassword(boatOwnerDetails.getPassword());
 		boatOwner.setSurname(boatOwnerDetails.getSurname());
+		boatOwner.setBiography(boatOwnerDetails.getBiography());
 		
 		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
 		return ResponseEntity.ok(updatedBoatOwner);
