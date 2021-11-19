@@ -209,4 +209,57 @@ insert into additional_service (id, name, price, description, boat_quick_reserva
 insert into additional_service (id, name, price, description, boat_reservation_id) values (6, 'minibar', 0, 'id ligula suspendisse ornare', 2);
 insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (7, 'WiFi', 0, 'id ligula suspendisse ornare', 1);
 
+insert into cottage_behavioral_rule (name, description, cottage_id) values ('nec dui luctus rutrum nulla tellus in sagitt', 'oncus mauris enim leo rhoncus sed', 6);
+insert into cottage_behavioral_rule (name, description, cottage_id) values ('nulla sverra dapibus nulla', 's turpis enim blandit mi in porttitor pede justo eu', 5);
+insert into cottage_behavioral_rule (name, description, cottage_id) values ('sempe in consequat ut nulla sed accumsan felis ut', 'tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat', 2);
+insert into cottage_behavioral_rule (name, description, cottage_id) values ('vestibulum abus orci luctus et ultrices posuere cubilia curae nulla', 'sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulpndit ultrices', 4);
+insert into cottage_behavioral_rule (name, description, cottage_id) values ('posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at', 'iaculis congue vivamus metus tate eget nunc donec quis', 4);
+insert into cottage_behavioral_rule (name, description, cottage_id) values ('nam dui pruat in consequat', 'quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus', 5);
+insert into cottage_behavioral_rule (name, description, cottage_id) values ('etiam pretiu platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id', 'lacus at velit vivamus vea volutpat erat quisque erat eros viverra', 6);
+
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '10/19/2022', 4, 9, 5, 1);
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '8/2/2022', 26, 10, 1, 7);
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '3/6/2022', 25, 11, 5, 7);
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '3/5/2022', 30, 1, 1, 7);
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '5/24/2022', 28, 7, 7, 1);
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '2/14/2022', 14, 5, 5, 6);
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '3/18/2022', 11, 12, 7, 4);
+
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '8/1/2022', 9, 1, 6);
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '3/29/2022', 3, 7, 1);
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '1/11/2022', 3, 7, 2);
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '12/19/2021', 1, 5, 4);
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '12/15/2021', 5, 6, 4);
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '1/24/2022', 11, 2, 5);
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '11/5/2022', 2, 2, 3);
+
+insert into cottage_complaint (description, cottage_reservation_id, client_id) values ('maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque', 7, 3);
+insert into cottage_complaint (description, cottage_reservation_id, client_id) values ('libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer', 6, 5);
+insert into cottage_complaint (description, cottage_reservation_id, client_id) values ('sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas', 6, 2);
+insert into cottage_complaint (description, cottage_reservation_id, client_id) values ('purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend', 4, 3);
+insert into cottage_complaint (description, cottage_reservation_id, client_id) values ('adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy', 1, 2);
+insert into cottage_complaint (description, cottage_reservation_id, client_id) values ('sagittis sapien cum sociis natoque penatibus et magnis dis parturient', 4, 1);
+insert into cottage_complaint (description, cottage_reservation_id, client_id) values ('in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt', 6, 2);
+
+insert into cottage_complaint (description, cottage_quick_reservation_id, client_id) values ('nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum', 1, 1);
+insert into cottage_complaint (description, cottage_quick_reservation_id, client_id) values ('pede ac diam cras pellentesque volutpat dui maecenas tristique est', 7, 1);
+insert into cottage_complaint (description, cottage_quick_reservation_id, client_id) values ('pretium iaculis justo in hac habitasse', 6, 1);
+insert into cottage_complaint (description, cottage_quick_reservation_id, client_id) values ('platea dictumst etiam faucibus cursus', 3, 7);
+insert into cottage_complaint (description, cottage_quick_reservation_id, client_id) values ('sed magna at nunc commodo placerat praesent blandit nam nulla integer', 5, 6);
+insert into cottage_complaint (description, cottage_quick_reservation_id, client_id) values ('curabitur at ipsum ac tellus semper interdum mauris ullamcorper', 7, 2);
+insert into cottage_complaint (description, cottage_quick_reservation_id, client_id) values ('tincidunt eu felis fusce posuere felis sed lacus morbi', 6, 2);
+
+insert into cottage_report (description, cottage_quick_reservation_id, cottage_owner_id) values ('magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis', 6, 5);
+insert into cottage_report (description, cottage_quick_reservation_id, cottage_owner_id) values ('faucibus cursus urna ut tellus nulla ut erat', 4, 3);
+insert into cottage_report (description, cottage_quick_reservation_id, cottage_owner_id) values ('magna at nunc commodo placerat praesent blandit nam nulla', 3, 3);
+insert into cottage_report (description, cottage_reservation_id, cottage_owner_id) values ('nulla ut erat id mauris vulputate elementum nullam', 6, 2);
+insert into cottage_report (description, cottage_reservation_id, cottage_owner_id) values ('diam erat fermentum justo nec condimentum neque sapien', 6, 6);
+insert into cottage_report (description, cottage_reservation_id, cottage_owner_id) values ('amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam', 3, 2);
+
+insert into cottage_rate (rate, cottage_id, client_id) values (10, 6, 6);
+insert into cottage_rate (rate, cottage_id, client_id) values (9, 2, 6);
+insert into cottage_rate (rate, cottage_id, client_id) values (5, 5, 3);
+insert into cottage_rate (rate, cottage_id, client_id) values (10, 1, 1);
+insert into cottage_rate (rate, cottage_id, client_id) values (9, 7, 2);
+insert into cottage_rate (rate, cottage_id, client_id) values (5, 5, 3);
 
