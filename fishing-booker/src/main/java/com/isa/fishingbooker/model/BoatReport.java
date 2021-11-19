@@ -37,11 +37,11 @@ public class BoatReport {
     @JoinColumn(name="boat_owner_id", nullable = false)
     private BoatOwner boatOwner;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="boat_reservation_id", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name="boat_reservation_id", nullable = true)
     private BoatReservation boatReservation;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="boat_quick_reservation_id", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name="boat_quick_reservation_id", nullable = true)
     private BoatQuickReservation boatQuickReservation;
 }

@@ -38,13 +38,79 @@ insert into instructor (name, surname, address, city, country, email, password, 
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography) values ('Rosalyn', 'Brandt', '68018 Hudson Plaza', 'El Cerrito', 'Mexico', 'rbrandt5@dailymotion.com', 'o7ATWWAFA', 'nulla suscipit ligula in lacus', '919-337-2121', 'eros elementum pellentesque quisque porta volutpat erat');
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', 'msalmons6@hao123.com', 'B8ktNE6', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci');
 
-insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors) values ('Bennie', '08 Stang Center', 3, 62, 9, 66, 'quis lectus suspendisse potenti in eleifend quam', 'free', 'deck', 5, 9, 1);
-insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors) values ('Elana', '8540 Lyons Way', 4, 25, 10, 134, 'dictumst maecenas ut massa', 'free', 'deck', 6, 8, 3);
-insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors) values ('Winnifred', '7626 Garrison Hill', 1, 49, 4, 149, 'amet erat nulla tempus vivamus in', 'booked', 'catamaran', 2, 13, 2);
-insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors) values ('Roxane', '65 Anderson Trail', 5, 55, 1, 84, 'orci luctus et ultrices posuere', 'free', 'catamaran', 3, 13, 3);
-insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors) values ('Fania', '9 Oneill Way', 1, 25, 4, 50, 'a odio in hac habitasse platea', 'free', 'catamaran', 2, 13, 3);
-insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors) values ('Grantham', '29 Knutson Avenue', 4, 22, 8, 147, 'cursus urna ut tellus', 'free', 'catamaran', 2, 14, 2);
-insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors) values ('Lauritz', '712 Hanson Place', 2, 36, 5, 54, 'nisl duis bibendum felis sed', 'free', 'deck', 6, 5, 2);
+insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors, cancellation_condition) values ('Bennie', '08 Stang Center', 3, 62, 9, 66, 'quis lectus suspendisse potenti in eleifend quam', 'free', 'deck', 5, 9, 1, 10);
+insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors, cancellation_condition) values ('Elana', '8540 Lyons Way', 4, 25, 10, 134, 'dictumst maecenas ut massa', 'free', 'deck', 6, 8, 3, 8);
+insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors, cancellation_condition) values ('Winnifred', '7626 Garrison Hill', 1, 49, 4, 149, 'amet erat nulla tempus vivamus in', 'booked', 'catamaran', 2, 13, 2, 7);
+insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors, cancellation_condition) values ('Roxane', '65 Anderson Trail', 5, 55, 1, 84, 'orci luctus et ultrices posuere', 'free', 'catamaran', 3, 13, 3, 5);
+insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors, cancellation_condition) values ('Fania', '9 Oneill Way', 1, 25, 4, 50, 'a odio in hac habitasse platea', 'free', 'catamaran', 2, 13, 3, 10);
+insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors, cancellation_condition) values ('Grantham', '29 Knutson Avenue', 4, 22, 8, 147, 'cursus urna ut tellus', 'free', 'catamaran', 2, 14, 2, 15);
+insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors, cancellation_condition) values ('Lauritz', '712 Hanson Place', 2, 36, 5, 54, 'nisl duis bibendum felis sed', 'free', 'deck', 6, 5, 2, 10);
+
+insert into boat_behavioral_rule (id, name, description, boat_id) values (1, 'Fixflex', 'posuere cubilia curae duis faucibus accumsan', 7);
+insert into boat_behavioral_rule (id, name, description, boat_id) values (2, 'Radar', 'pretium quis lectus suspendisse potenti in eleifend', 6);
+insert into boat_behavioral_rule (id, name, description, boat_id) values (3, 'VHF radio', 'nam nulla integer pede justo', 1);
+insert into boat_behavioral_rule (id, name, description, boat_id) values (4, 'Fishfinder', 'nec nisi volutpat eleifend donec ut dolor', 3);
+insert into boat_behavioral_rule (id, name, description, boat_id) values (5, 'Radar', 'at nibh in hac habitasse platea dictumst', 6);
+insert into boat_behavioral_rule (id, name, description, boat_id) values (6, 'Fishfinder', 'curabitur convallis duis consequat', 3);
+insert into boat_behavioral_rule (id, name, description, boat_id) values (7, 'GPS', 'iaculis diam erat fermentum justo nec condimentum', 5);
+
+insert into boat_navigation_equipment (id, name, description, boat_id) values (1, 'Stim', 'id ligula suspendisse ornare', 3);
+insert into boat_navigation_equipment (id, name, description, boat_id) values (2, 'Konklux', 'eget eros elementum pellentesque quisque', 5);
+insert into boat_navigation_equipment (id, name, description, boat_id) values (3, 'Gembucket', 'quis augue luctus tincidunt nulla', 1);
+insert into boat_navigation_equipment (id, name, description, boat_id) values (4, 'Aerified', 'morbi non quam nec dui luctus rutrum', 2);
+insert into boat_navigation_equipment (id, name, description, boat_id) values (5, 'Duobam', 'orci mauris lacinia sapien quis libero nullam', 7);
+insert into boat_navigation_equipment (id, name, description, boat_id) values (6, 'Quo Lux', 'vestibulum vestibulum ante ipsum primis', 4);
+insert into boat_navigation_equipment (id, name, description, boat_id) values (7, 'Ronstring', 'erat eros viverra eget congue', 2);
+
+insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (1, 12, 3, 4, 1, '8/6/2021', '12/4/2021');
+insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (2, 11, 7, 3, 7, '9/26/2021', '7/13/2021');
+insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (3, 6, 4, 5, 1, '12/16/2020', '2/11/2021');
+insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (4, 6, 3, 5, 3, '10/9/2021', '11/5/2021');
+insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (5, 2, 4, 4, 2, '8/11/2021', '2/13/2021');
+insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (6, 15, 4, 5, 3, '5/31/2021', '8/28/2021');
+insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (7, 0, 6, 5, 4, '12/30/2021', '3/14/2021');
+
+insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (1, 8, 3, 7, 1, '6/16/2021', '5/18/2021', 30);
+insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (2, 1, 2, 4, 5, '5/20/2021', '1/22/2021', 18);
+insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (3, 2, 2, 6, 4, '1/21/2021', '6/8/2021', 29);
+insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (4, 7, 4, 6, 5, '2/15/2021', '9/5/2021', 14);
+insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (5, 5, 1, 7, 6, '10/25/2021', '5/12/2021', 16);
+insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (6, 13, 3, 2, 5, '10/2/2021', '1/12/2021', 16);
+insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (7, 12, 3, 3, 7, '10/27/2021', '12/4/2021', 11);
+
+insert into boat_complaint (id, description, boat_reservation_id, client_id) values (1, 'congue etiam justo etiam pretium iaculis', 5, 5);
+insert into boat_complaint (id, description, boat_reservation_id, client_id) values (2, 'sapien non mi integer ac neque', 3, 2);
+insert into boat_complaint (id, description, boat_reservation_id, client_id) values (3, 'neque aenean auctor gravida sem praesent', 1, 4);
+insert into boat_complaint (id, description, boat_reservation_id, client_id) values (4, 'eleifend quam a odio in hac', 7, 3);
+insert into boat_complaint (id, description, boat_quick_reservation_id, client_id) values (5, 'quis tortor id nulla ultrices', 2, 5);
+insert into boat_complaint (id, description, boat_quick_reservation_id, client_id) values (6, 'id turpis integer aliquet massa id lobortis', 4, 4);
+insert into boat_complaint (id, description, boat_quick_reservation_id, client_id) values (7, 'rutrum at lorem integer tincidunt ante vel', 6, 4);
+
+insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (1, 'ac nibh fusce lacus purus aliquet', 1, 1);
+insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (2, 'in tempor turpis nec euismod scelerisque quam', 5, 5);
+insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (3, 'non mauris morbi non', 2, 4);
+insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (4, 'volutpat sapien arcu sed augue aliquam', 1, 5);
+insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (5, 'montes nascetur ridiculus mus', 4, 7);
+insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (6, 'felis sed interdum venenatis turpis enim blandit', 5, 5);
+insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (7, 'condimentum curabitur in libero ut massa volutpat', 6, 3);
+
+
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (1, 5, 6, 7);
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (2, 4, 4, 5);
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (3, 2, 1, 1);
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (4, 5, 1, 5);
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (5, 2, 4, 1);
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (6, 5, 4, 3);
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (7, 1, 1, 4);
+
+insert into boat_rate (id, rate, boat_id, client_id) values (1, 3, 2, 6);
+insert into boat_rate (id, rate, boat_id, client_id) values (2, 5, 7, 5);
+insert into boat_rate (id, rate, boat_id, client_id) values (3, 4, 5, 4);
+insert into boat_rate (id, rate, boat_id, client_id) values (4, 2, 6, 6);
+insert into boat_rate (id, rate, boat_id, client_id) values (5, 3, 4, 7);
+insert into boat_rate (id, rate, boat_id, client_id) values (6, 5, 1, 6);
+insert into boat_rate (id, rate, boat_id, client_id) values (7, 5, 7, 6);
+
 
 insert into cottage (name, address, price, promo_description, status, cottage_owner_id) values ('Roma', '74 Petterle Hill', 114, 'purus eu magna vulputate', 'free', 4);
 insert into cottage (name, address, price, promo_description, status, cottage_owner_id) values ('Van', '19 Killdeer Park', 119, 'consectetuer adipiscing elit proin', 'booked', 4);
@@ -69,4 +135,13 @@ insert into cottage_room (number, num_beds, cottage_id) values (10, 7, 4);
 insert into cottage_room (number, num_beds, cottage_id) values (15, 6, 6);
 insert into cottage_room (number, num_beds, cottage_id) values (9, 3, 4);
 insert into cottage_room (number, num_beds, cottage_id) values (7, 3, 4);
+
+insert into additional_service (id, name, price, description, boat_reservation_id) values (1, 'WiFi', 0, 'id ligula suspendisse ornare', 3);
+insert into additional_service (id, name, price, description, boat_reservation_id) values (2, 'pet friendly', 0, 'id ligula suspendisse ornare', 4);
+insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (3, 'pet friendly', 0, 'id ligula suspendisse ornare', 3);
+insert into additional_service (id, name, price, description, boat_reservation_id) values (4, 'minibar', 0, 'id ligula suspendisse ornare', 3);
+insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (5, 'minibar', 0, 'id ligula suspendisse ornare', 1);
+insert into additional_service (id, name, price, description, boat_reservation_id) values (6, 'minibar', 0, 'id ligula suspendisse ornare', 2);
+insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (7, 'WiFi', 0, 'id ligula suspendisse ornare', 1);
+
 

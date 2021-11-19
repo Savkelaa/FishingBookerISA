@@ -36,19 +36,19 @@ public class FishingEquipment {
 	@Column(name = "description")
 	private String description;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="boat_reservation_id", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name="boat_reservation_id", nullable = true)
     private BoatReservation boatReservation;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="boat_quick_reservation_id", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name="boat_quick_reservation_id", nullable = true)
     private BoatQuickReservation boatQuickReservation;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="fishing_class_reservation_id", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name="fishing_class_reservation_id", nullable = true)
     private FishingClassReservation fishingClassReservation;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="fishing_class_quick_reservation_id", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name="fishing_class_quick_reservation_id", nullable = true)
     private FishingClassQuickReservation fishingClassQuickReservation;
 }
