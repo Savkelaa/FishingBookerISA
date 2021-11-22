@@ -63,6 +63,9 @@ public class Instructor {
 	@Column(name = "short_biography")
 	private String shortBiography;
 	
+	@Column(name = "activated")
+	private String activated;
+	
 	@JsonIgnore
     @OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
     private List<FishingClass> fishingClasses ;

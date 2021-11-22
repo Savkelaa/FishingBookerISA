@@ -56,4 +56,7 @@ public class Admin {
 	
 	@Column(name = "explanation")
 	private String explanation;
+	
+	@Column(name = "activated")
+	private String activated;
 }
