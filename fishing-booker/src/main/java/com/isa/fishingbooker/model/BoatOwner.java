@@ -63,8 +63,7 @@ public class BoatOwner {
 	@Column(name = "explanation")
 	private String explanation;
 	
-	@Column(name = "activated")
-	private String activated;
+	
 	
 	@JsonIgnore
     @OneToMany(mappedBy="boatOwner",fetch=FetchType.LAZY)
