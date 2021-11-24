@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.AdditionalService;
+import com.isa.fishingbooker.model.FishingClassReservation;
 import com.isa.fishingbooker.repository.AdditionalServiceRepository;
 
 @Service
@@ -21,6 +22,12 @@ public class AdditionalServiceService {
 
 	@Autowired
 	private AdditionalServiceRepository AdditionalServiceRepository;
+	
+	public List<AdditionalService> getAdditionalServiceByFishingClass(Integer fishingClassId)
+	{
+		return AdditionalServiceRepository.getAdditionalServiceByFishingClass(fishingClassId);
+	}
+	
 	
 	public List<AdditionalService> getAllAdditionalServices(){
 		return this.AdditionalServiceRepository.findAll();

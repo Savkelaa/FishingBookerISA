@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.FishingClass;
+import com.isa.fishingbooker.model.FishingClassBehavioralRule;
 import com.isa.fishingbooker.service.FishingClassService;
 
 @RestController
@@ -25,6 +27,12 @@ public class FishingClassController {
 	@Autowired
 	private FishingClassService fishingClassService;
 
+	@GetMapping("/shortBiography")
+	public List<String> getShortBiographyByFishingClass(@RequestParam (value="fishingClassId")  Integer fishingClassId) {
+		return this.fishingClassService.getShortBiographyByFishingClass(fishingClassId);
+	}
+	
+	
 	@GetMapping("/fishingClass")
 	public List<FishingClass> getAllFishingClasss() {
 		return this.fishingClassService.getAllFishingClasss();
