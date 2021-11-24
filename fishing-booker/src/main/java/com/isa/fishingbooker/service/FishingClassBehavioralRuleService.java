@@ -22,6 +22,11 @@ public class FishingClassBehavioralRuleService {
 	@Autowired
 	private FishingClassBehavioralRuleRepository FishingClassBehavioralRuleRepository;
 	
+	public List<FishingClassBehavioralRule> getBehavioralRuleByFishingClass(Integer fishingClassId)
+	{
+		return FishingClassBehavioralRuleRepository.getBehavioralRuleByFishingClass(fishingClassId);
+	}
+	
 	public List<FishingClassBehavioralRule> getAllFishingClassBehavioralRules(){
 		return this.FishingClassBehavioralRuleRepository.findAll();
 	}

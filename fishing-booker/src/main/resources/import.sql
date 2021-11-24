@@ -201,13 +201,18 @@ insert into cottage_room (number, num_beds, cottage_id) values (15, 6, 6);
 insert into cottage_room (number, num_beds, cottage_id) values (9, 3, 4);
 insert into cottage_room (number, num_beds, cottage_id) values (7, 3, 4);
 
-insert into additional_service (id, name, price, description, boat_reservation_id) values (1, 'WiFi', 0, 'id ligula suspendisse ornare', 3);
-insert into additional_service (id, name, price, description, boat_reservation_id) values (2, 'pet friendly', 0, 'id ligula suspendisse ornare', 4);
-insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (3, 'pet friendly', 0, 'id ligula suspendisse ornare', 3);
-insert into additional_service (id, name, price, description, boat_reservation_id) values (4, 'minibar', 0, 'id ligula suspendisse ornare', 3);
-insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (5, 'minibar', 0, 'id ligula suspendisse ornare', 1);
-insert into additional_service (id, name, price, description, boat_reservation_id) values (6, 'minibar', 0, 'id ligula suspendisse ornare', 2);
-insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (7, 'WiFi', 0, 'id ligula suspendisse ornare', 1);
+insert into additional_service (id, name, price, description, boat_reservation_id) values (1, 'WiFi', 3, 'id ligula suspendisse ornare', 3);
+insert into additional_service (id, name, price, description, boat_reservation_id) values (2, 'pet friendly', 4, 'id ligula suspendisse ornare', 4);
+insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (3, 'pet friendly', 2, 'id ligula suspendisse ornare', 3);
+insert into additional_service (id, name, price, description, boat_reservation_id) values (4, 'minibar', 5, 'id ligula suspendisse ornare', 3);
+insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (5, 'minibar', 3, 'id ligula suspendisse ornare', 1);
+insert into additional_service (id, name, price, description, boat_reservation_id) values (6, 'minibar', 1, 'id ligula suspendisse ornare', 2);
+insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (7, 'WiFi', 6, 'id ligula suspendisse ornare', 1);
+insert into additional_service (id, name, price, description, fishing_class_reservation_id) values (8, 'minibar', 4, 'id ligula suspendisse ornare', 3);
+insert into additional_service (id, name, price, description, fishing_class_quick_reservation_id) values (9, 'minibar', 3, 'id ligula suspendisse ornare', 1);
+insert into additional_service (id, name, price, description, fishing_class_reservation_id) values (10, 'minibar', 2, 'id ligula suspendisse ornare', 2);
+insert into additional_service (id, name, price, description, fishing_class_quick_reservation_id) values (11, 'WiFi', 4, 'id ligula suspendisse ornare', 1);
+
 
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('nec dui luctus rutrum nulla tellus in sagitt', 'oncus mauris enim leo rhoncus sed', 6);
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('nulla sverra dapibus nulla', 's turpis enim blandit mi in porttitor pede justo eu', 5);

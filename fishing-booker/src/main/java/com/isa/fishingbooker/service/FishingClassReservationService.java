@@ -22,6 +22,8 @@ public class FishingClassReservationService {
 	@Autowired
 	private FishingClassReservationRepository FishingClassReservationRepository;
 	
+	
+	
 	public List<FishingClassReservation> getAllFishingClassReservations(){
 		return this.FishingClassReservationRepository.findAll();
 	}

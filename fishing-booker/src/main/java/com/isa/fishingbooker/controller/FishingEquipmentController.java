@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
@@ -26,6 +27,11 @@ public class FishingEquipmentController {
 	private FishingEquipmentService fishingEquipmentService;
 
 	@GetMapping("/fishingEquipment")
+	public List<String> getFishingEquipmentByFishingClassReservation(@RequestParam (value="fishingClassReservationId")  Integer fishingClassReservationId) {
+		return this.fishingEquipmentService.getFishingEquipmentByFishingClassReservation(fishingClassReservationId);
+	}
+	
+	@GetMapping("/fishingEquipments")
 	public List<FishingEquipment> getAllFishingEquipments() {
 		return this.fishingEquipmentService.getAllFishingEquipments();
 	}

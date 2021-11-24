@@ -22,6 +22,12 @@ public class FishingEquipmentService {
 	@Autowired
 	private FishingEquipmentRepository FishingEquipmentRepository;
 	
+	public List<String> getFishingEquipmentByFishingClassReservation(Integer fishingClassReservationId)
+	{
+		return FishingEquipmentRepository.getFishingEquipmentByFishingClassReservation(fishingClassReservationId);
+	}
+	
+	
 	public List<FishingEquipment> getAllFishingEquipments(){
 		return this.FishingEquipmentRepository.findAll();
 	}

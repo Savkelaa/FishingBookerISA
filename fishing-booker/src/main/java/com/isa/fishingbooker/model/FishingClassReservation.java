@@ -67,4 +67,8 @@ public class FishingClassReservation {
 	@JsonIgnore
     @OneToMany(mappedBy="fishingClassReservation",fetch=FetchType.LAZY)
     private List<FishingClassComplaint> fishingClassComplaints ;	
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="fishingClassReservation",fetch=FetchType.LAZY)
+    private List<FishingEquipment> fishingEquipments;
 }
