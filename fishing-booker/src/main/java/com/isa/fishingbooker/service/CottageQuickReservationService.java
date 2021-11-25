@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.CottageQuickReservation;
+import com.isa.fishingbooker.model.CottageReservation;
 import com.isa.fishingbooker.repository.CottageQuickReservationRepository;
 
 @Service
@@ -63,5 +64,15 @@ public class CottageQuickReservationService {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	public List<CottageQuickReservation> getAllCottageQuickReservationByClient(Integer clientId){
+		return CottageQuickReservationRepository.getAllCottageQuickReservationByClient(clientId);
+	}
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClient(Integer clientId){
+		return CottageQuickReservationRepository.getAllFinishedCottageQuickReservationByClient(clientId);
+	}
+	
+	public List<CottageQuickReservation> getAllCottageQuickReservationAtPresentByClient(Integer clientId){
+		return CottageQuickReservationRepository.getAllCottageQuickReservationAtPresentByClient(clientId);
 	}
 }

@@ -1,5 +1,6 @@
 package com.isa.fishingbooker.service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,5 +63,17 @@ public class CottageReservationService {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	
+	public List<CottageReservation> getAllCottageReservationByClient(Integer clientId){
+		return CottageReservationRepository.getAllCottageReservationByClient(clientId);
+	}
+	
+	public List<CottageReservation> getAllFinishedCottageReservationByClient(Integer clientId){
+		return CottageReservationRepository.getAllFinishedCottageReservationByClient(clientId);
+	}
+	
+	public List<CottageReservation> getAllCottageReservationAtPresentByClient(Integer clientId){
+		return CottageReservationRepository.getAllCottageReservationAtPresentByClient(clientId);
 	}
 }

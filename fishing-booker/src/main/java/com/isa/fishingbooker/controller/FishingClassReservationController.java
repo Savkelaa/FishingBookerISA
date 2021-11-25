@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.FishingClassReservation;
+import com.isa.fishingbooker.model.FishingClassReservation;
 import com.isa.fishingbooker.service.FishingClassReservationService;
 
 @RestController
@@ -53,5 +54,19 @@ public class FishingClassReservationController {
 	public Map<String, Boolean> deleteFishingClassReservation(@PathVariable(value = "id") int fishingClassReservationId)
 			throws ResourceNotFoundException {
 		return fishingClassReservationService.deleteFishingClassReservation(fishingClassReservationId);
+	}
+	
+	@GetMapping("/allFishingClassReservationsByClient")
+	public List<FishingClassReservation> getAllFishingClassReservationByClient(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassReservationService.getAllFishingClassReservationByClient(clientId);
+	}
+	@GetMapping("/allFinishedFishingClassReservationsByClient")
+	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClient(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassReservationService.getAllFinishedFishingClassReservationByClient(clientId);
+	}
+	
+	@GetMapping("/allFishingClassReservationsAtPresentByClient")
+	public List<FishingClassReservation> getAllFishingClassReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassReservationService.getAllFishingClassReservationAtPresentByClient(clientId);
 	}
 }

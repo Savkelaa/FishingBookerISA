@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
@@ -52,6 +53,10 @@ public class ClientController {
 	public Map<String, Boolean> deleteClient(@PathVariable(value = "id") int clientId)
 			throws ResourceNotFoundException {
 		return clientService.deleteClient(clientId);
+	}
+	@GetMapping("/clientByEmailAndPassword")
+	public Client getClientByEmailAndPassword(@RequestParam (value="email")  String email, @RequestParam (value="password") String password) {
+		return clientService.getClientByEmailAndPassword(email, password);
 	}
 }
 

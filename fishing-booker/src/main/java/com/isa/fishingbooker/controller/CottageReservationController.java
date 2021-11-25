@@ -1,5 +1,6 @@
 package com.isa.fishingbooker.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
@@ -52,4 +54,18 @@ public class CottageReservationController {
 			throws ResourceNotFoundException {
 		return cottageReservationService.deleteCottageReservation(cottageReservationId);
 	}
+	@GetMapping("/allReservationsByClient")
+	public List<CottageReservation> getAllCottageReservationByClient(@RequestParam (value="clientId")  Integer clientId){
+		return cottageReservationService.getAllCottageReservationByClient(clientId);
+	}
+	@GetMapping("/allFinishedReservationsByClient")
+	public List<CottageReservation> getAllFinishedCottageReservationByClient(@RequestParam (value="clientId")  Integer clientId){
+		return cottageReservationService.getAllFinishedCottageReservationByClient(clientId);
+	}
+	
+	@GetMapping("/allReservationsAtPresentByClient")
+	public List<CottageReservation> getAllCottageReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
+		return cottageReservationService.getAllCottageReservationAtPresentByClient(clientId);
+	}
+	
 }

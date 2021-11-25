@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.FishingClassQuickReservation;
 import com.isa.fishingbooker.model.FishingClassQuickReservation;
 import com.isa.fishingbooker.service.FishingClassQuickReservationService;
 
@@ -51,5 +53,18 @@ public class FishingClassQuickReservationController {
 	public Map<String, Boolean> deleteFishingClassQuickReservation(@PathVariable(value = "id") int fishingClassQuickReservationId)
 			throws ResourceNotFoundException {
 		return fishingClassQuickReservationService.deleteFishingClassQuickReservation(fishingClassQuickReservationId);
+	}
+	@GetMapping("/allFishingClassQuickReservationsByClient")
+	public List<FishingClassQuickReservation> getAllFishingClassQuickReservationByClient(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassQuickReservationService.getAllFishingClassQuickReservationByClient(clientId);
+	}
+	@GetMapping("/allFinishedFishingClassQuickReservationsByClient")
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClient(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClient(clientId);
+	}
+	
+	@GetMapping("/allFishingClassQuickReservationsAtPresentByClient")
+	public List<FishingClassQuickReservation> getAllFishingClassQuickReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassQuickReservationService.getAllFishingClassQuickReservationAtPresentByClient(clientId);
 	}
 }

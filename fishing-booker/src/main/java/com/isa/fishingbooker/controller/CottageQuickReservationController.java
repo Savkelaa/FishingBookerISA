@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.CottageQuickReservation;
+import com.isa.fishingbooker.model.CottageReservation;
 import com.isa.fishingbooker.service.CottageQuickReservationService;
 
 @RestController
@@ -51,5 +53,18 @@ public class CottageQuickReservationController {
 	public Map<String, Boolean> deleteCottageQuickReservation(@PathVariable(value = "id") int cottageQuickReservationId)
 			throws ResourceNotFoundException {
 		return cottageQuickReservationService.deleteCottageQuickReservation(cottageQuickReservationId);
+	}
+	@GetMapping("/allQuickReservationsByClient")
+	public List<CottageQuickReservation> getAllCottageQuickReservationByClient(@RequestParam (value="clientId")  Integer clientId){
+		return cottageQuickReservationService.getAllCottageQuickReservationByClient(clientId);
+	}
+	@GetMapping("/allFinishedQuickReservationsByClient")
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClient(@RequestParam (value="clientId")  Integer clientId){
+		return cottageQuickReservationService.getAllFinishedCottageQuickReservationByClient(clientId);
+	}
+	
+	@GetMapping("/allQuickReservationsAtPresentByClient")
+	public List<CottageQuickReservation> getAllCottageQuickReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
+		return cottageQuickReservationService.getAllCottageQuickReservationAtPresentByClient(clientId);
 	}
 }

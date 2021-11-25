@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.FishingClassQuickReservation;
+import com.isa.fishingbooker.model.FishingClassQuickReservation;
 import com.isa.fishingbooker.repository.FishingClassQuickReservationRepository;
 
 @Service
@@ -63,5 +64,15 @@ public class FishingClassQuickReservationService {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	public List<FishingClassQuickReservation> getAllFishingClassQuickReservationByClient(Integer clientId){
+		return FishingClassQuickReservationRepository.getAllFishingClassQuickReservationByClient(clientId);
+	}
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClient(Integer clientId){
+		return FishingClassQuickReservationRepository.getAllFinishedFishingClassQuickReservationByClient(clientId);
+	}
+	
+	public List<FishingClassQuickReservation> getAllFishingClassQuickReservationAtPresentByClient(Integer clientId){
+		return FishingClassQuickReservationRepository.getAllFishingClassQuickReservationAtPresentByClient(clientId);
 	}
 }

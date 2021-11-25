@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Admin;
+import com.isa.fishingbooker.model.Admin;
 import com.isa.fishingbooker.repository.AdminRepository;
 
 @Service
@@ -72,5 +73,8 @@ public class AdminService {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	public Admin getAdminByEmailAndPassword(String email, String password) {
+		return AdminRepository.getAdminByEmailAndPassword(email, password);
 	}
 }

@@ -76,6 +76,8 @@ public class ClientService {
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
-
+	public Client getClientByEmailAndPassword(String email, String password) {
+		return clientRepository.getClientByEmailAndPassword(email, password);
+	}
 }
 
