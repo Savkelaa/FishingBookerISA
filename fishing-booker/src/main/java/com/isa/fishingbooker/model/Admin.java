@@ -59,4 +59,8 @@ public class Admin {
 	
 	@Column(name = "activated")
 	private String activated;
+	
+	
+	
+	
 }

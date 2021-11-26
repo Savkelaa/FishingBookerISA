@@ -65,6 +65,9 @@ public class Instructor {
 	
 	@Column(name = "activated")
 	private String activated;
+
+	@Column(name = "deleted")
+	private String deleted;
 	
 	@JsonIgnore
     @OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)

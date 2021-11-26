@@ -27,10 +27,20 @@ public class InstructorController {
 	@Autowired
 	private InstructorService instructorService;
 
+	
+	
+	
 	@GetMapping("/instructors")
 	public List<Instructor> getAllInstructors() {
 		return this.instructorService.getAllInstructors();
 	}
+	
+	@GetMapping("/instructorRequests")
+	public List<Instructor> getAllInstructorRequests(){
+		return this.instructorService.getAllInstructorRequests();
+	}
+	
+	
 
 	@GetMapping("/instructors/{id}")
 	public ResponseEntity<Instructor> getInstructorById(@PathVariable(value = "id") int instructorId)

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,19 +28,24 @@ public class BoatOwnerService {
 		return this.BoatOwnerRepository.findAll();
 	}
 		
+	
+	public List<BoatOwner> getAllBoatOwnerRequests()
+	{
+		return this.BoatOwnerRepository.getAllBoatOwnerRequests();
+	}
+	
 	public ResponseEntity<BoatOwner> getBoatOwnerById(int boatOwnerId)
 		throws ResourceNotFoundException{
 		BoatOwner boatOwner = BoatOwnerRepository.findById(boatOwnerId).orElseThrow(() -> new ResourceNotFoundException("BoatOwner not found for this id :: " + boatOwnerId));
 	 return ResponseEntity.ok().body(boatOwner);
 	}
 	
-	@PostMapping("/boatOwners")
+	
 	public BoatOwner createBoatOwner(BoatOwner boatOwner) {
 		return BoatOwnerRepository.save(boatOwner);
 	}
 	
 	
-	@PutMapping("/boatOwner/{id}")
 	public ResponseEntity<BoatOwner> updateBoatOwner(Integer boatOwnerId,
 			 @RequestBody BoatOwner boatOwnerDetails) throws ResourceNotFoundException {
 		BoatOwner boatOwner = BoatOwnerRepository.findById(boatOwnerId)
@@ -60,7 +66,7 @@ public class BoatOwnerService {
 		return ResponseEntity.ok(updatedBoatOwner);
 	}
 	
-	@DeleteMapping("/boatOwners/{id}")
+
 	public Map<String, Boolean> deleteBoatOwner(int boatOwnerId)
 			throws ResourceNotFoundException {
 		BoatOwner  boatOwner = BoatOwnerRepository.findById(boatOwnerId)

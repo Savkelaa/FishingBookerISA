@@ -31,6 +31,12 @@ public class CottageOwnerController {
 	public List<CottageOwner> getAllCottageOwners() {
 		return this.cottageOwnerService.getAllCottageOwners();
 	}
+	
+	@GetMapping("/cottageOwnerRequests")
+	public  List<CottageOwner> getAllCottageOwnerRequests()	
+	{
+	return this.cottageOwnerService.getAllCottageOwnerRequests();
+	}
 
 	@GetMapping("/cottageOwners/{id}")
 	public ResponseEntity<CottageOwner> getCottageOwnerById(@PathVariable(value = "id") int cottageOwnerId)

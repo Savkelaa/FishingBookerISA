@@ -39,13 +39,13 @@ public class ClientService {
 	 return ResponseEntity.ok().body(client);
 	}
 	
-	@PostMapping("/clients")
+	
 	public Client createClient(Client client) {
 		return clientRepository.save(client);
 	}
 	
 	
-	@PutMapping("/clients/{id}")
+	
 	public ResponseEntity<Client> updateClient(Integer clientId,
 			 @RequestBody Client clientDetails) throws ResourceNotFoundException {
 		Client client = clientRepository.findById(clientId)
@@ -66,7 +66,7 @@ public class ClientService {
 		return ResponseEntity.ok(updatedClient);
 	}
 	
-	@DeleteMapping("/clients/{id}")
+	
 	public Map<String, Boolean> deleteClient(int clientId)
 			throws ResourceNotFoundException {
 		Client  client = clientRepository.findById(clientId)

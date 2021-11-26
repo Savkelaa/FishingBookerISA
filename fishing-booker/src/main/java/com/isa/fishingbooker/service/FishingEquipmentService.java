@@ -38,13 +38,13 @@ public class FishingEquipmentService {
 	 return ResponseEntity.ok().body(fishingEquipment);
 	}
 	
-	@PostMapping("/fishingEquipment")
+	
 	public FishingEquipment createFishingEquipment(FishingEquipment fishingEquipment) {
 		return FishingEquipmentRepository.save(fishingEquipment);
 	}
 	
 	
-	@PutMapping("/fishingEquipment/{id}")
+	
 	public ResponseEntity<FishingEquipment> updateFishingEquipment(Integer fishingEquipmentId,
 			 @RequestBody FishingEquipment fishingEquipmentDetails) throws ResourceNotFoundException {
 		FishingEquipment fishingEquipment = FishingEquipmentRepository.findById(fishingEquipmentId)
@@ -57,7 +57,7 @@ public class FishingEquipmentService {
 		return ResponseEntity.ok(updatedFishingEquipment);
 	}
 	
-	@DeleteMapping("/fishingEquipment/{id}")
+
 	public Map<String, Boolean> deleteFishingEquipment(int fishingEquipmentId)
 			throws ResourceNotFoundException {
 		FishingEquipment  fishingEquipment = FishingEquipmentRepository.findById(fishingEquipmentId)

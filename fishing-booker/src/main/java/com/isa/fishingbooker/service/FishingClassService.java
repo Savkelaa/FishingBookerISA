@@ -39,13 +39,12 @@ public class FishingClassService {
 	 return ResponseEntity.ok().body(fishingClass);
 	}
 	
-	@PostMapping("/fishingClasss")
+
 	public FishingClass createFishingClass(FishingClass fishingClass) {
 		return fishingClassRepository.save(fishingClass);
 	}
 	
 	
-	@PutMapping("/fishingClass/{id}")
 	public ResponseEntity<FishingClass> updateFishingClass(Integer fishingClassId,
 			 @RequestBody FishingClass fishingClassDetails) throws ResourceNotFoundException {
 		FishingClass fishingClass = fishingClassRepository.findById(fishingClassId)
@@ -63,7 +62,7 @@ public class FishingClassService {
 		return ResponseEntity.ok(updatedFishingClass);
 	}
 	
-	@DeleteMapping("/fishingClasss/{id}")
+
 	public Map<String, Boolean> deleteFishingClass(int fishingClassId)
 			throws ResourceNotFoundException {
 		FishingClass  fishingClass = fishingClassRepository.findById(fishingClassId)

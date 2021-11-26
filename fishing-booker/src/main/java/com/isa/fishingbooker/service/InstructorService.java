@@ -27,19 +27,22 @@ public class InstructorService {
 		return this.InstructorRepository.findAll();
 	}
 	
+	public List<Instructor> getAllInstructorRequests(){
+		return this.InstructorRepository.getAllInstructorRequests();
+	}
+	
 	public ResponseEntity<Instructor> getInstructorById(int instructorId)
 		throws ResourceNotFoundException{
 		Instructor instructor = InstructorRepository.findById(instructorId).orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + instructorId));
 	 return ResponseEntity.ok().body(instructor);
 	}
 	
-	@PostMapping("/instructors")
+
 	public Instructor createInstructor(Instructor instructor) {
 		return InstructorRepository.save(instructor);
 	}
 	
-	
-	@PutMapping("/instructor/{id}")
+
 	public ResponseEntity<Instructor> updateInstructor(Integer instructorId,
 			 @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
 		Instructor instructor = InstructorRepository.findById(instructorId)
@@ -60,7 +63,7 @@ public class InstructorService {
 		return ResponseEntity.ok(updatedInstructor);
 	}
 	
-	@DeleteMapping("/instructors/{id}")
+
 	public Map<String, Boolean> deleteInstructor(int instructorId)
 			throws ResourceNotFoundException {
 		Instructor  instructor = InstructorRepository.findById(instructorId)

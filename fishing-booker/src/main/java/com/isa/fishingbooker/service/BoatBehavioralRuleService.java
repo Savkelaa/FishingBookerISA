@@ -32,13 +32,13 @@ public class BoatBehavioralRuleService {
 	 return ResponseEntity.ok().body(boatBehavioralRule);
 	}
 	
-	@PostMapping("/boatBehavioralRules")
+	
 	public BoatBehavioralRule createBoatBehavioralRule(BoatBehavioralRule boatBehavioralRule) {
 		return BoatBehavioralRuleRepository.save(boatBehavioralRule);
 	}
 	
 	
-	@PutMapping("/boatBehavioralRule/{id}")
+	
 	public ResponseEntity<BoatBehavioralRule> updateBoatBehavioralRule(Integer boatBehavioralRuleId,
 			 @RequestBody BoatBehavioralRule boatBehavioralRuleDetails) throws ResourceNotFoundException {
 		BoatBehavioralRule boatBehavioralRule = BoatBehavioralRuleRepository.findById(boatBehavioralRuleId)
@@ -51,7 +51,6 @@ public class BoatBehavioralRuleService {
 		return ResponseEntity.ok(updatedBoatBehavioralRule);
 	}
 	
-	@DeleteMapping("/boatBehavioralRules/{id}")
 	public Map<String, Boolean> deleteBoatBehavioralRule(int boatBehavioralRuleId)
 			throws ResourceNotFoundException {
 		BoatBehavioralRule  boatBehavioralRule = BoatBehavioralRuleRepository.findById(boatBehavioralRuleId)

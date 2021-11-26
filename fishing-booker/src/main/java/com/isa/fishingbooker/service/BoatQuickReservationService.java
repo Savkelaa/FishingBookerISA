@@ -33,13 +33,13 @@ public class BoatQuickReservationService {
 	 return ResponseEntity.ok().body(boatQuickReservation);
 	}
 	
-	@PostMapping("/boatQuickReservations")
+
 	public BoatQuickReservation createBoatQuickReservation(BoatQuickReservation boatQuickReservation) {
 		return BoatQuickReservationRepository.save(boatQuickReservation);
 	}
 	
 	
-	@PutMapping("/boatQuickReservation/{id}")
+	
 	public ResponseEntity<BoatQuickReservation> updateBoatQuickReservation(Integer boatQuickReservationId,
 			 @RequestBody BoatQuickReservation boatQuickReservationDetails) throws ResourceNotFoundException {
 		BoatQuickReservation boatQuickReservation = BoatQuickReservationRepository.findById(boatQuickReservationId)
@@ -55,7 +55,7 @@ public class BoatQuickReservationService {
 		return ResponseEntity.ok(updatedBoatQuickReservation);
 	}
 	
-	@DeleteMapping("/boatQuickReservations/{id}")
+	
 	public Map<String, Boolean> deleteBoatQuickReservation(int boatQuickReservationId)
 			throws ResourceNotFoundException {
 		BoatQuickReservation  boatQuickReservation = BoatQuickReservationRepository.findById(boatQuickReservationId)

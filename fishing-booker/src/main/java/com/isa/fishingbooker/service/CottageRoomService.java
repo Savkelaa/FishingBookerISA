@@ -32,13 +32,12 @@ public class CottageRoomService {
 	 return ResponseEntity.ok().body(cottageRoom);
 	}
 	
-	@PostMapping("/cottageRooms")
+
 	public CottageRoom createCottageRoom(CottageRoom cottageRoom) {
 		return CottageRoomRepository.save(cottageRoom);
 	}
 	
-	
-	@PutMapping("/cottageRoom/{id}")
+
 	public ResponseEntity<CottageRoom> updateCottageRoom(Integer cottageRoomId,
 			 @RequestBody CottageRoom cottageRoomDetails) throws ResourceNotFoundException {
 		CottageRoom cottageRoom = CottageRoomRepository.findById(cottageRoomId)
@@ -51,7 +50,7 @@ public class CottageRoomService {
 		return ResponseEntity.ok(updatedCottageRoom);
 	}
 	
-	@DeleteMapping("/cottageRooms/{id}")
+
 	public Map<String, Boolean> deleteCottageRoom(int cottageRoomId)
 			throws ResourceNotFoundException {
 		CottageRoom  cottageRoom = CottageRoomRepository.findById(cottageRoomId)

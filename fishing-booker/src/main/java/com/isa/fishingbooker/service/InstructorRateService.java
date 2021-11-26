@@ -32,13 +32,12 @@ public class InstructorRateService {
 	 return ResponseEntity.ok().body(instructorRate);
 	}
 	
-	@PostMapping("/instructorRates")
+
 	public InstructorRate createInstructorRate(InstructorRate instructorRate) {
 		return InstructorRateRepository.save(instructorRate);
 	}
 	
 	
-	@PutMapping("/instructorRate/{id}")
 	public ResponseEntity<InstructorRate> updateInstructorRate(Integer instructorRateId,
 			 @RequestBody InstructorRate instructorRateDetails) throws ResourceNotFoundException {
 		InstructorRate instructorRate = InstructorRateRepository.findById(instructorRateId)
@@ -50,7 +49,6 @@ public class InstructorRateService {
 		return ResponseEntity.ok(updatedInstructorRate);
 	}
 	
-	@DeleteMapping("/instructorRates/{id}")
 	public Map<String, Boolean> deleteInstructorRate(int instructorRateId)
 			throws ResourceNotFoundException {
 		InstructorRate  instructorRate = InstructorRateRepository.findById(instructorRateId)

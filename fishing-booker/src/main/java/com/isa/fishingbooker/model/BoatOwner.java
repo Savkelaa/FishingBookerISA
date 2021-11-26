@@ -67,6 +67,9 @@ public class BoatOwner {
 	@Column(name = "activated")
 	private String activated;
 	
+	@Column(name = "deleted")
+	private String deleted;
+	
 	@JsonIgnore
     @OneToMany(mappedBy="boatOwner",fetch=FetchType.LAZY)
     private List<Boat> boats ;
