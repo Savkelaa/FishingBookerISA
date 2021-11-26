@@ -54,9 +54,21 @@ public class ClientController {
 			throws ResourceNotFoundException {
 		return clientService.deleteClient(clientId);
 	}
+	
 	@GetMapping("/clientByEmailAndPassword")
 	public Client getClientByEmailAndPassword(@RequestParam (value="email")  String email, @RequestParam (value="password") String password) {
 		return clientService.getClientByEmailAndPassword(email, password);
 	}
+	
+	@GetMapping("/clientsByOwnerCottageReservations")
+	public List<Client> getClientByOwnerCottageReservations(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId) {
+		return clientService.getClientsByOwnerCottageReservation(cottageOwnerId);
+	}
+	
+	@GetMapping("/clientsByOwnerCottageQuickReservations")
+	public List<Client> getClientByOwnerCottageQuickReservations(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId) {
+		return clientService.getClientsByOwnerCottageQuickReservation(cottageOwnerId);
+	}
+
 }
 

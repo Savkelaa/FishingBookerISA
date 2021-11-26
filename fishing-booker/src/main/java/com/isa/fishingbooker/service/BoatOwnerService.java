@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatOwner;
+import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.repository.BoatOwnerRepository;
 
 @Service
@@ -69,5 +70,9 @@ public class BoatOwnerService {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	
+	public BoatOwner getBoatOwnerByEmailAndPassword(String email, String password) {
+		return BoatOwnerRepository.getBoatOwnerByEmailAndPassword(email, password);
 	}
 }

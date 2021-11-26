@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Client;
+import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.repository.ClientRepository;
 
 
@@ -78,6 +79,14 @@ public class ClientService {
 	}
 	public Client getClientByEmailAndPassword(String email, String password) {
 		return clientRepository.getClientByEmailAndPassword(email, password);
+	}
+	
+	public List<Client> getClientsByOwnerCottageReservation(Integer cottageOwnerId) {
+		return clientRepository.getClientsByOwnerCottageReservations(cottageOwnerId);
+	}
+	
+	public List<Client> getClientsByOwnerCottageQuickReservation(Integer cottageOwnerId) {
+		return clientRepository.getClientsByOwnerCottageQuickReservations(cottageOwnerId);
 	}
 }
 

@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.CottageOwner;
 import com.isa.fishingbooker.service.CottageOwnerService;
 
@@ -51,5 +53,10 @@ public class CottageOwnerController {
 	public Map<String, Boolean> deleteCottageOwner(@PathVariable(value = "id") int cottageOwnerId)
 			throws ResourceNotFoundException {
 		return cottageOwnerService.deleteCottageOwner(cottageOwnerId);
+	}
+	
+	@GetMapping("/cottageOwnerByEmailAndPassword")
+	public CottageOwner getCottageOwnerByEmailAndPassword(@RequestParam (value="email")  String email, @RequestParam (value="password") String password) {
+		return cottageOwnerService.getCottageOwnerByEmailAndPassword(email, password);
 	}
 }

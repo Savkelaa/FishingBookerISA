@@ -56,7 +56,7 @@ public class CottageController {
 	}
 	
 	@GetMapping("/cottagesByOwner")
-	public List<Cottage> getAllCottagesByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId){
-		return cottageService.getAllCottagesByOwner(cottageOwnerId);
+	public List<Cottage> getCottagesByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId){
+		return cottageService.getCottagesByOwner(cottageOwnerId);
 	}
 }

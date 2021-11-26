@@ -121,13 +121,13 @@ insert into boat_rate (id, rate, boat_id, client_id) values (6, 5, 1, 6);
 insert into boat_rate (id, rate, boat_id, client_id) values (7, 5, 7, 6);
 
 
-insert into cottage (name, address, price, promo_description, status, cottage_owner_id) values ('Roma', '74 Petterle Hill', 114, 'purus eu magna vulputate', 'free', 4);
-insert into cottage (name, address, price, promo_description, status, cottage_owner_id) values ('Van', '19 Killdeer Park', 119, 'consectetuer adipiscing elit proin', 'booked', 4);
-insert into cottage (name, address, price, promo_description, status, cottage_owner_id) values ('Robinetta', '0 Evergreen Drive', 34, 'et ultrices posuere cubilia', 'free', 5);
-insert into cottage (name, address, price, promo_description, status, cottage_owner_id) values ('Rahal', '6623 Fulton Road', 117, 'non lectus aliquam sit amet diam', 'booked', 6);
-insert into cottage (name, address, price, promo_description, status, cottage_owner_id) values ('Ravid', '9963 Grasskamp Hill', 144, 'a odio in hac habitasse', 'free', 3);
-insert into cottage (name, address, price, promo_description, status, cottage_owner_id) values ('Abigael', '405 Walton Terrace', 119, 'at nunc commodo placerat praesent', 'free', 6);
-insert into cottage (name, address, price, promo_description, status, cottage_owner_id) values ('Upton', '588 Donald Court', 131, 'suscipit a feugiat et', 'booked', 7);
+insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Roma', '74 Petterle Hill', 114, 'purus eu magna vulputate', 4);
+insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Van', '19 Killdeer Park', 119, 'consectetuer adipiscing elit proin', 4);
+insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Robinetta', '0 Evergreen Drive', 34, 'et ultrices posuere cubilia', 5);
+insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Rahal', '6623 Fulton Road', 117, 'non lectus aliquam sit amet diam', 6);
+insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Ravid', '9963 Grasskamp Hill', 144, 'a odio in hac habitasse', 3);
+insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Abigael', '405 Walton Terrace', 119, 'at nunc commodo placerat praesent', 6);
+insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Upton', '588 Donald Court', 131, 'suscipit a feugiat et', 7);
 
 insert into fishing_class (name, address, price, promo_description, status, instructor_id, cancellation_condition) values ('Tomi', '139 Fair Oaks Point', 134, 'justo etiam pretium iaculis justo in', 'free', 3, 14);
 insert into fishing_class (name, address, price, promo_description, status, instructor_id, cancellation_condition) values ('Min', '028 Esch Junction', 104, 'ut volutpat sapien arcu sed augue aliquam', 'free', 7, 4);
@@ -222,21 +222,21 @@ insert into cottage_behavioral_rule (name, description, cottage_id) values ('pos
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('nam dui pruat in consequat', 'quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus', 5);
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('etiam pretiu platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id', 'lacus at velit vivamus vea volutpat erat quisque erat eros viverra', 6);
 
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '10/19/2022', 4, 9, 5, 1);
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '8/2/2022', 26, 10, 1, 7);
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '3/6/2022', 25, 11, 5, 7);
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '3/5/2022', 30, 1, 1, 7);
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '5/24/2022', 28, 7, 7, 1);
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '2/14/2022', 14, 5, 5, 6);
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id) values ('11/19/2021', '3/18/2022', 11, 12, 7, 4);
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, cottage_id, status) values ('11/19/2021', '10/19/2022', 4, 9, 1, 'free');
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '8/2/2022', 26, 10, 1, 7, 'booked');
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '3/6/2022', 25, 11, 5, 7, 'booked');
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, cottage_id, status) values ('11/19/2021', '3/5/2022', 30, 1, 7, 'free');
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '5/24/2022', 28, 7, 7, 1, 'booked');
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/21/2021', 14, 5, 5, 6, 'finished');
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/20/2021', 11, 12, 7, 4, 'finished');
 
-insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '8/1/2022', 9, 1, 6);
-insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '3/29/2022', 3, 7, 1);
-insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '1/11/2022', 3, 7, 2);
-insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '12/19/2021', 1, 5, 4);
-insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '12/15/2021', 5, 6, 4);
-insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('11/19/2021', '1/24/2022', 11, 2, 5);
-insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id) values ('12/19/2021', '11/5/2022', 2, 2, 3);
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/20/2022', 9, 1, 6, 'finished');
+insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '3/29/2022', 3, 1, 'free');
+insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '1/11/2022', 3, 2, 'free');
+insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '12/19/2021', 1, 4, 'free');
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '12/15/2021', 5, 6, 4, 'booked');
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/21/2021', 11, 2, 5, 'finished');
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/22/2021', 2, 2, 3, 'finished');
 
 insert into cottage_complaint (description, cottage_reservation_id, client_id) values ('maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque', 7, 3);
 insert into cottage_complaint (description, cottage_reservation_id, client_id) values ('libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer', 6, 5);

@@ -75,4 +75,12 @@ public class CottageQuickReservationService {
 	public List<CottageQuickReservation> getAllCottageQuickReservationAtPresentByClient(Integer clientId){
 		return CottageQuickReservationRepository.getAllCottageQuickReservationAtPresentByClient(clientId);
 	}
+	
+	public List<CottageQuickReservation> getCottageQuickReservationsByOwner(Integer cottageOwnerId) {
+		return CottageQuickReservationRepository.getCottageQuickReservationsByOwner(cottageOwnerId);
+	}
+	
+	public List<CottageQuickReservation> getFinishedCottageQuickReservationsByOwner(Integer cottageOwnerId) {
+		return CottageQuickReservationRepository.getFinishedCottageQuickReservationsByOwner(cottageOwnerId);
+	}
 }
