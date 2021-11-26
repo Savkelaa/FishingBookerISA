@@ -76,4 +76,8 @@ public class CottageReservationService {
 	public List<CottageReservation> getAllCottageReservationAtPresentByClient(Integer clientId){
 		return CottageReservationRepository.getAllCottageReservationAtPresentByClient(clientId);
 	}
+	
+	public List<CottageReservation> getAllCottageReservationsByOwner(Integer cottageOwnerId) {
+		return CottageReservationRepository.getAllCottageReservationsByOwner(cottageOwnerId);
+	}
 }

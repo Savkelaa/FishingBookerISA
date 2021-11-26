@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Cottage;
+import com.isa.fishingbooker.model.CottageReservation;
 import com.isa.fishingbooker.service.CottageService;
 
 @RestController
@@ -51,5 +53,10 @@ public class CottageController {
 	public Map<String, Boolean> deleteCottage(@PathVariable(value = "id") int cottageId)
 			throws ResourceNotFoundException {
 		return cottageService.deleteCottage(cottageId);
+	}
+	
+	@GetMapping("/cottagesByOwner")
+	public List<Cottage> getAllCottagesByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId){
+		return cottageService.getAllCottagesByOwner(cottageOwnerId);
 	}
 }
