@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Cottage;
+import com.isa.fishingbooker.model.CottageReservation;
 import com.isa.fishingbooker.repository.CottageRepository;
 
 @Service
@@ -65,5 +66,9 @@ public class CottageService {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	
+	public List<Cottage> getAllCottagesByOwner(Integer cottageOwnerId) {
+		return CottageRepository.getCottagesByOwner(cottageOwnerId);
 	}
 }
