@@ -32,13 +32,12 @@ public class FishingClassRateService {
 	 return ResponseEntity.ok().body(fishingClassRate);
 	}
 	
-	@PostMapping("/fishingClassRates")
+
 	public FishingClassRate createFishingClassRate(FishingClassRate fishingClassRate) {
 		return FishingClassRateRepository.save(fishingClassRate);
 	}
 	
-	
-	@PutMapping("/fishingClassRate/{id}")
+
 	public ResponseEntity<FishingClassRate> updateFishingClassRate(Integer fishingClassRateId,
 			 @RequestBody FishingClassRate fishingClassRateDetails) throws ResourceNotFoundException {
 		FishingClassRate fishingClassRate = FishingClassRateRepository.findById(fishingClassRateId)
@@ -50,7 +49,7 @@ public class FishingClassRateService {
 		return ResponseEntity.ok(updatedFishingClassRate);
 	}
 	
-	@DeleteMapping("/fishingClassRates/{id}")
+
 	public Map<String, Boolean> deleteFishingClassRate(int fishingClassRateId)
 			throws ResourceNotFoundException {
 		FishingClassRate  fishingClassRate = FishingClassRateRepository.findById(fishingClassRateId)

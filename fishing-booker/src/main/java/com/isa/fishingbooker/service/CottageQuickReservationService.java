@@ -33,13 +33,13 @@ public class CottageQuickReservationService {
 	 return ResponseEntity.ok().body(cottageQuickReservation);
 	}
 	
-	@PostMapping("/cottageQuickReservations")
+
 	public CottageQuickReservation createCottageQuickReservation(CottageQuickReservation cottageQuickReservation) {
 		return CottageQuickReservationRepository.save(cottageQuickReservation);
 	}
 	
 	
-	@PutMapping("/cottageQuickReservation/{id}")
+	
 	public ResponseEntity<CottageQuickReservation> updateCottageQuickReservation(Integer cottageQuickReservationId,
 			 @RequestBody CottageQuickReservation cottageQuickReservationDetails) throws ResourceNotFoundException {
 		CottageQuickReservation cottageQuickReservation = CottageQuickReservationRepository.findById(cottageQuickReservationId)
@@ -54,7 +54,7 @@ public class CottageQuickReservationService {
 		return ResponseEntity.ok(updatedCottageQuickReservation);
 	}
 	
-	@DeleteMapping("/cottageQuickReservations/{id}")
+
 	public Map<String, Boolean> deleteCottageQuickReservation(int cottageQuickReservationId)
 			throws ResourceNotFoundException {
 		CottageQuickReservation  cottageQuickReservation = CottageQuickReservationRepository.findById(cottageQuickReservationId)

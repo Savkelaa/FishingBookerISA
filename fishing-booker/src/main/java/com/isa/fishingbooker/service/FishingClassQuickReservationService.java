@@ -33,13 +33,12 @@ public class FishingClassQuickReservationService {
 	 return ResponseEntity.ok().body(fishingClassQuickReservation);
 	}
 	
-	@PostMapping("/fishingClassQuickReservations")
+	
 	public FishingClassQuickReservation createFishingClassQuickReservation(FishingClassQuickReservation fishingClassQuickReservation) {
 		return FishingClassQuickReservationRepository.save(fishingClassQuickReservation);
 	}
 	
-	
-	@PutMapping("/fishingClassQuickReservation/{id}")
+
 	public ResponseEntity<FishingClassQuickReservation> updateFishingClassQuickReservation(Integer fishingClassQuickReservationId,
 			 @RequestBody FishingClassQuickReservation fishingClassQuickReservationDetails) throws ResourceNotFoundException {
 		FishingClassQuickReservation fishingClassQuickReservation = FishingClassQuickReservationRepository.findById(fishingClassQuickReservationId)
@@ -54,7 +53,7 @@ public class FishingClassQuickReservationService {
 		return ResponseEntity.ok(updatedFishingClassQuickReservation);
 	}
 	
-	@DeleteMapping("/fishingClassQuickReservations/{id}")
+
 	public Map<String, Boolean> deleteFishingClassQuickReservation(int fishingClassQuickReservationId)
 			throws ResourceNotFoundException {
 		FishingClassQuickReservation  fishingClassQuickReservation = FishingClassQuickReservationRepository.findById(fishingClassQuickReservationId)

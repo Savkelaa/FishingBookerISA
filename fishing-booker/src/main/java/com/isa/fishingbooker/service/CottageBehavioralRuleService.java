@@ -32,13 +32,13 @@ public class CottageBehavioralRuleService {
 	 return ResponseEntity.ok().body(cottageBehavioralRule);
 	}
 	
-	@PostMapping("/cottageBehavioralRules")
+
 	public CottageBehavioralRule createCottageBehavioralRule(CottageBehavioralRule cottageBehavioralRule) {
 		return CottageBehavioralRuleRepository.save(cottageBehavioralRule);
 	}
 	
 	
-	@PutMapping("/cottageBehavioralRule/{id}")
+	
 	public ResponseEntity<CottageBehavioralRule> updateCottageBehavioralRule(Integer cottageBehavioralRuleId,
 			 @RequestBody CottageBehavioralRule cottageBehavioralRuleDetails) throws ResourceNotFoundException {
 		CottageBehavioralRule cottageBehavioralRule = CottageBehavioralRuleRepository.findById(cottageBehavioralRuleId)
@@ -51,7 +51,7 @@ public class CottageBehavioralRuleService {
 		return ResponseEntity.ok(updatedCottageBehavioralRule);
 	}
 	
-	@DeleteMapping("/cottageBehavioralRules/{id}")
+
 	public Map<String, Boolean> deleteCottageBehavioralRule(int cottageBehavioralRuleId)
 			throws ResourceNotFoundException {
 		CottageBehavioralRule  cottageBehavioralRule = CottageBehavioralRuleRepository.findById(cottageBehavioralRuleId)

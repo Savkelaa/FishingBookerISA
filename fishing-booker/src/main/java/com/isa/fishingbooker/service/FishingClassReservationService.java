@@ -35,13 +35,12 @@ public class FishingClassReservationService {
 	 return ResponseEntity.ok().body(fishingClassReservation);
 	}
 	
-	@PostMapping("/fishingClassReservations")
+
 	public FishingClassReservation createFishingClassReservation(FishingClassReservation fishingClassReservation) {
 		return FishingClassReservationRepository.save(fishingClassReservation);
 	}
 	
-	
-	@PutMapping("/fishingClassReservation/{id}")
+
 	public ResponseEntity<FishingClassReservation> updateFishingClassReservation(Integer fishingClassReservationId,
 			 @RequestBody FishingClassReservation fishingClassReservationDetails) throws ResourceNotFoundException {
 		FishingClassReservation fishingClassReservation = FishingClassReservationRepository.findById(fishingClassReservationId)
@@ -55,7 +54,7 @@ public class FishingClassReservationService {
 		return ResponseEntity.ok(updatedFishingClassReservation);
 	}
 	
-	@DeleteMapping("/fishingClassReservations/{id}")
+
 	public Map<String, Boolean> deleteFishingClassReservation(int fishingClassReservationId)
 			throws ResourceNotFoundException {
 		FishingClassReservation  fishingClassReservation = FishingClassReservationRepository.findById(fishingClassReservationId)

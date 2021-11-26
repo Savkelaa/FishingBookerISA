@@ -48,6 +48,9 @@ public class AdminController {
 			@RequestBody Admin adminDetails) throws ResourceNotFoundException {
 		return adminService.updateAdmin(adminId, adminDetails);
 	}
+	
+	
+	
 
 	@DeleteMapping("/admins/{id}")
 	public Map<String, Boolean> deleteAdmin(@PathVariable(value = "id") int adminId)

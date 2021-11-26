@@ -32,13 +32,12 @@ public class CottageReportService {
 	 return ResponseEntity.ok().body(cottageReport);
 	}
 	
-	@PostMapping("/cottageReports")
+
 	public CottageReport createCottageReport(CottageReport cottageReport) {
 		return CottageReportRepository.save(cottageReport);
 	}
 	
-	
-	@PutMapping("/cottageReport/{id}")
+
 	public ResponseEntity<CottageReport> updateCottageReport(Integer cottageReportId,
 			 @RequestBody CottageReport cottageReportDetails) throws ResourceNotFoundException {
 		CottageReport cottageReport = CottageReportRepository.findById(cottageReportId)
@@ -50,7 +49,6 @@ public class CottageReportService {
 		return ResponseEntity.ok(updatedCottageReport);
 	}
 	
-	@DeleteMapping("/cottageReports/{id}")
 	public Map<String, Boolean> deleteCottageReport(int cottageReportId)
 			throws ResourceNotFoundException {
 		CottageReport  cottageReport = CottageReportRepository.findById(cottageReportId)

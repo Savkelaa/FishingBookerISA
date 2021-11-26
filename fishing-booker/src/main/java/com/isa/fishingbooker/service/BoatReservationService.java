@@ -33,13 +33,13 @@ public class BoatReservationService {
 	 return ResponseEntity.ok().body(boatReservation);
 	}
 	
-	@PostMapping("/boatReservations")
+	
 	public BoatReservation createBoatReservation(BoatReservation boatReservation) {
 		return BoatReservationRepository.save(boatReservation);
 	}
 	
 	
-	@PutMapping("/boatReservation/{id}")
+
 	public ResponseEntity<BoatReservation> updateBoatReservation(Integer boatReservationId,
 			 @RequestBody BoatReservation boatReservationDetails) throws ResourceNotFoundException {
 		BoatReservation boatReservation = BoatReservationRepository.findById(boatReservationId)
@@ -54,7 +54,7 @@ public class BoatReservationService {
 		return ResponseEntity.ok(updatedBoatReservation);
 	}
 	
-	@DeleteMapping("/boatReservations/{id}")
+
 	public Map<String, Boolean> deleteBoatReservation(int boatReservationId)
 			throws ResourceNotFoundException {
 		BoatReservation  boatReservation = BoatReservationRepository.findById(boatReservationId)

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.CottageOwner;
+import com.isa.fishingbooker.model.Instructor;
 import com.isa.fishingbooker.repository.CottageOwnerRepository;
 
 @Service
@@ -26,20 +27,26 @@ public class CottageOwnerService {
 	public List<CottageOwner> getAllCottageOwners(){
 		return this.CottageOwnerRepository.findAll();
 	}
-		
+	
+	
+	public  List<CottageOwner> getAllCottageOwnerRequests()	
+	{
+	return this.CottageOwnerRepository.getAllCottageOwnerRequests();
+	}
+	
 	public ResponseEntity<CottageOwner> getCottageOwnerById(int cottageOwnerId)
 		throws ResourceNotFoundException{
 		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId).orElseThrow(() -> new ResourceNotFoundException("CottageOwner not found for this id :: " + cottageOwnerId));
 	 return ResponseEntity.ok().body(cottageOwner);
 	}
 	
-	@PostMapping("/cottageOwners")
+
 	public CottageOwner createCottageOwner(CottageOwner cottageOwner) {
 		return CottageOwnerRepository.save(cottageOwner);
 	}
 	
 	
-	@PutMapping("/cottageOwner/{id}")
+	
 	public ResponseEntity<CottageOwner> updateCottageOwner(Integer cottageOwnerId,
 			 @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
 		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
@@ -59,7 +66,7 @@ public class CottageOwnerService {
 		return ResponseEntity.ok(updatedCottageOwner);
 	}
 	
-	@DeleteMapping("/cottageOwners/{id}")
+
 	public Map<String, Boolean> deleteCottageOwner(int cottageOwnerId)
 			throws ResourceNotFoundException {
 		CottageOwner  cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)

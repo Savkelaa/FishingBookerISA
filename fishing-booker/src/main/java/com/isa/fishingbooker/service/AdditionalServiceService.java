@@ -39,13 +39,13 @@ public class AdditionalServiceService {
 	 return ResponseEntity.ok().body(additionalService);
 	}
 	
-	@PostMapping("/additionalServices")
+	
 	public AdditionalService createAdditionalService(AdditionalService additionalService) {
 		return AdditionalServiceRepository.save(additionalService);
 	}
 	
 	
-	@PutMapping("/additionalService/{id}")
+	
 	public ResponseEntity<AdditionalService> updateAdditionalService(Integer additionalServiceId,
 			 @RequestBody AdditionalService additionalServiceDetails) throws ResourceNotFoundException {
 		AdditionalService additionalService = AdditionalServiceRepository.findById(additionalServiceId)
@@ -59,7 +59,7 @@ public class AdditionalServiceService {
 		return ResponseEntity.ok(updatedAdditionalService);
 	}
 	
-	@DeleteMapping("/additionalServices/{id}")
+	
 	public Map<String, Boolean> deleteAdditionalService(int additionalServiceId)
 			throws ResourceNotFoundException {
 		AdditionalService  additionalService = AdditionalServiceRepository.findById(additionalServiceId)

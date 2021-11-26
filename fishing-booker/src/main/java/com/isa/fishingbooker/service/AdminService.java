@@ -36,13 +36,13 @@ public class AdminService {
 	 return ResponseEntity.ok().body(admin);
 	}
 	
-	@PostMapping("/admins")
+	
 	public Admin createAdmin(Admin admin) {
 		return AdminRepository.save(admin);
 	}
 	
 	
-	@PutMapping("/admin/{id}")
+	
 	public ResponseEntity<Admin> updateAdmin(Integer adminId,
 			 @RequestBody Admin adminDetails) throws ResourceNotFoundException {
 		Admin admin = AdminRepository.findById(adminId)
@@ -63,7 +63,8 @@ public class AdminService {
 		return ResponseEntity.ok(updatedAdmin);
 	}
 	
-	@DeleteMapping("/admins/{id}")
+	
+	
 	public Map<String, Boolean> deleteAdmin(int adminId)
 			throws ResourceNotFoundException {
 		Admin  admin = AdminRepository.findById(adminId)

@@ -37,13 +37,12 @@ public class FishingClassBehavioralRuleService {
 	 return ResponseEntity.ok().body(fishingClassBehavioralRule);
 	}
 	
-	@PostMapping("/fishingClassBehavioralRules")
+
 	public FishingClassBehavioralRule createFishingClassBehavioralRule(FishingClassBehavioralRule fishingClassBehavioralRule) {
 		return FishingClassBehavioralRuleRepository.save(fishingClassBehavioralRule);
 	}
 	
-	
-	@PutMapping("/fishingClassBehavioralRule/{id}")
+
 	public ResponseEntity<FishingClassBehavioralRule> updateFishingClassBehavioralRule(Integer fishingClassBehavioralRuleId,
 			 @RequestBody FishingClassBehavioralRule fishingClassBehavioralRuleDetails) throws ResourceNotFoundException {
 		FishingClassBehavioralRule fishingClassBehavioralRule = FishingClassBehavioralRuleRepository.findById(fishingClassBehavioralRuleId)
@@ -56,7 +55,7 @@ public class FishingClassBehavioralRuleService {
 		return ResponseEntity.ok(updatedFishingClassBehavioralRule);
 	}
 	
-	@DeleteMapping("/fishingClassBehavioralRules/{id}")
+
 	public Map<String, Boolean> deleteFishingClassBehavioralRule(int fishingClassBehavioralRuleId)
 			throws ResourceNotFoundException {
 		FishingClassBehavioralRule  fishingClassBehavioralRule = FishingClassBehavioralRuleRepository.findById(fishingClassBehavioralRuleId)
