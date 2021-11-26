@@ -77,7 +77,11 @@ public class CottageReservationService {
 		return CottageReservationRepository.getAllCottageReservationAtPresentByClient(clientId);
 	}
 	
-	public List<CottageReservation> getAllCottageReservationsByOwner(Integer cottageOwnerId) {
-		return CottageReservationRepository.getAllCottageReservationsByOwner(cottageOwnerId);
+	public List<CottageReservation> getCottageReservationsByOwner(Integer cottageOwnerId) {
+		return CottageReservationRepository.getCottageReservationsByOwner(cottageOwnerId);
+	}
+	
+	public List<CottageReservation> getFinishedCottageReservationsByOwner(Integer cottageOwnerId) {
+		return CottageReservationRepository.getFinishedCottageReservationsByOwner(cottageOwnerId);
 	}
 }

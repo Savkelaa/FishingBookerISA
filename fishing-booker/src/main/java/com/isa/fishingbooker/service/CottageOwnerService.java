@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.CottageOwner;
 import com.isa.fishingbooker.repository.CottageOwnerRepository;
 
@@ -68,5 +69,9 @@ public class CottageOwnerService {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	
+	public CottageOwner getCottageOwnerByEmailAndPassword(String email, String password) {
+		return CottageOwnerRepository.getCottageOwnerByEmailAndPassword(email, password);
 	}
 }

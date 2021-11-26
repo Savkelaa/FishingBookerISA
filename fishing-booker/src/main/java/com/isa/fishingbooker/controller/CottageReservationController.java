@@ -68,8 +68,13 @@ public class CottageReservationController {
 		return cottageReservationService.getAllCottageReservationAtPresentByClient(clientId);
 	}
 	
-	@GetMapping("/allReservationsByOwner")
-	public List<CottageReservation> getAllCottageReservationsByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId){
-		return cottageReservationService.getAllCottageReservationsByOwner(cottageOwnerId);
+	@GetMapping("/cottageReservationsByOwner")
+	public List<CottageReservation> getCottageReservationsByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId){
+		return cottageReservationService.getCottageReservationsByOwner(cottageOwnerId);
+	}
+	
+	@GetMapping("/finishedCottageReservationByOwner")
+	public List<CottageReservation> getFinishedCottageReservationByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId) {
+		return cottageReservationService.getFinishedCottageReservationsByOwner(cottageOwnerId);
 	}
 }

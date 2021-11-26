@@ -21,8 +21,15 @@ public interface CottageReservationRepository extends JpaRepository<CottageReser
 	@Query(value="select * from cottage_reservation where start_date >CURRENT_TIMESTAMP and client_id=:clientId ", nativeQuery=true)
 	List<CottageReservation> getAllCottageReservationAtPresentByClient(Integer clientId);
 	
-	@Query(value = "select * from cottage_reservation\r\n"
-			+ "inner join cottage on cottage_reservation.cottage_id = cottage.id\r\n"
-			+ "where cottage_owner_id = :cottageOwnerId", nativeQuery = true)
-	List<CottageReservation> getAllCottageReservationsByOwner(Integer cottageOwnerId);
+	@Query(value = "SELECT * FROM cottage_reservation\r\n"
+			+ "INNER JOIN cottage ON cottage_reservation.cottage_id = cottage.id\r\n"
+			+ "WHERE status != 'free' AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
+	List<CottageReservation> getCottageReservationsByOwner(Integer cottageOwnerId);
+	
+	@Query(value = "SELECT * from cottage_reservation\r\n"
+			+ "INNER JOIN cottage on cottage_reservation.cottage_id = cottage.id\r\n"
+			+ "WHERE status = 'finished' AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
+	List<CottageReservation> getFinishedCottageReservationsByOwner(Integer cottageOwnerId);
+	
+	
 }

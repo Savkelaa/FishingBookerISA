@@ -49,7 +49,7 @@ public class CottageService {
 		cottage.setAddress(cottageDetails.getAddress());
 		cottage.setPrice(cottageDetails.getPrice());
 		cottage.setPromoDescription(cottageDetails.getPromoDescription());
-		cottage.setStatus(cottageDetails.getStatus());
+		
 		
 	
 		final Cottage updatedCottage = CottageRepository.save(cottage);
@@ -68,7 +68,7 @@ public class CottageService {
 		return response;
 	}
 	
-	public List<Cottage> getAllCottagesByOwner(Integer cottageOwnerId) {
+	public List<Cottage> getCottagesByOwner(Integer cottageOwnerId) {
 		return CottageRepository.getCottagesByOwner(cottageOwnerId);
 	}
 }

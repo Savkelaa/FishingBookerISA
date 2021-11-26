@@ -14,4 +14,16 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 
 	@Query(value="select * from client where email=:email and password=:password",nativeQuery=true)
 	Client getClientByEmailAndPassword(String email, String password);
+	
+	@Query(value = "SELECT * FROM client\r\n"
+			+ "INNER JOIN cottage_reservation ON client.id = client_id\r\n"
+			+ "INNER JOIN cottage ON cottage_reservation.cottage_id = cottage.id\r\n"
+			+ "WHERE status != 'free' AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
+	List<Client> getClientsByOwnerCottageReservations(Integer cottageOwnerId);
+	
+	@Query(value = "SELECT * FROM client\r\n"
+			+ "INNER JOIN cottage_quick_reservation ON client.id = client_id\r\n"
+			+ "INNER JOIN cottage ON cottage_quick_reservation.cottage_id = cottage.id\r\n"
+			+ "WHERE status != 'free' AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
+	List<Client> getClientsByOwnerCottageQuickReservations(Integer cottageOwnerId);
 }

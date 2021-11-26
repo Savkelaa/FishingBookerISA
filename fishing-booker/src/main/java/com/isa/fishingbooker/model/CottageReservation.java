@@ -46,8 +46,11 @@ public class CottageReservation {
 	@Column(name = "max_people")
 	private int maxPeople;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="client_id", nullable = false)
+	@Column(name = "status")
+	private String status;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name="client_id", nullable = true)
     private Client client;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
