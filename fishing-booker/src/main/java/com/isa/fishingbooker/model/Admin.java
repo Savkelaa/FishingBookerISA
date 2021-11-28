@@ -60,7 +60,8 @@ public class Admin {
 	@Column(name = "activated")
 	private String activated;
 	
-	
+	@Column(name = "percentage")
+	private String percentage;
 	
 	
 }

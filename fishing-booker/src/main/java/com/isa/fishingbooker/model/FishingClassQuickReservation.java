@@ -36,6 +36,9 @@ public class FishingClassQuickReservation {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(name = "status")
+	private String status;
+	
 	@Column(name = "start_date")
 	private Date startDate;
 	
