@@ -48,7 +48,7 @@ public class FishingClassQuickReservationService {
 		fishingClassQuickReservation.setStartDate(fishingClassQuickReservationDetails.getStartDate());
 		fishingClassQuickReservation.setFinishDate(fishingClassQuickReservationDetails.getFinishDate());
 		fishingClassQuickReservation.setMaxPeople(fishingClassQuickReservationDetails.getMaxPeople());
-	  //  fishingClassQuickReservation.setStatus(fishingClassQuickReservationDetails.getStatus());
+	    fishingClassQuickReservation.setStatus(fishingClassQuickReservationDetails.getStatus());
 		
 		final FishingClassQuickReservation updatedFishingClassQuickReservation = FishingClassQuickReservationRepository.save(fishingClassQuickReservation);
 		return ResponseEntity.ok(updatedFishingClassQuickReservation);
