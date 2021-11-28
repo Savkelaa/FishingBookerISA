@@ -55,7 +55,6 @@ public class FishingClassService {
 		fishingClass.setAddress(fishingClassDetails.getAddress());
 		fishingClass.setPrice(fishingClassDetails.getPrice());
 		fishingClass.setPromoDescription(fishingClassDetails.getPromoDescription());
-		fishingClass.setStatus(fishingClassDetails.getStatus());
 		fishingClass.setCancellationCondition(fishingClassDetails.getCancellationCondition());
 	
 		final FishingClass updatedFishingClass = fishingClassRepository.save(fishingClass);
