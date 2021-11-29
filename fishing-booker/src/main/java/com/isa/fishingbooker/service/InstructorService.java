@@ -77,4 +77,29 @@ public class InstructorService {
 	public Instructor getInstructorByEmailAndPassword(String email, String password) {
 		return InstructorRepository.getInstructorByEmailAndPassword(email, password);
 	}
+	public List<Instructor> getAllInstructorsSortedByNameAsc(){
+		return InstructorRepository.getAllInstructorsSortedByNameAsc();
+	}
+	public 	List<Instructor> getAllInstructorsSortedByNameDesc(){
+		return InstructorRepository.getAllInstructorsSortedByNameDesc();
+	}
+
+	public List<Instructor> getAllInstructorsSortedByAddressAsc(){
+		return InstructorRepository.getAllInstructorsSortedByAddressAsc();
+	}
+	
+	
+	public List<Instructor> getAllInstructorsSortedByAddressDesc(){
+		return InstructorRepository.getAllInstructorsSortedByAddressDesc();
+	}
+	
+	
+	public List<Instructor> getAllInstructorsSortedByPriceAsc(){
+		return InstructorRepository.getAllInstructorsSortedByPriceAsc();
+	}
+	
+	
+	public List<Instructor> getAllInstructorsSortedByPriceDesc(){
+		return InstructorRepository.getAllInstructorsSortedByPriceDesc();
+	}
 }

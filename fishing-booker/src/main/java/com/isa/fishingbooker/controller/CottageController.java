@@ -61,4 +61,32 @@ public class CottageController {
 	public List<Cottage> getCottagesByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId){
 		return cottageService.getCottagesByOwner(cottageOwnerId);
 	}
+	@GetMapping("/allCottagesOrderedByAddressAsc")
+	public List<Cottage> getAllCottagesSortedByAddressAsc(){
+		return cottageService.getAllCottagesSortedByAddressAsc();
+	}
+	
+	@GetMapping("/allCottagesOrderedByNameAsc")
+	public List<Cottage> getAllCottagesSortedByNameAsc(){
+		return cottageService.getAllCottagesSortedByNameAsc();
+	}
+	
+	@GetMapping("/allCottagesOrderedByNameDesc")
+	public 	List<Cottage> getAllCottagesSortedByNameDesc(){
+		return cottageService.getAllCottagesSortedByNameDesc();
+	}
+	@GetMapping("/allCottagesOrderedByAddressDesc")
+	public List<Cottage> getAllCottagesSortedByAddressDesc(){
+		return cottageService.getAllCottagesSortedByAddressDesc();
+	}
+	
+	@GetMapping("/allCottagesOrderedByPriceAsc")
+	public List<Cottage> getAllCottagesSortedByPriceAsc(){
+		return cottageService.getAllCottagesSortedByPriceAsc();
+	}
+	
+	@GetMapping("/allCottagesOrderedByPriceDesc")
+	public List<Cottage> getAllCottagesSortedByPriceDesc(){
+		return cottageService.getAllCottagesSortedByPriceDesc();
+	}
 }

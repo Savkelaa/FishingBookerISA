@@ -69,4 +69,20 @@ public class BoatReservationController {
 	public List<BoatReservation> getAllBoatReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
 		return boatReservationService.getAllBoatReservationAtPresentByClient(clientId);
 	}
+	@GetMapping("/allFinishedBoatReservationsByClientSortedByDateAsc")
+	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDateAsc(@RequestParam (value="clientId")  Integer clientId){
+		return boatReservationService.getAllFinishedBoatReservationByClientSortedByDateAsc(clientId);
+	}
+	@GetMapping("/allFinishedBoatReservationsByClientSortedByDateDesc")
+	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDateDesc(@RequestParam (value="clientId")  Integer clientId){
+		return boatReservationService.getAllFinishedBoatReservationByClientSortedByDateDesc(clientId);
+	}
+	@GetMapping("/allFinishedBoatReservationsByClientSortedByDurationAsc")
+	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDurationAsc(@RequestParam (value="clientId")  Integer clientId){
+		return boatReservationService.getAllFinishedBoatReservationByClientSortedByDurationAsc(clientId);
+	}
+	@GetMapping("/allFinishedBoatReservationsByClientSortedByDurationDesc")
+	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDurationDesc(@RequestParam (value="clientId")  Integer clientId){
+		return boatReservationService.getAllFinishedBoatReservationByClientSortedByDurationDesc(clientId);
+	}
 }

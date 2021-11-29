@@ -83,4 +83,22 @@ public class CottageQuickReservationService {
 	public List<CottageQuickReservation> getFinishedCottageQuickReservationsByOwner(Integer cottageOwnerId) {
 		return CottageQuickReservationRepository.getFinishedCottageQuickReservationsByOwner(cottageOwnerId);
 	}
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDateAsc(Integer clientId){
+		return CottageQuickReservationRepository.getAllFinishedCottageQuickReservationByClientSortedByDateAsc(clientId);
+	}
+	
+	
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDateDesc(Integer clientId){
+		return CottageQuickReservationRepository.getAllFinishedCottageQuickReservationByClientSortedByDateDesc(clientId);
+	}
+	
+	
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDurationAsc(Integer clientId){
+		return CottageQuickReservationRepository.getAllFinishedCottageQuickReservationByClientSortedByDurationAsc(clientId);
+	}
+	
+	
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDurationDesc(Integer clientId){
+		return CottageQuickReservationRepository.getAllFinishedCottageQuickReservationByClientSortedByDurationDesc(clientId);
+	}
 }

@@ -72,4 +72,29 @@ public class BoatService {
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
+	public List<Boat> getAllBoatsSortedByNameAsc(){
+		return BoatRepository.getAllBoatsSortedByNameAsc();
+	}
+	public 	List<Boat> getAllBoatsSortedByNameDesc(){
+		return BoatRepository.getAllBoatsSortedByNameDesc();
+	}
+
+	public List<Boat> getAllBoatsSortedByAddressAsc(){
+		return BoatRepository.getAllBoatsSortedByAddressAsc();
+	}
+	
+	
+	public List<Boat> getAllBoatsSortedByAddressDesc(){
+		return BoatRepository.getAllBoatsSortedByAddressDesc();
+	}
+	
+	
+	public List<Boat> getAllBoatsSortedByPriceAsc(){
+		return BoatRepository.getAllBoatsSortedByPriceAsc();
+	}
+	
+	
+	public List<Boat> getAllBoatsSortedByPriceDesc(){
+		return BoatRepository.getAllBoatsSortedByPriceDesc();
+	}
 }

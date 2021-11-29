@@ -18,4 +18,22 @@ public interface InstructorRepository extends JpaRepository<Instructor, Integer>
 	@Query(value="Select * from instructor where activated = 'false' and deleted = 'false';",nativeQuery=true)
 	List<Instructor> getAllInstructorRequests();
 	
+	@Query(value="select * from Instructor order by name asc",nativeQuery=true)
+	List<Instructor> getAllInstructorsSortedByNameAsc();
+	
+	@Query(value="select * from Instructor order by name desc",nativeQuery=true)
+	List<Instructor> getAllInstructorsSortedByNameDesc();
+	
+	@Query(value="select * from Instructor order by address asc",nativeQuery=true)
+	List<Instructor> getAllInstructorsSortedByAddressAsc();
+	
+	@Query(value="select * from Instructor order by address desc",nativeQuery=true)
+	List<Instructor> getAllInstructorsSortedByAddressDesc();
+	
+	@Query(value="select * from Instructor order by price asc",nativeQuery=true)
+	List<Instructor> getAllInstructorsSortedByPriceAsc();
+	
+	@Query(value="select * from Instructor order by price desc",nativeQuery=true)
+	List<Instructor> getAllInstructorsSortedByPriceDesc();
+
 }

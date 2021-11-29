@@ -76,4 +76,23 @@ public class BoatReservationService {
 	public List<BoatReservation> getAllBoatReservationAtPresentByClient(Integer clientId){
 		return BoatReservationRepository.getAllBoatReservationAtPresentByClient(clientId);
 	}
+	
+	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDateAsc(Integer clientId){
+		return BoatReservationRepository.getAllFinishedBoatReservationByClientSortedByDateAsc(clientId);
+	}
+	
+	
+	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDateDesc(Integer clientId){
+		return BoatReservationRepository.getAllFinishedBoatReservationByClientSortedByDateDesc(clientId);
+	}
+	
+	
+	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDurationAsc(Integer clientId){
+		return BoatReservationRepository.getAllFinishedBoatReservationByClientSortedByDurationAsc(clientId);
+	}
+	
+	
+	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDurationDesc(Integer clientId){
+		return BoatReservationRepository.getAllFinishedBoatReservationByClientSortedByDurationDesc(clientId);
+	}
 }

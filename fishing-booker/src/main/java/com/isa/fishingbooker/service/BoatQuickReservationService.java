@@ -76,4 +76,22 @@ public class BoatQuickReservationService {
 	public List<BoatQuickReservation> getAllBoatQuickReservationAtPresentByClient(Integer clientId){
 		return BoatQuickReservationRepository.getAllBoatQuickReservationAtPresentByClient(clientId);
 	}
+	public List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDateAsc(Integer clientId){
+		return BoatQuickReservationRepository.getAllFinishedBoatQuickReservationByClientSortedByDateAsc(clientId);
+	}
+	
+	
+	public List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDateDesc(Integer clientId){
+		return BoatQuickReservationRepository.getAllFinishedBoatQuickReservationByClientSortedByDateDesc(clientId);
+	}
+	
+	
+	public List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDurationAsc(Integer clientId){
+		return BoatQuickReservationRepository.getAllFinishedBoatQuickReservationByClientSortedByDurationAsc(clientId);
+	}
+	
+	
+	public List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDurationDesc(Integer clientId){
+		return BoatQuickReservationRepository.getAllFinishedBoatQuickReservationByClientSortedByDurationDesc(clientId);
+	}
 }
