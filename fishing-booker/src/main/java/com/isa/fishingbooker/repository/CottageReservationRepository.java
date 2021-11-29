@@ -31,5 +31,17 @@ public interface CottageReservationRepository extends JpaRepository<CottageReser
 			+ "WHERE status = 'finished' AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
 	List<CottageReservation> getFinishedCottageReservationsByOwner(Integer cottageOwnerId);
 	
+	@Query(value="select * from cottage_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date asc ", nativeQuery=true)
+	List<CottageReservation> getAllFinishedCottageReservationByClientSortedByDateAsc(Integer clientId);
+	
+	@Query(value="select * from cottage_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date desc ", nativeQuery=true)
+	List<CottageReservation> getAllFinishedCottageReservationByClientSortedByDateDesc(Integer clientId);
+	
+	@Query(value="select * from cottage_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by finish_date-start_date asc ", nativeQuery=true)
+	List<CottageReservation> getAllFinishedCottageReservationByClientSortedByDurationAsc(Integer clientId);
+	
+	@Query(value="select * from cottage_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by finish_date-start_date desc ", nativeQuery=true)
+	List<CottageReservation> getAllFinishedCottageReservationByClientSortedByDurationDesc(Integer clientId);
+
 	
 }

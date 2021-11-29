@@ -70,4 +70,30 @@ public class CottageService {
 	public List<Cottage> getCottagesByOwner(Integer cottageOwnerId) {
 		return CottageRepository.getCottagesByOwner(cottageOwnerId);
 	}
+	
+	public List<Cottage> getAllCottagesSortedByNameAsc(){
+		return CottageRepository.getAllCottagesSortedByNameAsc();
+	}
+	public 	List<Cottage> getAllCottagesSortedByNameDesc(){
+		return CottageRepository.getAllCottagesSortedByNameDesc();
+	}
+
+	public List<Cottage> getAllCottagesSortedByAddressAsc(){
+		return CottageRepository.getAllCottagesSortedByAddressAsc();
+	}
+	
+	
+	public List<Cottage> getAllCottagesSortedByAddressDesc(){
+		return CottageRepository.getAllCottagesSortedByAddressDesc();
+	}
+	
+	
+	public List<Cottage> getAllCottagesSortedByPriceAsc(){
+		return CottageRepository.getAllCottagesSortedByPriceAsc();
+	}
+	
+	
+	public List<Cottage> getAllCottagesSortedByPriceDesc(){
+		return CottageRepository.getAllCottagesSortedByPriceDesc();
+	}
 }

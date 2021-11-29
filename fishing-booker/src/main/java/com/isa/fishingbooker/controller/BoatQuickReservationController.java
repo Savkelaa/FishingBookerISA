@@ -69,4 +69,20 @@ public class BoatQuickReservationController {
 	public List<BoatQuickReservation> getAllBoatQuickReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
 		return boatQuickReservationService.getAllBoatQuickReservationAtPresentByClient(clientId);
 	}
+	@GetMapping("/allFinishedBoatQuickReservationsByClientSortedByDateAsc")
+	public List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDateAsc(@RequestParam (value="clientId")  Integer clientId){
+		return boatQuickReservationService.getAllFinishedBoatQuickReservationByClientSortedByDateAsc(clientId);
+	}
+	@GetMapping("/allFinishedBoatQuickReservationsByClientSortedByDateDesc")
+	public List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDateDesc(@RequestParam (value="clientId")  Integer clientId){
+		return boatQuickReservationService.getAllFinishedBoatQuickReservationByClientSortedByDateDesc(clientId);
+	}
+	@GetMapping("/allFinishedBoatQuickReservationsByClientSortedByDurationAsc")
+	public List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDurationAsc(@RequestParam (value="clientId")  Integer clientId){
+		return boatQuickReservationService.getAllFinishedBoatQuickReservationByClientSortedByDurationAsc(clientId);
+	}
+	@GetMapping("/allFinishedBoatQuickReservationsByClientSortedByDurationDesc")
+	public List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDurationDesc(@RequestParam (value="clientId")  Integer clientId){
+		return boatQuickReservationService.getAllFinishedBoatQuickReservationByClientSortedByDurationDesc(clientId);
+	}
 }
