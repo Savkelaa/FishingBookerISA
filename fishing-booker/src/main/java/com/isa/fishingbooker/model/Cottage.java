@@ -84,5 +84,7 @@ public class Cottage {
     @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
     private List<CottageBehavioralRule> behavioralRules ;
 	
+	@Column(name="averageRate")
+	private Long averageRate;
 	
 }

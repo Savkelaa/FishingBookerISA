@@ -97,5 +97,8 @@ public class Boat {
     @JoinColumn(name="boat_owner_id", nullable = false)
     private BoatOwner boatOwner;
 	
+	@Column(name="averageRate")
+	private Long averageRate;
+	
 	
 }
