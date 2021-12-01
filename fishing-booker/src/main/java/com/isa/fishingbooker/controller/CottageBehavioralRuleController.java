@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.model.CottageBehavioralRule;
 import com.isa.fishingbooker.service.CottageBehavioralRuleService;
 
@@ -53,5 +55,10 @@ public class CottageBehavioralRuleController {
 	public Map<String, Boolean> deleteCottageBehavioralRule(@PathVariable(value = "id") int cottageBehavioralRuleId)
 			throws ResourceNotFoundException {
 		return cottageBehavioralRuleService.deleteCottageBehavioralRule(cottageBehavioralRuleId);
+	}
+	
+	@GetMapping("/cottageBehavioralRulesByCottage")
+	public List<CottageBehavioralRule> getCottagesBehavioralRulesByCottage(@RequestParam (value = "cottageId") Integer cottageId){
+		return cottageBehavioralRuleService.getCottageBehavioralRulesByCottage(cottageId);
 	}
 }

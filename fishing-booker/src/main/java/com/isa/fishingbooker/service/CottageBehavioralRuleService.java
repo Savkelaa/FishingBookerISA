@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.model.CottageBehavioralRule;
 import com.isa.fishingbooker.repository.CottageBehavioralRuleRepository;
 
@@ -61,5 +62,9 @@ public class CottageBehavioralRuleService {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	
+	public List<CottageBehavioralRule> getCottageBehavioralRulesByCottage(Integer cottageId) {
+		return CottageBehavioralRuleRepository.getCottageBehavioralRulesByCottage(cottageId);
 	}
 }

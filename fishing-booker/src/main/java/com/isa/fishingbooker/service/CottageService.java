@@ -67,6 +67,10 @@ public class CottageService {
 		return response;
 	}
 	
+	public List<Cottage> getCottagesByOwnerAndName(Integer cottageOwnerId, String cottageName) {
+		return CottageRepository.getCottagesByOwnerAndName(cottageOwnerId, cottageName);
+	}
+	
 	public List<Cottage> getCottagesByOwner(Integer cottageOwnerId) {
 		return CottageRepository.getCottagesByOwner(cottageOwnerId);
 	}

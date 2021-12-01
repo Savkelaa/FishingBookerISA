@@ -121,13 +121,13 @@ insert into boat_rate (id, rate, boat_id, client_id) values (6, 5, 1, 6);
 insert into boat_rate (id, rate, boat_id, client_id) values (7, 5, 7, 6);
 
 
-insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Roma', '74 Petterle Hill', 114, 'purus eu magna vulputate', 4);
-insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Van', '19 Killdeer Park', 119, 'consectetuer adipiscing elit proin', 4);
-insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Robinetta', '0 Evergreen Drive', 34, 'et ultrices posuere cubilia', 5);
-insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Rahal', '6623 Fulton Road', 117, 'non lectus aliquam sit amet diam', 6);
-insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Ravid', '9963 Grasskamp Hill', 144, 'a odio in hac habitasse', 3);
-insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Abigael', '405 Walton Terrace', 119, 'at nunc commodo placerat praesent', 6);
-insert into cottage (name, address, price, promo_description, cottage_owner_id) values ('Upton', '588 Donald Court', 131, 'suscipit a feugiat et', 7);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Roma', '74 Petterle Hill', 114, 'purus eu magna vulputate', 4, 2, 2);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Van', '19 Killdeer Park', 119, 'consectetuer adipiscing elit proin', 4, 2, 3);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Robinetta', '0 Evergreen Drive', 34, 'et ultrices posuere cubilia', 5, 3, 2);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Rahal', '6623 Fulton Road', 117, 'non lectus aliquam sit amet diam', 6, 4, 2);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Ravid', '9963 Grasskamp Hill', 144, 'a odio in hac habitasse', 3, 5, 2);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Abigael', '405 Walton Terrace', 119, 'at nunc commodo placerat praesent', 6, 5, 2);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Upton', '588 Donald Court', 131, 'suscipit a feugiat et', 7, 3, 2);
 
 insert into fishing_class (name, address, price, promo_description, instructor_id, cancellation_condition) values ('Tomi', '139 Fair Oaks Point', 134, 'justo etiam pretium iaculis justo in', 3, 14);
 insert into fishing_class (name, address, price, promo_description, instructor_id, cancellation_condition) values ('Min', '028 Esch Junction', 104, 'ut volutpat sapien arcu sed augue aliquam', 7, 4);
@@ -193,26 +193,6 @@ insert into fishing_equipment (name, description, fishing_class_reservation_id) 
 insert into fishing_equipment (name, description, fishing_class_quick_reservation_id) values ('Excavator', 'neque libero convallis eget eleifend luctus ultricies', 7);
 insert into fishing_equipment (name, description, fishing_class_quick_reservation_id) values ('Dump Truck', 'ac tellus semper interdum mauris', 5);
 
-insert into cottage_room (number, num_beds, cottage_id) values (11, 2, 2);
-insert into cottage_room (number, num_beds, cottage_id) values (13, 6, 5);
-insert into cottage_room (number, num_beds, cottage_id) values (19, 2, 2);
-insert into cottage_room (number, num_beds, cottage_id) values (10, 7, 4);
-insert into cottage_room (number, num_beds, cottage_id) values (15, 6, 6);
-insert into cottage_room (number, num_beds, cottage_id) values (9, 3, 4);
-insert into cottage_room (number, num_beds, cottage_id) values (7, 3, 4);
-
-insert into additional_service (id, name, price, description, boat_reservation_id) values (1, 'WiFi', 3, 'id ligula suspendisse ornare', 3);
-insert into additional_service (id, name, price, description, boat_reservation_id) values (2, 'pet friendly', 4, 'id ligula suspendisse ornare', 4);
-insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (3, 'pet friendly', 2, 'id ligula suspendisse ornare', 3);
-insert into additional_service (id, name, price, description, boat_reservation_id) values (4, 'minibar', 5, 'id ligula suspendisse ornare', 3);
-insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (5, 'minibar', 3, 'id ligula suspendisse ornare', 1);
-insert into additional_service (id, name, price, description, boat_reservation_id) values (6, 'minibar', 1, 'id ligula suspendisse ornare', 2);
-insert into additional_service (id, name, price, description, boat_quick_reservation_id) values (7, 'WiFi', 6, 'id ligula suspendisse ornare', 1);
-insert into additional_service (id, name, price, description, fishing_class_reservation_id) values (8, 'minibar', 4, 'id ligula suspendisse ornare', 3);
-insert into additional_service (id, name, price, description, fishing_class_quick_reservation_id) values (9, 'minibar', 3, 'id ligula suspendisse ornare', 1);
-insert into additional_service (id, name, price, description, fishing_class_reservation_id) values (10, 'minibar', 2, 'id ligula suspendisse ornare', 2);
-insert into additional_service (id, name, price, description, fishing_class_quick_reservation_id) values (11, 'WiFi', 4, 'id ligula suspendisse ornare', 1);
-
 
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('nec dui luctus rutrum nulla tellus in sagitt', 'oncus mauris enim leo rhoncus sed', 6);
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('nulla sverra dapibus nulla', 's turpis enim blandit mi in porttitor pede justo eu', 5);
@@ -267,4 +247,16 @@ insert into cottage_rate (rate, cottage_id, client_id) values (5, 5, 3);
 insert into cottage_rate (rate, cottage_id, client_id) values (10, 1, 1);
 insert into cottage_rate (rate, cottage_id, client_id) values (9, 7, 2);
 insert into cottage_rate (rate, cottage_id, client_id) values (5, 5, 3);
+
+insert into additional_service (name, price, description, cottage_reservation_id) values ('WiFi', 3, 'id ligula suspendisse ornare', 1);
+insert into additional_service (name, price, description, cottage_reservation_id) values ('parking', 4, 'id ligula suspendisse ornare', 2);
+insert into additional_service (name, price, description, boat_quick_reservation_id) values ('WiFi', 2, 'id ligula suspendisse ornare', 3);
+insert into additional_service (name, price, description, boat_reservation_id) values ('minibar', 5, 'id ligula suspendisse ornare', 3);
+insert into additional_service (name, price, description, boat_quick_reservation_id) values ('minibar', 3, 'id ligula suspendisse ornare', 1);
+insert into additional_service (name, price, description, boat_reservation_id) values ('minibar', 1, 'id ligula suspendisse ornare', 2);
+insert into additional_service (name, price, description, boat_quick_reservation_id) values ('WiFi', 6, 'id ligula suspendisse ornare', 1);
+insert into additional_service (name, price, description, fishing_class_reservation_id) values ('minibar', 4, 'id ligula suspendisse ornare', 3);
+insert into additional_service (name, price, description, fishing_class_quick_reservation_id) values ('minibar', 3, 'id ligula suspendisse ornare', 1);
+insert into additional_service (name, price, description, fishing_class_reservation_id) values ('minibar', 2, 'id ligula suspendisse ornare', 2);
+insert into additional_service (name, price, description, fishing_class_quick_reservation_id) values ('WiFi', 4, 'id ligula suspendisse ornare', 1);
 
