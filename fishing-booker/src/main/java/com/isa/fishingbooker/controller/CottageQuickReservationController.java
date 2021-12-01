@@ -75,6 +75,12 @@ public class CottageQuickReservationController {
 		return cottageQuickReservationService.getCottageQuickReservationsByOwner(cottageOwnerId);
 	}
 	
+	@GetMapping("/freeCottageQuickReservationsByCottage")
+	public List<CottageQuickReservation> getFreeCottageQuickReservationsByCottage(@RequestParam (value = "cottageId") Integer cottageId){
+		return cottageQuickReservationService.getFreeCottageQuickReservationsByCottage(cottageId);
+	}
+	
+	
 	@GetMapping("/finishedCottageQuickReservationByOwner")
 	public List<CottageQuickReservation> getFinishedCottageQuickReservationByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId) {
 		return cottageQuickReservationService.getFinishedCottageQuickReservationsByOwner(cottageOwnerId);

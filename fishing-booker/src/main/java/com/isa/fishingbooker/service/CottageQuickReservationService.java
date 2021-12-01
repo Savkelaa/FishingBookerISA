@@ -83,6 +83,11 @@ public class CottageQuickReservationService {
 	public List<CottageQuickReservation> getFinishedCottageQuickReservationsByOwner(Integer cottageOwnerId) {
 		return CottageQuickReservationRepository.getFinishedCottageQuickReservationsByOwner(cottageOwnerId);
 	}
+	
+	public List<CottageQuickReservation> getFreeCottageQuickReservationsByCottage(Integer cottageId) {
+		return CottageQuickReservationRepository.getFreeCottageQuickReservationsByCottage(cottageId);
+	}
+	
 	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDateAsc(Integer clientId){
 		return CottageQuickReservationRepository.getAllFinishedCottageQuickReservationByClientSortedByDateAsc(clientId);
 	}

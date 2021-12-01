@@ -48,6 +48,12 @@ public class Cottage {
 	@Column(name = "price")
 	private int price;
 	
+	@Column(name = "num_rooms")
+	private int numRooms;
+	
+	@Column(name = "num_beds")
+	private int numBeds;
+	
 	@JsonIgnore
     @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
     private List<CottageRate> rates ;
@@ -78,7 +84,5 @@ public class Cottage {
     @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
     private List<CottageBehavioralRule> behavioralRules ;
 	
-	@JsonIgnore
-    @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
-    private List<CottageRoom> Rooms ;
+	
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.AdditionalService;
+import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.service.AdditionalServiceService;
 
 @CrossOrigin
@@ -60,5 +61,10 @@ public class AdditionalServiceController {
 	public Map<String, Boolean> deleteAdditionalService(@PathVariable(value = "id") int additionalServiceId)
 			throws ResourceNotFoundException {
 		return additionalServiceService.deleteAdditionalService(additionalServiceId);
+	}
+	
+	@GetMapping("/additionalServicesByCottage")
+	public List<AdditionalService> getAdditionalServicesByCottage(@RequestParam (value = "cottageId") Integer cottageId){
+		return additionalServiceService.getAdditionalServicesByCottage(cottageId);
 	}
 }

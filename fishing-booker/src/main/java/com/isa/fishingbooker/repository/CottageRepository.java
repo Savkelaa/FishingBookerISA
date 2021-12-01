@@ -12,6 +12,10 @@ import com.isa.fishingbooker.model.Cottage;
 public interface CottageRepository extends JpaRepository<Cottage, Integer> {
 
 	@Query(value = "SELECT * FROM cottage"
+			+ " WHERE cottage_owner_id = :cottageOwnerId AND name = :cottageName", nativeQuery = true)
+	List<Cottage> getCottagesByOwnerAndName(Integer cottageOwnerId, String cottageName);
+	
+	@Query(value = "SELECT * FROM cottage"
 			+ " WHERE cottage_owner_id = :cottageOwnerId", nativeQuery = true)
 	List<Cottage> getCottagesByOwner(Integer cottageOwnerId);
 	
