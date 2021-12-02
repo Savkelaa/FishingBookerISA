@@ -26,6 +26,22 @@ public class FishingClassQuickReservationService {
 	public List<FishingClassQuickReservation> getAllFishingClassQuickReservations(){
 		return this.FishingClassQuickReservationRepository.findAll();
 	}
+	
+	public Integer getPriceWithDiscountQuickReservationByFishingClass(Integer fishingClassId)
+	{
+		return FishingClassQuickReservationRepository.getPriceWithDiscountQuickReservationByFishingClass(fishingClassId);
+	}
+	
+	
+	public Integer getPriceQuickReservationByFishingClass(Integer fishingClassId)
+	{
+		return FishingClassQuickReservationRepository.getPriceQuickReservationByFishingClass(fishingClassId);
+	}
+	
+	public List<FishingClassQuickReservation> getAllFreeFishingClassQuickReservation(Integer fishingClassId)
+	{
+		return FishingClassQuickReservationRepository.getAllFreeFishingClassQuickReservation(fishingClassId);
+	}
 		
 	public List<FishingClassQuickReservation> getUnavailableFishingClassQuickReservationsByInstructor(Integer instructorId)
 	{

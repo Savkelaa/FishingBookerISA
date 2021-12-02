@@ -34,6 +34,25 @@ public class FishingClassQuickReservationController {
 		return this.fishingClassQuickReservationService.getAllFishingClassQuickReservations();
 	}
 	
+	@GetMapping("/fishingClassFreeQuickReservation")
+	public List<FishingClassQuickReservation> getAllFreeFishingClassQuickReservation(@RequestParam (value="fishingClassId")  Integer fishingClassId)
+	{
+		return fishingClassQuickReservationService.getAllFreeFishingClassQuickReservation(fishingClassId);
+	}
+	
+	@GetMapping("/fishingClassDiscPrice")
+	public Integer getPriceWithDiscountQuickReservationByFishingClass(@RequestParam (value="fishingClassId")  Integer fishingClassId)
+	{
+		return fishingClassQuickReservationService.getPriceWithDiscountQuickReservationByFishingClass(fishingClassId);
+	}
+	
+	@GetMapping("/fishingClassPrice")
+	public Integer getPriceQuickReservationByFishingClass(@RequestParam (value="fishingClassId")  Integer fishingClassId)
+	{
+		return fishingClassQuickReservationService.getPriceQuickReservationByFishingClass(fishingClassId);
+	}
+	
+	
 	@GetMapping("/fishingClassUnavailableQuickReservation")
 	public List<FishingClassQuickReservation> getUnavailableFishingClassQuickReservationsByInstructor(@RequestParam (value="instructorId")  Integer instructorId)
 	{
