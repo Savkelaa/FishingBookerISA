@@ -34,6 +34,16 @@ public class FishingClassController {
 		return this.fishingClassService.getShortBiographyByFishingClass(fishingClassId);
 	}
 	
+	@GetMapping("/fishingClassName")
+	List<FishingClass> getFishingClassByInstructorAndName(@RequestParam (value="instructorId")  Integer instructorId, @RequestParam (value="fishingclassName")  String fishingclassName)
+	{
+		return fishingClassService.getFishingClassByInstructorAndName(instructorId, fishingclassName);
+	}
+	
+	@GetMapping("/fishingClassInstructor")
+	public List<FishingClass> getFishingClassByInstructor(@RequestParam (value="instructorId")  Integer instructorId){
+		return fishingClassService.getFishingClassByInstructor(instructorId);
+	}
 	
 	@GetMapping("/fishingClass")
 	public List<FishingClass> getAllFishingClasss() {

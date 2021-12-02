@@ -39,6 +39,15 @@ public class ClientService {
 	 return ResponseEntity.ok().body(client);
 	}
 	
+	public List<Client> getClientsByInstructorFishingClassReservations(Integer instructorId)
+	{
+		return clientRepository.getClientsByInstructorFishingClassReservations(instructorId);
+	}
+	
+	public List<Client> getClientsByInstructorFishingClassQuickReservations(Integer instructorId)
+	{
+		return clientRepository.getClientsByInstructorFishingClassQuickReservations(instructorId);
+	}
 	
 	public Client createClient(Client client) {
 		return clientRepository.save(client);

@@ -27,6 +27,16 @@ public class FishingClassQuickReservationService {
 		return this.FishingClassQuickReservationRepository.findAll();
 	}
 		
+	public List<FishingClassQuickReservation> getUnavailableFishingClassQuickReservationsByInstructor(Integer instructorId)
+	{
+		return FishingClassQuickReservationRepository.getUnavailableFishingClassQuickReservationsByInstructor(instructorId);
+	}
+	
+	public List<FishingClassQuickReservation> getFinishedFishingClassQuickReservationsByInstructor(Integer instructorId)
+	{
+		return FishingClassQuickReservationRepository.getFinishedFishingClassQuickReservationsByInstructor(instructorId);
+	}
+	
 	public ResponseEntity<FishingClassQuickReservation> getFishingClassQuickReservationById(int fishingClassQuickReservationId)
 		throws ResourceNotFoundException{
 		FishingClassQuickReservation fishingClassQuickReservation = FishingClassQuickReservationRepository.findById(fishingClassQuickReservationId).orElseThrow(() -> new ResourceNotFoundException("FishingClassQuickReservation not found for this id :: " + fishingClassQuickReservationId));
