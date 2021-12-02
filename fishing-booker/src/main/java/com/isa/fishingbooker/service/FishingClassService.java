@@ -28,6 +28,15 @@ public class FishingClassService {
 		return fishingClassRepository.getShortBiographyByFishingClass(fishingClassId);
 	}
 	
+	
+	public List<FishingClass> getFishingClassByInstructorAndName(Integer instructorId, String fishingclassName)
+	{
+		return fishingClassRepository.getFishingClassByInstructorAndName(instructorId, fishingclassName);
+	}
+	
+	public List<FishingClass> getFishingClassByInstructor(Integer instructorId){
+		return fishingClassRepository.getFishingClassByInstructor(instructorId);
+	}
 
 	public List<FishingClass> getAllFishingClasss(){
 		return this.fishingClassRepository.findAll();

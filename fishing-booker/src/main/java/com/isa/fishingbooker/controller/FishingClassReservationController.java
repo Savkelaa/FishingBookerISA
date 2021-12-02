@@ -34,6 +34,18 @@ public class FishingClassReservationController {
 	public List<FishingClassReservation> getAllFishingClassReservations() {
 		return this.fishingClassReservationService.getAllFishingClassReservations();
 	}
+	
+	@GetMapping("/fishingClassUnavailableReservation")
+	public List<FishingClassReservation> getUnavailableFishingClassReservationsByInstructor(@RequestParam (value="instructorId")  Integer instructorId)
+	{
+		return fishingClassReservationService.getUnavailableFishingClassReservationsByInstructor(instructorId);
+	}
+	
+	@GetMapping("/fishingClassFinishedReservation")
+	public List<FishingClassReservation> getFinishedFishingClassReservationsByInstructor(@RequestParam (value="instructorId")  Integer instructorId)
+	{
+		return fishingClassReservationService.getFinishedFishingClassReservationsByInstructor(instructorId);
+	}
 
 	@GetMapping("/fishingClassReservations/{id}")
 	public ResponseEntity<FishingClassReservation> getFishingClassReservationById(@PathVariable(value = "id") int fishingClassReservationId)
@@ -58,16 +70,16 @@ public class FishingClassReservationController {
 		return fishingClassReservationService.deleteFishingClassReservation(fishingClassReservationId);
 	}
 	
-	@GetMapping("/allFishingClassReservationsByClient")
+	@GetMapping("/fishingClassReservationsByClient")
 	public List<FishingClassReservation> getAllFishingClassReservationByClient(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassReservationService.getAllFishingClassReservationByClient(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassReservationsByClient")
+	@GetMapping("/finishedFishingClassReservationsByClient")
 	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClient(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassReservationService.getAllFinishedFishingClassReservationByClient(clientId);
 	}
 	
-	@GetMapping("/allFishingClassReservationsAtPresentByClient")
+	@GetMapping("/fishingClassReservationsAtPresentByClient")
 	public List<FishingClassReservation> getAllFishingClassReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassReservationService.getAllFishingClassReservationAtPresentByClient(clientId);
 	}

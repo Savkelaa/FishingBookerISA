@@ -39,6 +39,18 @@ public class ClientController {
 		return clientService.getClientById(clientId);
 	}
 	
+	@GetMapping("/clientsByInstructorFishingClassReservations")
+	public List<Client> getClientsByInstructorFishingClassReservations(@RequestParam (value = "instructorId") Integer instructorId)
+	{
+		return clientService.getClientsByInstructorFishingClassReservations(instructorId);
+	}
+	
+	@GetMapping("/clientsByInstructorQuickFishingClassReservations")
+	public List<Client> getClientsByInstructorFishingClassQuickReservations(@RequestParam (value = "instructorId") Integer instructorId)
+	{
+		return clientService.getClientsByInstructorFishingClassQuickReservations(instructorId);
+	}
+	
 	@PostMapping("/clients")
 	public Client createClient(@RequestBody Client client) {
 		return clientService.createClient(client);
