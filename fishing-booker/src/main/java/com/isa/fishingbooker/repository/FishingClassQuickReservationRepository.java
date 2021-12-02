@@ -45,4 +45,28 @@ public interface FishingClassQuickReservationRepository extends JpaRepository<Fi
 	@Query(value="select * from fishing_class_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by finish_date-start_date desc ", nativeQuery=true)
 	List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDurationDesc(Integer clientId);
 
+
+	@Query(value="SELECT *\r\n"
+	+ "FROM fishing_class_quick_reservation\r\n"
+	+ "INNER JOIN fishing_class on fishing_class_quick_reservation.fishing_class_id = fishing_class.id\r\n"
+	+ "WHERE status = 'free' AND fishing_class_id = :fishingClassId", nativeQuery=true)
+	List<FishingClassQuickReservation> getAllFreeFishingClassQuickReservation(Integer fishingClassId);
+	
+	
+	@Query(value="SELECT fishing_class.price *(100-fishing_class_quick_reservation.discount)/100\r\n"
+	+ "FROM fishing_class_quick_reservation\r\n"
+	+ "INNER JOIN fishing_class on fishing_class_quick_reservation.fishing_class_id = fishing_class.id\r\n"
+	+ "where fishing_class_quick_reservation.id = :fishingClassId\r\n"
+	+ "", nativeQuery=true)
+	Integer getPriceWithDiscountQuickReservationByFishingClass(Integer fishingClassId);
+	
+	@Query(value="SELECT fishing_class.price\r\n"
+			+ "FROM fishing_class_quick_reservation\r\n"
+			+ "INNER JOIN fishing_class on fishing_class_quick_reservation.fishing_class_id = fishing_class.id\r\n"
+			+ "where fishing_class_quick_reservation.id = :fishingClassId\r\n"
+			+ "", nativeQuery=true)
+    Integer getPriceQuickReservationByFishingClass(Integer fishingClassId);
+	
+	
+	
 }
