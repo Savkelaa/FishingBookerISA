@@ -89,4 +89,22 @@ public class FishingClassReservationService {
 	public List<FishingClassReservation> getAllFishingClassReservationAtPresentByClient(Integer clientId){
 		return FishingClassReservationRepository.getAllFishingClassReservationAtPresentByClient(clientId);
 	}
+	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClientSortedByDateAsc(Integer clientId){
+		return FishingClassReservationRepository.getAllFinishedFishingClassReservationByClientSortedByDateAsc(clientId);
+	}
+	
+	
+	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClientSortedByDateDesc(Integer clientId){
+		return FishingClassReservationRepository.getAllFinishedFishingClassReservationByClientSortedByDateDesc(clientId);
+	}
+	
+	
+	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClientSortedByDurationAsc(Integer clientId){
+		return FishingClassReservationRepository.getAllFinishedFishingClassReservationByClientSortedByDurationAsc(clientId);
+	}
+	
+	
+	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClientSortedByDurationDesc(Integer clientId){
+		return FishingClassReservationRepository.getAllFinishedFishingClassReservationByClientSortedByDurationDesc(clientId);
+	}
 }

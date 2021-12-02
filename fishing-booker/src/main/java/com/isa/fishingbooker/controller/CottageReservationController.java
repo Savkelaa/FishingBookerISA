@@ -79,4 +79,21 @@ public class CottageReservationController {
 	public List<CottageReservation> getFinishedCottageReservationByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId) {
 		return cottageReservationService.getFinishedCottageReservationsByOwner(cottageOwnerId);
 	}
+	@GetMapping("/allFinishedCottageReservationsByClientSortedByDateAsc")
+	public List<CottageReservation> getAllFinishedCottageReservationByClientSortedByDateAsc(@RequestParam (value="clientId")  Integer clientId){
+		return cottageReservationService.getAllFinishedCottageReservationByClientSortedByDateAsc(clientId);
+	}
+	@GetMapping("/allFinishedCottageReservationsByClientSortedByDateDesc")
+	public List<CottageReservation> getAllFinishedCottageReservationByClientSortedByDateDesc(@RequestParam (value="clientId")  Integer clientId){
+		return cottageReservationService.getAllFinishedCottageReservationByClientSortedByDateDesc(clientId);
+	}
+	@GetMapping("/allFinishedCottageReservationsByClientSortedByDurationAsc")
+	public List<CottageReservation> getAllFinishedCottageReservationByClientSortedByDurationAsc(@RequestParam (value="clientId")  Integer clientId){
+		return cottageReservationService.getAllFinishedCottageReservationByClientSortedByDurationAsc(clientId);
+	}
+	@GetMapping("/allFinishedCottageReservationsByClientSortedByDurationDesc")
+	public List<CottageReservation> getAllFinishedCottageReservationByClientSortedByDurationDesc(@RequestParam (value="clientId")  Integer clientId){
+		return cottageReservationService.getAllFinishedCottageReservationByClientSortedByDurationDesc(clientId);
+	}
+
 }

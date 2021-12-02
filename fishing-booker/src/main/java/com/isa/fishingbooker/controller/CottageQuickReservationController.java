@@ -75,8 +75,30 @@ public class CottageQuickReservationController {
 		return cottageQuickReservationService.getCottageQuickReservationsByOwner(cottageOwnerId);
 	}
 	
+	@GetMapping("/freeCottageQuickReservationsByCottage")
+	public List<CottageQuickReservation> getFreeCottageQuickReservationsByCottage(@RequestParam (value = "cottageId") Integer cottageId){
+		return cottageQuickReservationService.getFreeCottageQuickReservationsByCottage(cottageId);
+	}
+	
+	
 	@GetMapping("/finishedCottageQuickReservationByOwner")
 	public List<CottageQuickReservation> getFinishedCottageQuickReservationByOwner(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId) {
 		return cottageQuickReservationService.getFinishedCottageQuickReservationsByOwner(cottageOwnerId);
+	}
+	@GetMapping("/allFinishedCottageQuickReservationsByClientSortedByDateAsc")
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDateAsc(@RequestParam (value="clientId")  Integer clientId){
+		return cottageQuickReservationService.getAllFinishedCottageQuickReservationByClientSortedByDateAsc(clientId);
+	}
+	@GetMapping("/allFinishedCottageQuickReservationsByClientSortedByDateDesc")
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDateDesc(@RequestParam (value="clientId")  Integer clientId){
+		return cottageQuickReservationService.getAllFinishedCottageQuickReservationByClientSortedByDateDesc(clientId);
+	}
+	@GetMapping("/allFinishedCottageQuickReservationsByClientSortedByDurationAsc")
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDurationAsc(@RequestParam (value="clientId")  Integer clientId){
+		return cottageQuickReservationService.getAllFinishedCottageQuickReservationByClientSortedByDurationAsc(clientId);
+	}
+	@GetMapping("/allFinishedCottageQuickReservationsByClientSortedByDurationDesc")
+	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDurationDesc(@RequestParam (value="clientId")  Integer clientId){
+		return cottageQuickReservationService.getAllFinishedCottageQuickReservationByClientSortedByDurationDesc(clientId);
 	}
 }

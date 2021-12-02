@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.AdditionalService;
+import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.model.FishingClassReservation;
 import com.isa.fishingbooker.repository.AdditionalServiceRepository;
 
@@ -69,5 +70,9 @@ public class AdditionalServiceService {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	
+	public List<AdditionalService> getAdditionalServicesByCottage(Integer cottageId) {
+		return AdditionalServiceRepository.getAdditionalServicesByCottage(cottageId);
 	}
 }

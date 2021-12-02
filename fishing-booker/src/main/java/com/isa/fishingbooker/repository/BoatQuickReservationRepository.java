@@ -20,4 +20,17 @@ public interface BoatQuickReservationRepository extends JpaRepository<BoatQuickR
 	
 	@Query(value="select * from boat_quick_reservation where start_date >CURRENT_TIMESTAMP and client_id=:clientId ", nativeQuery=true)
 	List<BoatQuickReservation> getAllBoatQuickReservationAtPresentByClient(Integer clientId);
+
+	@Query(value="select * from boat_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date asc ", nativeQuery=true)
+	List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDateAsc(Integer clientId);
+	
+	@Query(value="select * from boat_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date desc ", nativeQuery=true)
+	List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDateDesc(Integer clientId);
+	
+	@Query(value="select * from boat_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by finish_date-start_date asc ", nativeQuery=true)
+	List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDurationAsc(Integer clientId);
+	
+	@Query(value="select * from boat_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by finish_date-start_date desc ", nativeQuery=true)
+	List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDurationDesc(Integer clientId);
+
 }

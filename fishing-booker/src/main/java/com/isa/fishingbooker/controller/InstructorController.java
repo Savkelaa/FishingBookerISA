@@ -70,4 +70,32 @@ public class InstructorController {
 	public Instructor getInstructorByEmailAndPassword(@RequestParam (value="email")  String email, @RequestParam (value="password") String password) {
 		return instructorService.getInstructorByEmailAndPassword(email, password);
 	}
+	@GetMapping("/allInstructorsOrderedByAddressAsc")
+	public List<Instructor> getAllInstructorsSortedByAddressAsc(){
+		return instructorService.getAllInstructorsSortedByAddressAsc();
+	}
+	
+	@GetMapping("/allInstructorsOrderedByNameAsc")
+	public List<Instructor> getAllInstructorsSortedByNameAsc(){
+		return instructorService.getAllInstructorsSortedByNameAsc();
+	}
+	
+	@GetMapping("/allInstructorsOrderedByNameDesc")
+	public 	List<Instructor> getAllInstructorsSortedByNameDesc(){
+		return instructorService.getAllInstructorsSortedByNameDesc();
+	}
+	@GetMapping("/allInstructorsOrderedByAddressDesc")
+	public List<Instructor> getAllInstructorsSortedByAddressDesc(){
+		return instructorService.getAllInstructorsSortedByAddressDesc();
+	}
+	
+	@GetMapping("/allInstructorsOrderedByPriceAsc")
+	public List<Instructor> getAllInstructorsSortedByPriceAsc(){
+		return instructorService.getAllInstructorsSortedByPriceAsc();
+	}
+	
+	@GetMapping("/allInstructorsOrderedByPriceDesc")
+	public List<Instructor> getAllInstructorsSortedByPriceDesc(){
+		return instructorService.getAllInstructorsSortedByPriceDesc();
+	}
 }

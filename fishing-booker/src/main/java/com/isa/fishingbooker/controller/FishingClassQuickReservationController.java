@@ -81,4 +81,20 @@ public class FishingClassQuickReservationController {
 	public List<FishingClassQuickReservation> getAllFishingClassQuickReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassQuickReservationService.getAllFishingClassQuickReservationAtPresentByClient(clientId);
 	}
+	@GetMapping("/allFinishedFishingClassQuickReservationsByClientSortedByDateAsc")
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDateAsc(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClientSortedByDateAsc(clientId);
+	}
+	@GetMapping("/allFinishedFishingClassQuickReservationsByClientSortedByDateDesc")
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDateDesc(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClientSortedByDateDesc(clientId);
+	}
+	@GetMapping("/allFinishedFishingClassQuickReservationsByClientSortedByDurationAsc")
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDurationAsc(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClientSortedByDurationAsc(clientId);
+	}
+	@GetMapping("/allFinishedFishingClassQuickReservationsByClientSortedByDurationDesc")
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDurationDesc(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClientSortedByDurationDesc(clientId);
+	}
 }

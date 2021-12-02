@@ -54,4 +54,32 @@ public class BoatController {
 			throws ResourceNotFoundException {
 		return boatService.deleteBoat(boatId);
 	}
+	@GetMapping("/allBoatsOrderedByAddressAsc")
+	public List<Boat> getAllBoatsSortedByAddressAsc(){
+		return boatService.getAllBoatsSortedByAddressAsc();
+	}
+	
+	@GetMapping("/allBoatsOrderedByNameAsc")
+	public List<Boat> getAllBoatsSortedByNameAsc(){
+		return boatService.getAllBoatsSortedByNameAsc();
+	}
+	
+	@GetMapping("/allBoatsOrderedByNameDesc")
+	public 	List<Boat> getAllBoatsSortedByNameDesc(){
+		return boatService.getAllBoatsSortedByNameDesc();
+	}
+	@GetMapping("/allBoatsOrderedByAddressDesc")
+	public List<Boat> getAllBoatsSortedByAddressDesc(){
+		return boatService.getAllBoatsSortedByAddressDesc();
+	}
+	
+	@GetMapping("/allBoatsOrderedByPriceAsc")
+	public List<Boat> getAllBoatsSortedByPriceAsc(){
+		return boatService.getAllBoatsSortedByPriceAsc();
+	}
+	
+	@GetMapping("/allBoatsOrderedByPriceDesc")
+	public List<Boat> getAllBoatsSortedByPriceDesc(){
+		return boatService.getAllBoatsSortedByPriceDesc();
+	}
 }

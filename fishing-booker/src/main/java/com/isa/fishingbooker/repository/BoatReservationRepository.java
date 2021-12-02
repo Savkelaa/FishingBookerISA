@@ -20,4 +20,17 @@ public interface BoatReservationRepository extends JpaRepository<BoatReservation
 	
 	@Query(value="select * from boat_reservation where start_date >CURRENT_TIMESTAMP and client_id=:clientId ", nativeQuery=true)
 	List<BoatReservation> getAllBoatReservationAtPresentByClient(Integer clientId);
+
+	@Query(value="select * from boat_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date asc ", nativeQuery=true)
+	List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDateAsc(Integer clientId);
+	
+	@Query(value="select * from boat_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date desc ", nativeQuery=true)
+	List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDateDesc(Integer clientId);
+	
+	@Query(value="select * from boat_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by finish_date-start_date asc ", nativeQuery=true)
+	List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDurationAsc(Integer clientId);
+	
+	@Query(value="select * from boat_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by finish_date-start_date desc ", nativeQuery=true)
+	List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDurationDesc(Integer clientId);
+
 }

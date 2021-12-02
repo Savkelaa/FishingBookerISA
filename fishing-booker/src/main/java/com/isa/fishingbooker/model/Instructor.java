@@ -76,4 +76,7 @@ public class Instructor {
 	@JsonIgnore
     @OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
     private List<InstructorRate> instructorRates ;
+	
+	@Column(name="averageRate")
+	private Long averageRate;
 }

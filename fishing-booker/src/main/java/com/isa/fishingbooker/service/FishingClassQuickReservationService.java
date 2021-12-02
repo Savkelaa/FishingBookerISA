@@ -85,4 +85,22 @@ public class FishingClassQuickReservationService {
 	public List<FishingClassQuickReservation> getAllFishingClassQuickReservationAtPresentByClient(Integer clientId){
 		return FishingClassQuickReservationRepository.getAllFishingClassQuickReservationAtPresentByClient(clientId);
 	}
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDateAsc(Integer clientId){
+		return FishingClassQuickReservationRepository.getAllFinishedFishingClassQuickReservationByClientSortedByDateAsc(clientId);
+	}
+	
+	
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDateDesc(Integer clientId){
+		return FishingClassQuickReservationRepository.getAllFinishedFishingClassQuickReservationByClientSortedByDateDesc(clientId);
+	}
+	
+	
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDurationAsc(Integer clientId){
+		return FishingClassQuickReservationRepository.getAllFinishedFishingClassQuickReservationByClientSortedByDurationAsc(clientId);
+	}
+	
+	
+	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDurationDesc(Integer clientId){
+		return FishingClassQuickReservationRepository.getAllFinishedFishingClassQuickReservationByClientSortedByDurationDesc(clientId);
+	}
 }
