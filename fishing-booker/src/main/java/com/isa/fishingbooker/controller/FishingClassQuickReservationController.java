@@ -87,32 +87,32 @@ public class FishingClassQuickReservationController {
 			throws ResourceNotFoundException {
 		return fishingClassQuickReservationService.deleteFishingClassQuickReservation(fishingClassQuickReservationId);
 	}
-	@GetMapping("/allFishingClassQuickReservationsByClient")
+	@GetMapping("/fishingClassQuickReservationsByClient")
 	public List<FishingClassQuickReservation> getAllFishingClassQuickReservationByClient(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassQuickReservationService.getAllFishingClassQuickReservationByClient(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassQuickReservationsByClient")
+	@GetMapping("/finishedFishingClassQuickReservationsByClient")
 	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClient(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClient(clientId);
 	}
 	
-	@GetMapping("/allFishingClassQuickReservationsAtPresentByClient")
+	@GetMapping("/fishingClassQuickReservationsAtPresentByClient")
 	public List<FishingClassQuickReservation> getAllFishingClassQuickReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassQuickReservationService.getAllFishingClassQuickReservationAtPresentByClient(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassQuickReservationsByClientSortedByDateAsc")
+	@GetMapping("/finishedFishingClassQuickReservationsByClientSortedByDateAsc")
 	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDateAsc(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClientSortedByDateAsc(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassQuickReservationsByClientSortedByDateDesc")
+	@GetMapping("/finishedFishingClassQuickReservationsByClientSortedByDateDesc")
 	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDateDesc(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClientSortedByDateDesc(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassQuickReservationsByClientSortedByDurationAsc")
+	@GetMapping("/finishedFishingClassQuickReservationsByClientSortedByDurationAsc")
 	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDurationAsc(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClientSortedByDurationAsc(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassQuickReservationsByClientSortedByDurationDesc")
+	@GetMapping("/finishedFishingClassQuickReservationsByClientSortedByDurationDesc")
 	public List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDurationDesc(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassQuickReservationService.getAllFinishedFishingClassQuickReservationByClientSortedByDurationDesc(clientId);
 	}
