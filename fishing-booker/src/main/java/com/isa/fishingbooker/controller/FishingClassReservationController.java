@@ -83,19 +83,19 @@ public class FishingClassReservationController {
 	public List<FishingClassReservation> getAllFishingClassReservationAtPresentByClient(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassReservationService.getAllFishingClassReservationAtPresentByClient(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassReservationsByClientSortedByDateAsc")
+	@GetMapping("/finishedFishingClassReservationsByClientSortedByDateAsc")
 	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClientSortedByDateAsc(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassReservationService.getAllFinishedFishingClassReservationByClientSortedByDateAsc(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassReservationsByClientSortedByDateDesc")
+	@GetMapping("/finishedFishingClassReservationsByClientSortedByDateDesc")
 	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClientSortedByDateDesc(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassReservationService.getAllFinishedFishingClassReservationByClientSortedByDateDesc(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassReservationsByClientSortedByDurationAsc")
+	@GetMapping("/finishedFishingClassReservationsByClientSortedByDurationAsc")
 	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClientSortedByDurationAsc(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassReservationService.getAllFinishedFishingClassReservationByClientSortedByDurationAsc(clientId);
 	}
-	@GetMapping("/allFinishedFishingClassReservationsByClientSortedByDurationDesc")
+	@GetMapping("/finishedFishingClassReservationsByClientSortedByDurationDesc")
 	public List<FishingClassReservation> getAllFinishedFishingClassReservationByClientSortedByDurationDesc(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassReservationService.getAllFinishedFishingClassReservationByClientSortedByDurationDesc(clientId);
 	}

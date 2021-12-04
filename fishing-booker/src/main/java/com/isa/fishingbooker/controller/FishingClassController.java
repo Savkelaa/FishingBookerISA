@@ -46,8 +46,8 @@ public class FishingClassController {
 	}
 	
 	@GetMapping("/fishingClass")
-	public List<FishingClass> getAllFishingClasss() {
-		return this.fishingClassService.getAllFishingClasss();
+	public List<FishingClass> getAllFishingClass() {
+		return this.fishingClassService.getAllFishingClass();
 	}
 
 	@GetMapping("/fishingClass/{id}")
