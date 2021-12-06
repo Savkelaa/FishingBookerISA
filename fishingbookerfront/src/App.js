@@ -6,13 +6,16 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import FishingClassContainer from "./Containers/FishingClassContainer";
 
 function App() {
   return (
     <div className="container">
       <Router>
         <Switch>
-          <Route path="/cottage"></Route>
+          <Route path="/fishing">
+            <FishingClassContainer></FishingClassContainer>
+          </Route>
         </Switch>
       </Router>
     </div>
