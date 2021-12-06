@@ -18,7 +18,7 @@ const fishingClassServices = {
   updateFishingClass: (fishingClass) => {
     return axios.put(
       `${process.env.REACT_APP_API_URL}fishingClass/${fishingClass.id}`,
-      cottage
+      fishingClass
     );
   },
   getFishingClassByInstructor: (instructorId) => {
@@ -64,14 +64,16 @@ const fishingClassServices = {
       `${process.env.REACT_APP_API_URL}fishingClassFinishedReservation/${fishingClassReservationId}`
     );
   },
-  createFishingClassReservation: () => {
+  createFishingClassReservation: (fishingClassReservation) => {
     return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingClassReservations`
+      `${process.env.REACT_APP_API_URL}fishingClassReservations`,
+      fishingClassReservation
     );
   },
-  updateFishingClassReservation: (fishingClassReservationId) => {
+  updateFishingClassReservation: (fishingClassReservation) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}fishingClassReservations/${fishingClassReservationId}`
+      `${process.env.REACT_APP_API_URL}fishingClassReservations/${fishingClassReservation.id}`,
+      fishingClassReservation
     );
   },
   deleteFishingClassReservation: (fishingClassReservationId) => {
@@ -156,14 +158,16 @@ const fishingClassServices = {
       `${process.env.REACT_APP_API_URL}fishingClassQuickReservations/${fishingClassQuickReservationId}`
     );
   },
-  createFishingClassQuickReservation: () => {
+  createFishingClassQuickReservation: (fishingClassQuickReservation) => {
     return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingClassQuickReservations`
+      `${process.env.REACT_APP_API_URL}fishingClassQuickReservations`,
+      fishingClassQuickReservation
     );
   },
-  updateFishingClassQuickReservation: (fishingClassQuickReservationId) => {
+  updateFishingClassQuickReservation: (fishingClassQuickReservation) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}fishingClassQuickReservations/${fishingClassQuickReservationId}`
+      `${process.env.REACT_APP_API_URL}fishingClassQuickReservations/${fishingClassQuickReservation.id}`,
+      fishingClassQuickReservation
     );
   },
   deleteFishingClassQuickReservation: (fishingClassQuickReservationId) => {
@@ -223,9 +227,8 @@ const fishingClassServices = {
     );
   },
   getAllFishingClassBehavioralRules: () => {
-    return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingClassBehavioralRules`,
-      fishingClass
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingClassBehavioralRules`
     );
   },
   getFishingClassBehavioralRuleById: (behavioralRuleId) => {
@@ -233,18 +236,19 @@ const fishingClassServices = {
       `${process.env.REACT_APP_API_URL}fishingClassBehavioralRules/${behavioralRuleId}`
     );
   },
-  createFishingClassBehavioralRule: (behavioralRuleId) => {
+  createFishingClassBehavioralRule: (fishingClassBehavioralRule) => {
     return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingClassBehavioralRules/${behavioralRuleId}`,
-      cottage
+      `${process.env.REACT_APP_API_URL}fishingClassBehavioralRules`,
+      fishingClassBehavioralRule
     );
   },
-  updateFishingClassBehavioralRule: (behavioralRuleId) => {
+  updateFishingClassBehavioralRule: (behavioralRule) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}fishingClassBehavioralRules/${behavioralRuleId}`
+      `${process.env.REACT_APP_API_URL}fishingClassBehavioralRules/${behavioralRule.id}`,
+      behavioralRule
     );
   },
-  deleteFishingClassBehavioralRule: (fishingClassId) => {
+  deleteFishingClassBehavioralRule: (behavioralRuleId) => {
     return axios.delete(
       `${process.env.REACT_APP_API_URL}fishingClassBehavioralRules/${behavioralRuleId}`
     );
@@ -253,25 +257,23 @@ const fishingClassServices = {
   ///////////////////////////// FishingClassComplaint //////////////////////////////////////////////
 
   getAllFishingClassComplaints: () => {
-    return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingClassComplaints`,
-      fishingClass
-    );
+    return axios.get(`${process.env.REACT_APP_API_URL}fishingClassComplaints`);
   },
   getFishingClassComplaintById: (complaintId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}fishingClassComplaints/${complaintId}`
     );
   },
-  createFishingClassComplaint: (complaintId) => {
+  createFishingClassComplaint: (fishingClassComplaint) => {
     return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingClassComplaints/${complaintId}`,
-      cottage
+      `${process.env.REACT_APP_API_URL}fishingClassComplaints`,
+      fishingClassComplaint
     );
   },
-  updateFishingClassComplaint: (complaintId) => {
+  updateFishingClassComplaint: (complaint) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}fishingClassComplaints/${complaintId}`
+      `${process.env.REACT_APP_API_URL}fishingClassComplaints/${complaint.id}`,
+      complaint
     );
   },
   deleteFishingClassComplaint: (complaintId) => {
@@ -283,55 +285,51 @@ const fishingClassServices = {
   ///////////////////////////// FishingClass RATE//////////////////////////////////////////////
 
   getAllFishingClassRates: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}fishingClassRates`);
+  },
+  getFishingClassRateById: (rateId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingClassRates/${rateId}`
+    );
+  },
+  createFishingClassRate: (rate) => {
     return axios.post(
       `${process.env.REACT_APP_API_URL}fishingClassRates`,
-      fishingClass
+      rate
     );
   },
-  getFishingClassRateById: (complaintId) => {
-    return axios.get(
-      `${process.env.REACT_APP_API_URL}fishingClassRates/${complaintId}`
-    );
-  },
-  createFishingClassRate: (complaintId) => {
-    return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingClassRates/${complaintId}`,
-      cottage
-    );
-  },
-  updateFishingClassRate: (complaintId) => {
+  updateFishingClassRate: (rate) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}fishingClassRates/${complaintId}`
+      `${process.env.REACT_APP_API_URL}fishingClassRates/${rate.id}`,
+      rate
     );
   },
-  deleteFishingClassRate: (complaintId) => {
+  deleteFishingClassRate: (rateId) => {
     return axios.delete(
-      `${process.env.REACT_APP_API_URL}fishingClassRates/${complaintId}`
+      `${process.env.REACT_APP_API_URL}fishingClassRates/${rateId}`
     );
   },
 
   ///////////////////////////// FishingClass REPORTS//////////////////////////////////////////////
 
   getAllFishingClassReports: () => {
-    return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingClassReports`,
-      fishingClass
-    );
+    return axios.get(`${process.env.REACT_APP_API_URL}fishingClassReports`);
   },
   getFishingClassReportById: (reportId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}fishingClassReports/${reportId}`
     );
   },
-  createFishingClassReport: (reportId) => {
+  createFishingClassReport: (fishingClassReport) => {
     return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingClassReports/${reportId}`,
-      cottage
+      `${process.env.REACT_APP_API_URL}fishingClassReports`,
+      fishingClassReport
     );
   },
-  updateFishingClassReport: (reportId) => {
+  updateFishingClassReport: (report) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}fishingClassReports/${reportId}`
+      `${process.env.REACT_APP_API_URL}fishingClassReports/${report.id}`,
+      report
     );
   },
   deleteFishingClassReport: (reportId) => {
@@ -343,31 +341,28 @@ const fishingClassServices = {
   ///////////////////////////// FishingClass Equipments//////////////////////////////////////////////
 
   getFishingEquipmentByFishingClassReservation: (fishingClassReservationId) => {
-    return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingEquipment?fishingClassReservationId=${fishingClassReservationId}`,
-      fishingClass
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingEquipment?fishingClassReservationId=${fishingClassReservationId}`
     );
   },
   getAllFishingEquipments: () => {
-    return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingEquipments`,
-      fishingClass
-    );
+    return axios.get(`${process.env.REACT_APP_API_URL}fishingEquipments`);
   },
   getFishingEquipmentById: (fishingEquipmentId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}fishingEquipments/${fishingEquipmentId}`
     );
   },
-  createFishingEquipment: (fishingEquipmentId) => {
+  createFishingEquipment: (fishingEquipment) => {
     return axios.post(
-      `${process.env.REACT_APP_API_URL}fishingEquipments/${fishingEquipmentId}`,
-      cottage
+      `${process.env.REACT_APP_API_URL}fishingEquipments`,
+      fishingEquipment
     );
   },
-  updateFishingEquipment: (fishingEquipmentId) => {
+  updateFishingEquipment: (fishingEquipment) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}fishingEquipments/${fishingEquipmentId}`
+      `${process.env.REACT_APP_API_URL}fishingEquipments/${fishingEquipment.id}`,
+      fishingEquipment
     );
   },
   deleteFishingEquipment: (fishingEquipmentId) => {
