@@ -60,6 +60,10 @@ public class FishingClass {
 	
 	@JsonIgnore
     @OneToMany(mappedBy="fishingClass",fetch=FetchType.LAZY)
+    private List<Image> images;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="fishingClass",fetch=FetchType.LAZY)
     private List<FishingClassBehavioralRule> behavioralRules ;
 	
 	@JsonIgnore

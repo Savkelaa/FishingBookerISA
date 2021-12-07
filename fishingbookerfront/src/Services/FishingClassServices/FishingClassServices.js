@@ -403,6 +403,13 @@ const fishingClassServices = {
       `${process.env.REACT_APP_API_URL}additionalServices/${additionalServiceId}`
     );
   },
+
+  ///////////////////////////// Images //////////////////////////////////////////////
+  getAllImagesByFishingClass: (fishingClassId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}images?fishingClassId=${fishingClassId}`
+    );
+  },
 };
 
 export default fishingClassServices;

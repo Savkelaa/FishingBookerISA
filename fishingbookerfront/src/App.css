@@ -251,3 +251,10 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+.cardContainer {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 5px;
+  width: "30rem";
+}

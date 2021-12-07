@@ -6,6 +6,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import FishingClassesContainer from "./Containers/FishingClassesContainer";
 import FishingClassContainer from "./Containers/FishingClassContainer";
 
 function App() {
@@ -13,8 +14,11 @@ function App() {
     <div className="container">
       <Router>
         <Switch>
-          <Route path="/fishing">
+          <Route path="/fishing/:id">
             <FishingClassContainer></FishingClassContainer>
+          </Route>
+          <Route path="/fishingClasses">
+            <FishingClassesContainer></FishingClassesContainer>
           </Route>
         </Switch>
       </Router>
