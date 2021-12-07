@@ -11,15 +11,20 @@ export default function Navbarr() {
       </NavbarBrand>
       <Navbar.Toggle className="coloring" />
       <Nav>
-        <NavDropdown title="Products">
-          <NavDropdown.Item href="#products/tea">Tea</NavDropdown.Item>
-          <NavDropdown.Item href="#products/coffee">Coffee</NavDropdown.Item>
-          <NavDropdown.Item href="#products/chocolate">
-            Chocolate
+        <NavDropdown title="Services">
+          <NavDropdown.Item href="#Services/Fishing Classes">
+            Fishing Classes
           </NavDropdown.Item>
+          <NavDropdown.Item href="#Services/Cottages">
+            Cottages
+          </NavDropdown.Item>
+          <NavDropdown.Item href="#Services/Boats">Boats</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#products/promo">Promo</NavDropdown.Item>
         </NavDropdown>
+        <Nav.Link href="#blog">Blog</Nav.Link>
+        <Nav.Link href="#blog">Blog</Nav.Link>
+        <Nav.Link href="#blog">Blog</Nav.Link>
         <Nav.Link href="#blog">Blog</Nav.Link>
         <Nav.Link href="#about-us">About Us</Nav.Link>
         <Nav.Link href="#contact-us">Contact Us</Nav.Link>

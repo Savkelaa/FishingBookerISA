@@ -51,6 +51,9 @@ public class FishingClass {
 	@Column(name = "cancellation_condition")
 	private String cancellationCondition;
 	
+	@Column(name = "max_people")
+	private int maxPeople;
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="instructor_id", nullable = false)
     private Instructor instructor;

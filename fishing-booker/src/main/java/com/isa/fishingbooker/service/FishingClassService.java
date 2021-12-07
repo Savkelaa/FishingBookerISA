@@ -65,6 +65,7 @@ public class FishingClassService {
 		fishingClass.setPrice(fishingClassDetails.getPrice());
 		fishingClass.setPromoDescription(fishingClassDetails.getPromoDescription());
 		fishingClass.setCancellationCondition(fishingClassDetails.getCancellationCondition());
+		fishingClass.setMaxPeople(fishingClassDetails.getMaxPeople());
 	
 		final FishingClass updatedFishingClass = fishingClassRepository.save(fishingClass);
 		return ResponseEntity.ok(updatedFishingClass);

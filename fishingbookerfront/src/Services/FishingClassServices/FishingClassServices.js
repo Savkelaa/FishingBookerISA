@@ -28,7 +28,7 @@ const fishingClassServices = {
   },
   getFishingClassById: (fishingClassId) => {
     return axios.get(
-      `${process.env.REACT_APP_API_URL}cottagesByOwner/${fishingClassId}`
+      `${process.env.REACT_APP_API_URL}fishingClass/${fishingClassId}`
     );
   },
   getShortBiographyByFishingClass: (fishingClassId) => {
@@ -368,6 +368,39 @@ const fishingClassServices = {
   deleteFishingEquipment: (fishingEquipmentId) => {
     return axios.delete(
       `${process.env.REACT_APP_API_URL}fishingEquipments/${fishingEquipmentId}`
+    );
+  },
+
+  ///////////////////////////// Additional services//////////////////////////////////////////////
+
+  getAdditionalServiceByFishingClass: (fishingClassId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}additionalService?fishingClassId=${fishingClassId}`
+    );
+  },
+  getAllAdditionalServices: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}additionalServices`);
+  },
+  getAdditionalServiceById: (additionalServiceId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}additionalServices/${additionalServiceId}`
+    );
+  },
+  createAdditionalService: (additionalService) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}additionalServices`,
+      additionalService
+    );
+  },
+  updateAdditionalService: (additionalService) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}additionalServices/${additionalService.id}`,
+      additionalService
+    );
+  },
+  deleteAdditionalService: (additionalServiceId) => {
+    return axios.delete(
+      `${process.env.REACT_APP_API_URL}additionalServices/${additionalServiceId}`
     );
   },
 };
