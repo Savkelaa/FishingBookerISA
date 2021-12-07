@@ -45,8 +45,6 @@ public class FishingClassReservation {
 	@Column(name = "finish_date")
 	private Date finishDate;
 	
-	@Column(name = "max_people")
-	private int maxPeople;
 	
 	@Column(name = "place")
 	private String place;

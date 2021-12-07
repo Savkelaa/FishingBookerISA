@@ -35,6 +35,7 @@ public class FishingClassReservationController {
 		return this.fishingClassReservationService.getAllFishingClassReservations();
 	}
 	
+	
 	@GetMapping("/fishingClassUnavailableReservation")
 	public List<FishingClassReservation> getUnavailableFishingClassReservationsByInstructor(@RequestParam (value="instructorId")  Integer instructorId)
 	{

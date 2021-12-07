@@ -2,7 +2,14 @@ import React from "react";
 import { ListGroup, Image } from "react-bootstrap";
 import "../../App.css";
 
-export default function FcForm() {
+export default function FcForm({
+  behavioralRule,
+  fishingClass,
+  additionalItems,
+}) {
+  console.log(`fishingClass`, fishingClass);
+  console.log(`behavioralRule`, behavioralRule);
+  console.log(`additionalServices`, additionalItems);
   return (
     <div className="container">
       <div className="row gutters">
@@ -20,7 +27,7 @@ export default function FcForm() {
                       type="text"
                       className="form-control"
                       id="fullName"
-                      placeholder="Enter name"
+                      value={fishingClass.name}
                     />
                   </div>
                 </div>
@@ -31,18 +38,18 @@ export default function FcForm() {
                       type="email"
                       className="form-control"
                       id="eMail"
-                      placeholder="Enter address"
+                      value={fishingClass.address}
                     />
                   </div>
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
-                    <h6 for="phone">Description</h6>
+                    <h6 for="phone">Promotion description</h6>
                     <input
                       type="text"
                       className="form-control"
                       id="phone"
-                      placeholder="Enter description"
+                      value={fishingClass.promoDescription}
                     />
                   </div>
                 </div>
@@ -53,7 +60,7 @@ export default function FcForm() {
                       type="url"
                       className="form-control"
                       id="website"
-                      placeholder="Enter max number of people"
+                      value={fishingClass.maxPeople}
                     />
                   </div>
                 </div>
@@ -66,51 +73,52 @@ export default function FcForm() {
                       type="name"
                       className="form-control"
                       id="Street"
-                      placeholder="Enter instructor biography"
+                      value={fishingClass.instructor?.shortBiography}
                     />
-                  </div>
-                </div>
-                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div className="form-group">
-                    <h6 for="Street">Instructor biography</h6>
-                    <input
-                      type="name"
-                      className="form-control"
-                      id="Street"
-                      placeholder="Enter Street"
-                    />
-                  </div>
-                </div>
-                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div className="form-group">
-                    <h6 for="ciTy">Behavioral Rule</h6>
-                    <ListGroup>
-                      <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                      <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                      <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                      <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                    </ListGroup>
-                  </div>
-                </div>
-                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div className="form-group">
-                    <h6 for="sTate">Aditional items infomrations</h6>
-                    <ListGroup>
-                      <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                      <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                      <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                      <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                    </ListGroup>
                   </div>
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
                     <h6 for="zIp">Cancelation conditions</h6>
                     <ListGroup>
-                      <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                      <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                      <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                      <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                      <ListGroup.Item>
+                        {fishingClass.cancellationCondition} % of the total
+                        price you have to pay to cancel the reservation
+                      </ListGroup.Item>
+                    </ListGroup>
+                  </div>
+                </div>
+                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div className="form-group">
+                    <h6 for="ciTy">Behavioral Rule</h6>
+                    <ListGroup>
+                      {behavioralRule.map((rule) => (
+                        <ListGroup.Item>{rule.name}</ListGroup.Item>
+                      ))}
+                    </ListGroup>
+                  </div>
+                </div>
+                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div className="form-group">
+                    <h6 for="sTate">Aditional Items</h6>
+                    <ListGroup>
+                      {additionalItems.map((additionalItem) => (
+                        <ListGroup.Item>
+                          {additionalItem.name} : {additionalItem.price} euro
+                        </ListGroup.Item>
+                      ))}
+                    </ListGroup>
+                  </div>
+                </div>
+                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div className="form-group">
+                    <h6 for="sTate">Aditional Items</h6>
+                    <ListGroup>
+                      {additionalItems.map((additionalItem) => (
+                        <ListGroup.Item>
+                          {additionalItem.name} : {additionalItem.price} euro
+                        </ListGroup.Item>
+                      ))}
                     </ListGroup>
                   </div>
                 </div>

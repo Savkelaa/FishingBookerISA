@@ -1,16 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router";
-import cottageServices from "../Services/CottageServices/CottageServices";
 import fishingClassServices from "../Services/FishingClassServices/FishingClassServices";
-import { Nav, Navbar, NavbarBrand, NavDropdown, Table } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
 import background from "../Assets/img/background.jpg";
 import "../App.css";
-import Profile from "../Components/Common/Profile";
 import Navbarr from "../Components/Common/Navbarr";
 import Footerr from "../Components/Common/Footerr";
+import FcForm from "../Components/Common/FcForm";
 
-export default function FishingClassContainer() {
+function FishingClassContainer() {
+  const history = useHistory();
+  const filterParams = new URLSearchParams(useLocation().search);
+
+  const [fishingClass, setFishingClass] = useState({});
+  const [behavioralRule, setbehavioralRule] = useState([]);
+  const [additionalItems, setAdditionalItems] = useState([]);
+
+  useEffect(() => {
+    fishingClassServices
+      .getFishingClassById(1)
+      .then((data) => {
+        setFishingClass(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+
+    fishingClassServices
+      .getBehavioralRuleByFishingClass(1)
+      .then((data) => {
+        setbehavioralRule(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+
+    fishingClassServices
+      .getAdditionalServiceByFishingClass(2)
+      .then((data) => {
+        setAdditionalItems(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+  }, []);
+
   return (
     <div
       style={{
@@ -22,8 +49,14 @@ export default function FishingClassContainer() {
     >
       <Navbarr></Navbarr>
 
-      <Profile></Profile>
+      <FcForm
+        fishingClass={fishingClass}
+        behavioralRule={behavioralRule}
+        additionalItems={additionalItems}
+      ></FcForm>
       <Footerr></Footerr>
     </div>
   );
 }
+
+export default FishingClassContainer;
