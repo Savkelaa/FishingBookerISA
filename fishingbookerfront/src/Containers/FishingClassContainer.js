@@ -6,32 +6,31 @@ import "../App.css";
 import Navbarr from "../Components/Common/Navbarr";
 import Footerr from "../Components/Common/Footerr";
 import FcForm from "../Components/Common/FcForm";
+import { useParams } from "react-router";
 
 function FishingClassContainer() {
-  const history = useHistory();
-  const filterParams = new URLSearchParams(useLocation().search);
-
+  let { id } = useParams();
   const [fishingClass, setFishingClass] = useState({});
   const [behavioralRule, setbehavioralRule] = useState([]);
   const [additionalItems, setAdditionalItems] = useState([]);
 
   useEffect(() => {
     fishingClassServices
-      .getFishingClassById(1)
+      .getFishingClassById(id)
       .then((data) => {
         setFishingClass(data.data);
       })
       .catch((error) => console.log(`error`, error));
 
     fishingClassServices
-      .getBehavioralRuleByFishingClass(1)
+      .getBehavioralRuleByFishingClass(id)
       .then((data) => {
         setbehavioralRule(data.data);
       })
       .catch((error) => console.log(`error`, error));
 
     fishingClassServices
-      .getAdditionalServiceByFishingClass(2)
+      .getAdditionalServiceByFishingClass(id)
       .then((data) => {
         setAdditionalItems(data.data);
       })
