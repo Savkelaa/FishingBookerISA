@@ -59,8 +59,9 @@ public class FishingClassReservationService {
 		
 		fishingClassReservation.setStartDate(fishingClassReservationDetails.getStartDate());
 		fishingClassReservation.setFinishDate(fishingClassReservationDetails.getFinishDate());
-		
+		fishingClassReservation.setPrice(fishingClassReservationDetails.getPrice());
 		fishingClassReservation.setStatus(fishingClassReservationDetails.getStatus());
+		fishingClassReservation.setPlace(fishingClassReservationDetails.getPlace());
 		
 		final FishingClassReservation updatedFishingClassReservation = FishingClassReservationRepository.save(fishingClassReservation);
 		return ResponseEntity.ok(updatedFishingClassReservation);

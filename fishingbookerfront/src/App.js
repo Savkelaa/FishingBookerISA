@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import FishingClassesContainer from "./Containers/FishingClassesContainer";
 import FishingClassContainer from "./Containers/FishingClassContainer";
+import CreateFishingClassReservationContainer from "./Containers/CreateFishingClassReservationContainer";
+import InstructorHomePageContainer from "./Containers/InstructorHomePageContainer";
 
 function App() {
   return (
@@ -19,6 +21,12 @@ function App() {
           </Route>
           <Route path="/fishingClasses">
             <FishingClassesContainer></FishingClassesContainer>
+          </Route>
+          <Route path="/createQuickReservation">
+            <CreateFishingClassReservationContainer></CreateFishingClassReservationContainer>
+          </Route>
+          <Route path="/instructorHomePage">
+            <InstructorHomePageContainer></InstructorHomePageContainer>
           </Route>
         </Switch>
       </Router>

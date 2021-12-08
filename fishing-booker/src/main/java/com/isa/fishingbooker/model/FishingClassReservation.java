@@ -45,6 +45,8 @@ public class FishingClassReservation {
 	@Column(name = "finish_date")
 	private Date finishDate;
 	
+	@Column(name = "price")
+	private int price;
 	
 	@Column(name = "place")
 	private String place;
