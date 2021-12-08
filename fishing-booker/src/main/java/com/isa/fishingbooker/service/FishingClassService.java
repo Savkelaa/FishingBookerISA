@@ -62,7 +62,6 @@ public class FishingClassService {
 				
 		fishingClass.setName(fishingClassDetails.getName());
 		fishingClass.setAddress(fishingClassDetails.getAddress());
-		fishingClass.setPrice(fishingClassDetails.getPrice());
 		fishingClass.setPromoDescription(fishingClassDetails.getPromoDescription());
 		fishingClass.setCancellationCondition(fishingClassDetails.getCancellationCondition());
 		fishingClass.setMaxPeople(fishingClassDetails.getMaxPeople());

@@ -45,8 +45,7 @@ public class FishingClass {
 	@Column(name = "promo_description")
 	private String promoDescription;
 	
-	@Column(name = "price")
-	private int price;
+	
 	
 	@Column(name = "cancellation_condition")
 	private String cancellationCondition;

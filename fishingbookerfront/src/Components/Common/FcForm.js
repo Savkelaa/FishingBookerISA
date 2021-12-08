@@ -1,6 +1,8 @@
 import React from "react";
 import { ListGroup, Image } from "react-bootstrap";
+
 import "../../App.css";
+import { BrowserRouter as Link } from "react-router-dom";
 
 export default function FcForm({
   behavioralRule,
@@ -126,6 +128,17 @@ export default function FcForm({
               <div className="row gutters">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <div className="text-right">
+                    <Link to="/dashboard">
+                      <button
+                        type="button"
+                        id="submit"
+                        name="submit"
+                        className="btn btn-success"
+                      >
+                        Reserve
+                      </button>
+                    </Link>
+
                     <button
                       type="button"
                       id="submit"

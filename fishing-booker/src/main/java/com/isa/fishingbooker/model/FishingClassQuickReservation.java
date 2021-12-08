@@ -42,6 +42,9 @@ public class FishingClassQuickReservation {
 	@Column(name = "start_date")
 	private Date startDate;
 	
+	@Column(name = "price")
+	private int price;
+	
 	@Column(name = "finish_date")
 	private Date finishDate;
 	
