@@ -7,6 +7,7 @@ import {
   Button,
 } from "react-bootstrap";
 import "../../App.css";
+import { Link } from "react-router-dom";
 
 export default function FishingClassCard({ fishingClasses }) {
   console.log(`fishingClasses`, fishingClasses);
@@ -48,9 +49,14 @@ export default function FishingClassCard({ fishingClasses }) {
                       >
                         Book
                       </Button>
-                      <Button style={{ width: "8rem" }} variant="outline-info">
-                        More details
-                      </Button>
+                      <Link to={`/fishing/${fishingClass.id}`}>
+                        <Button
+                          style={{ width: "8rem" }}
+                          variant="outline-info"
+                        >
+                          More details
+                        </Button>
+                      </Link>
                     </Card.Body>
                   </Card>
                 </div>
