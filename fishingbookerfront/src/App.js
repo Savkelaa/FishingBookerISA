@@ -11,6 +11,7 @@ import FishingClassContainer from "./Containers/FishingClassContainer";
 import CreateFishingClassReservationContainer from "./Containers/CreateFishingClassReservationContainer";
 import InstructorHomePageContainer from "./Containers/InstructorHomePageContainer";
 import LoginContainer from "./Containers/LoginContainer";
+import UserRegistrationContainer from "./Containers/UserRegistrationContainer";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/createQuickReservation">
             <CreateFishingClassReservationContainer></CreateFishingClassReservationContainer>
+          </Route>
+          <Route path="/userRegistration">
+            <UserRegistrationContainer></UserRegistrationContainer>
           </Route>
           <Route path="/instructorHomePage">
             <InstructorHomePageContainer></InstructorHomePageContainer>
