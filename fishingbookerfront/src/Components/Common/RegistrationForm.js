@@ -1,7 +1,6 @@
 import React from "react";
-import { BrowserRouter as Link } from "react-router-dom";
 
-export default function QuickReservationForm() {
+export default function RegistrationForm() {
   return (
     <div className="container">
       <div className="row gutters">
@@ -10,49 +9,33 @@ export default function QuickReservationForm() {
             <div className="card-body">
               <div className="row gutters">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                  <h5 className="mb-2 text-primary">Registration</h5>
+                  <h5 className="mb-2 text-primary">
+                    Create Quick Reservation
+                  </h5>
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <h6 for="fullName">Email address</h6>
+                  <h6 for="fullName">Start date</h6>
                   <input type="text" className="form-control" id="start" />
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <h6 for="eMail">Password </h6>
-                  <input type="password" className="form-control" id="last" />
+                  <h6 for="eMail">The last day </h6>
+                  <input type="email" className="form-control" id="last" />
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <h6 for="phone">Name</h6>
+                  <h6 for="phone">Maximum number of people</h6>
                   <input type="text" className="form-control" id="maxPeople" />
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <h6 for="website">Surname</h6>
-                  <input type="text" className="form-control" id="place" />
+                  <h6 for="website">Place</h6>
+                  <input type="url" className="form-control" id="place" />
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <h6 for="website">Address</h6>
-                  <input type="text" className="form-control" id="price" />
+                  <h6 for="website">Price</h6>
+                  <input type="url" className="form-control" id="price" />
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <h6 for="website">City</h6>
-                  <input type="text" className="form-control" id="place" />
-                </div>
-                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <h6 for="website">Country</h6>
-                  <input type="text" className="form-control" id="place" />
-                </div>
-                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <h6 for="website">Description of Registration</h6>
-                  <input type="text" className="form-control" id="place" />
-                </div>
-                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <h6 for="website">Type</h6>
-                  <select id="cars" name="cars">
-                    <option value="grapefruit">Cottage Owner</option>
-                    <option value="lime">Instrictor</option>
-                    <option selected value="coconut">
-                      Boat owner
-                    </option>
-                  </select>
+                  <h6 for="website">Additional items</h6>
+                  <input type="url" className="form-control" id="place" />
                 </div>
               </div>
               <div className="row gutters">

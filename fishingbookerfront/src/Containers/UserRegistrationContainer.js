@@ -1,14 +1,16 @@
 import React from "react";
 import Navbarr from "../Components/Common/Navbarr";
 import Footerr from "../Components/Common/Footerr";
-import QuickReservationForm from "../Components/Common/QuickReservationForm";
+import ReservationForm from "../Components/Common/QuickReservationForm";
 
-export default function CreateFishingClassReservationContainer() {
+function UserRegistrationContainer() {
   return (
     <div>
       <Navbarr></Navbarr>
-      <QuickReservationForm></QuickReservationForm>
+      <ReservationForm></ReservationForm>
       <Footerr></Footerr>
     </div>
   );
 }
+
+export default UserRegistrationContainer;
