@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,9 @@ public class AdminService {
 	@Autowired
 	private AdminRepository AdminRepository;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	
 	public List<Admin> getAllAdmins(){
 		return this.AdminRepository.findAll();
@@ -38,6 +42,7 @@ public class AdminService {
 	
 	
 	public Admin createAdmin(Admin admin) {
+		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
 		return AdminRepository.save(admin);
 	}
 	

@@ -1,5 +1,6 @@
 package com.isa.fishingbooker.model;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -27,7 +30,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class CottageOwner {
+public class CottageOwner implements UserDetails {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -77,4 +80,40 @@ public class CottageOwner {
 	@JsonIgnore
     @OneToMany(mappedBy="cottageOwner",fetch=FetchType.LAZY)
     private List<Cottage> cottages ;
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }

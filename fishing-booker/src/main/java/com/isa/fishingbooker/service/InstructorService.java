@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,9 @@ public class InstructorService {
 	@Autowired
 	private InstructorRepository InstructorRepository;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	public List<Instructor> getAllInstructors(){
 		return this.InstructorRepository.findAll();
 	}
@@ -39,6 +43,7 @@ public class InstructorService {
 	
 
 	public Instructor createInstructor(Instructor instructor) {
+		instructor.setPassword(passwordEncoder.encode(instructor.getPassword()));
 		return InstructorRepository.save(instructor);
 	}
 	

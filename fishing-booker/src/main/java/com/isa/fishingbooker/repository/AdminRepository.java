@@ -12,4 +12,9 @@ public interface AdminRepository extends JpaRepository<Admin, Integer> {
 
 	@Query(value="select * from admin where email=:email and password=:password",nativeQuery=true)
 	Admin getAdminByEmailAndPassword(String email, String password);
+	
+	@Query(value="select * from admin where email= :email", nativeQuery=true)
+	Admin getAdminByEmail(String email);
+
+	
 }
