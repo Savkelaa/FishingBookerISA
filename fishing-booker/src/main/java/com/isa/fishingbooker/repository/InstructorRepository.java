@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.isa.fishingbooker.model.Client;
+import com.isa.fishingbooker.model.CottageOwner;
 import com.isa.fishingbooker.model.Instructor;
 
 @Repository
@@ -35,5 +36,8 @@ public interface InstructorRepository extends JpaRepository<Instructor, Integer>
 	
 	@Query(value="select * from Instructor order by price desc",nativeQuery=true)
 	List<Instructor> getAllInstructorsSortedByPriceDesc();
+	
+	@Query(value="select * from instructor where email= :email", nativeQuery=true)
+	Instructor getInstructorByEmail(String email);
 
 }

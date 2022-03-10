@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,9 @@ public class CottageOwnerService {
 
 	@Autowired
 	private CottageOwnerRepository CottageOwnerRepository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	public List<CottageOwner> getAllCottageOwners(){
 		return this.CottageOwnerRepository.findAll();
@@ -42,6 +46,7 @@ public class CottageOwnerService {
 	
 
 	public CottageOwner createCottageOwner(CottageOwner cottageOwner) {
+		cottageOwner.setPassword(passwordEncoder.encode(cottageOwner.getPassword()));
 		return CottageOwnerRepository.save(cottageOwner);
 	}
 	

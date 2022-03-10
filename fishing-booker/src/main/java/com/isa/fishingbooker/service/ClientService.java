@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,8 @@ public class ClientService {
 	@Autowired
 	private ClientRepository clientRepository;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	public List<Client> getAllClients(){
 		return this.clientRepository.findAll();
@@ -50,6 +53,7 @@ public class ClientService {
 	}
 	
 	public Client createClient(Client client) {
+		client.setPassword(passwordEncoder.encode(client.getPassword()));
 		return clientRepository.save(client);
 	}
 	

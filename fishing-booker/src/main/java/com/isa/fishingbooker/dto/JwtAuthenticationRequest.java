@@ -3,6 +3,7 @@ package com.isa.fishingbooker.dto;
 // DTO za login
 public class JwtAuthenticationRequest {
 	
+	private String email;
     private String username;
     private String password;
 
@@ -10,8 +11,8 @@ public class JwtAuthenticationRequest {
         super();
     }
 
-    public JwtAuthenticationRequest(String username, String password) {
-        this.setUsername(username);
+    public JwtAuthenticationRequest(String email, String password) {
+        this.setEmail(email);
         this.setPassword(password);
     }
 
@@ -19,6 +20,12 @@ public class JwtAuthenticationRequest {
         return this.username;
     }
 
+    public String getEmail() {
+    	return this.email;
+    }
+    public void setEmail(String email) {
+    	this.email=email;
+    }
     public void setUsername(String username) {
         this.username = username;
     }

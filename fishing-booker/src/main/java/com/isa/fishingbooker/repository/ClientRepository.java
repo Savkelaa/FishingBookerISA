@@ -39,7 +39,11 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 			+ "WHERE status != 'free' AND instructor_id = :instructorId", nativeQuery = true)
 	List<Client> getClientsByInstructorFishingClassQuickReservations(Integer instructorId);
 	
+	@Query(value="select * from client where email= :email ", nativeQuery=true)
+	Client findByEmail(String email);
 	
+	@Query(value="SELECT * FROM CLIENT WHERE USERNAME = :email AND PASSWORD= :password", nativeQuery=true)
+	Client findByEmailAndPassword(String email, String password);
 	
 	
 	
