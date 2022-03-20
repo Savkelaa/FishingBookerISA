@@ -3,6 +3,8 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,12 +22,17 @@ import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatOwner;
 import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.service.BoatOwnerService;
+import com.isa.fishingbooker.service.EmailService;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
 public class BoatOwnerController {
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
 
+	@Autowired
+	private EmailService emailService;
+	
 	@Autowired
 	private BoatOwnerService boatOwnerService;
 
@@ -48,6 +55,13 @@ public class BoatOwnerController {
 
 	@PostMapping("/boatOwners")
 	public BoatOwner createBoatOwner(@RequestBody BoatOwner boatOwner) {
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsync(boatOwner);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+		
 		return boatOwnerService.createBoatOwner(boatOwner);
 	}
 

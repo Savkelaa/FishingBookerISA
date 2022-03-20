@@ -3,6 +3,8 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.Instructor;
+import com.isa.fishingbooker.service.EmailService;
 import com.isa.fishingbooker.service.InstructorService;
 
 @CrossOrigin
@@ -29,7 +32,10 @@ public class InstructorController {
 	@Autowired
 	private InstructorService instructorService;
 
-	
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private EmailService emailService;
 	
 	
 	@GetMapping("/instructors")
@@ -52,6 +58,14 @@ public class InstructorController {
 
 	@PostMapping("/instructors")
 	public Instructor createInstructor(@RequestBody Instructor instructor) {
+		//slanje emaila
+				try {
+					System.out.println("Thread id: " + Thread.currentThread().getId());
+					emailService.sendNotificaitionAsync(instructor);
+				}catch( Exception e ){
+					logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+				}
+		
 		return instructorService.createInstructor(instructor);
 	}
 
