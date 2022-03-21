@@ -38,14 +38,7 @@ function FishingClassContainer() {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div>
       <Navbarr></Navbarr>
 
       <FcForm

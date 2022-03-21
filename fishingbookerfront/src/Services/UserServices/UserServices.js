@@ -22,6 +22,15 @@ const userServices = {
   createBoatOwner: (boatOwner) => {
     return axios.post(`${process.env.REACT_APP_API_URL}boatOwners`, boatOwner);
   },
+  getAllInstructorRequests: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}instructorRequests`);
+  },
+  getAllCottageOwnerRequests: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}cottageOwnerRequests`);
+  },
+  getAllBoatOwnerRequests: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}boatOwnerRequests`);
+  },
 };
 
 export default userServices;

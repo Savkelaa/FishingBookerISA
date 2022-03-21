@@ -12,6 +12,8 @@ import CreateFishingClassReservationContainer from "./Containers/CreateFishingCl
 import InstructorHomePageContainer from "./Containers/InstructorHomePageContainer";
 import LoginContainer from "./Containers/LoginContainer";
 import UserRegistrationContainer from "./Containers/UserRegistrationContainer";
+import AdminHomePageContainer from "./Containers/AdminHomePageContainer";
+import RequestsContainer from "./Containers/RequestsContainer";
 
 function App() {
   return (
@@ -35,6 +37,12 @@ function App() {
           </Route>
           <Route path="/instructorHomePage">
             <InstructorHomePageContainer></InstructorHomePageContainer>
+          </Route>
+          <Route path="/adminHomePage">
+            <AdminHomePageContainer></AdminHomePageContainer>
+          </Route>
+          <Route path="/requests">
+            <RequestsContainer></RequestsContainer>
           </Route>
         </Switch>
       </Router>
