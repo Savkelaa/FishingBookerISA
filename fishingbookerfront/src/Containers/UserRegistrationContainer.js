@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import Navbarr from "../Components/Common/Navbarr";
 import Footerr from "../Components/Common/Footerr";
-import ReservationForm from "../Components/Common/QuickReservationForm";
+
 import UserServices from "../Services/UserServices/UserServices";
 import userServices from "../Services/UserServices/UserServices";
+import RegistrationForm from "../Components/Common/RegistrationForm";
 
 function UserRegistrationContainer() {
   const [user, setUser] = useState([]);
@@ -94,12 +95,12 @@ function UserRegistrationContainer() {
   return (
     <div>
       <Navbarr></Navbarr>
-      <ReservationForm
+      <RegistrationForm
         addClientHandler={addClient}
         addCottageOwnerHandler={addCottageOwner}
         addInstructorHandler={addInstructor}
         addBoatOwnerHandler={addBoatOwner}
-      ></ReservationForm>
+      ></RegistrationForm>
       <Footerr></Footerr>
     </div>
   );

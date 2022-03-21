@@ -4,23 +4,16 @@ import { Image } from "react-bootstrap";
 
 export default function ProfilePicture() {
   return (
-    <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-      <div className="card h-100">
-        <div className="card-body">
-          <div className="account-settings">
-            <div className="user-profile">
-              <div className="user-avatar"></div>
-              <h5 className="user-name">Name</h5>
-              <div class="user-avatar">
-                <Image src={pic} rounded />
-              </div>
-            </div>
-            <div className="about">
-              <h5>About</h5>
-              <p>Description</p>
-            </div>
-          </div>
-        </div>
+    <div className="col-md-3 border-right">
+      <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+        <img
+          className="rounded-circle mt-5"
+          width="150px"
+          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+        />
+        <span className="font-weight-bold">Edogaru</span>
+        <span className="text-black-50">edogaru@mail.com.my</span>
+        <span> </span>
       </div>
     </div>
   );
