@@ -19,14 +19,7 @@ function FishingClassesContainer() {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div>
       <Navbarr></Navbarr>
       <FishingClassCard fishingClasses={fishingClasses}></FishingClassCard>
       <Footerr></Footerr>

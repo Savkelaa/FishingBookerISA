@@ -50,7 +50,25 @@ public class CottageOwnerService {
 		return CottageOwnerRepository.save(cottageOwner);
 	}
 	
+	public ResponseEntity<CottageOwner> activateCottageOwner(Integer cottageOwnerId) throws ResourceNotFoundException {
+		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
+				.orElseThrow(() -> new ResourceNotFoundException("Cottage ownre not found for this id :: " + cottageOwnerId));
+		
+		cottageOwner.setActivated("true");
+		
+		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
+		return ResponseEntity.ok(updatedCottageOwner);
+	}
 	
+	public ResponseEntity<CottageOwner> removeCottageOwner(Integer cottageOwnerId) throws ResourceNotFoundException {
+		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
+				.orElseThrow(() -> new ResourceNotFoundException("Cottage owner not found for this id :: " + cottageOwnerId));
+		
+		cottageOwner.setDeleted("true");
+		
+		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
+		return ResponseEntity.ok(updatedCottageOwner);
+	}
 	
 	public ResponseEntity<CottageOwner> updateCottageOwner(Integer cottageOwnerId,
 			 @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {

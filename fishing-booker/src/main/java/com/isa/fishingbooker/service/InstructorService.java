@@ -68,6 +68,27 @@ public class InstructorService {
 		return ResponseEntity.ok(updatedInstructor);
 	}
 	
+	public ResponseEntity<Instructor> activateInstructor(Integer instructorId) throws ResourceNotFoundException {
+		Instructor instructor = InstructorRepository.findById(instructorId)
+				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + instructorId));
+		
+		instructor.setActivated("true");
+		
+		final Instructor updatedInstructor = InstructorRepository.save(instructor);
+		return ResponseEntity.ok(updatedInstructor);
+	}
+	
+	public ResponseEntity<Instructor> removeInstructor(Integer instructorId) throws ResourceNotFoundException {
+		Instructor instructor = InstructorRepository.findById(instructorId)
+				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + instructorId));
+		
+		instructor.setDeleted("true");
+		
+		final Instructor updatedInstructor = InstructorRepository.save(instructor);
+		return ResponseEntity.ok(updatedInstructor);
+	}
+	
+	
 
 	public Map<String, Boolean> deleteInstructor(int instructorId)
 			throws ResourceNotFoundException {
