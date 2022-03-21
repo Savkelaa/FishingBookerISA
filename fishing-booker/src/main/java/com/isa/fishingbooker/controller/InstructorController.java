@@ -74,6 +74,17 @@ public class InstructorController {
 			@RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
 		return instructorService.updateInstructor(instructorId, instructorDetails);
 	}
+	
+	@PutMapping("/activateInstructor/{id}")
+	public ResponseEntity<Instructor> activateInstructor(@PathVariable(value = "id") int instructorId) throws ResourceNotFoundException {
+		return instructorService.activateInstructor(instructorId);
+	}
+	
+	@PutMapping("/removeInstructor/{id}")
+	public ResponseEntity<Instructor> removeInstructor(@PathVariable(value = "id") int instructorId) throws ResourceNotFoundException {
+		return instructorService.removeInstructor(instructorId);
+	}
+	
 
 	@DeleteMapping("/instructors/{id}")
 	public Map<String, Boolean> deleteInstructor(@PathVariable(value = "id") int instructorId)

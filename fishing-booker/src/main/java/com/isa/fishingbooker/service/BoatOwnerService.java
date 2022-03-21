@@ -70,6 +70,26 @@ public class BoatOwnerService {
 		return ResponseEntity.ok(updatedBoatOwner);
 	}
 	
+	public ResponseEntity<BoatOwner> activateBoatOwner(Integer boatOwnerId) throws ResourceNotFoundException {
+		BoatOwner boatOwner = BoatOwnerRepository.findById(boatOwnerId)
+				.orElseThrow(() -> new ResourceNotFoundException("BoatOwner not found for this id :: " + boatOwnerId));
+		
+		boatOwner.setActivated("true");
+
+		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
+		return ResponseEntity.ok(updatedBoatOwner);
+	}
+	
+	public ResponseEntity<BoatOwner> removeBoatOwner(Integer boatOwnerId) throws ResourceNotFoundException {
+		BoatOwner boatOwner = BoatOwnerRepository.findById(boatOwnerId)
+				.orElseThrow(() -> new ResourceNotFoundException("BoatOwner not found for this id :: " + boatOwnerId));
+		
+		boatOwner.setDeleted("true");
+
+		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
+		return ResponseEntity.ok(updatedBoatOwner);
+	}
+	
 
 	public Map<String, Boolean> deleteBoatOwner(int boatOwnerId)
 			throws ResourceNotFoundException {

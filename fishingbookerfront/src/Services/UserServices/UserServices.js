@@ -31,6 +31,37 @@ const userServices = {
   getAllBoatOwnerRequests: () => {
     return axios.get(`${process.env.REACT_APP_API_URL}boatOwnerRequests`);
   },
+
+  activateCottageOwner: (cottageOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}activateCottageOwner/${cottageOwner.id}`
+    );
+  },
+  removeCottageOwner: (cottageOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}removeCottageOwner/${cottageOwner.id}`
+    );
+  },
+  activateBoatOwner: (boatOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}activateBoatOwner/${boatOwner.id}`
+    );
+  },
+  removeBoatOwner: (boatOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}removeBoatOwner/${boatOwner.id}`
+    );
+  },
+  activateInstructor: (instructor) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}activateInstructor/${instructor.id}`
+    );
+  },
+  removeInstructor: (instructor) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}removeInstructor/${instructor.id}`
+    );
+  },
 };
 
 export default userServices;

@@ -35,6 +35,7 @@ export default function RegistrationForm({
         explanation: explanation.current.value,
         number: number.current.value,
         activated: "false",
+        deleted: "false",
       });
     } else if (role.current.value == "boatOwner") {
       addBoatOwnerHandler({
@@ -48,6 +49,7 @@ export default function RegistrationForm({
         explanation: explanation.current.value,
         number: number.current.value,
         activated: "false",
+        deleted: "false",
       });
     } else if (role.current.value == "instructor") {
       addInstructorHandler({
@@ -61,6 +63,7 @@ export default function RegistrationForm({
         explanation: explanation.current.value,
         number: number.current.value,
         activated: "false",
+        deleted: "false",
       });
     } else if (role.current.value == "cottageOwner") {
       addCottageOwnerHandler({
@@ -74,6 +77,7 @@ export default function RegistrationForm({
         explanation: explanation.current.value,
         number: number.current.value,
         activated: "false",
+        deleted: "false",
       });
     }
   }

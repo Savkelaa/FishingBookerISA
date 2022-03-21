@@ -5,9 +5,11 @@ import Request from "../Components/Common/Request";
 import userServices from "../Services/UserServices/UserServices";
 
 export default function RequestsContainer() {
-  const [instructorRequests, setInstructorRequests] = useState({});
+  const [instructorRequests, setInstructorRequests] = useState([]);
   const [boatOwnerRequests, setBoatOwnerRequests] = useState([]);
-  const [cottageOwnerRequest, setCottageOwnerRequest] = useState([]);
+  const [cottageOwnerRequests, setCottageOwnerRequests] = useState([]);
+
+  const [cottageOwner, setCottageOwner] = useState({});
 
   useEffect(() => {
     userServices
@@ -25,12 +27,132 @@ export default function RequestsContainer() {
       .catch((error) => console.log(`error`, error));
 
     userServices
-      .getAllBoatOwnerRequests()
+      .getAllCottageOwnerRequests()
       .then((data) => {
-        setCottageOwnerRequest(data.data);
+        setCottageOwnerRequests(data.data);
       })
       .catch((error) => console.log(`error`, error));
   }, []);
+
+  function activateCottageOwner(cottageOwner) {
+    userServices
+      .activateCottageOwner(cottageOwner)
+      .then((data) => {
+        if (data.status === 204) setCottageOwnerRequests([]);
+        else {
+          userServices
+            .getAllCottageOwnerRequests()
+            .then((data) => {
+              setCottageOwnerRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a CottageOwner requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function removeCottageOwner(cottageOwner) {
+    userServices
+      .removeCottageOwner(cottageOwner)
+      .then((data) => {
+        if (data.status === 204) setCottageOwnerRequests([]);
+        else {
+          userServices
+            .getAllCottageOwnerRequests()
+            .then((data) => {
+              setCottageOwnerRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a CottageOwner requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function activateBoatOwner(boatOwner) {
+    userServices
+      .activateBoatOwner(boatOwner)
+      .then((data) => {
+        if (data.status === 204) setBoatOwnerRequests([]);
+        else {
+          userServices
+            .getAllBoatOwnerRequests()
+            .then((data) => {
+              setBoatOwnerRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a BoatOwner requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function removeBoatOwner(boatOwner) {
+    userServices
+      .removeBoatOwner(boatOwner)
+      .then((data) => {
+        if (data.status === 204) setBoatOwnerRequests([]);
+        else {
+          userServices
+            .getAllBoatOwnerRequests()
+            .then((data) => {
+              setBoatOwnerRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a BoatOwner requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function activateInstructor(instructor) {
+    userServices
+      .activateInstructor(instructor)
+      .then((data) => {
+        if (data.status === 204) setInstructorRequests([]);
+        else {
+          userServices
+            .getAllInstructorRequests()
+            .then((data) => {
+              setInstructorRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a instructor requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function removeInstructor(instructor) {
+    userServices
+      .removeInstructor(instructor)
+      .then((data) => {
+        if (data.status === 204) setInstructorRequests([]);
+        else {
+          userServices
+            .getAllInstructorRequests()
+            .then((data) => {
+              setInstructorRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a instructor requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
 
   return (
     <div>
@@ -38,7 +160,13 @@ export default function RequestsContainer() {
       <Request
         instructorRequests={instructorRequests}
         boatOwnerRequests={boatOwnerRequests}
-        cottageOwnerRequest={cottageOwnerRequest}
+        cottageOwnerRequests={cottageOwnerRequests}
+        activateCottageOwnerHandler={activateCottageOwner}
+        activateBoatOwnerHandler={activateBoatOwner}
+        activateInstructorHandler={activateInstructor}
+        removeCottageOwnerHandler={removeCottageOwner}
+        removeBoatOwnerHandler={removeBoatOwner}
+        removeInstructorHandler={removeInstructor}
       ></Request>
       <Footerr></Footerr>
     </div>
