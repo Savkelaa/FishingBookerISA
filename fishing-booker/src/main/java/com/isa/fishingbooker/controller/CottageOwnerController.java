@@ -60,6 +60,13 @@ public class CottageOwnerController {
 	}
 	
 	
+	
+	@PutMapping("/setCottageOwnerReason/{id}")
+	public ResponseEntity<CottageOwner> setCottageOwnerReason(@PathVariable(value = "id") int cottageOwnerId,
+			@RequestBody String cottageOwnerDetails) throws ResourceNotFoundException {
+		return cottageOwnerService.setCottageOwnerReason(cottageOwnerId, cottageOwnerDetails);
+	}
+
 
 	@GetMapping("/cottageOwners/{id}")
 	public ResponseEntity<CottageOwner> getCottageOwnerById(@PathVariable(value = "id") int cottageOwnerId)

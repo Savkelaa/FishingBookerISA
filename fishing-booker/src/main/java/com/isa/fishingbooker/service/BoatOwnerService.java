@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatOwner;
 import com.isa.fishingbooker.model.Client;
@@ -21,7 +24,12 @@ import com.isa.fishingbooker.repository.BoatOwnerRepository;
 
 @Service
 public class BoatOwnerService {
-
+	
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+	
+	@Autowired
+	private EmailService emailService;
+	
 	@Autowired
 	private BoatOwnerRepository BoatOwnerRepository;
 	@Autowired
@@ -77,6 +85,15 @@ public class BoatOwnerService {
 		boatOwner.setActivated("true");
 
 		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
+		
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncAccept(boatOwner);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+		
+		
 		return ResponseEntity.ok(updatedBoatOwner);
 	}
 	
@@ -89,6 +106,8 @@ public class BoatOwnerService {
 		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
 		return ResponseEntity.ok(updatedBoatOwner);
 	}
+	
+	
 	
 
 	public Map<String, Boolean> deleteBoatOwner(int boatOwnerId)

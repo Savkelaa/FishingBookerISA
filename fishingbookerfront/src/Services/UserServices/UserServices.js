@@ -58,8 +58,10 @@ const userServices = {
     );
   },
   removeInstructor: (instructor) => {
+    console.log("instructor", instructor);
     return axios.put(
-      `${process.env.REACT_APP_API_URL}removeInstructor/${instructor.id}`
+      `${process.env.REACT_APP_API_URL}removeInstructor/${instructor.id}`,
+      instructor
     );
   },
 };

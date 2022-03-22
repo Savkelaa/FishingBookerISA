@@ -72,6 +72,9 @@ public class Instructor implements UserDetails {
 	@Column(name = "deleted")
 	private String deleted;
 	
+	@Column(name = "refusalReason")
+	private String refusalReason;
+	
 	@JsonIgnore
     @OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
     private List<FishingClass> fishingClasses ;

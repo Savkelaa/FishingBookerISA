@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   ListGroup,
@@ -7,6 +7,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Popup from "./Popup";
 
 export default function Request({
   instructorRequests,
@@ -19,6 +20,9 @@ export default function Request({
   removeBoatOwnerHandler,
   removeInstructorHandler,
 }) {
+  const [buttonPopup, setbuttonPopup] = useState(false);
+  const [instructorRequest, setinstructorRequest] = useState({});
+
   console.log("instructorRequests", instructorRequests);
   console.log("boatOwnerRequests", boatOwnerRequests);
   console.log("cottageOwnerRequests", cottageOwnerRequests);
@@ -70,14 +74,20 @@ export default function Request({
                         Accept
                       </Button>
                       <Button
-                        onClick={(e) =>
-                          removeInstructorHandler(instructorRequest)
-                        }
+                        onClick={() => {
+                          setbuttonPopup(true);
+                        }}
                         style={{ width: "8rem" }}
                         variant="outline-info"
                       >
                         Remove
                       </Button>
+                      <Popup
+                        removeInstructorHandler={removeInstructorHandler}
+                        instructorRequest={instructorRequest}
+                        trigger={buttonPopup}
+                        setTrigger={setbuttonPopup}
+                      ></Popup>
                     </Card.Body>
                   </Card>
                 </div>

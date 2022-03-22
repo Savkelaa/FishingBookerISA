@@ -73,6 +73,9 @@ public class BoatOwner implements UserDetails {
 	@Column(name = "deleted")
 	private String deleted;
 	
+	@Column(name = "refusalReason")
+	private String refusalReason;
+	
 	@JsonIgnore
     @OneToMany(mappedBy="boatOwner",fetch=FetchType.LAZY)
     private List<Boat> boats ;

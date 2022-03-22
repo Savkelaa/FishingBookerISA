@@ -134,7 +134,7 @@ export default function RequestsContainer() {
       });
   }
 
-  function removeInstructor(instructor) {
+  function removeInstructor(instructor, refusalReason) {
     userServices
       .removeInstructor(instructor)
       .then((data) => {

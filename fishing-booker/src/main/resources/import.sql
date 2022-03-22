@@ -102,7 +102,7 @@ insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_
 insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (2, 'in tempor turpis nec euismod scelerisque quam', 5, 5);
 insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (3, 'non mauris morbi non', 2, 4);
 insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (4, 'volutpat sapien arcu sed augue aliquam', 1, 5);
-insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (5, 'montes nascetur ridiculus mus', 4, 7);
+insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (5, 'montes nascetur ridiculus mus', 4, 5);
 insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (6, 'felis sed interdum venenatis turpis enim blandit', 5, 5);
 insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (7, 'condimentum curabitur in libero ut massa volutpat', 6, 3);
 

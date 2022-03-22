@@ -63,6 +63,10 @@ body {
   margin-bottom: 1rem;
 }
 
+#btn-primary1 {
+  width: 30%;
+}
+
 .btn {
   float: right;
   margin: 10px 10px 10px 10px;
