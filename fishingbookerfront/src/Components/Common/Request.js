@@ -20,7 +20,7 @@ export default function Request({
   removeBoatOwnerHandler,
   removeInstructorHandler,
 }) {
-  const [buttonPopup, setbuttonPopup] = useState(false);
+  //const [buttonPopup, setbuttonPopup] = useState(false);
   const [instructorRequest, setinstructorRequest] = useState({});
 
   console.log("instructorRequests", instructorRequests);
@@ -73,20 +73,10 @@ export default function Request({
                       >
                         Accept
                       </Button>
-                      <Button
-                        onClick={() => {
-                          setbuttonPopup(true);
-                        }}
-                        style={{ width: "8rem" }}
-                        variant="outline-info"
-                      >
-                        Remove
-                      </Button>
+
                       <Popup
                         removeInstructorHandler={removeInstructorHandler}
                         instructorRequest={instructorRequest}
-                        trigger={buttonPopup}
-                        setTrigger={setbuttonPopup}
                       ></Popup>
                     </Card.Body>
                   </Card>
@@ -142,15 +132,10 @@ export default function Request({
                         Accept
                       </Button>
 
-                      <Button
-                        onClick={(e) =>
-                          removeBoatOwnerHandler(boatOwnerRequest)
-                        }
-                        style={{ width: "8rem" }}
-                        variant="outline-info"
-                      >
-                        Remove
-                      </Button>
+                      <Popup
+                        removeBoatOwnerHandler={removeBoatOwnerHandler}
+                        boatOwnerRequest={boatOwnerRequest}
+                      ></Popup>
                     </Card.Body>
                   </Card>
                 </div>
@@ -206,15 +191,10 @@ export default function Request({
                         Accept
                       </Button>
 
-                      <Button
-                        onClick={(e) =>
-                          removeCottageOwnerHandler(cottageOwnerRequest)
-                        }
-                        style={{ width: "8rem" }}
-                        variant="outline-info"
-                      >
-                        Remove
-                      </Button>
+                      <Popup
+                        removeCottageOwnerHandler={removeCottageOwnerHandler}
+                        cottageOwnerRequest={cottageOwnerRequest}
+                      ></Popup>
                     </Card.Body>
                   </Card>
                 </div>

@@ -76,13 +76,22 @@ public class CottageOwnerService {
 		return ResponseEntity.ok(updatedCottageOwner);
 	}
 	
-	public ResponseEntity<CottageOwner> removeCottageOwner(Integer cottageOwnerId) throws ResourceNotFoundException {
+	public ResponseEntity<CottageOwner> removeCottageOwner(Integer cottageOwnerId,
+			 @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
 		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
-				.orElseThrow(() -> new ResourceNotFoundException("Cottage owner not found for this id :: " + cottageOwnerId));
+				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + cottageOwnerId));
 		
+		cottageOwner.setRefusalReason(cottageOwnerDetails.getRefusalReason());
 		cottageOwner.setDeleted("true");
 		
 		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncRemove(cottageOwner);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+		
 		return ResponseEntity.ok(updatedCottageOwner);
 	}
 	

@@ -20,6 +20,7 @@ import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatOwner;
 import com.isa.fishingbooker.model.Client;
+import com.isa.fishingbooker.model.Instructor;
 import com.isa.fishingbooker.repository.BoatOwnerRepository;
 
 @Service
@@ -97,13 +98,24 @@ public class BoatOwnerService {
 		return ResponseEntity.ok(updatedBoatOwner);
 	}
 	
-	public ResponseEntity<BoatOwner> removeBoatOwner(Integer boatOwnerId) throws ResourceNotFoundException {
+	public ResponseEntity<BoatOwner> removeBoatOwner(Integer boatOwnerId, 
+			@RequestBody BoatOwner boatOwnerDetails) throws ResourceNotFoundException {
 		BoatOwner boatOwner = BoatOwnerRepository.findById(boatOwnerId)
 				.orElseThrow(() -> new ResourceNotFoundException("BoatOwner not found for this id :: " + boatOwnerId));
 		
+		boatOwner.setRefusalReason(boatOwnerDetails.getRefusalReason());
 		boatOwner.setDeleted("true");
 
 		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
+		
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncRemove(boatOwner);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+		
+		
 		return ResponseEntity.ok(updatedBoatOwner);
 	}
 	
