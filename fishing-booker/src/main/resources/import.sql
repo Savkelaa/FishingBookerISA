@@ -40,6 +40,7 @@ insert into instructor (name, surname, address, city, country, email, password, 
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Jaye', 'Speek', '096 Chive Point', 'Ubatã', 'Brazil', 'jspeek4@archive.org', 'yH4nFgGW', 'id justo sit amet', '843-342-2954', 'consequat morbi a ipsum', 'false', 'false');
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Rosalyn', 'Brandt', '68018 Hudson Plaza', 'El Cerrito', 'Mexico', 'rbrandt5@dailymotion.com', 'o7ATWWAFA', 'nulla suscipit ligula in lacus', '919-337-2121', 'eros elementum pellentesque quisque porta volutpat erat', 'false', 'false');
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', 'msalmons6@hao123.com', 'B8ktNE6', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'false', 'false');
+insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', '1msalmons6@hao123.com', '$2a$04$73u1ZkS.qAFp1JHxrzAu.Oi9jit3DPL1zEaeXOq9cKaMzjnSVkwmW', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'false', 'false');
 
 insert into instructor_rate (rate, instructor_id, client_id) values (9, 1, 7);
 insert into instructor_rate (rate, instructor_id, client_id) values (7, 6, 5);
@@ -102,7 +103,7 @@ insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_
 insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (2, 'in tempor turpis nec euismod scelerisque quam', 5, 5);
 insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (3, 'non mauris morbi non', 2, 4);
 insert into boat_report (id, description, boat_quick_reservation_id, boat_owner_id) values (4, 'volutpat sapien arcu sed augue aliquam', 1, 5);
-insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (5, 'montes nascetur ridiculus mus', 4, 7);
+insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (5, 'montes nascetur ridiculus mus', 4, 6);
 insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (6, 'felis sed interdum venenatis turpis enim blandit', 5, 5);
 insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (7, 'condimentum curabitur in libero ut massa volutpat', 6, 3);
 
