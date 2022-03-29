@@ -3,6 +3,8 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.*;
+import com.isa.fishingbooker.repository.CottageOwnerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
-import com.isa.fishingbooker.model.Client;
-import com.isa.fishingbooker.model.CottageOwner;
-import com.isa.fishingbooker.model.Instructor;
 import com.isa.fishingbooker.service.CottageOwnerService;
 import com.isa.fishingbooker.service.EmailService;
 
@@ -59,15 +58,25 @@ public class CottageOwnerController {
 			@RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
 		return cottageOwnerService.removeCottageOwner(cottageOwnerId, cottageOwnerDetails);
 	}
-	
-	
-	
+
+	@GetMapping("/cottageOwnerDeleteRequests")
+	public List<CottageOwner> getAllcottageOwnerDeleteRequests() {
+		return this.cottageOwnerService.getAllCottageOwnerDeleteRequests();
+	}
+
+
+
 	@PutMapping("/setCottageOwnerReason/{id}")
 	public ResponseEntity<CottageOwner> setCottageOwnerReason(@PathVariable(value = "id") int cottageOwnerId,
 			@RequestBody String cottageOwnerDetails) throws ResourceNotFoundException {
 		return cottageOwnerService.setCottageOwnerReason(cottageOwnerId, cottageOwnerDetails);
 	}
 
+	@PutMapping("/cottageOwnerSendDeleteRequest/{id}")
+	public ResponseEntity<CottageOwner> cottageOwnerSendDeleteRequest(@PathVariable(value = "id") int cottageOwnerId,
+			@RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
+		return cottageOwnerService.cottageOwnerSendDeleteRequest(cottageOwnerId, cottageOwnerDetails);
+	}
 
 	@GetMapping("/cottageOwners/{id}")
 	public ResponseEntity<CottageOwner> getCottageOwnerById(@PathVariable(value = "id") int cottageOwnerId)

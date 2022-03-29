@@ -42,6 +42,11 @@ public class InstructorController {
 	public List<Instructor> getAllInstructors() {
 		return this.instructorService.getAllInstructors();
 	}
+
+	@GetMapping("/instructorDeleteRequests")
+	public List<Instructor> getAllInstructorDeleteRequests() {
+		return this.instructorService.getAllInstructorDeleteRequests();
+	}
 	
 	@GetMapping("/instructorRequests")
 	public List<Instructor> getAllInstructorRequests(){
@@ -76,6 +81,12 @@ public class InstructorController {
 	public ResponseEntity<Instructor> removeInstructor(@PathVariable(value = "id") int instructorId,
 			@RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
 		return instructorService.removeInstructor(instructorId,instructorDetails);
+	}
+
+	@PutMapping("/instructorSendDeleteRequest/{id}")
+	public ResponseEntity<Instructor> instructorSendDeleteRequest(@PathVariable(value = "id") int instructorId,
+													   @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
+		return instructorService.instructorSendDeleteRequest(instructorId,instructorDetails);
 	}
 	
 

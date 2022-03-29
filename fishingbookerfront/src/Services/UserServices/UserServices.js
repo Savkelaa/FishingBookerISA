@@ -78,6 +78,59 @@ const userServices = {
       instructor
     );
   },
+
+  ///// zahtevi za slanje rikvestova za brisanje
+  instructorSendDeleteRequest: (instructor) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}instructorSendDeleteRequest/${instructor.id}`,
+      instructor
+    );
+  },
+  cottageOwnerSendDeleteRequest: (cottageOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}cottageOwnerSendDeleteRequest/${cottageOwner.id}`,
+      cottageOwner
+    );
+  },
+  boatOwnerSendDeleteRequest: (boatOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}boatOwnerSendDeleteRequest/${boatOwner.id}`,
+      boatOwner
+    );
+  },
+  adminSendDeleteRequest: (admin) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}adminSendDeleteRequest/${admin.id}`,
+      admin
+    );
+  },
+  clientSendDeleteRequest: (client) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}clientSendDeleteRequest/${client.id}`,
+      client
+    );
+  },
+
+  ///Dobavljanje svih zahteva za brisanje
+  getAllInstructorDeleteRequests: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}instructorDeleteRequests`
+    );
+  },
+  getAllCottageOwnerDeleteRequests: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}cottageOwnerDeleteRequests`
+    );
+  },
+  getAllBoatOwnerDeleteRequests: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}boatOwnerDeleteRequests`);
+  },
+  getAllAdminDeleteRequests: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}adminDeleteRequests`);
+  },
+  getAllClientDeleteRequests: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}clientDeleteRequests`);
+  },
 };
 
 export default userServices;

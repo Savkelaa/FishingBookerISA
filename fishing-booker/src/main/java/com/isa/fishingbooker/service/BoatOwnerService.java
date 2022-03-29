@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.CottageOwner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,12 @@ public class BoatOwnerService {
 	{
 		return this.BoatOwnerRepository.getAllBoatOwnerRequests();
 	}
-	
+
+	public List<BoatOwner> getAllBoatOwnerDeleteRequests()
+	{
+		return this.BoatOwnerRepository.getAllBoatOwnerDeleteRequests();
+	}
+
 	public ResponseEntity<BoatOwner> getBoatOwnerById(int boatOwnerId)
 		throws ResourceNotFoundException{
 		BoatOwner boatOwner = BoatOwnerRepository.findById(boatOwnerId).orElseThrow(() -> new ResourceNotFoundException("BoatOwner not found for this id :: " + boatOwnerId));
@@ -118,8 +124,18 @@ public class BoatOwnerService {
 		
 		return ResponseEntity.ok(updatedBoatOwner);
 	}
-	
-	
+
+	public ResponseEntity<BoatOwner> boatOwnerSendDeleteRequest(Integer boatOwnerId,
+															  @RequestBody BoatOwner boatOwnerDetails) throws ResourceNotFoundException {
+		BoatOwner boatOwner = BoatOwnerRepository.findById(boatOwnerId)
+				.orElseThrow(() -> new ResourceNotFoundException("CottageOwner not found for this id :: " + boatOwnerId));
+
+		boatOwner.setDeleteRequest("true");
+		boatOwner.setDeleteReason(boatOwnerDetails.getDeleteReason());
+
+		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
+		return ResponseEntity.ok(updatedBoatOwner);
+	}
 	
 
 	public Map<String, Boolean> deleteBoatOwner(int boatOwnerId)

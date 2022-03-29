@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
-import com.isa.fishingbooker.model.Client;
-import com.isa.fishingbooker.model.CottageOwner;
-import com.isa.fishingbooker.model.Instructor;
 import com.isa.fishingbooker.repository.CottageOwnerRepository;
 
 @Service
@@ -106,8 +104,23 @@ public class CottageOwnerService {
 		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
 		return ResponseEntity.ok(updatedCottageOwner);
 	}
-	
-	
+
+	public ResponseEntity<CottageOwner> cottageOwnerSendDeleteRequest(Integer cottageOwnerId,
+															  @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
+		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
+				.orElseThrow(() -> new ResourceNotFoundException("CottageOwner not found for this id :: " + cottageOwnerId));
+
+		cottageOwner.setDeleteRequest("true");
+		cottageOwner.setDeleteReason(cottageOwnerDetails.getDeleteReason());
+
+		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
+		return ResponseEntity.ok(updatedCottageOwner);
+	}
+	public List<CottageOwner> getAllCottageOwnerDeleteRequests() {
+		return CottageOwnerRepository.getAllCottageOwnerDeleteRequests();
+	}
+
+
 	public ResponseEntity<CottageOwner> updateCottageOwner(Integer cottageOwnerId,
 			 @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
 		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)

@@ -54,6 +54,11 @@ public class ClientController {
 	public List<Client> getAllClients(){
 		return this.clientService.getAllClients();
 	}
+
+	@GetMapping("/clientDeleteRequests")
+	public List<Client> getAllClientDeleteRequests(){
+		return this.clientService.getAllClientDeleteRequests();
+	}
 	
 	@GetMapping("/clients/{id}")
 	public ResponseEntity<Client> getClientById(@PathVariable(value= "id") int clientId)
@@ -92,6 +97,12 @@ public class ClientController {
 	public ResponseEntity<Client> updateClient(@PathVariable(value = "id") int clientId,
 			 @RequestBody Client clientDetails) throws ResourceNotFoundException {
 		return clientService.updateClient(clientId, clientDetails);
+	}
+
+	@PutMapping("/clientSendDeleteRequest/{id}")
+	public ResponseEntity<Client> clientSendDeleteRequest(@PathVariable(value = "id") int clientId,
+											   @RequestBody Client clientDetails) throws ResourceNotFoundException {
+		return clientService.clientSendDeleteRequest(clientId, clientDetails);
 	}
 	
 	@DeleteMapping("/clients/{id}")

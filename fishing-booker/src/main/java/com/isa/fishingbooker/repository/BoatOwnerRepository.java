@@ -25,5 +25,8 @@ public interface BoatOwnerRepository extends JpaRepository<BoatOwner, Integer> {
 	@Query(value="select * from boat_owner where email= :email", nativeQuery=true)
 	BoatOwner getBoatOwnerByEmail(String email);
 
+	@Query(value="Select * from boat_owner where delete_request = 'true';",nativeQuery=true)
+	List<BoatOwner> getAllBoatOwnerDeleteRequests();
+
 	
 }

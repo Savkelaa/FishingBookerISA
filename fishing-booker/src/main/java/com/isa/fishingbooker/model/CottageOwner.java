@@ -71,6 +71,12 @@ public class CottageOwner implements UserDetails {
 	
 	@Column(name = "refusalReason")
 	private String refusalReason;
+
+	@Column(name = "deleteRequest")
+	private String deleteRequest;
+
+	@Column(name = "deleteReason")
+	private String deleteReason;
 	
 	@JsonIgnore
     @OneToMany(mappedBy="cottageOwner",fetch=FetchType.LAZY)

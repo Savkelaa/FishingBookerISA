@@ -67,6 +67,12 @@ public class Admin implements UserDetails {
 	@Column(name = "percentage")
 	private String percentage;
 
+	@Column(name = "deleteRequest")
+	private String deleteRequest;
+
+	@Column(name = "deleteReason")
+	private String deleteReason;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub

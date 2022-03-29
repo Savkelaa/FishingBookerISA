@@ -24,5 +24,8 @@ public interface CottageOwnerRepository extends JpaRepository<CottageOwner, Inte
 	@Query(value="select * from cottage_owner where email= :email", nativeQuery=true)
 	CottageOwner getCottageOwnerByEmail(String email);
 
+	@Query(value="Select * from cottage_owner where delete_request = 'false'",nativeQuery=true)
+	List<CottageOwner> getAllCottageOwnerDeleteRequests();
+
 	
 }
