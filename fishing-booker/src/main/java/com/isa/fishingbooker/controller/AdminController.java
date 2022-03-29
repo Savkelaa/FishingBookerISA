@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Admin;
 import com.isa.fishingbooker.model.Client;
+import com.isa.fishingbooker.repository.AdminRepository;
 import com.isa.fishingbooker.service.AdminService;
 
 @CrossOrigin
@@ -28,6 +29,9 @@ public class AdminController {
 
 	@Autowired
 	private AdminService adminService;
+	
+	@Autowired
+	private AdminRepository adminRepository;
 
 	@GetMapping("/admins")
 	public List<Admin> getAllAdmins() {
@@ -42,7 +46,12 @@ public class AdminController {
 
 	@PostMapping("/admins")
 	public Admin createAdmin(@RequestBody Admin admin) {
-		return adminService.createAdmin(admin);
+		Admin newAdmin = adminRepository.getAdminByEmail(admin.getEmail());
+		if (newAdmin != null) {
+			return adminService.createAdmin(admin);
+		} else {
+			return null;
+		}
 	}
 
 	@PutMapping("/admins/{id}")
