@@ -40,4 +40,8 @@ public interface InstructorRepository extends JpaRepository<Instructor, Integer>
 	@Query(value="select * from instructor where email= :email", nativeQuery=true)
 	Instructor getInstructorByEmail(String email);
 
+	@Query(value="select * from instructor where delete_request='true'", nativeQuery=true)
+	List<Instructor> getAllInstructorDeleteRequests();
+
+
 }

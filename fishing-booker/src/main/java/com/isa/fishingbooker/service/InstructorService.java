@@ -10,14 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
-import com.isa.fishingbooker.model.Client;
+
 import com.isa.fishingbooker.model.Instructor;
 import com.isa.fishingbooker.repository.InstructorRepository;
 
@@ -37,7 +34,11 @@ public class InstructorService {
 	public List<Instructor> getAllInstructors(){
 		return this.InstructorRepository.findAll();
 	}
-	
+
+	public List<Instructor> getAllInstructorDeleteRequests(){
+		return this.InstructorRepository.getAllInstructorDeleteRequests();
+	}
+
 	public List<Instructor> getAllInstructorRequests(){
 		return this.InstructorRepository.getAllInstructorRequests();
 	}
@@ -118,8 +119,20 @@ public class InstructorService {
 		
 		return ResponseEntity.ok(updatedInstructor);
 	}
-	
-	
+
+	public ResponseEntity<Instructor> instructorSendDeleteRequest(Integer instructorId,
+													   @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
+		Instructor instructor = InstructorRepository.findById(instructorId)
+				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + instructorId));
+
+		instructor.setDeleteReason(instructorDetails.getDeleteReason());
+		instructor.setDeleteRequest("true");
+
+		final Instructor updatedInstructor = InstructorRepository.save(instructor);
+		return ResponseEntity.ok(updatedInstructor);
+	}
+
+
 
 	public Map<String, Boolean> deleteInstructor(int instructorId)
 			throws ResourceNotFoundException {

@@ -18,9 +18,6 @@ import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.repository.ClientRepository;
 
-
-
-
 @Service
 public class ClientService {
 	
@@ -33,8 +30,10 @@ public class ClientService {
 	public List<Client> getAllClients(){
 		return this.clientRepository.findAll();
 	}
-	
 
+	public List<Client> getAllClientDeleteRequests(){
+		return this.clientRepository.getAllClientDeleteRequests();
+	}
 	
 	public ResponseEntity<Client> getClientById(int clientId)
 		throws ResourceNotFoundException{
@@ -78,8 +77,19 @@ public class ClientService {
 		final Client updatedClient = clientRepository.save(client);
 		return ResponseEntity.ok(updatedClient);
 	}
-	
-	
+
+	public ResponseEntity<Client> clientSendDeleteRequest(Integer clientId,
+											   @RequestBody Client clientDetails) throws ResourceNotFoundException {
+		Client client = clientRepository.findById(clientId)
+				.orElseThrow(() -> new ResourceNotFoundException("client not found for this id :: " + clientId));
+
+		client.setDeleteRequest("true");
+		client.setDeleteReason(clientDetails.getDeleteReason());
+
+		final Client updatedClient = clientRepository.save(client);
+		return ResponseEntity.ok(updatedClient);
+	}
+
 	public Map<String, Boolean> deleteClient(int clientId)
 			throws ResourceNotFoundException {
 		Client  client = clientRepository.findById(clientId)

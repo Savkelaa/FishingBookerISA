@@ -3,6 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.Instructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,6 +44,11 @@ public class AdminController {
 			throws ResourceNotFoundException {
 		return adminService.getAdminById(adminId);
 	}
+	@GetMapping("/adminDeleteRequests")
+	public List<Admin> getAllAdminDeleteRequests() {
+		return this.adminService.getAllAdminDeleteRequests();
+	}
+
 
 	@PostMapping("/admins")
 	public Admin createAdmin(@RequestBody Admin admin) {
@@ -59,8 +65,14 @@ public class AdminController {
 			@RequestBody Admin adminDetails) throws ResourceNotFoundException {
 		return adminService.updateAdmin(adminId, adminDetails);
 	}
-	
-	
+
+
+
+	@PutMapping("/adminSendDeleteRequest/{id}")
+	public ResponseEntity<Admin> adminSendDeleteRequest(@PathVariable(value = "id") int adminId,
+																  @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+		return adminService.adminSendDeleteRequest(adminId,adminDetails);
+	}
 	
 
 	@DeleteMapping("/admins/{id}")
@@ -72,4 +84,7 @@ public class AdminController {
 	public Admin getInstructorByEmailAndPassword(@RequestParam (value="email")  String email, @RequestParam (value="password") String password) {
 		return adminService.getAdminByEmailAndPassword(email, password);
 	}
+
+
+
 }

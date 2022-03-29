@@ -45,8 +45,10 @@ public class AdminService {
 		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
 		return AdminRepository.save(admin);
 	}
-	
-	
+
+	public List<Admin> getAllAdminDeleteRequests() {
+		return AdminRepository.getAllAdminDeleteRequests();
+	}
 	
 	public ResponseEntity<Admin> updateAdmin(Integer adminId,
 			 @RequestBody Admin adminDetails) throws ResourceNotFoundException {
@@ -64,6 +66,19 @@ public class AdminService {
 		admin.setMoney(adminDetails.getMoney());
 		admin.setSurname(adminDetails.getSurname());
 		
+		final Admin updatedAdmin = AdminRepository.save(admin);
+		return ResponseEntity.ok(updatedAdmin);
+	}
+
+	public ResponseEntity<Admin> adminSendDeleteRequest(Integer adminId,
+											 @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+		Admin admin = AdminRepository.findById(adminId)
+				.orElseThrow(() -> new ResourceNotFoundException("Admin not found for this id :: " + adminId));
+
+
+		admin.setDeleteReason(adminDetails.getDeleteReason());
+		admin.setDeleteRequest("true");
+
 		final Admin updatedAdmin = AdminRepository.save(admin);
 		return ResponseEntity.ok(updatedAdmin);
 	}

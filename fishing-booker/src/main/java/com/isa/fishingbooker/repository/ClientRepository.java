@@ -44,7 +44,10 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 	
 	@Query(value="SELECT * FROM CLIENT WHERE USERNAME = :email AND PASSWORD= :password", nativeQuery=true)
 	Client findByEmailAndPassword(String email, String password);
-	
-	
+
+	@Query(value="SELECT * FROM CLIENT WHERE delete_request = 'true'", nativeQuery=true)
+	List<Client> getAllClientDeleteRequests();
+
+
 	
 }
