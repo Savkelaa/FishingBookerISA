@@ -14,6 +14,11 @@ import LoginContainer from "./Containers/LoginContainer";
 import UserRegistrationContainer from "./Containers/UserRegistrationContainer";
 import AdminHomePageContainer from "./Containers/AdminHomePageContainer";
 import RequestsContainer from "./Containers/RequestsContainer";
+import AllInstructorsContainer from "./Containers/AllInstructorsContainer";
+import AllBoatOwnersContainer from "./Containers/AllBoatOwnersContainer";
+import AllCottageOwnersContainer from "./Containers/AllCottageOwnersContainer";
+import AllCottagesContainer from "./Containers/AllCottagesContainer";
+import AllBoatsContainer from "./Containers/AllBoatsContainer";
 
 function App() {
   return (
@@ -43,6 +48,21 @@ function App() {
           </Route>
           <Route path="/requests">
             <RequestsContainer></RequestsContainer>
+          </Route>
+          <Route path="/allInstructors">
+            <AllInstructorsContainer></AllInstructorsContainer>
+          </Route>
+          <Route path="/allCottageOwners">
+            <AllCottageOwnersContainer></AllCottageOwnersContainer>
+          </Route>
+          <Route path="/allBoatOwners">
+            <AllBoatOwnersContainer></AllBoatOwnersContainer>
+          </Route>
+          <Route path="/allBoats">
+            <AllBoatsContainer></AllBoatsContainer>
+          </Route>
+          <Route path="/allCottages">
+            <AllCottagesContainer></AllCottagesContainer>
           </Route>
         </Switch>
       </Router>

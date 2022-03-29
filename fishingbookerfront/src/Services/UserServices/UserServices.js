@@ -22,6 +22,19 @@ const userServices = {
   createBoatOwner: (boatOwner) => {
     return axios.post(`${process.env.REACT_APP_API_URL}boatOwners`, boatOwner);
   },
+
+  getAllInstructors: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}instructors`);
+  },
+
+  getAllCottageOwners: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}cottageOwners`);
+  },
+
+  getAllBoatOwners: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}boatOwners`);
+  },
+
   getAllInstructorRequests: () => {
     return axios.get(`${process.env.REACT_APP_API_URL}instructorRequests`);
   },
