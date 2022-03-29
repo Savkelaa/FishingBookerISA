@@ -58,14 +58,6 @@ public class InstructorController {
 
 	@PostMapping("/instructors")
 	public Instructor createInstructor(@RequestBody Instructor instructor) {
-		//slanje emaila
-				try {
-					System.out.println("Thread id: " + Thread.currentThread().getId());
-					emailService.sendNotificaitionAsync(instructor);
-				}catch( Exception e ){
-					logger.info("Greska prilikom slanja emaila: " + e.getMessage());
-				}
-		
 		return instructorService.createInstructor(instructor);
 	}
 
@@ -81,8 +73,9 @@ public class InstructorController {
 	}
 	
 	@PutMapping("/removeInstructor/{id}")
-	public ResponseEntity<Instructor> removeInstructor(@PathVariable(value = "id") int instructorId) throws ResourceNotFoundException {
-		return instructorService.removeInstructor(instructorId);
+	public ResponseEntity<Instructor> removeInstructor(@PathVariable(value = "id") int instructorId,
+			@RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
+		return instructorService.removeInstructor(instructorId,instructorDetails);
 	}
 	
 

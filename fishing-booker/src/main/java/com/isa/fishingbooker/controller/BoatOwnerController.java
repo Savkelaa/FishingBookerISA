@@ -22,6 +22,7 @@ import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatOwner;
 import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.CottageOwner;
+import com.isa.fishingbooker.model.Instructor;
 import com.isa.fishingbooker.service.BoatOwnerService;
 import com.isa.fishingbooker.service.EmailService;
 
@@ -54,8 +55,9 @@ public class BoatOwnerController {
 	}
 	
 	@PutMapping("/removeBoatOwner/{id}")
-	public ResponseEntity<BoatOwner> removeBoatOwner(@PathVariable(value = "id") int boatOwnerId) throws ResourceNotFoundException {
-		return boatOwnerService.removeBoatOwner(boatOwnerId);
+	public ResponseEntity<BoatOwner> removeBoatOwner(@PathVariable(value = "id") int boatOwnerId,
+			@RequestBody BoatOwner boatOnwnerDetails) throws ResourceNotFoundException {
+		return boatOwnerService.removeBoatOwner(boatOwnerId, boatOnwnerDetails);
 	}
 
 	@GetMapping("/boatOwners/{id}")

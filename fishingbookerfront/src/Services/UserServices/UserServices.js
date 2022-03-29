@@ -22,6 +22,19 @@ const userServices = {
   createBoatOwner: (boatOwner) => {
     return axios.post(`${process.env.REACT_APP_API_URL}boatOwners`, boatOwner);
   },
+
+  getAllInstructors: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}instructors`);
+  },
+
+  getAllCottageOwners: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}cottageOwners`);
+  },
+
+  getAllBoatOwners: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}boatOwners`);
+  },
+
   getAllInstructorRequests: () => {
     return axios.get(`${process.env.REACT_APP_API_URL}instructorRequests`);
   },
@@ -39,7 +52,8 @@ const userServices = {
   },
   removeCottageOwner: (cottageOwner) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}removeCottageOwner/${cottageOwner.id}`
+      `${process.env.REACT_APP_API_URL}removeCottageOwner/${cottageOwner.id}`,
+      cottageOwner
     );
   },
   activateBoatOwner: (boatOwner) => {
@@ -49,7 +63,8 @@ const userServices = {
   },
   removeBoatOwner: (boatOwner) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}removeBoatOwner/${boatOwner.id}`
+      `${process.env.REACT_APP_API_URL}removeBoatOwner/${boatOwner.id}`,
+      boatOwner
     );
   },
   activateInstructor: (instructor) => {
@@ -59,7 +74,8 @@ const userServices = {
   },
   removeInstructor: (instructor) => {
     return axios.put(
-      `${process.env.REACT_APP_API_URL}removeInstructor/${instructor.id}`
+      `${process.env.REACT_APP_API_URL}removeInstructor/${instructor.id}`,
+      instructor
     );
   },
 };

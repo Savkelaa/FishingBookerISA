@@ -143,7 +143,7 @@ export default function FcForm({
                       type="button"
                       id="submit"
                       name="submit"
-                      className="btn btn-primary"
+                      className="btn btn-secondary"
                     >
                       Update
                     </button>

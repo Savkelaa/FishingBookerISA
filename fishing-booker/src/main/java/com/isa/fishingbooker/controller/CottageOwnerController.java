@@ -55,11 +55,19 @@ public class CottageOwnerController {
 	}
 	
 	@PutMapping("/removeCottageOwner/{id}")
-	public ResponseEntity<CottageOwner> removeCottageOwner(@PathVariable(value = "id") int cottageOwnerId) throws ResourceNotFoundException {
-		return cottageOwnerService.removeCottageOwner(cottageOwnerId);
+	public ResponseEntity<CottageOwner> removeCottageOwner(@PathVariable(value = "id") int cottageOwnerId,
+			@RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
+		return cottageOwnerService.removeCottageOwner(cottageOwnerId, cottageOwnerDetails);
 	}
 	
 	
+	
+	@PutMapping("/setCottageOwnerReason/{id}")
+	public ResponseEntity<CottageOwner> setCottageOwnerReason(@PathVariable(value = "id") int cottageOwnerId,
+			@RequestBody String cottageOwnerDetails) throws ResourceNotFoundException {
+		return cottageOwnerService.setCottageOwnerReason(cottageOwnerId, cottageOwnerDetails);
+	}
+
 
 	@GetMapping("/cottageOwners/{id}")
 	public ResponseEntity<CottageOwner> getCottageOwnerById(@PathVariable(value = "id") int cottageOwnerId)

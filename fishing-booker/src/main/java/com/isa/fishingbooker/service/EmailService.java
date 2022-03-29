@@ -29,8 +29,7 @@ public class EmailService {
 	 */
 	@Async
 	public void sendNotificaitionAsync(Client user) throws MailException, InterruptedException {
-		System.out.println("Async metoda se izvrsava u drugom Threadu u odnosu na prihvaceni zahtev. Thread id: " + Thread.currentThread().getId());
-		//Simulacija duze aktivnosti da bi se uocila razlika
+		
 		Thread.sleep(1000);
 		System.out.println("Slanje emaila...");
 
@@ -46,8 +45,7 @@ public class EmailService {
 	
 	@Async
 	public void sendNotificaitionAsync(BoatOwner user) throws MailException, InterruptedException {
-		System.out.println("Async metoda se izvrsava u drugom Threadu u odnosu na prihvaceni zahtev. Thread id: " + Thread.currentThread().getId());
-		//Simulacija duze aktivnosti da bi se uocila razlika
+		
 		Thread.sleep(1000);
 		System.out.println("Slanje emaila...");
 
@@ -63,8 +61,7 @@ public class EmailService {
 	
 	@Async
 	public void sendNotificaitionAsync(Instructor user) throws MailException, InterruptedException {
-		System.out.println("Async metoda se izvrsava u drugom Threadu u odnosu na prihvaceni zahtev. Thread id: " + Thread.currentThread().getId());
-		//Simulacija duze aktivnosti da bi se uocila razlika
+		
 		Thread.sleep(1000);
 		System.out.println("Slanje emaila...");
 
@@ -81,18 +78,107 @@ public class EmailService {
 	
 	@Async
 	public void sendNotificaitionAsync(CottageOwner user) throws MailException, InterruptedException {
-		System.out.println("Async metoda se izvrsava u drugom Threadu u odnosu na prihvaceni zahtev. Thread id: " + Thread.currentThread().getId());
-		//Simulacija duze aktivnosti da bi se uocila razlika
+		
 		Thread.sleep(1000);
 		System.out.println("Slanje emaila...");
 
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(user.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));
-		mail.setSubject("Primer slanja emaila pomoću asinhronog Spring taska");
+		mail.setSubject("OOO STO PLAVO OKOPrimer slanja emaila pomoću asinhronog Spring taska");
 		mail.setText("Pozdrav " + user.getName() + ",\n\nhvala što pratiš ISA.");
 		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+	
+	@Async
+	public void sendNotificaitionAsyncAccept(CottageOwner user) throws MailException, InterruptedException {
+		
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
 
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(user.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is activated");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyour account is activated, welcome to our site.");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+	
+	@Async
+	public void sendNotificaitionAsyncAccept(BoatOwner user) throws MailException, InterruptedException {
+		
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(user.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is activated");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyour account is activated, welcome to our site.");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+	
+	@Async
+	public void sendNotificaitionAsyncAccept(Instructor user) throws MailException, InterruptedException {
+		
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(user.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is activated");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyour account is activated, welcome to our site.");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+	
+	
+	@Async
+	public void sendNotificaitionAsyncRemove(Instructor user) throws MailException, InterruptedException {
+		
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is deleted");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyou account has been disabled , and the reason is: " + user.getRefusalReason() + ".");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+	
+	@Async
+	public void sendNotificaitionAsyncRemove(BoatOwner user) throws MailException, InterruptedException {
+		
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is deleted");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyou account has been disabled , and the reason is: " + user.getRefusalReason() + ".");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+	
+	@Async
+	public void sendNotificaitionAsyncRemove(CottageOwner user) throws MailException, InterruptedException {
+		
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is deleted");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyou account has been disabled , and the reason is: " + user.getRefusalReason() + ".");
+		javaMailSender.send(mail);
 		System.out.println("Email poslat!");
 	}
 	
