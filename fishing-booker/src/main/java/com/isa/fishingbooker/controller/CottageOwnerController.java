@@ -85,14 +85,7 @@ public class CottageOwnerController {
 	}
 
 	@PostMapping("/cottageOwners")
-	public CottageOwner createCottageOwner(@RequestBody CottageOwner cottageOwner) {
-		
-		try {
-			System.out.println("Thread id: " + Thread.currentThread().getId());
-			emailService.sendNotificaitionAsync(cottageOwner);
-		}catch( Exception e ){
-			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
-		}
+	public CottageOwner createCottageOwner(@RequestBody CottageOwner cottageOwner) throws Exception{
 		return cottageOwnerService.createCottageOwner(cottageOwner);
 	}
 

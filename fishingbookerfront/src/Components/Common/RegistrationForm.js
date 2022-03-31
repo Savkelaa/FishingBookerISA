@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { BrowserRouter as Link } from "react-router-dom";
 
 export default function RegistrationForm({
+  addAdminHandler,
   addClientHandler,
   addCottageOwnerHandler,
   addInstructorHandler,
@@ -39,6 +40,20 @@ export default function RegistrationForm({
       });
     } else if (role.current.value == "boatOwner") {
       addBoatOwnerHandler({
+        name: name.current.value,
+        password: password.current.value,
+        email: email.current.value,
+        surname: surname.current.value,
+        address: address.current.value,
+        city: city.current.value,
+        country: country.current.value,
+        explanation: explanation.current.value,
+        number: number.current.value,
+        activated: "false",
+        deleted: "false",
+      });
+    } else if (role.current.value == "admin") {
+      addAdminHandler({
         name: name.current.value,
         password: password.current.value,
         email: email.current.value,
@@ -180,6 +195,7 @@ export default function RegistrationForm({
                       <option value="cottageOwner">Cottage Owner</option>
                       <option value="instructor">Instrictor</option>
                       <option value="client">Client</option>
+                      <option value="admin">Admin</option>
                       <option selected value="boatOwner">
                         Boat owner
                       </option>

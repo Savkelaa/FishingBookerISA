@@ -4,6 +4,9 @@ const userServices = {
   signUpUser: (user) => {
     return axios.post(`${process.env.REACT_APP_API_URL}/signup/async`, user);
   },
+
+  //create new user
+
   createClient: (client) => {
     return axios.post(`${process.env.REACT_APP_API_URL}clients`, client);
   },
@@ -22,7 +25,13 @@ const userServices = {
   createBoatOwner: (boatOwner) => {
     return axios.post(`${process.env.REACT_APP_API_URL}boatOwners`, boatOwner);
   },
+  createAdmin: (admin) => {
+    return axios.post(`${process.env.REACT_APP_API_URL}admins`, admin);
+  },
 
+  //novi create rikvestovi
+
+  //dobijanje svih uloga
   getAllInstructors: () => {
     return axios.get(`${process.env.REACT_APP_API_URL}instructors`);
   },
@@ -35,6 +44,8 @@ const userServices = {
     return axios.get(`${process.env.REACT_APP_API_URL}boatOwners`);
   },
 
+  //dobijanje svih rikvestova
+
   getAllInstructorRequests: () => {
     return axios.get(`${process.env.REACT_APP_API_URL}instructorRequests`);
   },
@@ -45,6 +56,7 @@ const userServices = {
     return axios.get(`${process.env.REACT_APP_API_URL}boatOwnerRequests`);
   },
 
+  //odbijanje i prihvatanje zahteva
   activateCottageOwner: (cottageOwner) => {
     return axios.put(
       `${process.env.REACT_APP_API_URL}activateCottageOwner/${cottageOwner.id}`

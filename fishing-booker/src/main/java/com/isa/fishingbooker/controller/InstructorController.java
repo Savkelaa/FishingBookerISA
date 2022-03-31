@@ -62,7 +62,7 @@ public class InstructorController {
 	}
 
 	@PostMapping("/instructors")
-	public Instructor createInstructor(@RequestBody Instructor instructor) {
+	public Instructor createInstructor(@RequestBody Instructor instructor) throws Exception  {
 		return instructorService.createInstructor(instructor);
 	}
 

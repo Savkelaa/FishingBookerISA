@@ -79,18 +79,8 @@ public class ClientController {
 	}
 	
 	@PostMapping("/clients")
-	public Client createClient(@RequestBody Client client) {
-		//slanje emaila
-				try {
-					System.out.println("Thread id: " + Thread.currentThread().getId());
-					emailService.sendNotificaitionAsync(client);
-				}catch( Exception e ){
-					logger.info("Greska prilikom slanja emaila: " + e.getMessage());
-				}
-
-				
+	public Client createClient(@RequestBody Client client) throws Exception {
 		return clientService.createClient(client);
-		
 	}
 	
 	@PutMapping("/clients/{id}")

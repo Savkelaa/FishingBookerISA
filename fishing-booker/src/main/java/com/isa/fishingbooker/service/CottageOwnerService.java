@@ -51,7 +51,22 @@ public class CottageOwnerService {
 	}
 	
 
-	public CottageOwner createCottageOwner(CottageOwner cottageOwner) {
+	public CottageOwner createCottageOwner(CottageOwner cottageOwner) throws Exception {
+
+		CottageOwner existUser = this.CottageOwnerRepository.getCottageOwnerByEmail(cottageOwner.getEmail());
+
+		if (existUser != null) {
+			throw new Exception("Email already exists");
+		}
+
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsync(cottageOwner);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
 		cottageOwner.setPassword(passwordEncoder.encode(cottageOwner.getPassword()));
 		return CottageOwnerRepository.save(cottageOwner);
 	}

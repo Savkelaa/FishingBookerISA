@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.BoatOwner;
 import com.isa.fishingbooker.model.CottageOwner;
+import com.isa.fishingbooker.model.Admin;
 @Service
 public class EmailService {
 
@@ -90,7 +91,26 @@ public class EmailService {
 		javaMailSender.send(mail);
 		System.out.println("Email poslat!");
 	}
-	
+
+
+	@Async
+	public void sendNotificaitionAsync(Admin user) throws MailException, InterruptedException {
+
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(user.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("OOO STO PLAVO OKOPrimer slanja emaila pomoću asinhronog Spring taska");
+		mail.setText("Pozdrav " + user.getName() + ",\n\nhvala što pratiš ISA.");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+
+
+	//prihvatanje zahteva
+
 	@Async
 	public void sendNotificaitionAsyncAccept(CottageOwner user) throws MailException, InterruptedException {
 		

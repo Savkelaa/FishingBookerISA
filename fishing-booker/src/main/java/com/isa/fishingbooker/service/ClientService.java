@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.controller.UserController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,7 +23,12 @@ import com.isa.fishingbooker.repository.ClientRepository;
 
 @Service
 public class ClientService {
-	
+
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private EmailService emailService;
+
 	@Autowired
 	private ClientRepository clientRepository;
 	
@@ -51,7 +59,21 @@ public class ClientService {
 		return clientRepository.getClientsByInstructorFishingClassQuickReservations(instructorId);
 	}
 	
-	public Client createClient(Client client) {
+	public Client createClient(Client client) throws Exception {
+
+		Client existUser = this.clientRepository.findByEmail(client.getEmail());
+
+		if (existUser != null) {
+			throw new Exception("Email already exists");
+		}
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsync(client);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
 		client.setPassword(passwordEncoder.encode(client.getPassword()));
 		return clientRepository.save(client);
 	}
