@@ -8,28 +8,71 @@ const userServices = {
   //create new user
 
   createClient: (client) => {
-    return axios.post(`${process.env.REACT_APP_API_URL}clients`, client);
+    return axios.post(
+      `${process.env.REACT_APP_API_URL_AUTH}signUpClient`,
+      client
+    );
   },
   createCottageOwner: (cottageOwner) => {
     return axios.post(
-      `${process.env.REACT_APP_API_URL}cottageOwners`,
+      `${process.env.REACT_APP_API_URL_AUTH}signUpCottageOwner`,
       cottageOwner
     );
   },
   createInstructor: (instrictor) => {
     return axios.post(
-      `${process.env.REACT_APP_API_URL}instructors`,
+      `${process.env.REACT_APP_API_URL_AUTH}signUpInstructor`,
       instrictor
     );
   },
   createBoatOwner: (boatOwner) => {
-    return axios.post(`${process.env.REACT_APP_API_URL}boatOwners`, boatOwner);
+    return axios.post(
+      `${process.env.REACT_APP_API_URL_AUTH}sighUpBoatOwner`,
+      boatOwner
+    );
   },
   createAdmin: (admin) => {
-    return axios.post(`${process.env.REACT_APP_API_URL}admins`, admin);
+    return axios.post(
+      `${process.env.REACT_APP_API_URL_AUTH}signUpAdmin`,
+      admin
+    );
   },
 
-  //novi create rikvestovi
+  //log in za usere
+
+  logInClient: (email, password) => {
+    return axios.post(`${process.env.REACT_APP_API_URL_AUTH}loginClient`, {
+      email: email,
+      password: password,
+    });
+  },
+  logInCottageOwner: (email, password) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL_AUTH}loginCottageOwner`,
+      {
+        email: email,
+        password: password,
+      }
+    );
+  },
+  logInInstructor: (email, password) => {
+    return axios.post(`${process.env.REACT_APP_API_URL_AUTH}loginInstructor`, {
+      email: email,
+      password: password,
+    });
+  },
+  logInBoatOwner: (email, password) => {
+    return axios.post(`${process.env.REACT_APP_API_URL_AUTH}loginBoatOwner`, {
+      email: email,
+      password: password,
+    });
+  },
+  logInAdmin: (email, password) => {
+    return axios.post(`${process.env.REACT_APP_API_URL_AUTH}loginAdmin`, {
+      email: email,
+      password: password,
+    });
+  },
 
   //dobijanje svih uloga
   getAllInstructors: () => {

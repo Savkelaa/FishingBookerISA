@@ -50,11 +50,6 @@ public class AdminService {
 	
 	
 	public Admin createAdmin(Admin admin) throws Exception{
-		Admin existUser = this.AdminRepository.getAdminByEmail(admin.getEmail());
-
-		if (existUser != null) {
-			throw new Exception("Email already exists");
-		}
 		try {
 			System.out.println("Thread id: " + Thread.currentThread().getId());
 			emailService.sendNotificaitionAsync(admin);

@@ -61,10 +61,11 @@ public class InstructorController {
 		return instructorService.getInstructorById(instructorId);
 	}
 
-	@PostMapping("/instructors")
-	public Instructor createInstructor(@RequestBody Instructor instructor) throws Exception  {
-		return instructorService.createInstructor(instructor);
-	}
+	//@PostMapping("/instructors")
+	//public ResponseEntity<Instructor> createInstructor(@RequestBody Instructor instructor) throws Exception  {
+	//	return instructorService.createInstructor(instructor);
+	//}
+
 
 	@PutMapping("/instructors/{id}")
 	public ResponseEntity<Instructor> updateInstructor(@PathVariable(value = "id") int instructorId,
