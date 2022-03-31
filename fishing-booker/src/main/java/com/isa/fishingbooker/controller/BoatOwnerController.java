@@ -79,14 +79,7 @@ public class BoatOwnerController {
 	}
 
 	@PostMapping("/boatOwners")
-	public BoatOwner createBoatOwner(@RequestBody BoatOwner boatOwner) {
-		try {
-			System.out.println("Thread id: " + Thread.currentThread().getId());
-			emailService.sendNotificaitionAsync(boatOwner);
-		}catch( Exception e ){
-			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
-		}
-		
+	public BoatOwner createBoatOwner(@RequestBody BoatOwner boatOwner) throws Exception {
 		return boatOwnerService.createBoatOwner(boatOwner);
 	}
 

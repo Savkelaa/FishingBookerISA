@@ -50,14 +50,10 @@ public class AdminController {
 	}
 
 
+
 	@PostMapping("/admins")
-	public Admin createAdmin(@RequestBody Admin admin) {
-		Admin newAdmin = adminRepository.getAdminByEmail(admin.getEmail());
-		if (newAdmin != null) {
-			return adminService.createAdmin(admin);
-		} else {
-			return null;
-		}
+	public Admin createAdmin(@RequestBody Admin admin) throws Exception  {
+		return adminService.createAdmin(admin);
 	}
 
 	@PutMapping("/admins/{id}")

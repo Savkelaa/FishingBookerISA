@@ -59,7 +59,19 @@ public class BoatOwnerService {
 	}
 	
 	
-	public BoatOwner createBoatOwner(BoatOwner boatOwner) {
+	public BoatOwner createBoatOwner(BoatOwner boatOwner)  throws Exception {
+		BoatOwner existUser = this.BoatOwnerRepository.getBoatOwnerByEmail(boatOwner.getEmail());
+
+		if (existUser != null) {
+			throw new Exception("Email already exists");
+		}
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsync(boatOwner);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
 		boatOwner.setPassword(passwordEncoder.encode(boatOwner.getPassword()));
 		return BoatOwnerRepository.save(boatOwner);
 	}

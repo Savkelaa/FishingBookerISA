@@ -8,38 +8,38 @@ import userServices from "../Services/UserServices/UserServices";
 import RegistrationForm from "../Components/Common/RegistrationForm";
 
 function UserRegistrationContainer() {
-  const [user, setUser] = useState([]);
+  const [client, setClient] = useState([]);
   const [boatOwner, setBoatOwner] = useState([]);
   const [instructor, setInstructor] = useState([]);
   const [cottageOwner, setCottageOwner] = useState([]);
-
-  /* function addUser(user) {
-    userServices
-      .signUpUser(user)
-      .then((data) => {
-        if (data.status === 204) setUser([]);
-        else {
-          console.log("sucessfuly added a user");
-        }
-      })
-      .catch((error) => {
-        console.log("Something wen't wrong try again");
-        console.log("Something wen't wrong try again");
-      });
-  }*/
+  const [admin, setAdmin] = useState([]);
 
   function addClient(user) {
     userServices
       .createClient(user)
       .then((data) => {
-        if (data.status === 204) setUser([]);
+        if (data.status === 204) setClient([]);
         else {
-          setUser(data.data.content);
+          setClient(data.data.content);
           console.log("sucessfuly added a client");
         }
       })
       .catch((error) => {
         console.log("Something wen't wrong try again");
+      });
+  }
+
+  function addAdmin(user) {
+    userServices
+      .createAdmin(user)
+      .then((data) => {
+        if (data.status === 204) setAdmin([]);
+        else {
+          setAdmin(data.data.content);
+          console.log("sucessfuly added a admin");
+        }
+      })
+      .catch((error) => {
         console.log("Something wen't wrong try again");
       });
   }
@@ -56,7 +56,6 @@ function UserRegistrationContainer() {
       })
       .catch((error) => {
         console.log("Something wen't wrong try again");
-        console.log("Something wen't wrong try again");
       });
   }
 
@@ -71,7 +70,6 @@ function UserRegistrationContainer() {
         }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
         console.log("Something wen't wrong try again");
       });
   }
@@ -88,7 +86,6 @@ function UserRegistrationContainer() {
       })
       .catch((error) => {
         console.log("Something wen't wrong try again");
-        console.log("Something wen't wrong try again");
       });
   }
 
@@ -100,6 +97,7 @@ function UserRegistrationContainer() {
         addCottageOwnerHandler={addCottageOwner}
         addInstructorHandler={addInstructor}
         addBoatOwnerHandler={addBoatOwner}
+        addAdminHandler={addAdmin}
       ></RegistrationForm>
       <Footerr></Footerr>
     </div>
