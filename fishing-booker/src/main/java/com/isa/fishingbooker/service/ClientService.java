@@ -61,11 +61,6 @@ public class ClientService {
 	
 	public Client createClient(Client client) throws Exception {
 
-		Client existUser = this.clientRepository.findByEmail(client.getEmail());
-
-		if (existUser != null) {
-			throw new Exception("Email already exists");
-		}
 
 		try {
 			System.out.println("Thread id: " + Thread.currentThread().getId());

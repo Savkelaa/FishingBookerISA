@@ -53,13 +53,6 @@ public class CottageOwnerService {
 
 	public CottageOwner createCottageOwner(CottageOwner cottageOwner) throws Exception {
 
-		CottageOwner existUser = this.CottageOwnerRepository.getCottageOwnerByEmail(cottageOwner.getEmail());
-
-		if (existUser != null) {
-			throw new Exception("Email already exists");
-		}
-
-
 		try {
 			System.out.println("Thread id: " + Thread.currentThread().getId());
 			emailService.sendNotificaitionAsync(cottageOwner);

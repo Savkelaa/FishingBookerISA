@@ -60,11 +60,6 @@ public class BoatOwnerService {
 	
 	
 	public BoatOwner createBoatOwner(BoatOwner boatOwner)  throws Exception {
-		BoatOwner existUser = this.BoatOwnerRepository.getBoatOwnerByEmail(boatOwner.getEmail());
-
-		if (existUser != null) {
-			throw new Exception("Email already exists");
-		}
 
 		try {
 			System.out.println("Thread id: " + Thread.currentThread().getId());

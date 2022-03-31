@@ -52,22 +52,12 @@ public class InstructorService {
 
 	public Instructor createInstructor(Instructor instructor) throws Exception  {
 
-		Instructor existUser = this.InstructorRepository.getInstructorByEmail(instructor.getEmail());
-
-		if (existUser != null) {
-			throw new Exception("Email already exists");
-		}
-
-		try {
-			System.out.println("Thread id: " + Thread.currentThread().getId());
-			emailService.sendNotificaitionAsync(instructor);
-		}catch( Exception e ){
-			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
-		}
 		instructor.setPassword(passwordEncoder.encode(instructor.getPassword()));
 		return InstructorRepository.save(instructor);
 	}
-	
+
+
+
 
 	public ResponseEntity<Instructor> updateInstructor(Integer instructorId,
 			 @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {

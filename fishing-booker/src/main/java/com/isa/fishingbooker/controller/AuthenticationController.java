@@ -216,8 +216,74 @@ public class AuthenticationController {
             return null;
         }
     }
-	
-	
+
+
+	// Endpoint za registraciju novog korisnika
+	@PostMapping("/signUpClient")
+	public ResponseEntity<Client> addClient(@RequestBody Client client, UriComponentsBuilder ucBuilder) throws Exception {
+
+		Client existUser = this.clientRepository.findByEmail(client.getEmail());
+
+		if (existUser != null) {
+			throw new Exception("Email already exists");
+		}
+
+		Client user = this.clientService.createClient(client);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
+	}
+
+	@PostMapping("/signUpAdmin")
+	public ResponseEntity<Admin> addAdmin(@RequestBody Admin admin, UriComponentsBuilder ucBuilder) throws Exception {
+
+		Admin existUser = this.adminRepository.getAdminByEmail(admin.getEmail());
+
+		if (existUser != null) {
+			throw new Exception("Email already exists");
+		}
+
+		Admin user = this.adminService.createAdmin(admin);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
+	}
+
+	@PostMapping("/signUpInstructor")
+	public ResponseEntity<Instructor> addInstructor(@RequestBody Instructor instructor, UriComponentsBuilder ucBuilder) throws Exception {
+
+		Instructor existUser = this.instructorRepository.getInstructorByEmail(instructor.getEmail());
+
+		if (existUser != null) {
+			throw new Exception("Email already exists");
+		}
+
+		Instructor user = this.instructorService.createInstructor(instructor);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
+	}
+
+	@PostMapping("/signUpBoatOwner")
+	public ResponseEntity<BoatOwner> addBoatOwner(@RequestBody BoatOwner boatOwner, UriComponentsBuilder ucBuilder) throws Exception {
+
+		BoatOwner existUser = this.boatOwnerRepository.getBoatOwnerByEmail(boatOwner.getEmail());
+
+		if (existUser != null) {
+			throw new Exception("Email already exists");
+		}
+
+		BoatOwner user = this.boatOwnerService.createBoatOwner(boatOwner);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
+	}
+
+	@PostMapping("/signUpCottageOwner")
+	public ResponseEntity<CottageOwner> addCottageOwner(@RequestBody CottageOwner cottageOwner, UriComponentsBuilder ucBuilder) throws Exception {
+
+		CottageOwner existUser = this.cottageOwnerRepository.getCottageOwnerByEmail(cottageOwner.getEmail());
+
+		if (existUser != null) {
+			throw new Exception("Email already exists");
+		}
+
+		CottageOwner user = this.cottageOwnerService.createCottageOwner(cottageOwner);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
+	}
+
 
 	
 }
