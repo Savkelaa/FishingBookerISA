@@ -3,7 +3,13 @@ import "../../../src/Assets/css/login.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-export default function Login({ logInClientHandler }) {
+export default function Login({
+  logInClientHandler,
+  logInAdminHandler,
+  logInBoatOwnerHandler,
+  logInInstructorHandler,
+  logInCottageOwnerHandler,
+}) {
   const email = useRef();
   const password = useRef();
 
@@ -37,9 +43,31 @@ export default function Login({ logInClientHandler }) {
             <button
               className="button login__submit"
               onClick={(e) => {
-                console.log("email", email.current.value);
-                console.log("password", password);
-                logInClientHandler(email.current.value, password.current.value);
+                {
+                  console.log("email", email.current.value);
+                  console.log("password", password);
+                  logInClientHandler(
+                    email.current.value,
+                    password.current.value
+                  );
+
+                  logInAdminHandler(
+                    email.current.value,
+                    password.current.value
+                  );
+                  logInBoatOwnerHandler(
+                    email.current.value,
+                    password.current.value
+                  );
+                  logInCottageOwnerHandler(
+                    email.current.value,
+                    password.current.value
+                  );
+                  logInInstructorHandler(
+                    email.current.value,
+                    password.current.value
+                  );
+                }
               }}
             >
               <span className="button__text">Log In </span>
