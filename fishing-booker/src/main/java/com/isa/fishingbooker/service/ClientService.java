@@ -69,6 +69,8 @@ public class ClientService {
 			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 		}
 
+		client.setActivated("false");
+		client.setDeleted("false");
 		client.setPassword(passwordEncoder.encode(client.getPassword()));
 		return clientRepository.save(client);
 	}

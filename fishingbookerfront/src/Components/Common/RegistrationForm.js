@@ -20,80 +20,85 @@ export default function RegistrationForm({
   const number = useRef();
   const activated = useRef();
   const role = useRef();
+  const password1 = useRef();
 
   //console.log("role", role.current.value);
 
   function saveHandler(e) {
-    if (role.current.value == "client") {
-      addClientHandler({
-        name: name.current.value,
-        password: password.current.value,
-        email: email.current.value,
-        surname: surname.current.value,
-        address: address.current.value,
-        city: city.current.value,
-        country: country.current.value,
-        explanation: explanation.current.value,
-        number: number.current.value,
-        activated: "false",
-        deleted: "false",
-      });
-    } else if (role.current.value == "boatOwner") {
-      addBoatOwnerHandler({
-        name: name.current.value,
-        password: password.current.value,
-        email: email.current.value,
-        surname: surname.current.value,
-        address: address.current.value,
-        city: city.current.value,
-        country: country.current.value,
-        explanation: explanation.current.value,
-        number: number.current.value,
-        activated: "false",
-        deleted: "false",
-      });
-    } else if (role.current.value == "admin") {
-      addAdminHandler({
-        name: name.current.value,
-        password: password.current.value,
-        email: email.current.value,
-        surname: surname.current.value,
-        address: address.current.value,
-        city: city.current.value,
-        country: country.current.value,
-        explanation: explanation.current.value,
-        number: number.current.value,
-        activated: "false",
-        deleted: "false",
-      });
-    } else if (role.current.value == "instructor") {
-      addInstructorHandler({
-        name: name.current.value,
-        password: password.current.value,
-        email: email.current.value,
-        surname: surname.current.value,
-        address: address.current.value,
-        city: city.current.value,
-        country: country.current.value,
-        explanation: explanation.current.value,
-        number: number.current.value,
-        activated: "false",
-        deleted: "false",
-      });
-    } else if (role.current.value == "cottageOwner") {
-      addCottageOwnerHandler({
-        name: name.current.value,
-        password: password.current.value,
-        email: email.current.value,
-        surname: surname.current.value,
-        address: address.current.value,
-        city: city.current.value,
-        country: country.current.value,
-        explanation: explanation.current.value,
-        number: number.current.value,
-        activated: "false",
-        deleted: "false",
-      });
+    if (password.current.value != password1.current.value) {
+      alert("Enter the same password in both fields");
+    } else {
+      if (role.current.value == "client") {
+        addClientHandler({
+          name: name.current.value,
+          password: password.current.value,
+          email: email.current.value,
+          surname: surname.current.value,
+          address: address.current.value,
+          city: city.current.value,
+          country: country.current.value,
+          explanation: explanation.current.value,
+          number: number.current.value,
+          activated: "false",
+          deleted: "false",
+        });
+      } else if (role.current.value == "boatOwner") {
+        addBoatOwnerHandler({
+          name: name.current.value,
+          password: password.current.value,
+          email: email.current.value,
+          surname: surname.current.value,
+          address: address.current.value,
+          city: city.current.value,
+          country: country.current.value,
+          explanation: explanation.current.value,
+          number: number.current.value,
+          activated: "false",
+          deleted: "false",
+        });
+      } else if (role.current.value == "admin") {
+        addAdminHandler({
+          name: name.current.value,
+          password: password.current.value,
+          email: email.current.value,
+          surname: surname.current.value,
+          address: address.current.value,
+          city: city.current.value,
+          country: country.current.value,
+          explanation: explanation.current.value,
+          number: number.current.value,
+          activated: "false",
+          deleted: "false",
+        });
+      } else if (role.current.value == "instructor") {
+        addInstructorHandler({
+          name: name.current.value,
+          password: password.current.value,
+          email: email.current.value,
+          surname: surname.current.value,
+          address: address.current.value,
+          city: city.current.value,
+          country: country.current.value,
+          explanation: explanation.current.value,
+          number: number.current.value,
+          activated: "false",
+          deleted: "false",
+        });
+      } else if (role.current.value == "cottageOwner") {
+        addCottageOwnerHandler({
+          name: name.current.value,
+          password: password.current.value,
+          email: email.current.value,
+          surname: surname.current.value,
+          address: address.current.value,
+          city: city.current.value,
+          country: country.current.value,
+          explanation: explanation.current.value,
+          number: number.current.value,
+          activated: "false",
+          deleted: "false",
+        });
+      }
     }
   }
 
@@ -135,6 +140,16 @@ export default function RegistrationForm({
                       id="maxPeople"
                     />
                   </div>
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <h6 for="password">Confirm Password </h6>
+                    <input
+                      ref={password1}
+                      type="password"
+                      className="form-control"
+                      id="last"
+                    />
+                  </div>
+
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <h6 for="surname">Surname</h6>
                     <input

@@ -27,13 +27,17 @@ function LoginContainer() {
               localStorage.setItem("Client", JSON.stringify(data.data));
 
               var clientt = JSON.parse(localStorage.getItem("Client"));
-              if (Object.keys(clientt).length !== 0) {
-                history.push("/userRegistration");
+              if (clientt.activated == "true" && clientt.deleted == "false") {
+                if (Object.keys(clientt).length !== 0) {
+                  history.push("/userRegistration");
+                  console.log("sucessfuly logedOn a client");
+                }
+              } else if (Object.keys(clientt).length == 0) {
+              } else {
+                alert("Admin need to activate your account");
               }
             })
-
             .catch((error) => console.log(`error`, error));
-          console.log("sucessfuly logedOn a client");
         }
       })
       .catch((error) => {
@@ -53,12 +57,18 @@ function LoginContainer() {
               setAdmin(data.data);
               localStorage.setItem("Admin", JSON.stringify(data.data));
               var adminn = JSON.parse(localStorage.getItem("Admin"));
-              if (Object.keys(adminn).length !== 0) {
-                history.push("/adminHomePage");
+
+              if (adminn.activated == "true" && adminn.deleted == "false") {
+                if (Object.keys(adminn).length !== 0) {
+                  history.push("/adminHomePage");
+                  console.log("sucessfuly logedOn a admin");
+                }
+              } else if (Object.keys(adminn).length == 0) {
+              } else {
+                alert("Admin need to activate your account");
               }
             })
             .catch((error) => console.log(`error`, error));
-          console.log("sucessfuly logedOn a admin");
         }
       })
       .catch((error) => {
@@ -80,12 +90,20 @@ function LoginContainer() {
               var cottageOwnerr = JSON.parse(
                 localStorage.getItem("Cottage Owner")
               );
-              if (Object.keys(cottageOwnerr).length !== 0) {
-                history.push("/adminHomePage"); //promenite kada napravite stranicu
+              if (
+                cottageOwnerr.activated == "true" &&
+                cottageOwnerr.deleted == "false"
+              ) {
+                if (Object.keys(cottageOwnerr).length !== 0) {
+                  history.push("/adminHomePage"); //promenite kada napravite stranicu
+                  console.log("sucessfuly logedOn a cottage owner");
+                }
+              } else if (Object.keys(cottageOwnerr).length == 0) {
+              } else {
+                alert("Admin need to activate your account");
               }
             })
             .catch((error) => console.log(`error`, error));
-          console.log("sucessfuly logedOn a cottage owner");
         }
       })
       .catch((error) => {
@@ -106,12 +124,20 @@ function LoginContainer() {
               localStorage.setItem("Boat Onwer", JSON.stringify(data.data));
 
               var boatOwnerr = JSON.parse(localStorage.getItem("Boat Owner"));
-              if (Object.keys(boatOwnerr).length !== 0) {
-                history.push("/adminHomePage"); //promenite kada napravite stranicu
+              if (
+                boatOwnerr.activated == "true" &&
+                boatOwnerr.deleted == "false"
+              ) {
+                if (Object.keys(boatOwnerr).length !== 0) {
+                  history.push("/adminHomePage");
+                  console.log("sucessfuly logedOn a BoatOnwer"); //promenite kada napravite stranicu
+                }
+              } else if (Object.keys(boatOwnerr).length == 0) {
+              } else {
+                alert("Admin need to activate your account");
               }
             })
             .catch((error) => console.log(`error`, error));
-          console.log("sucessfuly logedOn a BoatOnwer");
         }
       })
       .catch((error) => {
@@ -131,12 +157,20 @@ function LoginContainer() {
               setInstructor(data.data);
               localStorage.setItem("Instructor", JSON.stringify(data.data));
               var instructorr = JSON.parse(localStorage.getItem("Instructor"));
-              if (Object.keys(instructorr).length !== 0) {
-                history.push("/instructorHomePage");
+              if (
+                instructorr.activated == "true" &&
+                instructorr.deleted == "false"
+              ) {
+                if (Object.keys(instructorr).length !== 0) {
+                  history.push("/instructorHomePage");
+                  console.log("sucessfuly logedOn a instructor", data.data);
+                }
+              } else if (Object.keys(instructorr).length == 0) {
+              } else {
+                alert("Admin need to activate your account");
               }
             })
             .catch((error) => console.log(`error`, error));
-          console.log("sucessfuly logedOn a instructor");
         }
       })
       .catch((error) => {

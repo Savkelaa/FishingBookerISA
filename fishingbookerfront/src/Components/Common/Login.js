@@ -13,9 +13,6 @@ export default function Login({
   const email = useRef();
   const password = useRef();
 
-  console.log("email", email);
-  console.log("password", password);
-
   return (
     <div className="container1">
       <div className="screen">
@@ -44,8 +41,6 @@ export default function Login({
               className="button login__submit"
               onClick={(e) => {
                 {
-                  console.log("email", email.current.value);
-                  console.log("password", password);
                   logInClientHandler(
                     email.current.value,
                     password.current.value
