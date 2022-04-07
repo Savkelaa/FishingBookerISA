@@ -63,6 +63,9 @@ public class Admin implements UserDetails {
 	
 	@Column(name = "activated")
 	private String activated;
+
+	@Column(name = "deleted")
+	private String deleted;
 	
 	@Column(name = "percentage")
 	private String percentage;

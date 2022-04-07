@@ -57,6 +57,8 @@ public class AdminService {
 			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 		}
 
+		admin.setActivated("false");
+		admin.setDeleted("false");
 		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
 		return AdminRepository.save(admin);
 	}

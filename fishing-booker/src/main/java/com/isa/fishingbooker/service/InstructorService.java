@@ -52,6 +52,14 @@ public class InstructorService {
 
 	public Instructor createInstructor(Instructor instructor) throws Exception  {
 
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsync(instructor);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+		instructor.setActivated("false");
+		instructor.setDeleted("false");
 		instructor.setPassword(passwordEncoder.encode(instructor.getPassword()));
 		return InstructorRepository.save(instructor);
 	}

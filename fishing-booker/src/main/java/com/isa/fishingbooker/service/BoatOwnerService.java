@@ -67,6 +67,9 @@ public class BoatOwnerService {
 		}catch( Exception e ){
 			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 		}
+
+		boatOwner.setActivated("false");
+		boatOwner.setDeleted("false");
 		boatOwner.setPassword(passwordEncoder.encode(boatOwner.getPassword()));
 		return BoatOwnerRepository.save(boatOwner);
 	}

@@ -69,6 +69,9 @@ public class Client implements UserDetails{
 	@Column(name = "activated")
 	private String activated;
 
+	@Column(name = "deleted")
+	private String deleted;
+
 	@Column(name = "deleteRequest")
 	private String deleteRequest;
 

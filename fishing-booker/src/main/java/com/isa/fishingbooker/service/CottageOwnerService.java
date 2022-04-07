@@ -60,6 +60,8 @@ public class CottageOwnerService {
 			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 		}
 
+		cottageOwner.setActivated("false");
+		cottageOwner.setDeleted("false");
 		cottageOwner.setPassword(passwordEncoder.encode(cottageOwner.getPassword()));
 		return CottageOwnerRepository.save(cottageOwner);
 	}
