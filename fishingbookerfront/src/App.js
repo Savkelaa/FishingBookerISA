@@ -21,6 +21,7 @@ import AllCottagesContainer from "./Containers/AllCottagesContainer";
 import AllBoatsContainer from "./Containers/AllBoatsContainer";
 import DeleteRequestsContainer from "./Containers/DeleteRequestsContainer";
 import FishingClassCardByInstructor from "./Components/Common/FishingClassCardByInstructor";
+import FishingClassCardByInstructorContainer from "./Containers/FishingClassCardByInstructorContainer";
 
 function App() {
   return (
@@ -33,11 +34,8 @@ function App() {
           <Route path="/fishingClasses">
             <FishingClassesContainer></FishingClassesContainer>
           </Route>
-          <Route
-            path="/fishingClassesByInstructor"
-            component={FishingClassCardByInstructor}
-          >
-            <FishingClassCardByInstructor></FishingClassCardByInstructor>
+          <Route path="/fishingClassesByInstructor">
+            <FishingClassCardByInstructorContainer></FishingClassCardByInstructorContainer>
           </Route>
           <Route path="/login">
             <LoginContainer></LoginContainer>
