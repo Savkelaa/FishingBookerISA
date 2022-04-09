@@ -9,13 +9,24 @@ import Footerr from "./Footerr";
 import InstructorHomeButtons from "./InstructorHomeButtons";
 import ProfileLabels from "./ProfileLabels";
 
-export default function Profile() {
+export default function Profile({
+  logedInstructor,
+  sendInstructorDeleteRequestHandler,
+  fishingClassesByInstructor,
+}) {
   return (
     <div className="container rounded bg-white mt-5 mb-5">
       <div className="row">
         <ProfilePicture></ProfilePicture>
-        <ProfileLabels></ProfileLabels>
-        <InstructorHomeButtons></InstructorHomeButtons>
+        <ProfileLabels
+          logedInstructor={logedInstructor}
+          sendInstructorDeleteRequestHandler={
+            sendInstructorDeleteRequestHandler
+          }
+        ></ProfileLabels>
+        <InstructorHomeButtons
+          fishingClassesByInstructor={fishingClassesByInstructor}
+        ></InstructorHomeButtons>
       </div>
     </div>
   );
