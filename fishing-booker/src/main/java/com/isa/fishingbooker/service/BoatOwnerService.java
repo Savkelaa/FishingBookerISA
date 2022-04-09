@@ -40,8 +40,8 @@ public class BoatOwnerService {
 	public List<BoatOwner> getAllBoatOwners(){
 		return this.BoatOwnerRepository.findAll();
 	}
-		
-	
+
+
 	public List<BoatOwner> getAllBoatOwnerRequests()
 	{
 		return this.BoatOwnerRepository.getAllBoatOwnerRequests();

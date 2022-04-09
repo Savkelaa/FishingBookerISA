@@ -19,6 +19,8 @@ import AllBoatOwnersContainer from "./Containers/AllBoatOwnersContainer";
 import AllCottageOwnersContainer from "./Containers/AllCottageOwnersContainer";
 import AllCottagesContainer from "./Containers/AllCottagesContainer";
 import AllBoatsContainer from "./Containers/AllBoatsContainer";
+import DeleteRequestsContainer from "./Containers/DeleteRequestsContainer";
+import FishingClassCardByInstructor from "./Components/Common/FishingClassCardByInstructor";
 
 function App() {
   return (
@@ -30,6 +32,12 @@ function App() {
           </Route>
           <Route path="/fishingClasses">
             <FishingClassesContainer></FishingClassesContainer>
+          </Route>
+          <Route
+            path="/fishingClassesByInstructor"
+            component={FishingClassCardByInstructor}
+          >
+            <FishingClassCardByInstructor></FishingClassCardByInstructor>
           </Route>
           <Route path="/login">
             <LoginContainer></LoginContainer>
@@ -48,6 +56,9 @@ function App() {
           </Route>
           <Route path="/requests">
             <RequestsContainer></RequestsContainer>
+          </Route>
+          <Route path="/deleteRequests">
+            <DeleteRequestsContainer></DeleteRequestsContainer>
           </Route>
           <Route path="/allInstructors">
             <AllInstructorsContainer></AllInstructorsContainer>

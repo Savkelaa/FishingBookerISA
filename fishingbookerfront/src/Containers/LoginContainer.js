@@ -183,6 +183,11 @@ function LoginContainer() {
       <Navbarr></Navbarr>
 
       <Login
+        instructor={instructor}
+        cottageOwner={cottageOwner}
+        boatOwner={boatOwner}
+        admin={admin}
+        client={client}
         logInClientHandler={logInClient}
         logInAdminHandler={logInAdmin}
         logInInstructorHandler={logInInstructor}

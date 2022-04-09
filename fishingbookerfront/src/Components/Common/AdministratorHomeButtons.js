@@ -11,6 +11,11 @@ export default function AdministratorHomeButtons() {
             Registration requirements
           </button>
         </Link>
+        <Link to="/deleteRequests">
+          <button className="btn btn-primary profile-button" type="button">
+            Delete requirements
+          </button>
+        </Link>
         <Link to="/rateRequests">
           <button className="btn btn-primary profile-button" type="button">
             Rate requirements

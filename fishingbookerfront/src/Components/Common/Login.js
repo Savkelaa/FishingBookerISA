@@ -9,9 +9,12 @@ export default function Login({
   logInBoatOwnerHandler,
   logInInstructorHandler,
   logInCottageOwnerHandler,
+  instructor,
 }) {
   const email = useRef();
   const password = useRef();
+
+  console.log("instuctorBRACO", instructor);
 
   return (
     <div className="container1">

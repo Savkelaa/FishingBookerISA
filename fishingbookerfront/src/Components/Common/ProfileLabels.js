@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 
-export default function ProfileLabels() {
+export default function ProfileLabels({
+  logedInstructor,
+  sendInstructorDeleteRequestHandler,
+}) {
+  console.log("logedInstructor", logedInstructor);
+
+  const deleteReason = useRef();
+
   return (
     <div className="col-md-5 border-right">
       <div className="p-3 py-5">
@@ -14,6 +21,7 @@ export default function ProfileLabels() {
               type="text"
               className="form-control"
               placeholder="Enter first name"
+              value={logedInstructor.name}
             />
           </div>
           <div className="col-md-6">
@@ -22,6 +30,7 @@ export default function ProfileLabels() {
               type="text"
               className="form-control"
               placeholder="Enter surname"
+              value={logedInstructor.surname}
             />
           </div>
         </div>
@@ -32,6 +41,7 @@ export default function ProfileLabels() {
               type="text"
               className="form-control"
               placeholder="Enter address"
+              value={logedInstructor.address}
             />
           </div>
           <div className="col-md-12">
@@ -40,6 +50,7 @@ export default function ProfileLabels() {
               type="text"
               className="form-control"
               placeholder="Enter city"
+              value={logedInstructor.city}
             />
           </div>
           <div className="col-md-12">
@@ -48,6 +59,7 @@ export default function ProfileLabels() {
               type="text"
               className="form-control"
               placeholder="Enter country"
+              value={logedInstructor.country}
             />
           </div>
           <div className="col-md-12">
@@ -56,6 +68,7 @@ export default function ProfileLabels() {
               type="text"
               className="form-control"
               placeholder="Enter email address"
+              value={logedInstructor.email}
             />
           </div>
           <div className="col-md-12">
@@ -72,6 +85,7 @@ export default function ProfileLabels() {
               type="text"
               className="form-control"
               placeholder="Enter phone number"
+              value={logedInstructor.number}
             />
           </div>
           <div className="col-md-12">
@@ -80,6 +94,7 @@ export default function ProfileLabels() {
               type="text"
               className="form-control"
               placeholder="Enter explanation"
+              value={logedInstructor.explanation}
             />
           </div>
           <div className="col-md-12">
@@ -88,6 +103,7 @@ export default function ProfileLabels() {
               type="text"
               className="form-control"
               placeholder="Enter short biography"
+              value={logedInstructor.shortBiography}
             />
           </div>
         </div>
@@ -96,9 +112,36 @@ export default function ProfileLabels() {
           <button className="btn btn-success profile-button" type="button">
             Update Profile
           </button>
-          <button className="btn btn-danger profile-button" type="button">
+          <button
+            // onClick={(e) => {
+            //   if (deleteReason.current.value == "") {
+            //     alert("You need to fill filed.");
+            //   } else {
+            //     logedInstructor.deleteReason = deleteReason.current.value;
+            //     sendInstructorDeleteRequestHandler({ logedInstructor });
+            //   }
+            // }}
+
+            onClick={() => {
+              if (deleteReason.current.value == "") {
+                alert("You need to fill filed.");
+              } else {
+                logedInstructor.deleteReason = deleteReason.current.value;
+                sendInstructorDeleteRequestHandler(logedInstructor);
+              }
+            }}
+            className="btn btn-danger profile-button"
+            type="button"
+          >
             Delete Profile
           </button>
+          <input
+            ref={deleteReason}
+            type="refusalReason"
+            className="form-control"
+            id="refusalReason"
+          />
+          Enter the reason for deletion
         </div>
       </div>
     </div>

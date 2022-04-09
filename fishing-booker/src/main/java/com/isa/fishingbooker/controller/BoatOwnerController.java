@@ -49,6 +49,8 @@ public class BoatOwnerController {
 		return this.boatOwnerService.getAllBoatOwnerRequests();
 	}
 
+
+
 	@GetMapping("/boatOwnerDeleteRequests")
 	public List<BoatOwner> getAllBoatOwnerDeleteRequests()
 	{
