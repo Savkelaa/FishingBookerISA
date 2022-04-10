@@ -94,6 +94,19 @@ public class ClientController {
 											   @RequestBody Client clientDetails) throws ResourceNotFoundException {
 		return clientService.clientSendDeleteRequest(clientId, clientDetails);
 	}
+
+	@PutMapping("/removeClient/{id}")
+	public ResponseEntity<Client> removeClient(@PathVariable(value = "id") int clientId,
+														  @RequestBody Client clientDetails) throws ResourceNotFoundException {
+		return clientService.removeClient(clientId, clientDetails);
+	}
+
+	@PutMapping("/removeClientDeleteRequest/{id}")
+	public ResponseEntity<Client> removeClientDeleteRequest(@PathVariable(value = "id") int clientId,
+											   @RequestBody Client clientDetails) throws ResourceNotFoundException {
+		return clientService.removeClientDeleteRequest(clientId, clientDetails);
+	}
+
 	
 	@DeleteMapping("/clients/{id}")
 	public Map<String, Boolean> deleteClient(@PathVariable(value = "id") int clientId)

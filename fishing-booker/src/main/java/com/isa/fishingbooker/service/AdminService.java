@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.isa.fishingbooker.controller.UserController;
+import com.isa.fishingbooker.model.Instructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,6 +98,47 @@ public class AdminService {
 		admin.setDeleteRequest("true");
 
 		final Admin updatedAdmin = AdminRepository.save(admin);
+		return ResponseEntity.ok(updatedAdmin);
+	}
+
+	public ResponseEntity<Admin> removeAdmin(Integer adminId,
+													   @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+		Admin admin = AdminRepository.findById(adminId)
+				.orElseThrow(() -> new ResourceNotFoundException("Admin not found for this id :: " + adminId));
+
+		admin.setRefusalReason(adminDetails.getRefusalReason());
+		admin.setDeleted("true");
+		admin.setDeleteRequest("false");
+
+		final Admin updatedAdmin = AdminRepository.save(admin);
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncRemove(admin);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
+		return ResponseEntity.ok(updatedAdmin);
+	}
+
+	public ResponseEntity<Admin> removeAdminDeleteRequest(Integer adminId,
+											 @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+		Admin admin = AdminRepository.findById(adminId)
+				.orElseThrow(() -> new ResourceNotFoundException("Admin not found for this id :: " + adminId));
+
+		admin.setRefusalReason(adminDetails.getRefusalReason());
+		admin.setDeleteRequest("false");
+
+		final Admin updatedAdmin = AdminRepository.save(admin);
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncRemove(admin);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
 		return ResponseEntity.ok(updatedAdmin);
 	}
 	

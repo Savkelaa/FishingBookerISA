@@ -7,7 +7,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Popup from "./Popup";
+import PopupDelete from "./PopupDelete";
 
 export default function DeleteRequests({
   instructorDeleteRequests,
@@ -15,6 +15,8 @@ export default function DeleteRequests({
   cottageOwnerDeleteRequests,
   adminDeleteRequests,
   clientDeleteRequests,
+  removeInstructorHandler,
+  removeInstructorDeleteRequestHandler,
 }) {
   console.log("instructorDeleteRequests", instructorDeleteRequests);
   console.log("boatOwnerDeleteRequests", boatOwnerDeleteRequests);
@@ -58,16 +60,18 @@ export default function DeleteRequests({
                         Explanation of registration:{" "}
                         {instructorRequest.explanation}
                       </ListGroupItem>
+                      <ListGroupItem>
+                        Reason for deletion: {instructorRequest.deleteReason}
+                      </ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <Button
-                        style={{ width: "8rem" }}
-                        variant="outline-success"
-                      >
-                        Accept
-                      </Button>
-
-                      <Popup></Popup>
+                      <PopupDelete
+                        removeInstructorHandler={removeInstructorHandler}
+                        instructorRequest={instructorRequest}
+                        removeInstructorDeleteRequestHandler={
+                          removeInstructorDeleteRequestHandler
+                        }
+                      ></PopupDelete>
                     </Card.Body>
                   </Card>
                 </div>
@@ -119,7 +123,7 @@ export default function DeleteRequests({
                         Accept
                       </Button>
 
-                      <Popup></Popup>
+                      <PopupDelete></PopupDelete>
                     </Card.Body>
                   </Card>
                 </div>
@@ -172,7 +176,7 @@ export default function DeleteRequests({
                         Accept
                       </Button>
 
-                      <Popup></Popup>
+                      <PopupDelete></PopupDelete>
                     </Card.Body>
                   </Card>
                 </div>
@@ -223,7 +227,7 @@ export default function DeleteRequests({
                         Accept
                       </Button>
 
-                      <Popup></Popup>
+                      <PopupDelete></PopupDelete>
                     </Card.Body>
                   </Card>
                 </div>
@@ -274,7 +278,7 @@ export default function DeleteRequests({
                         Accept
                       </Button>
 
-                      <Popup></Popup>
+                      <PopupDelete></PopupDelete>
                     </Card.Body>
                   </Card>
                 </div>

@@ -112,6 +112,7 @@ public class InstructorService {
 		
 		instructor.setRefusalReason(instructorDetails.getRefusalReason());
 		instructor.setDeleted("true");
+		instructor.setDeleteRequest("false");
 		
 		final Instructor updatedInstructor = InstructorRepository.save(instructor);
 		
@@ -124,6 +125,28 @@ public class InstructorService {
 		
 		return ResponseEntity.ok(updatedInstructor);
 	}
+
+	public ResponseEntity<Instructor> removeInstructorDeleteRequest(Integer instructorId,
+													   @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
+		Instructor instructor = InstructorRepository.findById(instructorId)
+				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + instructorId));
+
+		instructor.setRefusalReason(instructorDetails.getRefusalReason());
+		instructor.setDeleteRequest("false");
+
+		final Instructor updatedInstructor = InstructorRepository.save(instructor);
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncRemove(instructor);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
+		return ResponseEntity.ok(updatedInstructor);
+	}
+
+
 
 	public ResponseEntity<Instructor> instructorSendDeleteRequest(Integer instructorId,
 													   @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {

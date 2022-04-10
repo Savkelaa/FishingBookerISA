@@ -72,6 +72,9 @@ public class Client implements UserDetails{
 	@Column(name = "deleted")
 	private String deleted;
 
+	@Column(name = "refusalReason")
+	private String refusalReason;
+
 	@Column(name = "deleteRequest")
 	private String deleteRequest;
 

@@ -91,6 +91,7 @@ public class CottageOwnerService {
 		
 		cottageOwner.setRefusalReason(cottageOwnerDetails.getRefusalReason());
 		cottageOwner.setDeleted("true");
+		cottageOwner.setDeleteRequest("false");
 		
 		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
 		try {
@@ -100,6 +101,25 @@ public class CottageOwnerService {
 			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 		}
 		
+		return ResponseEntity.ok(updatedCottageOwner);
+	}
+
+	public ResponseEntity<CottageOwner> removeCottageOwnerDeleteRequest(Integer cottageOwnerId,
+														   @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
+		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
+				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + cottageOwnerId));
+
+		cottageOwner.setRefusalReason(cottageOwnerDetails.getRefusalReason());
+		cottageOwner.setDeleteRequest("false");
+
+		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncRemove(cottageOwner);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
 		return ResponseEntity.ok(updatedCottageOwner);
 	}
 	

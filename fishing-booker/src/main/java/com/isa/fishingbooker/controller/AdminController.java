@@ -49,6 +49,18 @@ public class AdminController {
 		return this.adminService.getAllAdminDeleteRequests();
 	}
 
+	@PutMapping("/removeAdmin/{id}")
+	public ResponseEntity<Admin> removeAdmin(@PathVariable(value = "id") int adminId,
+													   @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+		return adminService.removeAdmin(adminId,adminDetails);
+	}
+
+	@PutMapping("/removeAdminDeleteRequest/{id}")
+	public ResponseEntity<Admin> removeAdminDeleteRequest(@PathVariable(value = "id") int adminId,
+											 @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+		return adminService.removeAdminDeleteRequest(adminId,adminDetails);
+	}
+
 
 
 	@PostMapping("/admins")

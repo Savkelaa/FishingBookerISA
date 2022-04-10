@@ -17,7 +17,7 @@ export default function Profile({
   return (
     <div className="container rounded bg-white mt-5 mb-5">
       <div className="row">
-        <ProfilePicture></ProfilePicture>
+        <ProfilePicture logedInstructor={logedInstructor}></ProfilePicture>
         <ProfileLabels
           logedInstructor={logedInstructor}
           sendInstructorDeleteRequestHandler={
