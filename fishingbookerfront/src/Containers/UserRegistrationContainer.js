@@ -25,7 +25,7 @@ function UserRegistrationContainer() {
         }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        console.log("Something wen't wrong try again", error);
       });
   }
 

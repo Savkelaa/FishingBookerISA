@@ -20,7 +20,7 @@ export default function Request({
   removeBoatOwnerHandler,
   removeInstructorHandler,
 }) {
-  //const [buttonPopup, setbuttonPopup] = useState(false);
+ 
   const [instructorRequest, setinstructorRequest] = useState({});
 
   console.log("instructorRequests", instructorRequests);

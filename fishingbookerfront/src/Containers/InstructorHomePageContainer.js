@@ -7,7 +7,7 @@ import "../Assets/css/profile.css";
 import userServices from "../Services/UserServices/UserServices";
 import fishingClassServices from "../Services/FishingClassServices/FishingClassServices";
 
-export default function InstructorHomePage() {
+export default function InstructorHomePageContainer() {
   //const [logedInstructor, setlogedInstructor] = useState();
 
   // const [instructorRequest, setInstructorRequest] = useState([]);

@@ -3,6 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.CottageRate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,7 +34,8 @@ public class FishingClassQuickReservationController {
 	public List<FishingClassQuickReservation> getAllFishingClassQuickReservations() {
 		return this.fishingClassQuickReservationService.getAllFishingClassQuickReservations();
 	}
-	
+
+
 	@GetMapping("/fishingClassFreeQuickReservation")
 	public List<FishingClassQuickReservation> getAllFreeFishingClassQuickReservation(@RequestParam (value="fishingClassId")  Integer fishingClassId)
 	{

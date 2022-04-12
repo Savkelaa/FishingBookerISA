@@ -69,8 +69,8 @@ public class FishingClassQuickReservationService {
 			 @RequestBody FishingClassQuickReservation fishingClassQuickReservationDetails) throws ResourceNotFoundException {
 		FishingClassQuickReservation fishingClassQuickReservation = FishingClassQuickReservationRepository.findById(fishingClassQuickReservationId)
 				.orElseThrow(() -> new ResourceNotFoundException("FishingClassQuickReservation not found for this id :: " + fishingClassQuickReservationId));
-		
-		fishingClassQuickReservation.setDiscount(fishingClassQuickReservationDetails.getDiscount());
+
+
 		fishingClassQuickReservation.setStartDate(fishingClassQuickReservationDetails.getStartDate());
 		fishingClassQuickReservation.setFinishDate(fishingClassQuickReservationDetails.getFinishDate());
 	    fishingClassQuickReservation.setStatus(fishingClassQuickReservationDetails.getStatus());

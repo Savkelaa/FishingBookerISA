@@ -149,13 +149,13 @@ insert into fishing_class_behavioral_rule (name, description, fishing_class_id) 
 insert into fishing_class_behavioral_rule (name, description, fishing_class_id) values ('Bernier, Stanton and West', 'pretium iaculis diam', 1);
 insert into fishing_class_behavioral_rule (name, description, fishing_class_id) values ('Cruickshank and Sons', 'pede posuere nonummy integer non', 1);
 
-insert into fishing_class_quick_reservation (price, place, discount, client_id, fishing_class_id, start_date, finish_date) values (65, 'Leiwang', 15, 2, 3, '8/2/2021', '7/3/2021');
-insert into fishing_class_quick_reservation (price, place, discount, client_id, fishing_class_id, start_date, finish_date) values (34, 'Tha Bo', 19, 6, 3, '9/21/2021', '2/2/2021');
-insert into fishing_class_quick_reservation (price, place, discount, client_id, fishing_class_id, start_date, finish_date) values (64, 'Bettendorf', 30, 3, 1, '11/9/2021', '6/1/2021');
-insert into fishing_class_quick_reservation (price, place, discount, client_id, fishing_class_id, start_date, finish_date) values (120, 'Didou', 30, 1, 7, '12/17/2020', '7/20/2021');
-insert into fishing_class_quick_reservation (price, place, discount, client_id, fishing_class_id, start_date, finish_date) values (52, 'Langley', 11, 2, 4, '1/8/2021', '8/19/2021');
-insert into fishing_class_quick_reservation (price, place, discount, client_id, fishing_class_id, start_date, finish_date) values (97, 'Xidajie', 27, 4, 7, '10/3/2021', '10/14/2021');
-insert into fishing_class_quick_reservation (price, place, discount, client_id, fishing_class_id, start_date, finish_date) values (101, 'Penhold', 12, 4, 3, '7/31/2021', '11/6/2021');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (65,'Leiwang', 2, 3, '8/2/2021', '7/3/2021','8/2/2021', '7/3/2021','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (34,'Tha Bo', 6, 3, '9/21/2021', '2/2/2021','8/2/2021', '7/3/2021','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (64,'Bettendorf', 3, 1, '11/9/2021', '6/1/2021','8/2/2021', '7/3/2021','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (120,'Didou', 1, 7, '12/17/2020', '7/20/2021','8/2/2021', '7/3/2021','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (52,'Langley', 2, 4, '1/8/2021', '8/19/2021','8/2/2021', '7/3/2021','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (97,'Xidajie', 4, 7, '10/3/2021', '10/14/2021','8/2/2021', '7/3/2021','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (101,'Penhold', 4, 3, '7/31/2021', '11/6/2021','8/2/2021', '7/3/2021','active');
 
 insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date) values (30, 'Moita da Roda', 5, 7, '9/21/2021', '5/4/2021');
 insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date) values (99, 'Joypur Hāt', 3, 2, '9/17/2021', '6/14/2021');

@@ -43,12 +43,14 @@ export default function FishingClassCardByInstructor({
                       </ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <Button
-                        style={{ width: "8rem" }}
-                        variant="outline-success"
-                      >
-                        Book
-                      </Button>
+                      <Link to={`/createQuickReservation/${fishingClass.id}`}>
+                        <Button
+                          style={{ width: "8rem" }}
+                          variant="outline-success"
+                        >
+                          Create quick reservation
+                        </Button>
+                      </Link>
                       <Link to={`/fishing/${fishingClass.id}`}>
                         <Button
                           style={{ width: "8rem" }}
