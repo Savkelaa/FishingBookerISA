@@ -68,6 +68,12 @@ public class BoatOwnerController {
 		return boatOwnerService.removeBoatOwner(boatOwnerId, boatOnwnerDetails);
 	}
 
+	@PutMapping("/removeBoatOwnerDeleteRequest/{id}")
+	public ResponseEntity<BoatOwner> removeBoatOwnerDeleteRequest(@PathVariable(value = "id") int boatOwnerId,
+													 @RequestBody BoatOwner boatOnwnerDetails) throws ResourceNotFoundException {
+		return boatOwnerService.removeBoatOwnerDeleteRequest(boatOwnerId, boatOnwnerDetails);
+	}
+
 	@PutMapping("/boatOwnerSendDeleteRequest/{id}")
 	public ResponseEntity<BoatOwner> boatOwnerSendDeleteRequest(@PathVariable(value = "id") int boatOwnerId,
 														  @RequestBody BoatOwner boatOwnerDetails) throws ResourceNotFoundException {

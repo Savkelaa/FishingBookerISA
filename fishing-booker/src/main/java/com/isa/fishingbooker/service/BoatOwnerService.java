@@ -121,6 +121,7 @@ public class BoatOwnerService {
 		
 		boatOwner.setRefusalReason(boatOwnerDetails.getRefusalReason());
 		boatOwner.setDeleted("true");
+		boatOwner.setDeleteRequest("false");
 
 		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
 		
@@ -130,10 +131,32 @@ public class BoatOwnerService {
 		}catch( Exception e ){
 			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 		}
-		
-		
+
 		return ResponseEntity.ok(updatedBoatOwner);
 	}
+
+
+	public ResponseEntity<BoatOwner> removeBoatOwnerDeleteRequest(Integer boatOwnerId,
+													 @RequestBody BoatOwner boatOwnerDetails) throws ResourceNotFoundException {
+		BoatOwner boatOwner = BoatOwnerRepository.findById(boatOwnerId)
+				.orElseThrow(() -> new ResourceNotFoundException("BoatOwner not found for this id :: " + boatOwnerId));
+
+		boatOwner.setRefusalReason(boatOwnerDetails.getRefusalReason());
+		boatOwner.setDeleteRequest("false");
+
+		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncRemove(boatOwner);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
+		return ResponseEntity.ok(updatedBoatOwner);
+	}
+
+
 
 	public ResponseEntity<BoatOwner> boatOwnerSendDeleteRequest(Integer boatOwnerId,
 															  @RequestBody BoatOwner boatOwnerDetails) throws ResourceNotFoundException {

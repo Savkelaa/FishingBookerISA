@@ -39,27 +39,36 @@ public class FishingClassQuickReservation {
 	@Column(name = "status")
 	private String status;
 	
+	@Column(name = "start_date_action")
+	private Date startDateAction;
+
+	@Column(name = "finish_date_action")
+	private Date finishDateAction;
+
 	@Column(name = "start_date")
 	private Date startDate;
-	
+
+	@Column(name = "finish_date")
+	private Date finishDate;
+
+
 	@Column(name = "price")
 	private int price;
 	
-	@Column(name = "finish_date")
-	private Date finishDate;
+
 	
 	@Column(name = "place")
 	private String place;
 	
-	@Column(name = "discount")
-	private int discount;
+	//@Column(name = "discount")
+	//private int discount;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="client_id", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="client_id")
     private Client client;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="fishing_class_id", nullable = false)
+    @JoinColumn(name="fishing_class_id")
     private FishingClass fishingClass;
 	
 	@JsonIgnore

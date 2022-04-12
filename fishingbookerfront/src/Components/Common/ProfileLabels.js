@@ -21,7 +21,7 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder="Enter first name"
-              value={logedInstructor.name}
+              // value={logedInstructor.name}
             />
           </div>
           <div className="col-md-6">
@@ -30,7 +30,7 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder="Enter surname"
-              value={logedInstructor.surname}
+              //value={logedInstructor.surname}
             />
           </div>
         </div>
@@ -41,7 +41,7 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder="Enter address"
-              value={logedInstructor.address}
+              // value={logedInstructor.address}
             />
           </div>
           <div className="col-md-12">
@@ -50,7 +50,7 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder="Enter city"
-              value={logedInstructor.city}
+              // value={logedInstructor.city}
             />
           </div>
           <div className="col-md-12">
@@ -59,7 +59,7 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder="Enter country"
-              value={logedInstructor.country}
+              //  value={logedInstructor.country}
             />
           </div>
           <div className="col-md-12">
@@ -68,7 +68,7 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder="Enter email address"
-              value={logedInstructor.email}
+              //    value={logedInstructor.email}
             />
           </div>
           <div className="col-md-12">
@@ -85,7 +85,7 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder="Enter phone number"
-              value={logedInstructor.number}
+              //   value={logedInstructor.number}
             />
           </div>
           <div className="col-md-12">
@@ -94,7 +94,7 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder="Enter explanation"
-              value={logedInstructor.explanation}
+              //  value={logedInstructor.explanation}
             />
           </div>
           <div className="col-md-12">
@@ -103,7 +103,7 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder="Enter short biography"
-              value={logedInstructor.shortBiography}
+              //   value={logedInstructor.shortBiography}
             />
           </div>
         </div>

@@ -156,7 +156,37 @@ public class EmailService {
 		System.out.println("Email poslat!");
 	}
 	
-	
+	//odbijanje zahteva
+	@Async
+	public void sendNotificaitionAsyncRemove(Admin user) throws MailException, InterruptedException {
+
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is deleted");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\n Reason for deduction: " + user.getRefusalReason() + ".");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+
+	@Async
+	public void sendNotificaitionAsyncRemove(Client user) throws MailException, InterruptedException {
+
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is deleted");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\n Reason for deduction: " + user.getRefusalReason() + ".");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+
 	@Async
 	public void sendNotificaitionAsyncRemove(Instructor user) throws MailException, InterruptedException {
 		
@@ -167,7 +197,7 @@ public class EmailService {
 		mail.setTo(env.getProperty("spring.mail.username"));
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		mail.setSubject("Your account is deleted");
-		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyou account has been disabled , and the reason is: " + user.getRefusalReason() + ".");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\n Reason for deduction: " + user.getRefusalReason() + ".");
 		javaMailSender.send(mail);
 		System.out.println("Email poslat!");
 	}
@@ -182,7 +212,7 @@ public class EmailService {
 		mail.setTo(env.getProperty("spring.mail.username"));
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		mail.setSubject("Your account is deleted");
-		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyou account has been disabled , and the reason is: " + user.getRefusalReason() + ".");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nReason for deduction:  " + user.getRefusalReason() + ".");
 		javaMailSender.send(mail);
 		System.out.println("Email poslat!");
 	}
@@ -197,7 +227,7 @@ public class EmailService {
 		mail.setTo(env.getProperty("spring.mail.username"));
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		mail.setSubject("Your account is deleted");
-		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyou account has been disabled , and the reason is: " + user.getRefusalReason() + ".");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nReason for deduction:  " + user.getRefusalReason() + ".");
 		javaMailSender.send(mail);
 		System.out.println("Email poslat!");
 	}

@@ -7,25 +7,25 @@ import "../Assets/css/profile.css";
 import userServices from "../Services/UserServices/UserServices";
 import fishingClassServices from "../Services/FishingClassServices/FishingClassServices";
 
-export default function InstructorHomePage() {
+export default function InstructorHomePageContainer() {
   //const [logedInstructor, setlogedInstructor] = useState();
 
   // const [instructorRequest, setInstructorRequest] = useState([]);
-  const [fishingClassesByInstructor, setfishingClassesByInstructor] = useState(
-    []
-  );
+  // const [fishingClassesByInstructor, setfishingClassesByInstructor] = useState(
+  //   []
+  // );
 
   var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
 
-  useEffect(() => {
-    fishingClassServices
-      .getFishingClassByInstructor(2)
-      .then((data) => {
-        setfishingClassesByInstructor(data.data);
-        console.log("data.data", data.data);
-      })
-      .catch((error) => console.log(`error`, error));
-  }, []);
+  // useEffect(() => {
+  //   fishingClassServices
+  //     .getFishingClassByInstructor(2)
+  //     .then((data) => {
+  //       setfishingClassesByInstructor(data.data);
+  //       console.log("data.data", data.data);
+  //     })
+  //     .catch((error) => console.log(`error`, error));
+  // }, []);
 
   function sendInstructorDeleteRequest(instructor) {
     userServices
@@ -44,7 +44,7 @@ export default function InstructorHomePage() {
       <Profile
         logedInstructor={logedInstructor}
         sendInstructorDeleteRequestHandler={sendInstructorDeleteRequest}
-        fishingClassesByInstructor={fishingClassesByInstructor}
+        //  fishingClassesByInstructor={fishingClassesByInstructor}
       ></Profile>
       <Footerr></Footerr>
     </div>

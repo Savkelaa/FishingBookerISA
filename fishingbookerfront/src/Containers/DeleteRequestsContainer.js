@@ -50,6 +50,46 @@ export default function DeleteRequestsContainer() {
       .catch((error) => console.log(`error`, error));
   }, []);
 
+  function removeInstructor(instructor) {
+    userServices
+      .removeInstructor(instructor)
+      .then((data) => {
+        if (data.status === 204) instructorDeleteRequests([]);
+        else {
+          userServices
+            .getAllInstructorDeleteRequests()
+            .then((data) => {
+              setInstructorDeleteRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly deleted Instructor");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function removeInstructorDeleteRequest(instructor) {
+    userServices
+      .removeInstructorDeleteRequest(instructor)
+      .then((data) => {
+        if (data.status === 204) instructorDeleteRequests([]);
+        else {
+          userServices
+            .getAllInstructorDeleteRequests()
+            .then((data) => {
+              setInstructorDeleteRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly deleted Instructor delete request");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
   return (
     <div>
       <Navbarr></Navbarr>
@@ -59,6 +99,8 @@ export default function DeleteRequestsContainer() {
         cottageOwnerDeleteRequests={cottageOwnerDeleteRequests}
         adminDeleteRequests={adminDeleteRequests}
         clientDeleteRequests={clientDeleteRequests}
+        removeInstructorHandler={removeInstructor}
+        removeInstructorDeleteRequestHandler={removeInstructorDeleteRequest}
       ></DeleteRequests>
       <Footerr></Footerr>
     </div>

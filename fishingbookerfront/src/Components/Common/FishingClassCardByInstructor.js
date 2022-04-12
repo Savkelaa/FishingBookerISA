@@ -9,12 +9,12 @@ import {
 import "../../App.css";
 import { Link } from "react-router-dom";
 
-export default function FishingClassCardByInstructor(props) {
-  console.log("props", this.props.location.state);
-
+export default function FishingClassCardByInstructor({
+  fishingClassesByInstructor,
+}) {
   return (
     <div>
-      {this.props.location.state.map((fishingClass) => (
+      {fishingClassesByInstructor.map((fishingClass) => (
         <div className="container">
           <div className="row gutters">
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -43,12 +43,14 @@ export default function FishingClassCardByInstructor(props) {
                       </ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <Button
-                        style={{ width: "8rem" }}
-                        variant="outline-success"
-                      >
-                        Book
-                      </Button>
+                      <Link to={`/createQuickReservation/${fishingClass.id}`}>
+                        <Button
+                          style={{ width: "8rem" }}
+                          variant="outline-success"
+                        >
+                          Create quick reservation
+                        </Button>
+                      </Link>
                       <Link to={`/fishing/${fishingClass.id}`}>
                         <Button
                           style={{ width: "8rem" }}

@@ -186,6 +186,38 @@ const userServices = {
   getAllClientDeleteRequests: () => {
     return axios.get(`${process.env.REACT_APP_API_URL}clientDeleteRequests`);
   },
+
+  //odbijanje zahteva za brisanje
+  removeInstructorDeleteRequest: (instructor) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}removeInstructorDeleteRequest/${instructor.id}`,
+      instructor
+    );
+  },
+  removeBoatOwnerDeleteRequest: (BoatOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}removeIBoatOwnerDeleteRequest/${BoatOwner.id}`,
+      BoatOwner
+    );
+  },
+  removeAdminDeleteRequest: (Admin) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}removeAdminRequest/${Admin.id}`,
+      Admin
+    );
+  },
+  removeCottageOwnerDeleteRequest: (CottageOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}removeCottageOwnerRequest/${CottageOwner.id}`,
+      CottageOwner
+    );
+  },
+  removeClientDeleteRequest: (Client) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}removeClientDeleteRequest/${Client.id}`,
+      Client
+    );
+  },
 };
 
 export default userServices;

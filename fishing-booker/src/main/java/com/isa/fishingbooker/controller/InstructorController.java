@@ -84,6 +84,14 @@ public class InstructorController {
 		return instructorService.removeInstructor(instructorId,instructorDetails);
 	}
 
+	@PutMapping("/removeInstructorDeleteRequest/{id}")
+	public ResponseEntity<Instructor> removeInstructorDeleteRequest(@PathVariable(value = "id") int instructorId,
+													   @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
+		return instructorService.removeInstructorDeleteRequest(instructorId,instructorDetails);
+	}
+
+
+
 	@PutMapping("/instructorSendDeleteRequest/{id}")
 	public ResponseEntity<Instructor> instructorSendDeleteRequest(@PathVariable(value = "id") int instructorId,
 													   @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {

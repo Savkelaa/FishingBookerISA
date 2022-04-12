@@ -109,6 +109,47 @@ public class ClientService {
 		return ResponseEntity.ok(updatedClient);
 	}
 
+	public ResponseEntity<Client> removeClient(Integer clientId,
+														  @RequestBody Client clientDetails) throws ResourceNotFoundException {
+		Client client = clientRepository.findById(clientId)
+				.orElseThrow(() -> new ResourceNotFoundException("client not found for this id :: " + clientId));
+
+		client.setRefusalReason(clientDetails.getRefusalReason());
+		client.setDeleted("true");
+		client.setDeleteRequest("false");
+
+		final Client updatedClient = clientRepository.save(client);
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncRemove(client);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
+		return ResponseEntity.ok(updatedClient);
+	}
+
+	public ResponseEntity<Client> removeClientDeleteRequest(Integer clientId,
+											   @RequestBody Client clientDetails) throws ResourceNotFoundException {
+		Client client = clientRepository.findById(clientId)
+				.orElseThrow(() -> new ResourceNotFoundException("client not found for this id :: " + clientId));
+
+		client.setRefusalReason(clientDetails.getRefusalReason());
+		client.setDeleteRequest("false");
+
+		final Client updatedClient = clientRepository.save(client);
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncRemove(client);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
+		return ResponseEntity.ok(updatedClient);
+	}
+
 	public Map<String, Boolean> deleteClient(int clientId)
 			throws ResourceNotFoundException {
 		Client  client = clientRepository.findById(clientId)

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import FishingClassesContainer from "./Containers/FishingClassesContainer";
 import FishingClassContainer from "./Containers/FishingClassContainer";
-import CreateFishingClassReservationContainer from "./Containers/CreateFishingClassReservationContainer";
+import CreateFishingClassQuickReservationContainer from "./Containers/CreateFishingClassQuickReservationContainer";
 import InstructorHomePageContainer from "./Containers/InstructorHomePageContainer";
 import LoginContainer from "./Containers/LoginContainer";
 import UserRegistrationContainer from "./Containers/UserRegistrationContainer";
@@ -21,6 +21,7 @@ import AllCottagesContainer from "./Containers/AllCottagesContainer";
 import AllBoatsContainer from "./Containers/AllBoatsContainer";
 import DeleteRequestsContainer from "./Containers/DeleteRequestsContainer";
 import FishingClassCardByInstructor from "./Components/Common/FishingClassCardByInstructor";
+import FishingClassCardByInstructorContainer from "./Containers/FishingClassCardByInstructorContainer";
 
 function App() {
   return (
@@ -33,17 +34,14 @@ function App() {
           <Route path="/fishingClasses">
             <FishingClassesContainer></FishingClassesContainer>
           </Route>
-          <Route
-            path="/fishingClassesByInstructor"
-            component={FishingClassCardByInstructor}
-          >
-            <FishingClassCardByInstructor></FishingClassCardByInstructor>
+          <Route path="/fishingClassesByInstructor">
+            <FishingClassCardByInstructorContainer></FishingClassCardByInstructorContainer>
           </Route>
           <Route path="/login">
             <LoginContainer></LoginContainer>
           </Route>
-          <Route path="/createQuickReservation">
-            <CreateFishingClassReservationContainer></CreateFishingClassReservationContainer>
+          <Route path="/createQuickReservation/:id">
+            <CreateFishingClassQuickReservationContainer></CreateFishingClassQuickReservationContainer>
           </Route>
           <Route path="/userRegistration">
             <UserRegistrationContainer></UserRegistrationContainer>

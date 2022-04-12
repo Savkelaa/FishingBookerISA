@@ -39,5 +39,7 @@ public class Image {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="fishing_class_id", nullable = false)
     private FishingClass fishingClass;
+	
+	
 }
 

@@ -22,7 +22,8 @@ export default function Navbarr() {
           <NavDropdown.Divider />
           <NavDropdown.Item href="#products/promo">Promo</NavDropdown.Item>
         </NavDropdown>
-        <Nav.Link href="#blog">Blog</Nav.Link>
+
+        <Nav.Link href="#blog">Nikola</Nav.Link>
         <Nav.Link href="#blog">Blog</Nav.Link>
         <Nav.Link href="#blog">Blog</Nav.Link>
         <Nav.Link href="#blog">Blog</Nav.Link>

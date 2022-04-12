@@ -59,6 +59,12 @@ public class CottageOwnerController {
 		return cottageOwnerService.removeCottageOwner(cottageOwnerId, cottageOwnerDetails);
 	}
 
+	@PutMapping("/removeCottageOwnerDeleteRequest/{id}")
+	public ResponseEntity<CottageOwner> removeCottageOwnerDeleteRequest(@PathVariable(value = "id") int cottageOwnerId,
+														   @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
+		return cottageOwnerService.removeCottageOwnerDeleteRequest(cottageOwnerId, cottageOwnerDetails);
+	}
+
 	@GetMapping("/cottageOwnerDeleteRequests")
 	public List<CottageOwner> getAllcottageOwnerDeleteRequests() {
 		return this.cottageOwnerService.getAllCottageOwnerDeleteRequests();
