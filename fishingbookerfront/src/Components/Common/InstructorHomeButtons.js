@@ -13,6 +13,12 @@ export default function InstructorHomeButtons(fishingClassesByInstructor) {
     <div className="col-md-4">
       <div className="p-3 py-5">
         <div className="d-flex justify-content-between align-items-center experience"></div>
+        <Link to="createFishingClass">
+          <button className="btn btn-primary profile-button" type="button">
+            Add fishing classes
+          </button>
+        </Link>
+
         <Link
           to={{
             pathname: `/fishingClassesByInstructor`,
@@ -31,9 +37,6 @@ export default function InstructorHomeButtons(fishingClassesByInstructor) {
         </button>
         <button className="btn btn-primary profile-button" type="button">
           Finished reservations
-        </button>
-        <button className="btn btn-primary profile-button" type="button">
-          Create new reservation
         </button>
       </div>
     </div>

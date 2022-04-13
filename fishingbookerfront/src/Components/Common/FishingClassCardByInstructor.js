@@ -14,6 +14,11 @@ export default function FishingClassCardByInstructor({
 }) {
   return (
     <div>
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Search.."
+      ></input>
       {fishingClassesByInstructor.map((fishingClass) => (
         <div className="container">
           <div className="row gutters">
@@ -40,6 +45,10 @@ export default function FishingClassCardByInstructor({
                       </ListGroupItem>
                       <ListGroupItem>
                         Price: {fishingClass.price} euro
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Cancellation Condition:{" "}
+                        {fishingClass.cancellationCondition} %
                       </ListGroupItem>
                     </ListGroup>
                     <Card.Body>

@@ -42,6 +42,13 @@ const fishingClassServices = {
     );
   },
 
+  createFishingClass: (fishingClass) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}fishingClass`,
+      fishingClass
+    );
+  },
+
   ///////////////////////////// FishingClassReservations //////////////////////////////////////////////
 
   getAllFishingClassReservations: () => {
