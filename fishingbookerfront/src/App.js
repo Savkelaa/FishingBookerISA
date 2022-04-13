@@ -23,6 +23,7 @@ import DeleteRequestsContainer from "./Containers/DeleteRequestsContainer";
 import FishingClassCardByInstructor from "./Components/Common/FishingClassCardByInstructor";
 import FishingClassCardByInstructorContainer from "./Containers/FishingClassCardByInstructorContainer";
 import CreateFishingClass from "./Containers/CreateFishingClassContainer";
+import ClientHomePageContainer from "./Containers/ClientHomePageContainer";
 
 function App() {
   return (
@@ -78,6 +79,9 @@ function App() {
             <CreateFishingClass></CreateFishingClass>
           </Route>
         </Switch>
+        <Route path="/clientHomePage">
+            <ClientHomePageContainer></ClientHomePageContainer>
+          </Route>
       </Router>
     </div>
   );
