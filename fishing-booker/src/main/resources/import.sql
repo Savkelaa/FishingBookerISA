@@ -133,13 +133,13 @@ insert into cottage (name, address, price, promo_description, cottage_owner_id, 
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Abigael', '405 Walton Terrace', 119, 'at nunc commodo placerat praesent', 6, 5, 2);
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Upton', '588 Donald Court', 131, 'suscipit a feugiat et', 7, 3, 2);
 
-insert into fishing_class (max_people,name, address, promo_description, instructor_id, cancellation_condition) values (3,'Tomi', '139 Fair Oaks Point', 'justo etiam pretium iaculis justo in', 3, 14);
-insert into fishing_class (max_people,name, address, promo_description, instructor_id, cancellation_condition) values (4,'Min', '028 Esch Junction',  'ut volutpat sapien arcu sed augue aliquam', 7, 4);
-insert into fishing_class (max_people,name, address, promo_description, instructor_id, cancellation_condition) values (3,'Kale', '09 Spohn Way',  'odio cras mi pede malesuada in', 7, 5);
-insert into fishing_class (max_people,name, address, promo_description, instructor_id, cancellation_condition) values (5,'Ann-marie', '7 Bluejay Junction',  'justo in hac habitasse platea dictumst etiam', 7, 11);
-insert into fishing_class (max_people,name, address, promo_description, instructor_id, cancellation_condition) values (7,'Ad', '2 Warner Parkway',  'erat curabitur gravida nisi at nibh', 3, 6);
-insert into fishing_class (max_people,name, address, promo_description, instructor_id, cancellation_condition) values (3,'Salli', '850 Almo Pass',  'risus praesent lectus vestibulum quam', 3, 11);
-insert into fishing_class (max_people,name, address, promo_description, instructor_id, cancellation_condition) values (10,'Lesley', '3056 Vidon Court',  'nunc vestibulum ante ipsum primis in', 2, 7);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Tomi', '139 Fair Oaks Point', 'justo etiam pretium iaculis justo in', 3, 14);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,4,'Min', '028 Esch Junction',  'ut volutpat sapien arcu sed augue aliquam', 7, 4);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Kale', '09 Spohn Way',  'odio cras mi pede malesuada in', 7, 5);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,5,'Ann-marie', '7 Bluejay Junction',  'justo in hac habitasse platea dictumst etiam', 7, 11);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,7,'Ad', '2 Warner Parkway',  'erat curabitur gravida nisi at nibh', 3, 6);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Salli', '850 Almo Pass',  'risus praesent lectus vestibulum quam', 3, 11);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,10,'Lesley', '3056 Vidon Court',  'nunc vestibulum ante ipsum primis in', 2, 7);
 
 insert into fishing_class_behavioral_rule (name, description, fishing_class_id) values ('Effertz, Kris and Connelly', 'in ante vestibulum ante', 5);
 insert into fishing_class_behavioral_rule (name, description, fishing_class_id) values ('Hauck, Rau and Schaden', 'posuere cubilia curae nulla dapibus dolor', 1);

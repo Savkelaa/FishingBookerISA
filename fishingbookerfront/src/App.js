@@ -22,6 +22,7 @@ import AllBoatsContainer from "./Containers/AllBoatsContainer";
 import DeleteRequestsContainer from "./Containers/DeleteRequestsContainer";
 import FishingClassCardByInstructor from "./Components/Common/FishingClassCardByInstructor";
 import FishingClassCardByInstructorContainer from "./Containers/FishingClassCardByInstructorContainer";
+import CreateFishingClass from "./Containers/CreateFishingClassContainer";
 
 function App() {
   return (
@@ -72,6 +73,9 @@ function App() {
           </Route>
           <Route path="/allCottages">
             <AllCottagesContainer></AllCottagesContainer>
+          </Route>
+          <Route path="/createFishingClass">
+            <CreateFishingClass></CreateFishingClass>
           </Route>
         </Switch>
       </Router>
