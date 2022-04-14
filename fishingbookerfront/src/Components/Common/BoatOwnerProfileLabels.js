@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 
-export default function ClientProfileLabel({
-  logedClient,
-  sendInstructorDeleteRequestHandler,
+export default function BoatOwnerProfileLabels({
+  logedBoatOwner,
+  sendBoatOwnerDeleteRequestHandler,
 }) {
-  console.log("logedClient", logedClient);
+  console.log("logedBoatOwner", logedBoatOwner);
 
   const deleteReason = useRef();
 
@@ -21,7 +21,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter first name"
-              value={logedClient.name}
+              value={logedBoatOwner.name}
             />
           </div>
           <div className="col-md-6">
@@ -30,8 +30,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter surname"
-              value={logedClient.surname}
-              
+              value={logedBoatOwner.surname}
             />
           </div>
         </div>
@@ -42,7 +41,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter address"
-              value={logedClient.address}
+              value={logedBoatOwner.address}
             />
           </div>
           <div className="col-md-12">
@@ -51,7 +50,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter city"
-              value={logedClient.city}
+              value={logedBoatOwner.city}
             />
           </div>
           <div className="col-md-12">
@@ -60,7 +59,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter country"
-              value={logedClient.country}
+              value={logedBoatOwner.country}
             />
           </div>
           <div className="col-md-12">
@@ -69,7 +68,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter email address"
-              value={logedClient.email}
+              value={logedBoatOwner.email}
             />
           </div>
           <div className="col-md-12">
@@ -86,7 +85,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter phone number"
-              value={logedClient.number}
+              value={logedBoatOwner.number}
             />
           </div>
           <div className="col-md-12">
@@ -95,7 +94,16 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter explanation"
-              value={logedClient.explanation}
+              value={logedBoatOwner.explanation}
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Short Biography</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter short biography"
+              value={logedBoatOwner.shortBiography}
             />
           </div>
         </div>
@@ -109,8 +117,8 @@ export default function ClientProfileLabel({
             //   if (deleteReason.current.value == "") {
             //     alert("You need to fill filed.");
             //   } else {
-            //     logedInstructor.deleteReason = deleteReason.current.value;
-            //     sendInstructorDeleteRequestHandler({ logedInstructor });
+            //     logedBoatOwner.deleteReason = deleteReason.current.value;
+            //     sendBoatOwnerDeleteRequestHandler({ logedBoatOwner });
             //   }
             // }}
 
@@ -118,8 +126,8 @@ export default function ClientProfileLabel({
               if (deleteReason.current.value == "") {
                 alert("You need to fill filed.");
               } else {
-                logedClient.deleteReason = deleteReason.current.value;
-                sendInstructorDeleteRequestHandler(logedClient);
+                logedBoatOwner.deleteReason = deleteReason.current.value;
+                sendBoatOwnerDeleteRequestHandler(logedBoatOwner);
               }
             }}
             className="btn btn-danger profile-button"

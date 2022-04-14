@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 
-export default function ClientProfileLabel({
-  logedClient,
-  sendInstructorDeleteRequestHandler,
+export default function CottageOwnerProfileLabels({
+  logedCottageOwner,
+  sendCottageOwnerDeleteRequestHandler,
 }) {
-  console.log("logedClient", logedClient);
+  console.log("logedCottageOwner", logedCottageOwner);
 
   const deleteReason = useRef();
 
@@ -21,7 +21,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter first name"
-              value={logedClient.name}
+              value={logedCottageOwner.name}
             />
           </div>
           <div className="col-md-6">
@@ -30,8 +30,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter surname"
-              value={logedClient.surname}
-              
+              value={logedCottageOwner.surname}
             />
           </div>
         </div>
@@ -42,7 +41,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter address"
-              value={logedClient.address}
+              value={logedCottageOwner.address}
             />
           </div>
           <div className="col-md-12">
@@ -51,7 +50,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter city"
-              value={logedClient.city}
+              value={logedCottageOwner.city}
             />
           </div>
           <div className="col-md-12">
@@ -60,7 +59,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter country"
-              value={logedClient.country}
+              value={logedCottageOwner.country}
             />
           </div>
           <div className="col-md-12">
@@ -69,7 +68,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter email address"
-              value={logedClient.email}
+              value={logedCottageOwner.email}
             />
           </div>
           <div className="col-md-12">
@@ -86,7 +85,7 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter phone number"
-              value={logedClient.number}
+              value={logedCottageOwner.number}
             />
           </div>
           <div className="col-md-12">
@@ -95,7 +94,16 @@ export default function ClientProfileLabel({
               type="text"
               className="form-control"
               placeholder="Enter explanation"
-              value={logedClient.explanation}
+              value={logedCottageOwner.explanation}
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Short Biography</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter short biography"
+              value={logedCottageOwner.shortBiography}
             />
           </div>
         </div>
@@ -109,8 +117,8 @@ export default function ClientProfileLabel({
             //   if (deleteReason.current.value == "") {
             //     alert("You need to fill filed.");
             //   } else {
-            //     logedInstructor.deleteReason = deleteReason.current.value;
-            //     sendInstructorDeleteRequestHandler({ logedInstructor });
+            //     logedCottageOwner.deleteReason = deleteReason.current.value;
+            //     sendCottageOwnerDeleteRequestHandler({ logedCottageOwner });
             //   }
             // }}
 
@@ -118,8 +126,8 @@ export default function ClientProfileLabel({
               if (deleteReason.current.value == "") {
                 alert("You need to fill filed.");
               } else {
-                logedClient.deleteReason = deleteReason.current.value;
-                sendInstructorDeleteRequestHandler(logedClient);
+                logedCottageOwner.deleteReason = deleteReason.current.value;
+                sendCottageOwnerDeleteRequestHandler(logedCottageOwner);
               }
             }}
             className="btn btn-danger profile-button"

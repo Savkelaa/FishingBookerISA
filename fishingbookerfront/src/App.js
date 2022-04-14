@@ -24,6 +24,9 @@ import FishingClassCardByInstructor from "./Components/Common/FishingClassCardBy
 import FishingClassCardByInstructorContainer from "./Containers/FishingClassCardByInstructorContainer";
 import CreateFishingClass from "./Containers/CreateFishingClassContainer";
 import ClientHomePageContainer from "./Containers/ClientHomePageContainer";
+import CottageOwnerHomePageContainer from "./Containers/CottageOwnerHomePageContainer";
+import BoatOwnerHomePageContainer from "./Containers/BoatOwnerHomePageContainer";
+
 
 function App() {
   return (
@@ -77,6 +80,12 @@ function App() {
           </Route>
           <Route path="/createFishingClass">
             <CreateFishingClass></CreateFishingClass>
+          </Route>
+          <Route path="/cottageOwnerHomePage">
+            <CottageOwnerHomePageContainer></CottageOwnerHomePageContainer>
+          </Route>
+          <Route path="/boatOwnerHomePage">
+            <BoatOwnerHomePageContainer></BoatOwnerHomePageContainer>
           </Route>
         </Switch>
         <Route path="/clientHomePage">
