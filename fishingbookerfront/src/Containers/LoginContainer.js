@@ -57,8 +57,11 @@ function LoginContainer() {
               setAdmin(data.data);
               localStorage.setItem("Admin", JSON.stringify(data.data));
               var adminn = JSON.parse(localStorage.getItem("Admin"));
-
-              if (adminn.activated == "true" && adminn.deleted == "false") {
+              if (adminn.email == "nikolaakv@gmail.com") {
+                history.push("/predefAdminHomePage");
+              } else if (adminn.firstTimeLoged == "true") {
+                history.push("/changePassword");
+              } else if (adminn.deleted == "false") {
                 if (Object.keys(adminn).length !== 0) {
                   history.push("/adminHomePage");
                   console.log("sucessfuly logedOn a admin");

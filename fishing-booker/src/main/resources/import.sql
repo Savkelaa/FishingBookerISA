@@ -1,3 +1,4 @@
+
 insert into admin (name, surname, address, city, country, email, password, explanation, money, number) values ('Wynnie', 'Marians', '6 Texas Crossing', 'Jiabeiyan', 'China', 'wmarians0@skyrock.com', 'PHchtvkk7', 'est congue elementum in hac habitasse', 583, '813-989-0158');
 insert into admin (name, surname, address, city, country, email, password, explanation, money, number) values ('Jule', 'M''Quhan', '67 Forest Pass', 'Pallasovka', 'Russia', 'jmquhan1@eventbrite.com', 'AI0fKItOI', 'nulla sed vel enim sit', 1753, '248-360-9216');
 insert into admin (name, surname, address, city, country, email, password, explanation, money, number) values ('Rosamond', 'Huccaby', '2216 Pankratz Road', 'Lutou', 'China', 'rhuccaby2@mac.com', 'b5ODA4hOqSF6', 'elementum ligula vehicula consequat', 1581, '224-913-2995');

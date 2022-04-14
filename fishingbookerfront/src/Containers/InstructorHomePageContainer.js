@@ -38,12 +38,24 @@ export default function InstructorHomePageContainer() {
       });
   }
 
+  function updateInstructor(instructor) {
+    userServices
+      .updateInstructor(instructor)
+      .then((data) => {
+        console.log("sucessfuly updated Instructor");
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
   return (
     <div>
       <Navbarr></Navbarr>
       <Profile
         logedInstructor={logedInstructor}
         sendInstructorDeleteRequestHandler={sendInstructorDeleteRequest}
+        updateInstructorHandler={updateInstructor}
         //  fishingClassesByInstructor={fishingClassesByInstructor}
       ></Profile>
       <Footerr></Footerr>

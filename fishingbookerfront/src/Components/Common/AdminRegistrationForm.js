@@ -2,7 +2,8 @@ import { getRoles } from "@testing-library/react";
 import React, { useRef } from "react";
 import { BrowserRouter as Link } from "react-router-dom";
 
-export default function RegistrationForm({
+export default function AdminRegistrationForm({
+  addAdminHandler,
   addClientHandler,
   addCottageOwnerHandler,
   addInstructorHandler,
@@ -26,64 +27,21 @@ export default function RegistrationForm({
   function saveHandler(e) {
     if (password.current.value != password1.current.value) {
       alert("Enter the same password in both fields");
-    } else {
-      if (role.current.value == "client") {
-        addClientHandler({
-          name: name.current.value,
-          password: password.current.value,
-          email: email.current.value,
-          surname: surname.current.value,
-          address: address.current.value,
-          city: city.current.value,
-          country: country.current.value,
-          explanation: explanation.current.value,
-          number: number.current.value,
-          activated: "false",
-          deleted: "false",
-        });
-      } else if (role.current.value == "boatOwner") {
-        addBoatOwnerHandler({
-          name: name.current.value,
-          password: password.current.value,
-          email: email.current.value,
-          surname: surname.current.value,
-          address: address.current.value,
-          city: city.current.value,
-          country: country.current.value,
-          explanation: explanation.current.value,
-          number: number.current.value,
-          activated: "false",
-          deleted: "false",
-        });
-      } else if (role.current.value == "instructor") {
-        addInstructorHandler({
-          name: name.current.value,
-          password: password.current.value,
-          email: email.current.value,
-          surname: surname.current.value,
-          address: address.current.value,
-          city: city.current.value,
-          country: country.current.value,
-          explanation: explanation.current.value,
-          number: number.current.value,
-          activated: "false",
-          deleted: "false",
-        });
-      } else if (role.current.value == "cottageOwner") {
-        addCottageOwnerHandler({
-          name: name.current.value,
-          password: password.current.value,
-          email: email.current.value,
-          surname: surname.current.value,
-          address: address.current.value,
-          city: city.current.value,
-          country: country.current.value,
-          explanation: explanation.current.value,
-          number: number.current.value,
-          activated: "false",
-          deleted: "false",
-        });
-      }
+    } else if (role.current.value == "admin") {
+      addAdminHandler({
+        name: name.current.value,
+        password: password.current.value,
+        email: email.current.value,
+        surname: surname.current.value,
+        address: address.current.value,
+        city: city.current.value,
+        country: country.current.value,
+        explanation: explanation.current.value,
+        number: number.current.value,
+        activated: "false",
+        deleted: "false",
+        firstTimeLoged: "true",
+      });
     }
   }
 
@@ -192,11 +150,8 @@ export default function RegistrationForm({
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <h6 for="website">Type</h6>
                     <select ref={role} id="role" name="role">
-                      <option value="cottageOwner">Cottage Owner</option>
-                      <option value="instructor">Instrictor</option>
-                      <option value="client">Client</option>
-                      <option selected value="boatOwner">
-                        Boat owner
+                      <option selected value="admin">
+                        Admin
                       </option>
                     </select>
                   </div>

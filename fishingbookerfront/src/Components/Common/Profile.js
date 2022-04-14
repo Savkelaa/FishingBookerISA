@@ -13,6 +13,7 @@ export default function Profile({
   logedInstructor,
   sendInstructorDeleteRequestHandler,
   fishingClassesByInstructor,
+  updateInstructorHandler,
 }) {
   return (
     <div className="container rounded bg-white mt-5 mb-5">
@@ -23,6 +24,7 @@ export default function Profile({
           sendInstructorDeleteRequestHandler={
             sendInstructorDeleteRequestHandler
           }
+          updateInstructorHandler={updateInstructorHandler}
         ></ProfileLabels>
         <InstructorHomeButtons
           fishingClassesByInstructor={fishingClassesByInstructor}

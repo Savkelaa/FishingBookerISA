@@ -61,7 +61,11 @@ public class AdminController {
 		return adminService.removeAdminDeleteRequest(adminId,adminDetails);
 	}
 
-
+	@PutMapping("/changePasswordAdmin/{id}")
+	public ResponseEntity<Admin> changePasswordAdmin(@PathVariable(value = "id") int adminId,
+														  @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+		return adminService.changePasswordAdmin(adminId,adminDetails);
+	}
 
 	@PostMapping("/admins")
 	public Admin createAdmin(@RequestBody Admin admin) throws Exception  {
