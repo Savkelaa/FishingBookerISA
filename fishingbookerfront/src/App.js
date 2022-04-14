@@ -26,6 +26,7 @@ import CreateFishingClass from "./Containers/CreateFishingClassContainer";
 import PredefAdminHomePageConatiner from "./Containers/PredefAdminHomePageContainer";
 import CreateAdminContainer from "./Containers/CreateAdminContainer";
 import ChangePasswordContainer from "./Containers/ChangePasswordContainer";
+import ClientHomePageContainer from "./Containers/ClientHomePageContainer";
 
 function App() {
   return (
@@ -88,6 +89,9 @@ function App() {
           </Route>
           <Route path="/changePassword">
             <ChangePasswordContainer></ChangePasswordContainer>
+          </Route>
+          <Route path="/clientHomePage">
+            <ClientHomePageContainer></ClientHomePageContainer>
           </Route>
         </Switch>
       </Router>

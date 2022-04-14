@@ -29,7 +29,7 @@ function LoginContainer() {
               var clientt = JSON.parse(localStorage.getItem("Client"));
               if (clientt.activated == "true" && clientt.deleted == "false") {
                 if (Object.keys(clientt).length !== 0) {
-                  history.push("/userRegistration");
+                  history.push("/clientHomePage");
                   console.log("sucessfuly logedOn a client");
                 }
               } else if (Object.keys(clientt).length == 0) {
