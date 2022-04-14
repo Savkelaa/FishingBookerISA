@@ -1,13 +1,6 @@
 import React, { useRef } from "react";
 
-export default function ProfileLabels({
-  logedInstructor,
-  sendInstructorDeleteRequestHandler,
-  updateInstructorHandler,
-}) {
-  console.log("logedInstructor", logedInstructor);
-
-  const deleteReason = useRef();
+export default function AdminProfileLabels({ logedAdmin, updateAdminHandler }) {
   const name = useRef();
   const surname = useRef();
   const address = useRef();
@@ -16,7 +9,11 @@ export default function ProfileLabels({
   const email = useRef();
   const number = useRef();
   const explanation = useRef();
-  const shortBiography = useRef();
+  const money = useRef();
+  const percentage = useRef();
+
+  console.log("logedAdmin", logedAdmin);
+  console.log("name", name);
 
   return (
     <div className="col-md-5 border-right">
@@ -31,7 +28,7 @@ export default function ProfileLabels({
               ref={name}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.name}
+              placeholder={logedAdmin.name}
             />
           </div>
           <div className="col-md-6">
@@ -40,7 +37,7 @@ export default function ProfileLabels({
               ref={surname}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.surname}
+              placeholder={logedAdmin.surname}
             />
           </div>
         </div>
@@ -51,7 +48,7 @@ export default function ProfileLabels({
               ref={address}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.address}
+              placeholder={logedAdmin.address}
             />
           </div>
           <div className="col-md-12">
@@ -60,7 +57,7 @@ export default function ProfileLabels({
               ref={city}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.city}
+              placeholder={logedAdmin.city}
             />
           </div>
           <div className="col-md-12">
@@ -69,7 +66,7 @@ export default function ProfileLabels({
               ref={country}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.country}
+              placeholder={logedAdmin.country}
             />
           </div>
           <div className="col-md-12">
@@ -78,7 +75,7 @@ export default function ProfileLabels({
               ref={email}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.email}
+              placeholder={logedAdmin.email}
             />
           </div>
 
@@ -88,7 +85,7 @@ export default function ProfileLabels({
               ref={number}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.number}
+              placeholder={logedAdmin.number}
             />
           </div>
           <div className="col-md-12">
@@ -97,16 +94,25 @@ export default function ProfileLabels({
               ref={explanation}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.explanation}
+              placeholder={logedAdmin.explanation}
             />
           </div>
           <div className="col-md-12">
-            <label className="labels">Short Biography</label>
+            <label className="labels">Total money</label>
             <input
-              ref={shortBiography}
+              ref={money}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.shortBiography}
+              placeholder={logedAdmin.money}
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Percentage of reservations</label>
+            <input
+              ref={percentage}
+              type="text"
+              className="form-control"
+              placeholder={logedAdmin.percentage}
             />
           </div>
         </div>
@@ -116,47 +122,22 @@ export default function ProfileLabels({
             className="btn btn-success profile-button"
             type="button"
             onClick={() => {
-              logedInstructor.name = name.current.value;
-              logedInstructor.surname = surname.current.value;
-              logedInstructor.address = address.current.value;
-              logedInstructor.city = city.current.value;
-              logedInstructor.country = country.current.value;
-              logedInstructor.email = email.current.value;
-              logedInstructor.number = number.current.value;
-              logedInstructor.explanation = explanation.current.value;
-              logedInstructor.shortBiography = shortBiography.current.value;
-
-              localStorage.setItem(
-                "Instructor",
-                JSON.stringify(logedInstructor)
-              );
-
-              updateInstructorHandler(logedInstructor);
+              logedAdmin.name = name.current.value;
+              logedAdmin.surname = surname.current.value;
+              logedAdmin.address = address.current.value;
+              logedAdmin.city = city.current.value;
+              logedAdmin.country = country.current.value;
+              logedAdmin.email = email.current.value;
+              logedAdmin.number = number.current.value;
+              logedAdmin.explanation = explanation.current.value;
+              logedAdmin.money = money.current.value;
+              logedAdmin.percentage = percentage.current.value;
+              updateAdminHandler(logedAdmin);
+              localStorage.setItem("Admin", JSON.stringify(logedAdmin));
             }}
           >
             Update Profile
           </button>
-          <button
-            onClick={() => {
-              if (deleteReason.current.value == "") {
-                alert("You need to fill filed.");
-              } else {
-                logedInstructor.deleteReason = deleteReason.current.value;
-                sendInstructorDeleteRequestHandler(logedInstructor);
-              }
-            }}
-            className="btn btn-danger profile-button"
-            type="button"
-          >
-            Delete Profile
-          </button>
-          <input
-            ref={deleteReason}
-            type="refusalReason"
-            className="form-control"
-            id="refusalReason"
-          />
-          Enter the reason for deletion
         </div>
       </div>
     </div>

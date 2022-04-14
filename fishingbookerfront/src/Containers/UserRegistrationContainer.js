@@ -29,20 +29,20 @@ function UserRegistrationContainer() {
       });
   }
 
-  function addAdmin(user) {
-    userServices
-      .createAdmin(user)
-      .then((data) => {
-        if (data.status === 204) setAdmin([]);
-        else {
-          setAdmin(data.data.content);
-          console.log("sucessfuly added a admin");
-        }
-      })
-      .catch((error) => {
-        console.log("Something wen't wrong try again");
-      });
-  }
+  // function addAdmin(user) {
+  //   userServices
+  //     .createAdmin(user)
+  //     .then((data) => {
+  //       if (data.status === 204) setAdmin([]);
+  //       else {
+  //         setAdmin(data.data.content);
+  //         console.log("sucessfuly added a admin");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log("Something wen't wrong try again");
+  //     });
+  // }
 
   function addBoatOwner(boatOwner) {
     userServices
@@ -97,7 +97,7 @@ function UserRegistrationContainer() {
         addCottageOwnerHandler={addCottageOwner}
         addInstructorHandler={addInstructor}
         addBoatOwnerHandler={addBoatOwner}
-        addAdminHandler={addAdmin}
+        //   addAdminHandler={addAdmin}
       ></RegistrationForm>
       <Footerr></Footerr>
     </div>

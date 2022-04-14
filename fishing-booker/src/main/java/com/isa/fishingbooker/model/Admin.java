@@ -79,6 +79,9 @@ public class Admin implements UserDetails {
 	@Column(name = "deleteReason")
 	private String deleteReason;
 
+	@Column(name = "firstTimeLoged")
+	private String firstTimeLoged;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub

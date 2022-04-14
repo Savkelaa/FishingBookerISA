@@ -23,6 +23,9 @@ import DeleteRequestsContainer from "./Containers/DeleteRequestsContainer";
 import FishingClassCardByInstructor from "./Components/Common/FishingClassCardByInstructor";
 import FishingClassCardByInstructorContainer from "./Containers/FishingClassCardByInstructorContainer";
 import CreateFishingClass from "./Containers/CreateFishingClassContainer";
+import PredefAdminHomePageConatiner from "./Containers/PredefAdminHomePageContainer";
+import CreateAdminContainer from "./Containers/CreateAdminContainer";
+import ChangePasswordContainer from "./Containers/ChangePasswordContainer";
 
 function App() {
   return (
@@ -76,6 +79,15 @@ function App() {
           </Route>
           <Route path="/createFishingClass">
             <CreateFishingClass></CreateFishingClass>
+          </Route>
+          <Route path="/predefAdminHomePage">
+            <PredefAdminHomePageConatiner></PredefAdminHomePageConatiner>
+          </Route>
+          <Route path="/createAdmin">
+            <CreateAdminContainer></CreateAdminContainer>
+          </Route>
+          <Route path="/changePassword">
+            <ChangePasswordContainer></ChangePasswordContainer>
           </Route>
         </Switch>
       </Router>
