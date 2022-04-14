@@ -27,7 +27,7 @@ const userServices = {
   },
   createBoatOwner: (boatOwner) => {
     return axios.post(
-      `${process.env.REACT_APP_API_URL_AUTH}sighUpBoatOwner`,
+      `${process.env.REACT_APP_API_URL_AUTH}signUpBoatOwner`,
       boatOwner
     );
   },
@@ -216,6 +216,52 @@ const userServices = {
     return axios.put(
       `${process.env.REACT_APP_API_URL}removeClientDeleteRequest/${Client.id}`,
       Client
+    );
+  },
+
+  //// update requests
+
+  updateAdmin: (Admin) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}admins/${Admin.id}`,
+      Admin
+    );
+  },
+
+  updateCottageOwner: (CottageOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}cottageOwners/${CottageOwner.id}`,
+      CottageOwner
+    );
+  },
+
+  updateBoatOwner: (BoatOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}boatOwners/${BoatOwner.id}`,
+      BoatOwner
+    );
+  },
+
+  updateClient: (Client) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}clients/${Client.id}`,
+      Client
+    );
+  },
+
+  updateInstructor: (Instructor) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}instructors/${Instructor.id}`,
+      Instructor
+    );
+  },
+
+  ///// changePasswordAdmin
+
+  changePassword: (Admin) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}changePasswordAdmin/${Admin.id}`,
+      Admin
     );
   },
 };

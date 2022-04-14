@@ -64,6 +64,18 @@ public class AdminService {
 		return AdminRepository.save(admin);
 	}
 
+	public ResponseEntity<Admin> changePasswordAdmin(Integer adminId,
+														  @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+		Admin admin = AdminRepository.findById(adminId)
+				.orElseThrow(() -> new ResourceNotFoundException("Admin not found for this id :: " + adminId));
+
+		admin.setPassword(passwordEncoder.encode(adminDetails.getPassword()));
+		admin.setFirstTimeLoged("false");
+
+		final Admin updatedAdmin = AdminRepository.save(admin);
+		return ResponseEntity.ok(updatedAdmin);
+	}
+
 	public List<Admin> getAllAdminDeleteRequests() {
 		return AdminRepository.getAllAdminDeleteRequests();
 	}
@@ -83,7 +95,15 @@ public class AdminService {
 		admin.setPassword(adminDetails.getPassword());
 		admin.setMoney(adminDetails.getMoney());
 		admin.setSurname(adminDetails.getSurname());
-		
+		admin.setActivated(adminDetails.getActivated());
+		admin.setDeleted(adminDetails.getDeleted());
+		admin.setRefusalReason(adminDetails.getRefusalReason());
+		admin.setPercentage(adminDetails.getPercentage());
+		admin.setDeleteRequest(adminDetails.getDeleteRequest());
+		admin.setDeleteReason(adminDetails.getDeleteReason());
+		admin.setFirstTimeLoged(adminDetails.getFirstTimeLoged());
+
+
 		final Admin updatedAdmin = AdminRepository.save(admin);
 		return ResponseEntity.ok(updatedAdmin);
 	}

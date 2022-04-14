@@ -1,22 +1,12 @@
 import React, { useRef } from "react";
 
-export default function ProfileLabels({
+export default function PredefAdminProfileLabels({
   logedInstructor,
   sendInstructorDeleteRequestHandler,
-  updateInstructorHandler,
 }) {
   console.log("logedInstructor", logedInstructor);
 
   const deleteReason = useRef();
-  const name = useRef();
-  const surname = useRef();
-  const address = useRef();
-  const city = useRef();
-  const country = useRef();
-  const email = useRef();
-  const number = useRef();
-  const explanation = useRef();
-  const shortBiography = useRef();
 
   return (
     <div className="col-md-5 border-right">
@@ -28,19 +18,19 @@ export default function ProfileLabels({
           <div className="col-md-6">
             <label className="labels">First Name</label>
             <input
-              ref={name}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.name}
+              placeholder="Enter first name"
+              // value={logedInstructor.name}
             />
           </div>
           <div className="col-md-6">
             <label className="labels">Surname</label>
             <input
-              ref={surname}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.surname}
+              placeholder="Enter surname"
+              //value={logedInstructor.surname}
             />
           </div>
         </div>
@@ -48,95 +38,90 @@ export default function ProfileLabels({
           <div className="col-md-12">
             <label className="labels">Address</label>
             <input
-              ref={address}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.address}
+              placeholder="Enter address"
+              // value={logedInstructor.address}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">City</label>
             <input
-              ref={city}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.city}
+              placeholder="Enter city"
+              // value={logedInstructor.city}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Country</label>
             <input
-              ref={country}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.country}
+              placeholder="Enter country"
+              //  value={logedInstructor.country}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Email</label>
             <input
-              ref={email}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.email}
+              placeholder="Enter email address"
+              //    value={logedInstructor.email}
             />
           </div>
-
+          <div className="col-md-12">
+            <label className="labels">Password</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter password"
+            />
+          </div>
           <div className="col-md-12">
             <label className="labels">Number</label>
             <input
-              ref={number}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.number}
+              placeholder="Enter phone number"
+              //   value={logedInstructor.number}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Explanation of Registration</label>
             <input
-              ref={explanation}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.explanation}
+              placeholder="Enter explanation"
+              //  value={logedInstructor.explanation}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Short Biography</label>
             <input
-              ref={shortBiography}
               type="text"
               className="form-control"
-              placeholder={logedInstructor.shortBiography}
+              placeholder="Enter short biography"
+              //   value={logedInstructor.shortBiography}
             />
           </div>
         </div>
 
         <div className="mt-5 text-center">
-          <button
-            className="btn btn-success profile-button"
-            type="button"
-            onClick={() => {
-              logedInstructor.name = name.current.value;
-              logedInstructor.surname = surname.current.value;
-              logedInstructor.address = address.current.value;
-              logedInstructor.city = city.current.value;
-              logedInstructor.country = country.current.value;
-              logedInstructor.email = email.current.value;
-              logedInstructor.number = number.current.value;
-              logedInstructor.explanation = explanation.current.value;
-              logedInstructor.shortBiography = shortBiography.current.value;
-
-              localStorage.setItem(
-                "Instructor",
-                JSON.stringify(logedInstructor)
-              );
-
-              updateInstructorHandler(logedInstructor);
-            }}
-          >
+          <button className="btn btn-success profile-button" type="button">
             Update Profile
           </button>
           <button
+            // onClick={(e) => {
+            //   if (deleteReason.current.value == "") {
+            //     alert("You need to fill filed.");
+            //   } else {
+            //     logedInstructor.deleteReason = deleteReason.current.value;
+            //     sendInstructorDeleteRequestHandler({ logedInstructor });
+            //   }
+            // }}
+
             onClick={() => {
               if (deleteReason.current.value == "") {
                 alert("You need to fill filed.");
