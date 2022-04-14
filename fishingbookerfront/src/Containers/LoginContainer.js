@@ -89,16 +89,16 @@ function LoginContainer() {
             .logInCottageOwner(email, password)
             .then((data) => {
               setCottageOwner(data.data);
-              localStorage.setItem("Cottage Owner", JSON.stringify(data.data));
+              localStorage.setItem("CottageOwner", JSON.stringify(data.data));
               var cottageOwnerr = JSON.parse(
-                localStorage.getItem("Cottage Owner")
+                localStorage.getItem("CottageOwner")
               );
               if (
                 cottageOwnerr.activated == "true" &&
                 cottageOwnerr.deleted == "false"
               ) {
                 if (Object.keys(cottageOwnerr).length !== 0) {
-                  history.push("/adminHomePage"); //promenite kada napravite stranicu
+                  history.push("/cottageOwnerHomePage"); //promenite kada napravite stranicu
                   console.log("sucessfuly logedOn a cottage owner");
                 }
               } else if (Object.keys(cottageOwnerr).length == 0) {
@@ -124,15 +124,15 @@ function LoginContainer() {
             .logInBoatOwner(email, password)
             .then((data) => {
               setBoatOnwer(data.data);
-              localStorage.setItem("Boat Onwer", JSON.stringify(data.data));
+              localStorage.setItem("BoatOwner", JSON.stringify(data.data));
 
-              var boatOwnerr = JSON.parse(localStorage.getItem("Boat Owner"));
+              var boatOwnerr = JSON.parse(localStorage.getItem("BoatOwner"));
               if (
                 boatOwnerr.activated == "true" &&
                 boatOwnerr.deleted == "false"
               ) {
                 if (Object.keys(boatOwnerr).length !== 0) {
-                  history.push("/adminHomePage");
+                  history.push("/boatOwnerHomePage");
                   console.log("sucessfuly logedOn a BoatOnwer"); //promenite kada napravite stranicu
                 }
               } else if (Object.keys(boatOwnerr).length == 0) {
