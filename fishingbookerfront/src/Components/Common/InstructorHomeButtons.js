@@ -21,7 +21,7 @@ export default function InstructorHomeButtons(fishingClassesByInstructor) {
 
         <Link
           to={{
-            pathname: `/fishingClassName`,
+            pathname: `/fishingClassByInstructor`,
             state: { fishingClassesByInstructor },
           }}
         >

@@ -41,7 +41,7 @@ function App() {
           <Route path="/fishingClasses">
             <FishingClassesContainer></FishingClassesContainer>
           </Route>
-          <Route path="/fishingClassName">
+          <Route path="/fishingClassByInstructor">
             <FishingClassCardByInstructorContainer></FishingClassCardByInstructorContainer>
           </Route>
           <Route path="/login">
