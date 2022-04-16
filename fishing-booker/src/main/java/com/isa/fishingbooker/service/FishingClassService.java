@@ -16,6 +16,7 @@ import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.FishingClass;
 import com.isa.fishingbooker.model.FishingClassBehavioralRule;
 import com.isa.fishingbooker.repository.FishingClassRepository;
+import com.isa.fishingbooker.model.Instructor;
 
 @Service
 public class FishingClassService {
@@ -65,6 +66,16 @@ public class FishingClassService {
 		fishingClass.setPromoDescription(fishingClassDetails.getPromoDescription());
 		fishingClass.setCancellationCondition(fishingClassDetails.getCancellationCondition());
 		fishingClass.setMaxPeople(fishingClassDetails.getMaxPeople());
+		fishingClass.setPrice(fishingClassDetails.getPrice());
+
+
+		Instructor instructor =fishingClassDetails.getInstructor();
+		Instructor instructor1 = fishingClass.getInstructor();
+
+
+
+		instructor1.setShortBiography(instructor.getShortBiography());
+
 	
 		final FishingClass updatedFishingClass = fishingClassRepository.save(fishingClass);
 		return ResponseEntity.ok(updatedFishingClass);

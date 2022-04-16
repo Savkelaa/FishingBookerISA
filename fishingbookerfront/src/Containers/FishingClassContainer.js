@@ -37,6 +37,17 @@ function FishingClassContainer() {
       .catch((error) => console.log(`error`, error));
   }, []);
 
+  function updateFishingClass(fishingClass) {
+    fishingClassServices
+      .updateFishingClass(fishingClass)
+      .then((data) => {
+        console.log("sucessfuly updated fishingClass");
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
   return (
     <div>
       <Navbarr></Navbarr>
@@ -45,6 +56,7 @@ function FishingClassContainer() {
         fishingClass={fishingClass}
         behavioralRule={behavioralRule}
         additionalItems={additionalItems}
+        updateFishingClassHandler={updateFishingClass}
       ></FcForm>
       <Footerr></Footerr>
     </div>

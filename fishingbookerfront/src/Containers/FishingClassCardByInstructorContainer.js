@@ -49,12 +49,8 @@ function FishingClassCardByInstructorContainer() {
   function changeFilterClientsText(text) {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
-      history.push(
-        `fishingClassName?instructorId=${logedInstructor.id}&fishingclassName=${text}`
-      );
-    }, 500);
-
-    setfilterText(text);
+      setfilterText(text);
+    }, 300);
   }
 
   return (
@@ -63,7 +59,6 @@ function FishingClassCardByInstructorContainer() {
       <FishingClassCardByInstructor
         fishingClassesByInstructor={fishingClassesByInstructor}
         changeFilterClientsText={changeFilterClientsText}
-        filterText={filterText}
       ></FishingClassCardByInstructor>
       <Footerr></Footerr>
     </div>
