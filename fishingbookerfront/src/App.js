@@ -27,6 +27,8 @@ import CreateAdminContainer from "./Containers/CreateAdminContainer";
 import ChangePasswordContainer from "./Containers/ChangePasswordContainer";
 import ClientHomePageContainer from "./Containers/ClientHomePageContainer";
 import ChangePasswordInstructorContainer from "./Containers/ChangePasswordInstructorContainer";
+import CottageOwnerHomePageContainer from "./Containers/CottageOwnerHomePageContainer";
+import BoatOwnerHomePageContainer from "./Containers/BoatOwnerHomePageContainer";
 
 function App() {
   return (
@@ -80,6 +82,12 @@ function App() {
           </Route>
           <Route path="/createFishingClass">
             <CreateFishingClass></CreateFishingClass>
+          </Route>
+          <Route path="/cottageOwnerHomePage">
+            <CottageOwnerHomePageContainer></CottageOwnerHomePageContainer>
+          </Route>
+          <Route path="/boatOwnerHomePage">
+            <BoatOwnerHomePageContainer></BoatOwnerHomePageContainer>
           </Route>
           <Route path="/predefAdminHomePage">
             <PredefAdminHomePageConatiner></PredefAdminHomePageConatiner>
