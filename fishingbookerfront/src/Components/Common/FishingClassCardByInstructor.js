@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Card,
   ListGroup,
@@ -11,13 +11,20 @@ import { Link } from "react-router-dom";
 
 export default function FishingClassCardByInstructor({
   fishingClassesByInstructor,
+  changeFilterClientsText,
+  filterText,
 }) {
+  const search = useRef("");
+
   return (
     <div>
       <input
-        type="text"
+        ref={search}
+        type="search"
         className="form-control"
-        placeholder="Search.."
+        name="search-fishingClass"
+        placeholder="Search fishing classes by name.."
+        onKeyUp={(e) => changeFilterClientsText(search.current.value)}
       ></input>
       {fishingClassesByInstructor.map((fishingClass) => (
         <div className="container">

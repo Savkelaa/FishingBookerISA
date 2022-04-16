@@ -3,6 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.Admin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,12 @@ public class InstructorController {
 	public ResponseEntity<Instructor> updateInstructor(@PathVariable(value = "id") int instructorId,
 			@RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
 		return instructorService.updateInstructor(instructorId, instructorDetails);
+	}
+
+	@PutMapping("/changePasswordInstructor/{id}")
+	public ResponseEntity<Instructor> changePasswordInstructor(@PathVariable(value = "id") int instructorId,
+													 @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
+		return instructorService.changePasswordInstructor(instructorId,instructorDetails);
 	}
 	
 	@PutMapping("/activateInstructor/{id}")

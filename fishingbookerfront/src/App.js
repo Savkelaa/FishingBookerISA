@@ -20,13 +20,13 @@ import AllCottageOwnersContainer from "./Containers/AllCottageOwnersContainer";
 import AllCottagesContainer from "./Containers/AllCottagesContainer";
 import AllBoatsContainer from "./Containers/AllBoatsContainer";
 import DeleteRequestsContainer from "./Containers/DeleteRequestsContainer";
-import FishingClassCardByInstructor from "./Components/Common/FishingClassCardByInstructor";
 import FishingClassCardByInstructorContainer from "./Containers/FishingClassCardByInstructorContainer";
 import CreateFishingClass from "./Containers/CreateFishingClassContainer";
 import PredefAdminHomePageConatiner from "./Containers/PredefAdminHomePageContainer";
 import CreateAdminContainer from "./Containers/CreateAdminContainer";
 import ChangePasswordContainer from "./Containers/ChangePasswordContainer";
 import ClientHomePageContainer from "./Containers/ClientHomePageContainer";
+import ChangePasswordInstructorContainer from "./Containers/ChangePasswordInstructorContainer";
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
           <Route path="/fishingClasses">
             <FishingClassesContainer></FishingClassesContainer>
           </Route>
-          <Route path="/fishingClassesByInstructor">
+          <Route path="/fishingClassName">
             <FishingClassCardByInstructorContainer></FishingClassCardByInstructorContainer>
           </Route>
           <Route path="/login">
@@ -89,6 +89,9 @@ function App() {
           </Route>
           <Route path="/changePassword">
             <ChangePasswordContainer></ChangePasswordContainer>
+          </Route>
+          <Route path="/changePasswordInstructor">
+            <ChangePasswordInstructorContainer></ChangePasswordInstructorContainer>
           </Route>
           <Route path="/clientHomePage">
             <ClientHomePageContainer></ClientHomePageContainer>

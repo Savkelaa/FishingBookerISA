@@ -417,6 +417,14 @@ const fishingClassServices = {
       `${process.env.REACT_APP_API_URL}images?fishingClassId=${fishingClassId}`
     );
   },
+
+  ///// Search
+
+  searchFishingClassByName: (instructorId, fishingClassName) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingClassName?instructorId=${instructorId}&fishingclassName=${fishingClassName}`
+    );
+  },
 };
 
 export default fishingClassServices;

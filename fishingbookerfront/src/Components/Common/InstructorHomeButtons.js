@@ -21,12 +21,18 @@ export default function InstructorHomeButtons(fishingClassesByInstructor) {
 
         <Link
           to={{
-            pathname: `/fishingClassesByInstructor`,
+            pathname: `/fishingClassName`,
             state: { fishingClassesByInstructor },
           }}
         >
           <button className="btn btn-primary profile-button" type="button">
             Fishing Classes
+          </button>
+        </Link>
+
+        <Link to="changePasswordInstructor">
+          <button className="btn btn-primary profile-button" type="button">
+            Change password
           </button>
         </Link>
         <button className="btn btn-primary profile-button" type="button">
