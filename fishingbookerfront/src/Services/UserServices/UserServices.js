@@ -264,6 +264,13 @@ const userServices = {
       Admin
     );
   },
+
+  changePasswordInstructor: (Instructor) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}changePasswordInstructor/${Instructor.id}`,
+      Instructor
+    );
+  },
 };
 
 export default userServices;

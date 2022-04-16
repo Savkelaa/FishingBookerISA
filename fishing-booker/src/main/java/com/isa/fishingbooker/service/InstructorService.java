@@ -86,6 +86,9 @@ public class InstructorService {
 		final Instructor updatedInstructor = InstructorRepository.save(instructor);
 		return ResponseEntity.ok(updatedInstructor);
 	}
+
+
+
 	
 	public ResponseEntity<Instructor> activateInstructor(Integer instructorId) throws ResourceNotFoundException {
 		Instructor instructor = InstructorRepository.findById(instructorId)
@@ -104,7 +107,19 @@ public class InstructorService {
 		
 		return ResponseEntity.ok(updatedInstructor);
 	}
-	
+
+	public ResponseEntity<Instructor> changePasswordInstructor(Integer instructorId,
+													   @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
+		Instructor instructor = InstructorRepository.findById(instructorId)
+				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + instructorId));
+
+		instructor.setPassword(passwordEncoder.encode(instructor.getPassword()));
+
+		final Instructor updatedInstructor = InstructorRepository.save(instructor);
+		return ResponseEntity.ok(updatedInstructor);
+	}
+
+
 	public ResponseEntity<Instructor> removeInstructor(Integer instructorId,
 			 @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
 		Instructor instructor = InstructorRepository.findById(instructorId)

@@ -20,7 +20,7 @@ public interface FishingClassRepository extends JpaRepository<FishingClass, Inte
 	List<String> getShortBiographyByFishingClass(Integer fishingClassId);
 	
 	@Query(value = "SELECT * FROM fishing_class\r\n"
-	+ "WHERE instructor_id = :instructorId AND name LIKE ':fishingclassName%'", nativeQuery = true)
+	+ "WHERE instructor_id = :instructorId AND name LIKE :fishingclassName%", nativeQuery = true)
 	List<FishingClass> getFishingClassByInstructorAndName(Integer instructorId, String fishingclassName);
 	
 	@Query(value = "SELECT * FROM fishing_class\r\n"
