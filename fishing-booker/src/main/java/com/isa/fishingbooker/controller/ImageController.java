@@ -23,12 +23,13 @@ public class ImageController {
 	@Autowired
 	private ImageService imageService;
 	
-	@GetMapping("/images")
+	@GetMapping("/imagesFC")
 	public List<Image> getAllImagesByFishingClass(@RequestParam (value="fishingClassId")  Integer fishingClassId)
 	{
 		return imageService.getAllImagesByFishingClass(fishingClassId);
 	}
-	
+
+
 	
 }
 

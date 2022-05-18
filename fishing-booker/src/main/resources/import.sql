@@ -266,3 +266,6 @@ insert into additional_service (name, price, description, fishing_class_quick_re
 insert into additional_service (name, price, description, fishing_class_reservation_id) values ('minibar', 2, 'id ligula suspendisse ornare', 2);
 insert into additional_service (name, price, description, fishing_class_quick_reservation_id) values ('WiFi', 4, 'id ligula suspendisse ornare', 1);
 
+INSERT INTO image (url, fishing_class_id) VALUES ('https://www.kirksflyshop.com/wp-content/uploads/2017/10/Kelly-Prier-Daugther-300x200.jpg', 1);
+INSERT INTO image (url, fishing_class_id) VALUES ('https://www.everettpotter.com/wp-content/uploads/2010/09/6a00d8341c91bb53ef0115701c12c6970b-pi.jpg', 1);
+INSERT INTO image (url, fishing_class_id) VALUES ('https://dreamcastidaho.com/wp-content/uploads/2016/03/services2-370x224.jpg', 1);

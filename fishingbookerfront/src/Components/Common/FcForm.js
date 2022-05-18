@@ -3,16 +3,21 @@ import { ListGroup, Image } from "react-bootstrap";
 
 import "../../App.css";
 import { BrowserRouter as Link } from "react-router-dom";
+import slika from "../../Assets/img/slika1.jpg";
+import Box from "@mui/material/Box";
+import ImageList from "@mui/material/ImageList";
 
 export default function FcForm({
   behavioralRule,
   fishingClass,
   additionalItems,
   updateFishingClassHandler,
+  images,
 }) {
   console.log(`fishingClass`, fishingClass);
   console.log(`behavioralRule`, behavioralRule);
   console.log(`additionalServices`, additionalItems);
+  console.log("images", images);
 
   const name = useRef();
   const address = useRef();
@@ -203,6 +208,17 @@ export default function FcForm({
                   </div>
                 </div>
               </div>
+
+              {images.map((slika, index) => (
+                <img
+                  className="img-fluid"
+                  alt={slika.url}
+                  src={slika.url}
+                  width="200"
+                  height="200"
+                  position="absolute"
+                />
+              ))}
             </div>
           </div>
         </div>

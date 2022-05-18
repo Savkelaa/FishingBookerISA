@@ -44,6 +44,11 @@ export default function InstructorHomeButtons(fishingClassesByInstructor) {
         <button className="btn btn-primary profile-button" type="button">
           Finished reservations
         </button>
+        <Link to="mala">
+          <button className="btn btn-primary profile-button" type="button">
+            Schedule
+          </button>
+        </Link>
       </div>
     </div>
   );

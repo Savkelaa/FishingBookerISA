@@ -53,6 +53,8 @@ function FishingClassCardByInstructorContainer() {
     }, 300);
   }
 
+
+  
   return (
     <div>
       <Navbarr></Navbarr>

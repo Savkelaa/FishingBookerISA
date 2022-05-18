@@ -13,6 +13,7 @@ function FishingClassContainer() {
   const [fishingClass, setFishingClass] = useState({});
   const [behavioralRule, setbehavioralRule] = useState([]);
   const [additionalItems, setAdditionalItems] = useState([]);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     fishingClassServices
@@ -33,6 +34,13 @@ function FishingClassContainer() {
       .getAdditionalServiceByFishingClass(id)
       .then((data) => {
         setAdditionalItems(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+
+    fishingClassServices
+      .imagesByFishingClass(id)
+      .then((data) => {
+        setImages(data.data);
       })
       .catch((error) => console.log(`error`, error));
   }, []);
@@ -57,6 +65,7 @@ function FishingClassContainer() {
         behavioralRule={behavioralRule}
         additionalItems={additionalItems}
         updateFishingClassHandler={updateFishingClass}
+        images={images}
       ></FcForm>
       <Footerr></Footerr>
     </div>
