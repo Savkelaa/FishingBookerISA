@@ -171,6 +171,18 @@ export default function FcForm({
                   </div>
                 </div>
               </div>
+
+              {images.map((slika, index) => (
+                <img
+                  className="img-fluid"
+                  alt={slika.url}
+                  src={slika.url}
+                  width="200"
+                  height="200"
+                  position="absolute"
+                />
+              ))}
+
               <div className="row gutters">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <div className="text-right">
@@ -208,17 +220,6 @@ export default function FcForm({
                   </div>
                 </div>
               </div>
-
-              {images.map((slika, index) => (
-                <img
-                  className="img-fluid"
-                  alt={slika.url}
-                  src={slika.url}
-                  width="200"
-                  height="200"
-                  position="absolute"
-                />
-              ))}
             </div>
           </div>
         </div>

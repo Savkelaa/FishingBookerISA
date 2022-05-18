@@ -142,6 +142,8 @@ insert into fishing_class (price,max_people,name, address, promo_description, in
 insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,7,'Ad', '2 Warner Parkway',  'erat curabitur gravida nisi at nibh', 3, 6);
 insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Salli', '850 Almo Pass',  'risus praesent lectus vestibulum quam', 3, 11);
 insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,10,'Lesley', '3056 Vidon Court',  'nunc vestibulum ante ipsum primis in', 2, 7);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,11,'Vikenica', 'Zelena gora',  'nunc vestibulum ante ipsum primis in', 1, 7);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,11,'Vikenica', 'Zelena gora',  'nunc vestibulum ante ipsum primis in', 1, 8);
 
 insert into fishing_class_behavioral_rule (name, description, fishing_class_id) values ('Effertz, Kris and Connelly', 'in ante vestibulum ante', 5);
 insert into fishing_class_behavioral_rule (name, description, fishing_class_id) values ('Hauck, Rau and Schaden', 'posuere cubilia curae nulla dapibus dolor', 1);

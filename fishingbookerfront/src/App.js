@@ -30,6 +30,7 @@ import ChangePasswordInstructorContainer from "./Containers/ChangePasswordInstru
 import CottageOwnerHomePageContainer from "./Containers/CottageOwnerHomePageContainer";
 import BoatOwnerHomePageContainer from "./Containers/BoatOwnerHomePageContainer";
 import ScheduleContainer from "./Containers/ScheduleContainer";
+import AvailabilityPeriodContainer from "./Containers/AvailabilityPeriodContainer";
 
 function App() {
   return (
@@ -107,6 +108,9 @@ function App() {
           </Route>
           <Route path="/mala">
             <ScheduleContainer></ScheduleContainer>
+          </Route>
+          <Route path="/availabilityPeriod">
+            <AvailabilityPeriodContainer></AvailabilityPeriodContainer>
           </Route>
         </Switch>
       </Router>
