@@ -1,16 +1,11 @@
 package com.isa.fishingbooker.model;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
@@ -80,7 +75,14 @@ public class Instructor implements UserDetails {
 
 	@Column(name = "deleteReason")
 	private String deleteReason;
-	
+
+	@Column(name = "availabilityPeriodFrom")
+	private Date availabilityPeriodFrom;
+
+	@Column(name = "availabilityPeriodTo")
+	private Date availabilityPeriodTo;
+
+
 	@JsonIgnore
     @OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
     private List<FishingClass> fishingClasses ;

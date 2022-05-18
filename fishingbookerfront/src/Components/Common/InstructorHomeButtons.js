@@ -35,6 +35,11 @@ export default function InstructorHomeButtons(fishingClassesByInstructor) {
             Change password
           </button>
         </Link>
+        <Link to="availabilityPeriod">
+          <button className="btn btn-primary profile-button" type="button">
+            Enter availability period
+          </button>
+        </Link>
         <button className="btn btn-primary profile-button" type="button">
           History of reservations
         </button>
