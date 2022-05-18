@@ -29,6 +29,7 @@ import ClientHomePageContainer from "./Containers/ClientHomePageContainer";
 import ChangePasswordInstructorContainer from "./Containers/ChangePasswordInstructorContainer";
 import CottageOwnerHomePageContainer from "./Containers/CottageOwnerHomePageContainer";
 import BoatOwnerHomePageContainer from "./Containers/BoatOwnerHomePageContainer";
+import ScheduleContainer from "./Containers/ScheduleContainer";
 
 function App() {
   return (
@@ -103,6 +104,9 @@ function App() {
           </Route>
           <Route path="/clientHomePage">
             <ClientHomePageContainer></ClientHomePageContainer>
+          </Route>
+          <Route path="/mala">
+            <ScheduleContainer></ScheduleContainer>
           </Route>
         </Switch>
       </Router>
