@@ -2,16 +2,7 @@ package com.isa.fishingbooker.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -57,7 +48,11 @@ public class FishingClass {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="instructor_id", nullable = false)
     private Instructor instructor;
-	
+
+
+
+
+
 	@JsonIgnore
     @OneToMany(mappedBy="fishingClass",fetch=FetchType.LAZY)
     private List<Image> images;

@@ -82,6 +82,9 @@ public class Instructor implements UserDetails {
 	@Column(name = "availabilityPeriodTo")
 	private Date availabilityPeriodTo;
 
+	@JsonIgnore
+	@OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
+	private List<DateSpan> dateSpans ;
 
 	@JsonIgnore
     @OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
