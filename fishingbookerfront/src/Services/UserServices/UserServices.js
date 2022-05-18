@@ -271,6 +271,12 @@ const userServices = {
       Instructor
     );
   },
+
+  ///// DATE SPANS
+
+  createDateSpan: (dateSpan) => {
+    return axios.post(`${process.env.REACT_APP_API_URL}dateSpan`, dateSpan);
+  },
 };
 
 export default userServices;

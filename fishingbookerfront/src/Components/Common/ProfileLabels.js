@@ -109,17 +109,6 @@ export default function ProfileLabels({
               placeholder={logedInstructor.shortBiography}
             />
           </div>
-          <div className="col-md-12">
-            <label className="labels">Availability Period</label>
-            <br></br>
-            <label className="labels">
-              From: {logedInstructor.availabilityPeriodFrom}
-            </label>
-            <br></br>
-            <label className="labels">
-              To: {logedInstructor.availabilityPeriodTo}
-            </label>
-          </div>
         </div>
 
         <div className="mt-5 text-center">

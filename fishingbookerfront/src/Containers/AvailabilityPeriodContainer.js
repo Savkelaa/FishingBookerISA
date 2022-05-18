@@ -7,15 +7,20 @@ import AvailabilityPeriod from "../Components/Common/AvailabilityPeriod";
 
 function AvailabilityPeriodContainer() {
   var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
+  const [dateSpan, setDateSpan] = useState([]);
 
-  function updateInstructor(instructor) {
+  function createDateSpan(dateSpan) {
     userServices
-      .updateInstructor(instructor)
+      .createDateSpan(dateSpan)
       .then((data) => {
-        console.log("sucessfuly updated instructor");
+        if (data.status === 204) setDateSpan([]);
+        else {
+          setDateSpan(data.data.content);
+          console.log("sucessfuly added a datespan.");
+        }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again", error);
+        console.log("Something wen't wrong try again");
       });
   }
 
@@ -23,7 +28,7 @@ function AvailabilityPeriodContainer() {
     <div>
       <Navbarr></Navbarr>
       <AvailabilityPeriod
-        updateInstructorHandler={updateInstructor}
+        createDateSpanHandler={createDateSpan}
         logedInstructor={logedInstructor}
       ></AvailabilityPeriod>
       <Footerr></Footerr>

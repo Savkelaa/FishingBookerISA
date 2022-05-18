@@ -3,17 +3,18 @@ import React, { useRef } from "react";
 import { BrowserRouter as Link } from "react-router-dom";
 
 export default function AvailabilityPeriod({
-  updateInstructorHandler,
+  createDateSpanHandler,
   logedInstructor,
 }) {
   const dateFrom = useRef();
   const dateTo = useRef();
 
   function saveHandler(e) {
-    logedInstructor.availabilityPeriodFrom = dateFrom.current.value;
-    logedInstructor.availabilityPeriodTo = dateTo.current.value;
-    updateInstructorHandler(logedInstructor);
-    localStorage.setItem("Instructor", JSON.stringify(logedInstructor));
+    createDateSpanHandler({
+      startDate: dateFrom.current.value,
+      endDate: dateTo.current.value,
+      instructor: { id: logedInstructor.id },
+    });
   }
 
   console.log("logedInstructor1", logedInstructor);
