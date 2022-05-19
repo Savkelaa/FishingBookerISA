@@ -49,7 +49,12 @@ public class FishingClass {
     @JoinColumn(name="instructor_id", nullable = false)
     private Instructor instructor;
 
-
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+			joinColumns = @JoinColumn(name="fishing_class_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name="client_id",referencedColumnName = "id"))
+	private List<Client> subscribers;
+	
 
 
 
