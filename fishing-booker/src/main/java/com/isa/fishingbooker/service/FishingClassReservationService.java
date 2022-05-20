@@ -28,7 +28,12 @@ public class FishingClassReservationService {
 	public List<FishingClassReservation> getAllFishingClassReservations(){
 		return this.FishingClassReservationRepository.findAll();
 	}
-	
+
+	public List<FishingClassReservation> getFishingClassReservationsByInstructor(Integer instructorId)
+	{
+		return FishingClassReservationRepository.getFishingClassReservationsByInstructor(instructorId);
+	}
+
 	public List<FishingClassReservation> getUnavailableFishingClassReservationsByInstructor(Integer instructorId)
 	{
 		return FishingClassReservationRepository.getUnavailableFishingClassReservationsByInstructor(instructorId);

@@ -20,7 +20,6 @@ export default function Request({
   removeBoatOwnerHandler,
   removeInstructorHandler,
 }) {
- 
   const [instructorRequest, setinstructorRequest] = useState({});
 
   console.log("instructorRequests", instructorRequests);
@@ -29,7 +28,6 @@ export default function Request({
   return (
     <div>
       <div className="header">
-        {" "}
         <h1 style={{ textAlign: "center" }}> Instructor requests </h1>
       </div>
       {instructorRequests.map((instructorRequest) => (

@@ -1,5 +1,6 @@
 package com.isa.fishingbooker.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -40,10 +41,10 @@ public class FishingClassReservation {
 	private String status;
 	
 	@Column(name = "start_date")
-	private Date startDate;
+	private LocalDate startDate;
 	
 	@Column(name = "finish_date")
-	private Date finishDate;
+	private LocalDate finishDate;
 	
 	@Column(name = "price")
 	private int price;

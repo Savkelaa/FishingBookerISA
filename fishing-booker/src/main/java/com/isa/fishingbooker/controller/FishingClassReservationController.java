@@ -34,7 +34,11 @@ public class FishingClassReservationController {
 	public List<FishingClassReservation> getAllFishingClassReservations() {
 		return this.fishingClassReservationService.getAllFishingClassReservations();
 	}
-	
+	@GetMapping("/fishingClassReservationInstructor")
+	public List<FishingClassReservation> getFishingClassReservationsByInstructor(@RequestParam (value="instructorId")  Integer instructorId)
+	{
+		return fishingClassReservationService.getFishingClassReservationsByInstructor(instructorId);
+	}
 	
 	@GetMapping("/fishingClassUnavailableReservation")
 	public List<FishingClassReservation> getUnavailableFishingClassReservationsByInstructor(@RequestParam (value="instructorId")  Integer instructorId)
