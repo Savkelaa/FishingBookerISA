@@ -39,7 +39,8 @@ public class FishingClassController {
 	{
 		return fishingClassService.getFishingClassByInstructorAndName(instructorId, fishingclassName);
 	}
-	
+
+
 	@GetMapping("/fishingClassInstructor")
 	public List<FishingClass> getFishingClassByInstructor(@RequestParam (value="instructorId")  Integer instructorId){
 		return fishingClassService.getFishingClassByInstructor(instructorId);
