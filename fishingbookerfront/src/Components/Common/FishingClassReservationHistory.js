@@ -39,7 +39,7 @@ export default function FishingClassReservationHistory({
     <div>
       <div className="App">
         <div className="header">
-          <h1 style={{ textAlign: "center" }}> Current reservations </h1>
+          <h1 style={{ textAlign: "center" }}> Reservation History </h1>
         </div>
         {currReservations.map((reservation) => (
           <div className="container">
@@ -69,12 +69,34 @@ export default function FishingClassReservationHistory({
                       </Card.Body>
                       <ListGroup className="list-group-flush">
                         <ListGroupItem>
-                          Client: {reservation.client.name}{" "}
-                          {reservation.client.surname}
-                        </ListGroupItem>
-                        <ListGroupItem>
-                          Adress of client : {reservation.client.address}{" "}
-                          {reservation.client.city} {reservation.client.country}
+                          <Card.Title className="cardTitle">
+                            {reservation.client.name}{" "}
+                            {reservation.client.surname}
+                          </Card.Title>
+
+                          <Card.Text>
+                            {" "}
+                            Email: {reservation.client.email}
+                          </Card.Text>
+                          <Card.Text>
+                            {" "}
+                            Explanation of registration:{" "}
+                            {reservation.client.explanation}
+                          </Card.Text>
+                          <Card.Text>
+                            {" "}
+                            Address: {reservation.client.address}{" "}
+                            {reservation.client.city}{" "}
+                            {reservation.client.country}
+                          </Card.Text>
+                          <Card.Text>
+                            {" "}
+                            Number: {reservation.client.number}
+                          </Card.Text>
+                          <Card.Text>
+                            {" "}
+                            Penalty: {reservation.client.penalty}
+                          </Card.Text>
                         </ListGroupItem>
                       </ListGroup>
                       <Link
