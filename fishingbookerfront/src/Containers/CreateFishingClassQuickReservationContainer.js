@@ -4,7 +4,7 @@ import Footerr from "../Components/Common/Footerr";
 import QuickReservationForm from "../Components/Common/QuickReservationForm";
 import FishingClassQuickReservationServices from "../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
 
-export default function CreateFishingClassReservationContainer() {
+export default function CreateFishingClassQuickReservationContainer() {
   const [quickReservation, setQuickReservation] = useState();
 
   function createFishingClassQuickReservation(quickReservation) {
@@ -27,7 +27,9 @@ export default function CreateFishingClassReservationContainer() {
     <div>
       <Navbarr></Navbarr>
       <QuickReservationForm
-        createFishingClassQuickReservationHandler={createFishingClassQuickReservation}
+        createFishingClassQuickReservationHandler={
+          createFishingClassQuickReservation
+        }
       ></QuickReservationForm>
       <Footerr></Footerr>
     </div>

@@ -161,13 +161,13 @@ insert into fishing_class_quick_reservation (price, place, client_id, fishing_cl
 insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (97,'Xidajie', 4, 7, '10/3/2021', '10/14/2021','8/2/2021', '7/3/2021','active');
 insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (101,'Penhold', 4, 3, '7/31/2021', '11/6/2021','8/2/2021', '7/3/2021','active');
 
-insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date) values (30, 'Moita da Roda', 5, 7, '9/21/2021', '5/4/2021');
-insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date) values (99, 'Joypur Hāt', 3, 2, '9/17/2021', '6/14/2021');
-insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date) values (152, 'São José dos Campos', 3, 4, '11/11/2021', '9/10/2021');
-insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date) values (56, 'Nāṟay', 7, 6, '1/3/2021', '2/23/2021');
-insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date) values (79, 'Tegalsari', 1, 1, '10/15/2021', '9/7/2021');
-insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date) values (58, 'Longzhou', 6, 2, '12/2/2020', '7/4/2021');
-insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date) values (125, 'Serh', 4, 6, '4/6/2021', '5/29/2021');
+insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (30, 'Moita da Roda', 5, 8, '5/10/2022', '5/22/2022','active');
+insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (99, 'Joypur Hāt', 3, 9, '5/10/2022', '5/22/2022','active');
+insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (152, 'São José dos Campos', 3, 4, '5/10/2022', '5/22/2022','active');
+insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (56, 'Nāṟay', 7, 6, '1/3/2021', '2/23/2021','active');
+insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (79, 'Tegalsari', 1, 1, '10/15/2021', '9/7/2021','active');
+insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (58, 'Longzhou', 6, 2, '12/2/2020', '7/4/2021','active');
+insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (125, 'Serh', 4, 6, '4/6/2021', '5/29/2021','active');
 
 insert into fishing_class_complaint (description, fishing_class_reservation_id, client_id) values ('volutpat quam pede', 6, 7);
 insert into fishing_class_complaint (description, fishing_class_reservation_id, client_id) values ('pretium nisl ut volutpat sapien arcu sed', 7, 3);

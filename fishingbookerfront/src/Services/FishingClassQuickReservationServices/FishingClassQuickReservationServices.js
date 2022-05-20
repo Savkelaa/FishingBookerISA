@@ -7,6 +7,19 @@ const fishingClassQuickReservationServices = {
       fishingClassQuickReservation
     );
   },
+
+  getAllFishingClassReservationsByInstructor: (instructorId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingClassReservationInstructor?instructorId=${instructorId}`
+    );
+  },
+
+  createFishingClassReservation: (fishingClassReservation) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}fishingClassReservations`,
+      fishingClassReservation
+    );
+  },
 };
 
 export default fishingClassQuickReservationServices;

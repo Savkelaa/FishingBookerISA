@@ -26,7 +26,13 @@ public interface FishingClassReservationRepository extends JpaRepository<Fishing
 	+ "INNER JOIN fishing_class ON fishing_class_reservation.fishing_class_id = fishing_class.id\r\n"
 	+ "WHERE status != 'free' AND instructor_id = :instructorId", nativeQuery = true)
 	List<FishingClassReservation> getUnavailableFishingClassReservationsByInstructor(Integer instructorId);
-	
+
+	@Query(value = "SELECT * FROM fishing_class_reservation\r\n"
+			+ "INNER JOIN fishing_class ON fishing_class_reservation.fishing_class_id = fishing_class.id\r\n"
+			+ "WHERE instructor_id = :instructorId", nativeQuery = true)
+	List<FishingClassReservation> getFishingClassReservationsByInstructor(Integer instructorId);
+
+
 	@Query(value = "SELECT * from fishing_class_reservation\r\n"
 			+ "INNER JOIN fishing_class on fishing_class_reservation.fishing_class_id = fishing_class.id\r\n"
 			+ "WHERE status = 'finished' AND instructor_id = :instructorId", nativeQuery = true)

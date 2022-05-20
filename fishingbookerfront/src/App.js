@@ -31,6 +31,8 @@ import CottageOwnerHomePageContainer from "./Containers/CottageOwnerHomePageCont
 import BoatOwnerHomePageContainer from "./Containers/BoatOwnerHomePageContainer";
 import ScheduleContainer from "./Containers/ScheduleContainer";
 import AvailabilityPeriodContainer from "./Containers/AvailabilityPeriodContainer";
+import CurrentReservationsContainer from "./Containers/CurrentReservationsContainer";
+import CreateFishingClassReservationContainer from "./Containers/CreateFishingClassReservationContainer";
 
 function App() {
   return (
@@ -51,6 +53,9 @@ function App() {
           </Route>
           <Route path="/createQuickReservation/:id">
             <CreateFishingClassQuickReservationContainer></CreateFishingClassQuickReservationContainer>
+          </Route>
+          <Route path="/createReservation/:id">
+            <CreateFishingClassReservationContainer></CreateFishingClassReservationContainer>
           </Route>
           <Route path="/userRegistration">
             <UserRegistrationContainer></UserRegistrationContainer>
@@ -111,6 +116,9 @@ function App() {
           </Route>
           <Route path="/availabilityPeriod">
             <AvailabilityPeriodContainer></AvailabilityPeriodContainer>
+          </Route>
+          <Route path="/currentReservations">
+            <CurrentReservationsContainer></CurrentReservationsContainer>
           </Route>
         </Switch>
       </Router>

@@ -40,6 +40,11 @@ export default function InstructorHomeButtons(fishingClassesByInstructor) {
             Enter availability period
           </button>
         </Link>
+        <Link to="currentReservations">
+          <button className="btn btn-primary profile-button" type="button">
+            Current reservations
+          </button>
+        </Link>
         <button className="btn btn-primary profile-button" type="button">
           History of reservations
         </button>
