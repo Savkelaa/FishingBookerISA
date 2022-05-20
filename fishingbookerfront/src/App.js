@@ -33,6 +33,7 @@ import ScheduleContainer from "./Containers/ScheduleContainer";
 import AvailabilityPeriodContainer from "./Containers/AvailabilityPeriodContainer";
 import CurrentReservationsContainer from "./Containers/CurrentReservationsContainer";
 import CreateFishingClassReservationContainer from "./Containers/CreateFishingClassReservationContainer";
+import FishingClassReservationHistoryContainer from "./Containers/FishingClassReservationHistoryContainer";
 
 function App() {
   return (
@@ -119,6 +120,9 @@ function App() {
           </Route>
           <Route path="/currentReservations">
             <CurrentReservationsContainer></CurrentReservationsContainer>
+          </Route>
+          <Route path="/fishingClassReservationHistory">
+            <FishingClassReservationHistoryContainer></FishingClassReservationHistoryContainer>
           </Route>
         </Switch>
       </Router>
