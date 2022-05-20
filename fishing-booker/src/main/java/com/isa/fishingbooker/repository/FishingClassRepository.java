@@ -26,5 +26,7 @@ public interface FishingClassRepository extends JpaRepository<FishingClass, Inte
 	@Query(value = "SELECT * FROM fishing_class\r\n"
 			+ "WHERE instructor_id = :instructorId", nativeQuery = true)
 	List<FishingClass> getFishingClassByInstructor(Integer instructorId);
-	
+
+
+
 }

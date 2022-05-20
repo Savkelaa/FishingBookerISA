@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.controller.UserController;
+import com.isa.fishingbooker.model.FishingClass;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,7 +26,11 @@ public class FishingClassReservationService {
 
 	@Autowired
 	private FishingClassReservationRepository FishingClassReservationRepository;
-	
+
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private EmailService emailService;
 	
 	
 	public List<FishingClassReservation> getAllFishingClassReservations(){
@@ -50,9 +58,20 @@ public class FishingClassReservationService {
 		FishingClassReservation fishingClassReservation = FishingClassReservationRepository.findById(fishingClassReservationId).orElseThrow(() -> new ResourceNotFoundException("FishingClassReservation not found for this id :: " + fishingClassReservationId));
 	 return ResponseEntity.ok().body(fishingClassReservation);
 	}
-	
+
+	public List<FishingClassReservation> getFishingClassByClient(Integer clientId){
+		return FishingClassReservationRepository.getFishingClassByClient(clientId);
+	}
+
 
 	public FishingClassReservation createFishingClassReservation(FishingClassReservation fishingClassReservation) {
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionForReservation(fishingClassReservation);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
 		return FishingClassReservationRepository.save(fishingClassReservation);
 	}
 	

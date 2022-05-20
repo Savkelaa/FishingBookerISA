@@ -3,6 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.FishingClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -62,6 +63,13 @@ public class FishingClassReservationController {
 	public FishingClassReservation createFishingClassReservation(@RequestBody FishingClassReservation fishingClassReservation) {
 		return fishingClassReservationService.createFishingClassReservation(fishingClassReservation);
 	}
+
+	@GetMapping("/fishingClassClient")
+	public List<FishingClassReservation> getFishingClassByClient(@RequestParam (value="clientId")  Integer clientId){
+		return fishingClassReservationService.getFishingClassByClient(clientId);
+	}
+
+
 
 	@PutMapping("/fishingClassReservations/{id}")
 	public ResponseEntity<FishingClassReservation> updateFishingClassReservation(@PathVariable(value = "id") int fishingClassReservationId,

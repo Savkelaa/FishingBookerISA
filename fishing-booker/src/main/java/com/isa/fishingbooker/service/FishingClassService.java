@@ -39,6 +39,9 @@ public class FishingClassService {
 		return fishingClassRepository.getFishingClassByInstructor(instructorId);
 	}
 
+
+
+
 	public List<FishingClass> getAllFishingClass(){
 		return this.fishingClassRepository.findAll();
 	}

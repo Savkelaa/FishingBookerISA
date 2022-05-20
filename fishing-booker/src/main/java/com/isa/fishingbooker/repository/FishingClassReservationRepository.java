@@ -2,6 +2,7 @@ package com.isa.fishingbooker.repository;
 
 import java.util.List;
 
+import com.isa.fishingbooker.model.FishingClass;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -53,5 +54,10 @@ public interface FishingClassReservationRepository extends JpaRepository<Fishing
 	
 	@Query(value="select * from fishing_class_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by finish_date-start_date desc ", nativeQuery=true)
 	List<FishingClassReservation> getAllFinishedFishingClassReservationByClientSortedByDurationDesc(Integer clientId);
+
+
+	@Query(value = "SELECT * FROM fishing_class_reservation\r\n"
+			+ "WHERE client_id = :clientId", nativeQuery = true)
+	List<FishingClassReservation> getFishingClassByClient(Integer clientId);
 
 }

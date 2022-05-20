@@ -1,17 +1,14 @@
 package com.isa.fishingbooker.service;
 
+import com.isa.fishingbooker.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.isa.fishingbooker.model.Instructor;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import com.isa.fishingbooker.model.Client;
-import com.isa.fishingbooker.model.BoatOwner;
-import com.isa.fishingbooker.model.CottageOwner;
-import com.isa.fishingbooker.model.Admin;
+
 @Service
 public class EmailService {
 
@@ -164,7 +161,7 @@ public class EmailService {
 		System.out.println("Slanje emaila...");
 
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setTo(user.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		mail.setSubject("Your account is deleted");
 		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\n Reason for deduction: " + user.getRefusalReason() + ".");
@@ -179,7 +176,7 @@ public class EmailService {
 		System.out.println("Slanje emaila...");
 
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setTo(user.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		mail.setSubject("Your account is deleted");
 		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\n Reason for deduction: " + user.getRefusalReason() + ".");
@@ -194,7 +191,7 @@ public class EmailService {
 		System.out.println("Slanje emaila...");
 
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setTo(user.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		mail.setSubject("Your account is deleted");
 		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\n Reason for deduction: " + user.getRefusalReason() + ".");
@@ -209,7 +206,7 @@ public class EmailService {
 		System.out.println("Slanje emaila...");
 
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setTo(user.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		mail.setSubject("Your account is deleted");
 		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nReason for deduction:  " + user.getRefusalReason() + ".");
@@ -224,7 +221,7 @@ public class EmailService {
 		System.out.println("Slanje emaila...");
 
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setTo(user.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		mail.setSubject("Your account is deleted");
 		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nReason for deduction:  " + user.getRefusalReason() + ".");
@@ -232,7 +229,24 @@ public class EmailService {
 		System.out.println("Email poslat!");
 	}
 	
-	
+	///////////////////// Slanje maila za uspesnu rezevaciju novog termina za klienta koji su trenutno na rezervacijama
+
+	@Async
+	public void sendNotificaitionForReservation(FishingClassReservation fishingClassReservation) throws MailException, InterruptedException {
+
+		Thread.sleep(500);
+		System.out.println("Slanje emaila...");
+
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		///vidi da saljes na klijentov mail
+		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Succesfull reservation");
+		mail.setText("Hi, "  +"\n\nA new booking date for "+ fishingClassReservation.getPlace()  + " has been successfully booked. "  + ".");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
 
 
 
