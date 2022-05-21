@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Card,
   ListGroup,
@@ -11,12 +11,15 @@ import Popup from "./Popup";
 
 export default function FishingClassReservationHistoryByClient({
   reservationHistory,
+  addInstructorRateHandler,
+  addFishingClassRateHandler,
 }) {
+  const rate1 = useRef();
+  const rate2 = useRef();
+
   console.log("reservationHistory", reservationHistory);
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
-
-  //  const date = new Date("2022-05-19");
 
   var hisReservations = [];
 
@@ -32,6 +35,24 @@ export default function FishingClassReservationHistoryByClient({
       console.log("reservation.endDate", endDate);
     }
   });
+  var logedClient = JSON.parse(localStorage.getItem("Client"));
+  console.log("logedClient", logedClient);
+
+  //   function saveHandlerInstructorRate(e) {
+  //     addInstructorRateHandler({
+  //       rate: rate.current.value,
+  //       client: { id: logedClient.id },
+  //       instructor: { id: logedClient.id },
+  //     });
+  //   }
+
+  //   function saveHandlerFishingClassRate(e) {
+  //     addFishingClassRateHandler({
+  //       rate: rate.current.value,
+  //       client: { id: logedClient.id },
+  //       //fishingClass: cancellationCondition.current.value,
+  //     });
+  //   }
 
   console.log("hisReservations", hisReservations);
 
@@ -39,7 +60,10 @@ export default function FishingClassReservationHistoryByClient({
     <div>
       <div className="App">
         <div className="header">
-          <h1 style={{ textAlign: "center" }}> Reservation History </h1>
+          <h1 style={{ textAlign: "center" }}>
+            {" "}
+            Fishing Class Reservation History{" "}
+          </h1>
         </div>
         {hisReservations.map((reservation) => (
           <div className="container">
@@ -102,15 +126,50 @@ export default function FishingClassReservationHistoryByClient({
 
                       <Card.Body>
                         <div className="popup">
-                          <div className="popup-inner">
-                            <h6 for="text">Please rate this reservation: </h6>
-                            <input
-                              type="refusalReason"
-                              className="form-control"
-                              id="refusalReason"
-                            />
-                            <button className="btn btn-success">Rate</button>
-                          </div>
+                          <h6 for="text">Please rate this fishing Class: </h6>
+                          <input
+                            ref={rate1}
+                            type="refusalReason"
+                            className="form-control"
+                            id="refusalReason"
+                          />
+                          <button
+                            onClick={() =>
+                              addFishingClassRateHandler({
+                                rate: rate1.current.value,
+                                client: { id: logedClient.id },
+                                fishingClass: {
+                                  id: reservation.fishingClass.id,
+                                },
+                              })
+                            }
+                            className="btn btn-success"
+                          >
+                            Rate
+                          </button>
+                          <br></br>
+                          <br></br>
+                          <h6 for="text">Please rate this Instructor: </h6>
+                          <input
+                            ref={rate2}
+                            type="refusalReason"
+                            className="form-control"
+                            id="refusalReason"
+                          />
+                          <button
+                            onClick={() =>
+                              addInstructorRateHandler({
+                                rate: rate2.current.value,
+                                client: { id: logedClient.id },
+                                instructor: {
+                                  id: reservation.fishingClass.instructor.id,
+                                },
+                              })
+                            }
+                            className="btn btn-success"
+                          >
+                            Rate
+                          </button>
                         </div>
                       </Card.Body>
                     </Card>

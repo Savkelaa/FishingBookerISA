@@ -26,6 +26,18 @@ const fishingClassQuickReservationServices = {
       fishingClassReservation
     );
   },
+
+  //RATES
+  createInstructorRate: (rate) => {
+    return axios.post(`${process.env.REACT_APP_API_URL}instructorRates`, rate);
+  },
+
+  createFishingClassRate: (rate) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}fishingClassRates`,
+      rate
+    );
+  },
 };
 
 export default fishingClassQuickReservationServices;
