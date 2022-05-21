@@ -34,6 +34,7 @@ import AvailabilityPeriodContainer from "./Containers/AvailabilityPeriodContaine
 import CurrentReservationsContainer from "./Containers/CurrentReservationsContainer";
 import CreateFishingClassReservationContainer from "./Containers/CreateFishingClassReservationContainer";
 import FishingClassReservationHistoryContainer from "./Containers/FishingClassReservationHistoryContainer";
+import FishingClassReservationHistoryByClientContainer from "./Containers/FishingClassReservationHistoryByClientContainer";
 
 function App() {
   return (
@@ -123,6 +124,9 @@ function App() {
           </Route>
           <Route path="/fishingClassReservationHistory">
             <FishingClassReservationHistoryContainer></FishingClassReservationHistoryContainer>
+          </Route>
+          <Route path="/fishingClassReservationHistoryByClient">
+            <FishingClassReservationHistoryByClientContainer></FishingClassReservationHistoryByClientContainer>
           </Route>
         </Switch>
       </Router>

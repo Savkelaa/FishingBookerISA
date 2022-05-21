@@ -10,12 +10,15 @@ import { Link } from "react-router-dom";
 import Popup from "./Popup";
 
 export default function Request({
+  clientRequests,
   instructorRequests,
   boatOwnerRequests,
   cottageOwnerRequests,
+  activateClientHandler,
   activateCottageOwnerHandler,
   activateBoatOwnerHandler,
   activateInstructorHandler,
+  removeClientHandler,
   removeCottageOwnerHandler,
   removeBoatOwnerHandler,
   removeInstructorHandler,
@@ -25,8 +28,63 @@ export default function Request({
   console.log("instructorRequests", instructorRequests);
   console.log("boatOwnerRequests", boatOwnerRequests);
   console.log("cottageOwnerRequests", cottageOwnerRequests);
+  console.log("clientRequests", clientRequests);
   return (
     <div>
+      <div className="header">
+        <h1 style={{ textAlign: "center" }}> Client requests </h1>
+      </div>
+      {clientRequests.map((clientRequest) => (
+        <div className="container">
+          <div className="row gutters">
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div className="card h-100">
+                <div className="card-body">
+                  <Card className="cardContainer" style={{ width: "30rem" }}>
+                    <Card.Img variant="top" />
+                    <Card.Body>
+                      <Card.Title className="cardTitle">
+                        {clientRequest.name} {clientRequest.surname}
+                      </Card.Title>
+                      <Card.Text>{clientRequest.email}</Card.Text>
+                      <Card.Text>
+                        Biography: {clientRequest.shortBiography}
+                      </Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroupItem>
+                        Address: {clientRequest.address}, {clientRequest.city},{" "}
+                        {clientRequest.country}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        Phone number: {clientRequest.number}
+                      </ListGroupItem>
+
+                      <ListGroupItem>
+                        Explanation of registration: {clientRequest.explanation}
+                      </ListGroupItem>
+                    </ListGroup>
+                    <Card.Body>
+                      <Button
+                        onClick={(e) => activateClientHandler(clientRequest)}
+                        style={{ width: "8rem" }}
+                        variant="outline-success"
+                      >
+                        Accept
+                      </Button>
+
+                      <Popup
+                        removeClientHandler={removeClientHandler}
+                        clientRequest={clientRequest}
+                      ></Popup>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
       <div className="header">
         <h1 style={{ textAlign: "center" }}> Instructor requests </h1>
       </div>

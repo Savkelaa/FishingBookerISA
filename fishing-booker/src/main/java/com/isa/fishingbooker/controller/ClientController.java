@@ -3,6 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.BoatOwner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,22 @@ public class ClientController {
 		throws ResourceNotFoundException{
 		return clientService.getClientById(clientId);
 	}
-	
+
+
+	@GetMapping("/clientRequests")
+	public List<Client> getAllClientRequests()
+	{
+		return this.clientService.getAllClientRequests();
+	}
+
+
+	@PutMapping("/activateClient/{id}")
+	public ResponseEntity<Client> activateClient(@PathVariable(value = "id") int clientId) throws ResourceNotFoundException {
+		return clientService.activateClient(clientId);
+	}
+
+
+
 	@GetMapping("/clientsByInstructorFishingClassReservations")
 	public List<Client> getClientsByInstructorFishingClassReservations(@RequestParam (value = "instructorId") Integer instructorId)
 	{

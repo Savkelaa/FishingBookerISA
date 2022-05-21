@@ -2,6 +2,7 @@ package com.isa.fishingbooker.repository;
 
 import java.util.List;
 
+import com.isa.fishingbooker.model.BoatOwner;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -48,6 +49,7 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 	@Query(value="SELECT * FROM CLIENT WHERE delete_request = 'true'", nativeQuery=true)
 	List<Client> getAllClientDeleteRequests();
 
-
+	@Query(value="Select * from client where activated = 'false' and deleted = 'false';",nativeQuery=true)
+	List<Client> getAllClientRequests();
 	
 }

@@ -98,6 +98,9 @@ const userServices = {
   getAllBoatOwnerRequests: () => {
     return axios.get(`${process.env.REACT_APP_API_URL}boatOwnerRequests`);
   },
+  getAllClientRequests: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}clientRequests`);
+  },
 
   //odbijanje i prihvatanje zahteva
   activateCottageOwner: (cottageOwner) => {
@@ -131,6 +134,18 @@ const userServices = {
     return axios.put(
       `${process.env.REACT_APP_API_URL}removeInstructor/${instructor.id}`,
       instructor
+    );
+  },
+
+  activateClient: (client) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}activateClient/${client.id}`
+    );
+  },
+  removeClient: (client) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}removeClient/${client.id}`,
+      client
     );
   },
 

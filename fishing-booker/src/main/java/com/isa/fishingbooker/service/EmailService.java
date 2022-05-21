@@ -109,6 +109,21 @@ public class EmailService {
 	//prihvatanje zahteva
 
 	@Async
+	public void sendNotificaitionAsyncAccept(Client user) throws MailException, InterruptedException {
+
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(user.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is activated");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyour account is activated, welcome to our site.");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+
+	@Async
 	public void sendNotificaitionAsyncAccept(CottageOwner user) throws MailException, InterruptedException {
 		
 		Thread.sleep(1000);
