@@ -273,4 +273,4 @@ INSERT INTO image (url, fishing_class_id) VALUES ('https://www.everettpotter.com
 INSERT INTO image (url, fishing_class_id) VALUES ('https://dreamcastidaho.com/wp-content/uploads/2016/03/services2-370x224.jpg', 1);
 
 
-INSERT INTO datespan (end_date, start_date, instructor_id) VALUES ('2021-07-02','2021-07-02',1);
+INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2021-07-02','2021-07-02',1);

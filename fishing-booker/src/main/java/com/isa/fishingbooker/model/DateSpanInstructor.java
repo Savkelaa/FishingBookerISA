@@ -9,13 +9,13 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "datespan")
+@Table(name = "datespaninstructor")
 @DynamicUpdate
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class DateSpan {
+public class DateSpanInstructor {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

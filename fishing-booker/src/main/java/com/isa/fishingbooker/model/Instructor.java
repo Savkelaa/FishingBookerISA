@@ -84,7 +84,7 @@ public class Instructor implements UserDetails {
 
 	@JsonIgnore
 	@OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
-	private List<DateSpan> dateSpans ;
+	private List<DateSpanInstructor> dateSpanInstructors;
 
 	@JsonIgnore
     @OneToMany(mappedBy="instructor",fetch=FetchType.LAZY)
