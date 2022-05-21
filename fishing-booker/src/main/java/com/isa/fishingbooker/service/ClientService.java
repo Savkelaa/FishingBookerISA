@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.isa.fishingbooker.controller.UserController;
+import com.isa.fishingbooker.model.BoatOwner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,32 @@ public class ClientService {
 		Client client = clientRepository.findById(clientId).orElseThrow(() -> new ResourceNotFoundException("client not found for this id :: " + clientId));
 	 return ResponseEntity.ok().body(client);
 	}
-	
+
+	public List<Client> getAllClientRequests()
+	{
+		return this.clientRepository.getAllClientRequests();
+	}
+
+
+	public ResponseEntity<Client> activateClient(Integer clientId) throws ResourceNotFoundException {
+		Client client = clientRepository.findById(clientId)
+				.orElseThrow(() -> new ResourceNotFoundException("Client not found for this id :: " + clientId));
+
+		client.setActivated("true");
+
+		final Client updatedClient = clientRepository.save(client);
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncAccept(client);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
+
+		return ResponseEntity.ok(updatedClient);
+	}
+
 	public List<Client> getClientsByInstructorFishingClassReservations(Integer instructorId)
 	{
 		return clientRepository.getClientsByInstructorFishingClassReservations(instructorId);
@@ -129,6 +155,8 @@ public class ClientService {
 
 		return ResponseEntity.ok(updatedClient);
 	}
+
+
 
 	public ResponseEntity<Client> removeClientDeleteRequest(Integer clientId,
 											   @RequestBody Client clientDetails) throws ResourceNotFoundException {

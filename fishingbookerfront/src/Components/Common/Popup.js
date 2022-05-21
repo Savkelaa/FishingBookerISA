@@ -4,9 +4,11 @@ function Popup({
   removeCottageOwnerHandler,
   removeBoatOwnerHandler,
   removeInstructorHandler,
+  removeClientHandler,
   instructorRequest,
   cottageOwnerRequest,
   boatOwnerRequest,
+  clientRequest,
 }) {
   const reason = useRef();
 
@@ -32,6 +34,9 @@ function Popup({
               } else if (cottageOwnerRequest != undefined) {
                 cottageOwnerRequest.refusalReason = reason.current.value;
                 removeCottageOwnerHandler(cottageOwnerRequest);
+              } else if (clientRequest != undefined) {
+                clientRequest.refusalReason = reason.current.value;
+                removeClientHandler(clientRequest);
               } else {
                 boatOwnerRequest.refusalReason = reason.current.value;
                 removeBoatOwnerHandler(boatOwnerRequest);

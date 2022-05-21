@@ -9,6 +9,8 @@ export default function RequestsContainer() {
   const [boatOwnerRequests, setBoatOwnerRequests] = useState([]);
   const [cottageOwnerRequests, setCottageOwnerRequests] = useState([]);
 
+  const [clientRequests, setClientRequests] = useState([]);
+
   const [cottageOwner, setCottageOwner] = useState({});
 
   useEffect(() => {
@@ -32,7 +34,54 @@ export default function RequestsContainer() {
         setCottageOwnerRequests(data.data);
       })
       .catch((error) => console.log(`error`, error));
+
+    userServices
+      .getAllClientRequests()
+      .then((data) => {
+        setClientRequests(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
   }, []);
+
+  function activateClient(client) {
+    userServices
+      .activateClient(client)
+      .then((data) => {
+        if (data.status === 204) setClientRequests([]);
+        else {
+          userServices
+            .getAllClientRequests()
+            .then((data) => {
+              setClientRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a Client requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function removeClient(client) {
+    userServices
+      .removeClient(client)
+      .then((data) => {
+        if (data.status === 204) setClientRequests([]);
+        else {
+          userServices
+            .getAllClientRequests()
+            .then((data) => {
+              setClientRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a Client requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
 
   function activateCottageOwner(cottageOwner) {
     userServices
@@ -161,9 +210,12 @@ export default function RequestsContainer() {
         instructorRequests={instructorRequests}
         boatOwnerRequests={boatOwnerRequests}
         cottageOwnerRequests={cottageOwnerRequests}
+        clientRequests={clientRequests}
+        activateClientHandler={activateClient}
         activateCottageOwnerHandler={activateCottageOwner}
         activateBoatOwnerHandler={activateBoatOwner}
         activateInstructorHandler={activateInstructor}
+        removeClientHandler={removeClient}
         removeCottageOwnerHandler={removeCottageOwner}
         removeBoatOwnerHandler={removeBoatOwner}
         removeInstructorHandler={removeInstructor}

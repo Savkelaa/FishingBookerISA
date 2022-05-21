@@ -64,7 +64,7 @@ public class FishingClassReservationController {
 		return fishingClassReservationService.createFishingClassReservation(fishingClassReservation);
 	}
 
-	@GetMapping("/fishingClassClient")
+	@GetMapping("/fishingClassReservationsClient")
 	public List<FishingClassReservation> getFishingClassByClient(@RequestParam (value="clientId")  Integer clientId){
 		return fishingClassReservationService.getFishingClassByClient(clientId);
 	}
