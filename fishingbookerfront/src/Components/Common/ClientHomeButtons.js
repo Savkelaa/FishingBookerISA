@@ -18,12 +18,19 @@ export default function ClientHomeButtons() {
             History of reservations
           </button>
         </Link>
+        <Link to="fishingClassFutureReservationByClient">
+          <button className="btn btn-primary profile-button" type="button">
+            Future reservations
+          </button>
+        </Link>
+
         <button className="btn btn-primary profile-button" type="button">
           Create reservation
         </button>
         <button className="btn btn-primary profile-button" type="button">
           Create quick reservation
         </button>
+
         <button className="btn btn-primary profile-button" type="button">
           Cancel reservation
         </button>
