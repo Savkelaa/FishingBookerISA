@@ -264,5 +264,20 @@ public class EmailService {
 	}
 
 
+	@Async
+	public void sendNotificaitionAsyncAcceptRate(Client user) throws MailException, InterruptedException {
+
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(user.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Your account is activated");
+		mail.setText("Hi, " + user.getName() + " " +  user.getSurname() +",\n\nyour rate is accepted.");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+
 
 }
