@@ -32,11 +32,19 @@ public class InstructorRateController {
 		return this.instructorRateService.getAllInstructorRates();
 	}
 
+	@GetMapping("/instructorRateRequests")
+	public List<InstructorRate> getAllInstructorRateRequests() {
+		return this.instructorRateService.getAllInstructorRateRequests();
+	}
+
 	@GetMapping("/instructorRates/{id}")
 	public ResponseEntity<InstructorRate> getInstructorRateById(@PathVariable(value = "id") int instructorRateId)
 			throws ResourceNotFoundException {
 		return instructorRateService.getInstructorRateById(instructorRateId);
 	}
+
+
+
 
 	@PostMapping("/instructorRates")
 	public InstructorRate createInstructorRate(@RequestBody InstructorRate instructorRate) {

@@ -25,6 +25,10 @@ public class InstructorRateService {
 	public List<InstructorRate> getAllInstructorRates(){
 		return this.InstructorRateRepository.findAll();
 	}
+
+	public List<InstructorRate> getAllInstructorRateRequests(){
+		return this.InstructorRateRepository.getAllInstructorRateRequests();
+	}
 		
 	public ResponseEntity<InstructorRate> getInstructorRateById(int instructorRateId)
 		throws ResourceNotFoundException{

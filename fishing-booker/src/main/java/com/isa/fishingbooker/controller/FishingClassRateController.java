@@ -32,6 +32,12 @@ public class FishingClassRateController {
 		return this.fishingClassRateService.getAllFishingClassRates();
 	}
 
+	@GetMapping("/fishingClassRateRequests")
+	public List<FishingClassRate> getAllFishingClassRateRequests() {
+		return this.fishingClassRateService.getAllFishingClassRateRequests();
+	}
+
+
 	@GetMapping("/fishingClassRates/{id}")
 	public ResponseEntity<FishingClassRate> getFishingClassRateById(@PathVariable(value = "id") int fishingClassRateId)
 			throws ResourceNotFoundException {

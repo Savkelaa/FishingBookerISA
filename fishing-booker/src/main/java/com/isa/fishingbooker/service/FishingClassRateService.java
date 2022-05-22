@@ -25,7 +25,11 @@ public class FishingClassRateService {
 	public List<FishingClassRate> getAllFishingClassRates(){
 		return this.FishingClassRateRepository.findAll();
 	}
-		
+
+	public List<FishingClassRate> getAllFishingClassRateRequests(){
+		return this.FishingClassRateRepository.getAllFishingClassRateRequests();
+	}
+
 	public ResponseEntity<FishingClassRate> getFishingClassRateById(int fishingClassRateId)
 		throws ResourceNotFoundException{
 		FishingClassRate fishingClassRate = FishingClassRateRepository.findById(fishingClassRateId).orElseThrow(() -> new ResourceNotFoundException("FishingClassRate not found for this id :: " + fishingClassRateId));

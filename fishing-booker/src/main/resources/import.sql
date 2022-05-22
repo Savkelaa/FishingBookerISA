@@ -44,13 +44,13 @@ insert into instructor (name, surname, address, city, country, email, password, 
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', 'msalmons6@hao123.com', 'B8ktNE6', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'false', 'false');
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', '1msalmons6@hao123.com', '$2a$04$73u1ZkS.qAFp1JHxrzAu.Oi9jit3DPL1zEaeXOq9cKaMzjnSVkwmW', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'false', 'false');
 
-insert into instructor_rate (rate, instructor_id, client_id) values (9, 1, 7);
-insert into instructor_rate (rate, instructor_id, client_id) values (7, 6, 5);
-insert into instructor_rate (rate, instructor_id, client_id) values (5, 6, 3);
-insert into instructor_rate (rate, instructor_id, client_id) values (5, 5, 3);
-insert into instructor_rate (rate, instructor_id, client_id) values (6, 3, 1);
-insert into instructor_rate (rate, instructor_id, client_id) values (6, 3, 2);
-insert into instructor_rate (rate, instructor_id, client_id) values (5, 5, 7);
+insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (9, 1, 7,'false','true');
+insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (7, 6, 5,'false','true');
+insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (5, 6, 3,'false','true');
+insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (5, 5, 3,'false','true');
+insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (6, 3, 1,'false','true');
+insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (6, 3, 2,'false','true');
+insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (5, 5, 7,'false','true');
 
 
 insert into boat (name, address, capacity, max_speed, motor_power, price, promo_description, status, type, boat_owner_id, length, num_motors, cancellation_condition) values ('Bennie', '08 Stang Center', 3, 62, 9, 66, 'quis lectus suspendisse potenti in eleifend quam', 'free', 'deck', 5, 9, 1, 10);
@@ -186,13 +186,13 @@ insert into fishing_class_report (description, fishing_class_quick_reservation_i
 insert into fishing_class_report (description, fishing_class_quick_reservation_id, instructor_id) values ('est lacinia nisi venenatis tristique fusce congue', 7, 4);
 insert into fishing_class_report (description, fishing_class_quick_reservation_id, instructor_id) values ('dui proin leo odio porttitor id', 2, 3);
 
-insert into fishing_class_rate (rate, fishing_class_id, client_id) values (10, 5, 5);
-insert into fishing_class_rate (rate, fishing_class_id, client_id) values (7, 6, 3);
-insert into fishing_class_rate (rate, fishing_class_id, client_id) values (7, 7, 1);
-insert into fishing_class_rate (rate, fishing_class_id, client_id) values (10, 6, 7);
-insert into fishing_class_rate (rate, fishing_class_id, client_id) values (8, 7, 1);
-insert into fishing_class_rate (rate, fishing_class_id, client_id) values (10, 3, 3);
-insert into fishing_class_rate (rate, fishing_class_id, client_id) values (10, 3, 3);
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 5, 5,'false','true');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (7, 6, 3,'false','true');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (7, 7, 1,'false','true');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 6, 7,'false','true');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (8, 7, 1,'false','true');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 3, 3,'false','true');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 3, 3,'false','true');
 
 insert into fishing_equipment (name, description, boat_reservation_id) values ('Compactor', 'ultrices posuere cubilia', 5);
 insert into fishing_equipment (name, description, boat_reservation_id) values ('Skid-Steer', 'nec sem duis aliquam', 7);

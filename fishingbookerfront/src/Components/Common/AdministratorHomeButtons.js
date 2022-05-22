@@ -54,6 +54,12 @@ export default function AdministratorHomeButtons() {
             All cottages
           </button>
         </Link>
+        <hr style={{ width: "100%", textAlign: "left", marginLeft: 0 }} />
+        <Link to="/rateRequests">
+          <button className="btn btn-primary profile-button" type="button">
+            Rate requests
+          </button>
+        </Link>
       </div>
     </div>
   );
