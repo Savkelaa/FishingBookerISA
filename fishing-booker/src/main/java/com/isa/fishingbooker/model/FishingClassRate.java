@@ -32,7 +32,14 @@ public class FishingClassRate {
 	
 	@Column(name = "rate")
 	private int rate;
-	
+
+	@Column(name = "accepted")
+	private String accepted;
+
+	@Column(name = "request")
+	private String request;
+
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="fishing_class_id", nullable = false)
     private FishingClass fishingClass;
