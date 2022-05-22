@@ -12,6 +12,8 @@ import Popup from "./Popup";
 export default function RateRequests({
   fishingClassRateRequests,
   instructorRateRequests,
+  updateFishingClassRateHandler,
+  updateInstructorRateHandler,
 }) {
   console.log("fishingClassRateRequests", fishingClassRateRequests);
   console.log("instructorRateRequests", instructorRateRequests);
@@ -40,9 +42,25 @@ export default function RateRequests({
                     </Card.Body>
 
                     <Card.Body>
-                      <Button>Accept</Button>
-
-                      <Popup></Popup>
+                      <Button
+                        onClick={() => {
+                          rateRequest.accepted = "true";
+                          rateRequest.request = "false";
+                          updateFishingClassRateHandler(rateRequest);
+                        }}
+                      >
+                        Accept
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          rateRequest.accepted = "false";
+                          rateRequest.request = "false";
+                          updateFishingClassRateHandler(rateRequest);
+                        }}
+                        className="btn btn-danger"
+                      >
+                        Reject
+                      </Button>
                     </Card.Body>
                   </Card>
                 </div>
@@ -75,9 +93,25 @@ export default function RateRequests({
                     </Card.Body>
 
                     <Card.Body>
-                      <Button>Accept</Button>
-
-                      <Popup></Popup>
+                      <Button
+                        onClick={() => {
+                          rateRequest.accepted = "true";
+                          rateRequest.request = "false";
+                          updateInstructorRateHandler(rateRequest);
+                        }}
+                      >
+                        Accept
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          rateRequest.accepted = "false";
+                          rateRequest.request = "false";
+                          updateInstructorRateHandler(rateRequest);
+                        }}
+                        className="btn btn-danger"
+                      >
+                        Reject
+                      </Button>
                     </Card.Body>
                   </Card>
                 </div>

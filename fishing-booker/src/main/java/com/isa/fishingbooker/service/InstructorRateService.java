@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.controller.UserController;
+import com.isa.fishingbooker.repository.FishingClassRateRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,11 @@ import com.isa.fishingbooker.repository.InstructorRateRepository;
 
 @Service
 public class InstructorRateService {
+	@Autowired
+	private EmailService emailService;
+
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
 
 	@Autowired
 	private InstructorRateRepository InstructorRateRepository;
@@ -46,9 +55,18 @@ public class InstructorRateService {
 			 @RequestBody InstructorRate instructorRateDetails) throws ResourceNotFoundException {
 		InstructorRate instructorRate = InstructorRateRepository.findById(instructorRateId)
 				.orElseThrow(() -> new ResourceNotFoundException("InstructorRate not found for this id :: " + instructorRateId));
-		
+
+		instructorRate.setAccepted(instructorRateDetails.getAccepted());
+		instructorRate.setRequest(instructorRateDetails.getRequest());
 		instructorRate.setRate(instructorRateDetails.getRate());
-	
+
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionAsyncAcceptRate(instructorRate.getClient());
+		} catch (Exception e) {
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+
 		final InstructorRate updatedInstructorRate = InstructorRateRepository.save(instructorRate);
 		return ResponseEntity.ok(updatedInstructorRate);
 	}

@@ -49,6 +49,8 @@ public class FishingClassRateController {
 		return fishingClassRateService.createFishingClassRate(fishingClassRate);
 	}
 
+
+
 	@PutMapping("/fishingClassRates/{id}")
 	public ResponseEntity<FishingClassRate> updateFishingClassRate(@PathVariable(value = "id") int fishingClassRateId,
 			@RequestBody FishingClassRate fishingClassRateDetails) throws ResourceNotFoundException {
