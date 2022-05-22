@@ -168,6 +168,7 @@ insert into fishing_class_reservation (price, place, client_id, fishing_class_id
 insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (79, 'Tegalsari', 1, 1, '10/15/2021', '9/7/2021','active');
 insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (58, 'Longzhou', 6, 2, '12/2/2020', '7/4/2021','active');
 insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (125, 'Serh', 4, 6, '4/6/2021', '5/29/2021','active');
+insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (25, 'Loznica', 1, 1, '7/15/2022', '7/29/2021','active');
 
 insert into fishing_class_complaint (description, fishing_class_reservation_id, client_id) values ('volutpat quam pede', 6, 7);
 insert into fishing_class_complaint (description, fishing_class_reservation_id, client_id) values ('pretium nisl ut volutpat sapien arcu sed', 7, 3);
