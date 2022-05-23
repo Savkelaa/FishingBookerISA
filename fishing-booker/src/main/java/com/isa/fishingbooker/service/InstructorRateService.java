@@ -60,11 +60,13 @@ public class InstructorRateService {
 		instructorRate.setRequest(instructorRateDetails.getRequest());
 		instructorRate.setRate(instructorRateDetails.getRate());
 
-		try {
-			System.out.println("Thread id: " + Thread.currentThread().getId());
-			emailService.sendNotificaitionAsyncAcceptRate(instructorRate.getClient());
-		} catch (Exception e) {
-			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		if(instructorRate.getAccepted().toString().equals("true")) {
+			try {
+				System.out.println("Thread id: " + Thread.currentThread().getId());
+				emailService.sendNotificaitionAsyncAcceptRate(instructorRate.getClient());
+			} catch (Exception e) {
+				logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+			}
 		}
 
 		final InstructorRate updatedInstructorRate = InstructorRateRepository.save(instructorRate);

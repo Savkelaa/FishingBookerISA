@@ -63,14 +63,14 @@ public class FishingClassRateService {
 		System.out.print(fishingClassRateDetails.getAccepted().toString());
 
 ///VIDI KASNIJEE
-	//	if(fishingClassRateDetails.getAccepted().toString()=="true".toString()) {
+		if(fishingClassRateDetails.getAccepted().toString().equals("true")) {
 			try {
 				System.out.println("Thread id: " + Thread.currentThread().getId());
 				emailService.sendNotificaitionAsyncAcceptRate(fishingClassRate.getClient());
 			} catch (Exception e) {
 				logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 			}
-	//	}
+		}
 
 		final FishingClassRate updatedFishingClassRate = FishingClassRateRepository.save(fishingClassRate);
 		return ResponseEntity.ok(updatedFishingClassRate);
