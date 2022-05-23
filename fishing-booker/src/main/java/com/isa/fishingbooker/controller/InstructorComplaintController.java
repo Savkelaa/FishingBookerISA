@@ -25,7 +25,7 @@ public class InstructorComplaintController {
 
     @GetMapping("/instructorComplaintRequests")
     public List<InstructorComplaint> getAllInstructorComplaintRequests() {
-        return this.instructorComplaintService.getAllInstructorComplaints();
+        return this.instructorComplaintService.getAllInstructorComplaintRequests();
     }
 
     @GetMapping("/instructorComplaints/{id}")

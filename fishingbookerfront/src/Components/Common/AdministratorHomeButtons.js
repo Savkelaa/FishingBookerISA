@@ -60,6 +60,11 @@ export default function AdministratorHomeButtons() {
             Rate requests
           </button>
         </Link>
+        <Link to="/complaintRequests">
+          <button className="btn btn-primary profile-button" type="button">
+            Complaint requests
+          </button>
+        </Link>
       </div>
     </div>
   );
