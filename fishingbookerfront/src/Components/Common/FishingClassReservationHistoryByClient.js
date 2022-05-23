@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   Card,
   ListGroup,
@@ -7,15 +7,18 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import complaintServices from "../../Services/ComplaintServices/ComplaintServices";
 import Popup from "./Popup";
 
 export default function FishingClassReservationHistoryByClient({
   reservationHistory,
   addInstructorRateHandler,
   addFishingClassRateHandler,
+  addInstructorComplaintHandler,
 }) {
   const rate1 = useRef();
   const rate2 = useRef();
+  const zalba = useRef();
 
   console.log("reservationHistory", reservationHistory);
   const timeElapsed = Date.now();
@@ -38,23 +41,9 @@ export default function FishingClassReservationHistoryByClient({
   var logedClient = JSON.parse(localStorage.getItem("Client"));
   console.log("logedClient", logedClient);
 
-  //   function saveHandlerInstructorRate(e) {
-  //     addInstructorRateHandler({
-  //       rate: rate.current.value,
-  //       client: { id: logedClient.id },
-  //       instructor: { id: logedClient.id },
-  //     });
-  //   }
-
-  //   function saveHandlerFishingClassRate(e) {
-  //     addFishingClassRateHandler({
-  //       rate: rate.current.value,
-  //       client: { id: logedClient.id },
-  //       //fishingClass: cancellationCondition.current.value,
-  //     });
-  //   }
-
   console.log("hisReservations", hisReservations);
+
+  //console.log("zalba", zalba.current.value);
 
   return (
     <div>
@@ -129,13 +118,15 @@ export default function FishingClassReservationHistoryByClient({
                           <h6 for="text">Please rate this fishing Class: </h6>
                           <input
                             ref={rate1}
-                            type="refusalReason"
+                            type="text"
                             className="form-control"
-                            id="refusalReason"
+                            id="start"
                           />
                           <button
                             onClick={() =>
                               addFishingClassRateHandler({
+                                accepted: "false",
+                                request: "true",
                                 rate: rate1.current.value,
                                 client: { id: logedClient.id },
                                 fishingClass: {
@@ -159,6 +150,8 @@ export default function FishingClassReservationHistoryByClient({
                           <button
                             onClick={() =>
                               addInstructorRateHandler({
+                                accepted: "false",
+                                request: "true",
                                 rate: rate2.current.value,
                                 client: { id: logedClient.id },
                                 instructor: {
@@ -169,6 +162,35 @@ export default function FishingClassReservationHistoryByClient({
                             className="btn btn-success"
                           >
                             Rate
+                          </button>
+                        </div>
+                      </Card.Body>
+                      <Card.Body>
+                        <div className="popup">
+                          <h6 for="text">
+                            Make a complaint for:{" "}
+                            {reservation.fishingClass.instructor.name}{" "}
+                            {reservation.fishingClass.instructor.surname}
+                          </h6>
+                          <input
+                            ref={zalba}
+                            type="text"
+                            className="form-control"
+                          />
+                          <button
+                            onClick={() => {
+                              addInstructorComplaintHandler({
+                                active: "true",
+                                description: zalba.current.value,
+                                client: { id: logedClient.id },
+                                instructor: {
+                                  id: reservation.fishingClass.instructor.id,
+                                },
+                              });
+                            }}
+                            className="btn btn-danger"
+                          >
+                            Complain
                           </button>
                         </div>
                       </Card.Body>

@@ -118,6 +118,11 @@ public class Client implements UserDetails{
     @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
     private List<BoatComplaint> boatComplaints ;
 
+	@JsonIgnore
+	@OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+	private List<InstructorComplaint> instructorsComplaint;
+
+
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

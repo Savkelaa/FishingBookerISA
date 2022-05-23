@@ -7,11 +7,13 @@ import fishingClassQuickReservationServices from "../Services/FishingClassQuickR
 import userServices from "../Services/UserServices/UserServices";
 import FishingClassReservationHistory from "../Components/Common/FishingClassReservationHistory";
 import FishingClassReservationHistoryByClient from "../Components/Common/FishingClassReservationHistoryByClient";
+import complaintServices from "../Services/ComplaintServices/ComplaintServices";
 
 export default function FishingClassReservationHistoryByClientContainer() {
   const [reservationHistory, setReservationHistory] = useState([]);
   const [fishingClassRates, setFishingClassRates] = useState([]);
   const [instructorRates, setInstructorRates] = useState([]);
+  const [complaints, setComplaints] = useState([]);
 
   useEffect(() => {
     fishingClassQuickReservationServices
@@ -52,6 +54,22 @@ export default function FishingClassReservationHistoryByClientContainer() {
       });
   }
 
+  function addInstructorComplaint(complaint) {
+    complaintServices
+      .createInstructorComplaint(complaint)
+      .then((data) => {
+        if (data.status === 204) setComplaints([]);
+        else {
+          setComplaints(data.data.content);
+          console.log("sucessfuly added a complaint for instructor.");
+          console.log("complaint", complaint);
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
   return (
     <div>
       <Navbarr></Navbarr>
@@ -59,6 +77,7 @@ export default function FishingClassReservationHistoryByClientContainer() {
         reservationHistory={reservationHistory}
         addInstructorRateHandler={addInstructorRate}
         addFishingClassRateHandler={addFishingClassRate}
+        addInstructorComplaintHandler={addInstructorComplaint}
       ></FishingClassReservationHistoryByClient>
       <Footerr></Footerr>
     </div>
