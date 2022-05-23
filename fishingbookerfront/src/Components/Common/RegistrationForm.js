@@ -21,7 +21,7 @@ export default function RegistrationForm({
   const role = useRef();
   const password1 = useRef();
 
-  //console.log("role", role.current.value);
+  //console.log("role", city.current.value);
 
   function saveHandler(e) {
     if (password.current.value != password1.current.value) {
