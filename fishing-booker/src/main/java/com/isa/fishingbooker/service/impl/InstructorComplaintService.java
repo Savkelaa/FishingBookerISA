@@ -46,7 +46,7 @@ public class InstructorComplaintService {
 
         instructorComplaint.setActive(instructorComplaintDetails.getActive());
         instructorComplaint.setDescription(instructorComplaintDetails.getDescription());
-
+        instructorComplaint.setAnswer(instructorComplaintDetails.getAnswer());
 
 
       //      try {

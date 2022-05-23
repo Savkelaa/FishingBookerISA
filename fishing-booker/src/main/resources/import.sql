@@ -275,3 +275,7 @@ INSERT INTO image (url, fishing_class_id) VALUES ('https://dreamcastidaho.com/wp
 
 
 INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2021-07-02','2021-07-02',1);
+
+
+insert into instructor_complaint (active, answer, description,client_id, instructor_id) values ('true', '', 'id ligula suspendisse ornare', 1,1);
+insert into instructor_complaint (active, answer, description,client_id, instructor_id) values ('true', '', 'ooooo sto plavo oko', 2,2);
