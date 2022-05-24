@@ -32,6 +32,7 @@ export default function FishingClassReservationHistoryByClientContainer() {
         else {
           setFishingClassRates(data.data.content);
           console.log("sucessfuly added a rate for fishing Class.");
+          alert("ucessfuly added a rate for fishing Class.");
         }
       })
       .catch((error) => {

@@ -61,6 +61,11 @@ export default function InstructorHomeButtons(fishingClassesByInstructor) {
             Schedule
           </button>
         </Link>
+        <Link to="clientsByInstructor">
+          <button className="btn btn-primary profile-button" type="button">
+            My clients
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -38,6 +38,8 @@ import FishingClassReservationHistoryByClientContainer from "./Containers/Fishin
 import FishingClassFutureReservationClientContainer from "./Containers/FishingClassFutureReservationClientContainer";
 import RateRequestsContainer from "./Containers/RateRequestsContainer";
 import ComplaintRequestsContainer from "./Containers/ComplaintRequestsContainer";
+import ClientsByInstructorContainer from "./Containers/ClientsByInstructorContainer";
+import InstructorCreateReportContainer from "./Containers/InstructorCreateReportContainer";
 
 function App() {
   return (
@@ -139,6 +141,12 @@ function App() {
           </Route>
           <Route path="/complaintRequests">
             <ComplaintRequestsContainer></ComplaintRequestsContainer>
+          </Route>
+          <Route path="/clientsByInstructor">
+            <ClientsByInstructorContainer></ClientsByInstructorContainer>
+          </Route>
+          <Route path="/instructorCreateReport/:id">
+            <InstructorCreateReportContainer></InstructorCreateReportContainer>
           </Route>
         </Switch>
       </Router>

@@ -292,6 +292,20 @@ const userServices = {
   createDateSpan: (dateSpan) => {
     return axios.post(`${process.env.REACT_APP_API_URL}dateSpan`, dateSpan);
   },
+
+  /// DOBAVLJANJE SVIH KLIENTA OD INSTRUKTORA CIJE SU REZERVACIJE ZAVRSENE
+
+  getAllClientsByInstructorFishingClassReservations: (instructorID) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}clientsByInstructorFishingClassReservations?instructorId=${instructorID}`
+    );
+  },
+
+  getAllClientsByInstructorFishingClassQuickReservations: (instructorID) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}clientsByInstructorQuickFishingClassReservations?instructorId=${instructorID}`
+    );
+  },
 };
 
 export default userServices;
