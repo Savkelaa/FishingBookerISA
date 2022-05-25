@@ -40,6 +40,7 @@ import RateRequestsContainer from "./Containers/RateRequestsContainer";
 import ComplaintRequestsContainer from "./Containers/ComplaintRequestsContainer";
 import ClientsByInstructorContainer from "./Containers/ClientsByInstructorContainer";
 import InstructorCreateReportContainer from "./Containers/InstructorCreateReportContainer";
+import ReportRequestsContainer from "./Containers/ReportRequestsContainer";
 
 function App() {
   return (
@@ -147,6 +148,9 @@ function App() {
           </Route>
           <Route path="/instructorCreateReport/:id">
             <InstructorCreateReportContainer></InstructorCreateReportContainer>
+          </Route>
+          <Route path="/reportRequests">
+            <ReportRequestsContainer></ReportRequestsContainer>
           </Route>
         </Switch>
       </Router>

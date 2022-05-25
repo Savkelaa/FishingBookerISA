@@ -279,3 +279,8 @@ INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('20
 
 insert into instructor_complaint (active, answer, description,client_id, instructor_id) values ('true', '', 'id ligula suspendisse ornare', 1,1);
 insert into instructor_complaint (active, answer, description,client_id, instructor_id) values ('true', '', 'ooooo sto plavo oko', 2,2);
+
+
+insert into instructor_report (bad,description,client_id,instructor_id) values ('true','oo sto plavo oko',1,1);
+insert into instructor_report (bad,description,client_id,instructor_id) values ('true','namerno naginjes se',2,2);
+insert into instructor_report (bad,description,client_id,instructor_id) values ('true','eh sto nisam sunce',3,3);
