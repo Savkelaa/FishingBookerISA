@@ -263,7 +263,7 @@ public class EmailService {
 		System.out.println("Email poslat!");
 	}
 
-
+///RATE
 	@Async
 	public void sendNotificaitionAsyncAcceptRate(Client user) throws MailException, InterruptedException {
 
@@ -278,6 +278,74 @@ public class EmailService {
 		javaMailSender.send(mail);
 		System.out.println("Email poslat!");
 	}
+
+	//COMPLAINT
+
+
+	@Async
+	public void sendNotificaitionAsyncAcceptComplaintInstructor(Instructor instructor, String complaint) throws MailException, InterruptedException {
+
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(instructor.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Answer to the complaint");
+		mail.setText("Hi, " + instructor.getName() + " " +  instructor.getSurname() +",\n\nAdmin answer to the complaint.\nAnswer: " + complaint );
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+
+
+	@Async
+	public void sendNotificaitionAsyncAcceptComplaintClient(Client client, String complaint) throws MailException, InterruptedException {
+
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(client.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Answer to the complaint");
+		mail.setText("Hi, " + client.getName() + " " +  client.getSurname() +",\n\nAdmin answer to the complaint.\nAnswer: " + complaint );
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+////PENALTY
+
+	@Async
+	public void sendNotificaitionPenaltyToClient(Client client) throws MailException, InterruptedException {
+
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(client.getEmail());
+
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Admin give one penalty to client for instructor request");
+		mail.setText("Hi, " + client.getName() + " " +  client.getSurname() +",\n\nYou have one more penalty from admin.");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+
+	@Async
+	public void sendNotificaitionPenaltyToInstructor(Instructor instructor) throws MailException, InterruptedException {
+
+		Thread.sleep(1000);
+		System.out.println("Slanje emaila...");
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+
+		mail.setTo(instructor.getEmail());
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Admin give one penalty to client for instructor request");
+		mail.setText("Hi, " + instructor.getName() + " " +  instructor.getSurname() +",\n\nAdmin give 1 more penalty to client.");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+
 
 
 }

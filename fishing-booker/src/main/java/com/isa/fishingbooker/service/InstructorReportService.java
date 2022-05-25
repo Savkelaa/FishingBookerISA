@@ -1,10 +1,13 @@
 package com.isa.fishingbooker.service;
 
+import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 
 import com.isa.fishingbooker.model.InstructorReport;
 
 import com.isa.fishingbooker.repository.InstructorReportRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,11 @@ import java.util.Map;
 
 @Service
 public class InstructorReportService {
+    private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    @Autowired
+    private EmailService emailService;
+
     @Autowired
     private InstructorReportRepository instructorReportRepository;
 
@@ -49,6 +57,20 @@ public class InstructorReportService {
         instructorReport.setDescription(instructorReportDetails.getDescription());
         instructorReport.setBad(instructorReportDetails.getBad());
         instructorReport.setDescription(instructorReportDetails.getDescription());
+        instructorReport.setClient(instructorReportDetails.getClient());
+        instructorReport.setInstructor(instructorReportDetails.getInstructor());
+
+
+        if(instructorReportDetails.getBad().toString().equals("false")) {
+            try {
+                System.out.println("Thread id: " + Thread.currentThread().getId());
+                emailService.sendNotificaitionPenaltyToClient(instructorReportDetails.getClient());
+                emailService.sendNotificaitionPenaltyToInstructor( instructorReportDetails.getInstructor());
+
+            } catch (Exception e) {
+                logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+            }
+        }
 
         final InstructorReport updatedInstructorReport = instructorReportRepository.save(instructorReport);
         return ResponseEntity.ok(updatedInstructorReport);

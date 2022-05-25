@@ -2,8 +2,14 @@ import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export default function InstructorCreateReport({ addInstructorReportHandler }) {
+export default function InstructorCreateReport({
+  addInstructorReportHandler,
+  updateClientHandler,
+  client,
+}) {
   const [badd, setBadd] = useState("");
+  const [come, setCome] = useState("");
+
   var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
   let { id } = useParams();
 
@@ -46,6 +52,7 @@ export default function InstructorCreateReport({ addInstructorReportHandler }) {
                     />
                   </div>
                   <div className="radio-btn-container">
+                    Bad?
                     <div
                       className="radio-btn"
                       onClick={() => {
@@ -75,11 +82,49 @@ export default function InstructorCreateReport({ addInstructorReportHandler }) {
                       No
                     </div>
                   </div>
+
+                  <div className="radio-btn-container">
+                    Didn't he come to fishing class?
+                    <div
+                      className="radio-btn"
+                      onClick={() => {
+                        setCome("no");
+                      }}
+                    >
+                      <input
+                        type="radio"
+                        value={come}
+                        name="come"
+                        checked={come == "no"}
+                      />
+                      He did not come
+                    </div>
+                    <div
+                      className="radio-btn"
+                      onClick={() => {
+                        setCome("yes");
+                      }}
+                    >
+                      <input
+                        type="radio"
+                        value={come}
+                        name="come"
+                        checked={come == "yes"}
+                      />
+                      He came
+                    </div>
+                  </div>
                 </div>
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div className="text-right">
                       <button
+                        onClick={() => {
+                          if (come == "no") {
+                            client.penalty = client.penalty + 1;
+                            updateClientHandler(client);
+                          }
+                        }}
                         type="submit"
                         id="submit"
                         name="submit"

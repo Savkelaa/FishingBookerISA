@@ -59,6 +59,8 @@ public class InstructorRateService {
 		instructorRate.setAccepted(instructorRateDetails.getAccepted());
 		instructorRate.setRequest(instructorRateDetails.getRequest());
 		instructorRate.setRate(instructorRateDetails.getRate());
+		instructorRate.setClient(instructorRateDetails.getClient());
+		instructorRate.setInstructor(instructorRateDetails.getInstructor());
 
 		if(instructorRate.getAccepted().toString().equals("true")) {
 			try {
