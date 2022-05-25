@@ -14,26 +14,13 @@ export default function InstructorCreateReport({ addInstructorReportHandler }) {
   function saveHandler(e) {
     addInstructorReportHandler({
       description: description.current.value,
-      bad: bad.current.value,
+      bad: badd,
       client: {
         id: id,
       },
       instructor: { id: logedInstructor.id },
     });
   }
-
-  function onSelectYesHandler() {
-    bad.current.value = "true";
-  }
-
-  function onSelectNoHandler() {
-    bad.current.value = "false";
-  }
-
-  function onChangeValue(event) {
-    console.log(event.target.value);
-  }
-  //console.log("bad", bad.current.value);
 
   return (
     <form action="javascript:void(0);" onSubmit={saveHandler}>
@@ -58,26 +45,33 @@ export default function InstructorCreateReport({ addInstructorReportHandler }) {
                       id="place"
                     />
                   </div>
-
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h6 for="website">Bad comment?</h6>
-                    <div>
+                  <div className="radio-btn-container">
+                    <div
+                      className="radio-btn"
+                      onClick={() => {
+                        setBadd("true");
+                      }}
+                    >
                       <input
                         type="radio"
-                        value="true"
-                        ref={bad}
-                        onSelect={() => onSelectYesHandler()}
-                        name="true"
-                      />{" "}
+                        value={badd}
+                        name="badd"
+                        checked={badd == "true"}
+                      />
                       Yes
-                      <br></br>
+                    </div>
+                    <div
+                      className="radio-btn"
+                      onClick={() => {
+                        setBadd("false");
+                      }}
+                    >
                       <input
                         type="radio"
-                        value="false"
-                        ref={bad}
-                        onSelect={() => onSelectNoHandler()}
-                        name="true"
-                      />{" "}
+                        value={badd}
+                        name="badd"
+                        checked={badd == "false"}
+                      />
                       No
                     </div>
                   </div>
