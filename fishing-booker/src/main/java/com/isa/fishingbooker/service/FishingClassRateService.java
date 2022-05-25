@@ -62,7 +62,7 @@ public class FishingClassRateService {
 
 		System.out.print(fishingClassRateDetails.getAccepted().toString());
 
-///VIDI KASNIJEE
+
 		if(fishingClassRateDetails.getAccepted().toString().equals("true")) {
 			try {
 				System.out.println("Thread id: " + Thread.currentThread().getId());

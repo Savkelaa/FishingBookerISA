@@ -306,6 +306,12 @@ const userServices = {
       `${process.env.REACT_APP_API_URL}clientsByInstructorQuickFishingClassReservations?instructorId=${instructorID}`
     );
   },
+
+  // DOBAVLJANJE KLIJENTA PO IDU
+
+  getClientsById: (clientID) => {
+    return axios.get(`${process.env.REACT_APP_API_URL}clients/${clientID}`);
+  },
 };
 
 export default userServices;
