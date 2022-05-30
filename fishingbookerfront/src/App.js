@@ -41,6 +41,8 @@ import ComplaintRequestsContainer from "./Containers/ComplaintRequestsContainer"
 import ClientsByInstructorContainer from "./Containers/ClientsByInstructorContainer";
 import InstructorCreateReportContainer from "./Containers/InstructorCreateReportContainer";
 import ReportRequestsContainer from "./Containers/ReportRequestsContainer";
+import DefinePointsContainer from "./Containers/DefinePointsContainer";
+import CreateLoyaltyCategoryContainer from "./Containers/CreateLoyaltyCategoryContainer";
 
 function App() {
   return (
@@ -151,6 +153,12 @@ function App() {
           </Route>
           <Route path="/reportRequests">
             <ReportRequestsContainer></ReportRequestsContainer>
+          </Route>
+          <Route path="/definePoints">
+            <DefinePointsContainer></DefinePointsContainer>
+          </Route>
+          <Route path="/createLoyaltyCategory">
+            <CreateLoyaltyCategoryContainer></CreateLoyaltyCategoryContainer>
           </Route>
         </Switch>
       </Router>

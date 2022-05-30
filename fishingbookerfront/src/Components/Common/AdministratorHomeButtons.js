@@ -70,6 +70,16 @@ export default function AdministratorHomeButtons() {
             Report requests
           </button>
         </Link>
+        <Link to="/definePoints">
+          <button className="btn btn-primary profile-button" type="button">
+            Define loyalty points
+          </button>
+        </Link>
+        <Link to="/createLoyaltyCategory">
+          <button className="btn btn-primary profile-button" type="button">
+            Create loyalty category
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -30,7 +30,9 @@ public class FishingClassReservationController {
 	@Autowired
 	private FishingClassReservationService fishingClassReservationService;
 
-	
+
+
+
 	@GetMapping("/fishingClassReservations")
 	public List<FishingClassReservation> getAllFishingClassReservations() {
 		return this.fishingClassReservationService.getAllFishingClassReservations();

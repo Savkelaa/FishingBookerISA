@@ -51,5 +51,35 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 
 	@Query(value="Select * from client where activated = 'false' and deleted = 'false';",nativeQuery=true)
 	List<Client> getAllClientRequests();
-	
+
+//// GET NUMBER OF PAST RESERVATIONS BY CLIENT
+
+	@Query(value="Select count(*) from fishing_class_reservation\n" +
+			"\twhere client_id=:clientId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastFishingClassReservationsByClient(Integer clientId);
+
+	@Query(value="Select count(*) from fishing_class_quick_reservation\n" +
+			"\twhere client_id=:clientId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastFishingClassQuickReservationsByClient(Integer clientId);
+
+	@Query(value="Select count(*) from boat_reservation\n" +
+			"\twhere client_id=:clientId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastBoatReservationsByClient(Integer clientId);
+
+	@Query(value="Select count(*) from boat_quick_reservation\n" +
+			"\twhere client_id=:clientId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastBoatQuickReservationsByClient(Integer clientId);
+
+	@Query(value="Select count(*) from cottage_reservation\n" +
+			"\twhere client_id=:clientId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastCottageReservationsByClient(Integer clientId);
+
+	@Query(value="Select count(*) from cottage_quick_reservation\n" +
+			"\twhere client_id=:clientId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastCottageQuickReservationsByClient(Integer clientId);
+
+
+
+
+
 }

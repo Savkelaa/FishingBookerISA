@@ -74,6 +74,9 @@ public class Client implements UserDetails{
 	@Column(name = "deleteReason")
 	private String deleteReason;
 
+	@Column(name = "points")
+	private int points;
+
 	@JsonIgnore
     @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
     private List<CottageRate> cottageRates ;

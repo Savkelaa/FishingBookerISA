@@ -39,6 +39,40 @@ public class InstructorService {
 		return this.InstructorRepository.getAllInstructorDeleteRequests();
 	}
 
+	public Integer getNuberOfPastFishingClassReservationsByInstructor(Integer instructorId)
+	{
+		return this.InstructorRepository.getNuberOfPastFishingClassReservationsByInstructor(instructorId);
+	}
+
+
+	public Integer getNuberOfPastFishingClassQuickReservationsByInstructor(Integer instructorId)
+	{
+		return this.InstructorRepository.getNuberOfPastFishingClassQuickReservationsByInstructor(instructorId);
+	}
+
+	public Integer getNuberOfPastBoatReservationsByBoatOwner(Integer boatOwnerId)
+	{
+		return this.InstructorRepository.getNuberOfPastBoatReservationsByBoatOwner(boatOwnerId);
+	}
+
+
+public Integer getNuberOfPastBoatQuickReservationsByBoatOwner(Integer boatOwnerId)
+	{
+		return this.InstructorRepository.getNuberOfPastBoatQuickReservationsByBoatOwner(boatOwnerId);
+	}
+
+	public Integer getNuberOfPastCottageReservationsByCottageOwner(Integer cottageOwnerId)
+	{
+		return this.InstructorRepository.getNuberOfPastCottageReservationsByCottageOwner(cottageOwnerId);
+	}
+
+
+	public Integer getNuberOfPastCottageQuickReservationsByCottageOwner(Integer cottageOwnerId)
+	{
+		return this.InstructorRepository.getNuberOfPastCottageQuickReservationsByCottageOwner(cottageOwnerId);
+	}
+
+
 	public List<Instructor> getAllInstructorRequests(){
 		return this.InstructorRepository.getAllInstructorRequests();
 	}

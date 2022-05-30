@@ -31,7 +31,9 @@ public class FishingClassReservationService {
 
 	@Autowired
 	private EmailService emailService;
-	
+
+
+
 	
 	public List<FishingClassReservation> getAllFishingClassReservations(){
 		return this.FishingClassReservationRepository.findAll();
