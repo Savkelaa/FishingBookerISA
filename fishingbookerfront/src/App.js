@@ -29,7 +29,8 @@ import ClientHomePageContainer from "./Containers/ClientHomePageContainer";
 import ChangePasswordInstructorContainer from "./Containers/ChangePasswordInstructorContainer";
 import CottageOwnerHomePageContainer from "./Containers/CottageOwnerHomePageContainer";
 import BoatOwnerHomePageContainer from "./Containers/BoatOwnerHomePageContainer";
-import ScheduleContainer from "./Containers/ScheduleContainer";
+
+
 import AvailabilityPeriodContainer from "./Containers/AvailabilityPeriodContainer";
 import CurrentReservationsContainer from "./Containers/CurrentReservationsContainer";
 import CreateFishingClassReservationContainer from "./Containers/CreateFishingClassReservationContainer";
@@ -41,6 +42,11 @@ import ComplaintRequestsContainer from "./Containers/ComplaintRequestsContainer"
 import ClientsByInstructorContainer from "./Containers/ClientsByInstructorContainer";
 import InstructorCreateReportContainer from "./Containers/InstructorCreateReportContainer";
 import ReportRequestsContainer from "./Containers/ReportRequestsContainer";
+
+import CottageContainer from "./Containers/CottageContainer";
+import CottagesByOwnerContainer from "./Containers/CottagesByOwnerContainer";
+import CreateCottageContainer from "./Containers/CreateCottageContainer";
+import ChangePasswordCottageOwnerContainer from "./Containers/ChangePasswordCottageOwnerContainer";
 
 function App() {
   return (
@@ -119,9 +125,6 @@ function App() {
           <Route path="/clientHomePage">
             <ClientHomePageContainer></ClientHomePageContainer>
           </Route>
-          <Route path="/mala">
-            <ScheduleContainer></ScheduleContainer>
-          </Route>
           <Route path="/availabilityPeriod">
             <AvailabilityPeriodContainer></AvailabilityPeriodContainer>
           </Route>
@@ -152,6 +155,24 @@ function App() {
           <Route path="/reportRequests">
             <ReportRequestsContainer></ReportRequestsContainer>
           </Route>
+
+
+          <Route path="/cottage/:id">
+            <CottageContainer></CottageContainer>
+          </Route>
+
+          <Route path="/cottagesByOwner">
+            <CottagesByOwnerContainer></CottagesByOwnerContainer>
+          </Route>
+
+          <Route path="/createCottage">
+            <CreateCottageContainer></CreateCottageContainer>
+          </Route>
+
+          <Route path ="/changePasswordCottageOwner">
+            <ChangePasswordCottageOwnerContainer></ChangePasswordCottageOwnerContainer>
+          </Route>
+
         </Switch>
       </Router>
     </div>

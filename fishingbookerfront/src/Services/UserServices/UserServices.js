@@ -287,6 +287,20 @@ const userServices = {
     );
   },
 
+  changePasswordCottageOwner: (CottageOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}changePasswordCottageOwner/${CottageOwner.id}`,
+      CottageOwner
+    );
+  },
+
+  changePasswordBoatOwner: (BoatOwner) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}changePasswordBoatOwner/${BoatOwner.id}`,
+      BoatOwner
+    );
+  },
+
   ///// DATE SPANS
 
   createDateSpan: (dateSpan) => {

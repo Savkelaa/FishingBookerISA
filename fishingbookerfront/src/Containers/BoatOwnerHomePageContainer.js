@@ -17,16 +17,17 @@ export default function BoatOwnerHomePageContainer() {
 
   var logedBoatOwner = JSON.parse(localStorage.getItem("BoatOwner"));
 
-  /*
-   useEffect(() => {
-     boatServices
-      .getBoatsByOwner(loggedBoatOwner.id)
+
+  function updateBoatOwner(boatOwner) {
+    userServices
+      .updateBoatOwner(boatOwner)
       .then((data) => {
-        setBoatsByOwner(data.data);
-        console.log("data.data", data.data);
+        console.log("sucessfuly updated BoatOwner");
       })
-      .catch((error) => console.log(`error`, error));
-   }, []);*/
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
 
   function sendBoatOwnerDeleteRequest(boatOwner) {
     userServices
@@ -45,7 +46,7 @@ export default function BoatOwnerHomePageContainer() {
       <BoatOwnerProfile
         logedBoatOwner={logedBoatOwner}
         sendBoatOwnerDeleteRequestHandler={sendBoatOwnerDeleteRequest}
-        //  fishingClassesByBoatOwner={fishingClassesByBoatOwner}
+        updateBoatOwnerHandler={updateBoatOwner}
       ></BoatOwnerProfile>
       <Footerr></Footerr>
     </div>

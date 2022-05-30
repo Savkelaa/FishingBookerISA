@@ -11,8 +11,8 @@ import BoatOwnerHomeButtons from "./BoatOwnerHomeButtons";
 
 export default function BoatOwnerProfile({
   logedBoatOwner,
-  sendInstructorDeleteRequestHandler,
-  fishingClassesByInstructor,
+  sendBoatOwnerDeleteRequestHandler,
+  updateBoatOwnerHandler,
 }) {
   return (
     <div className="container rounded bg-white mt-5 mb-5">
@@ -22,8 +22,11 @@ export default function BoatOwnerProfile({
         ></BoatOwnerProfilePicture>
         <BoatOwnerProfileLabels
           logedBoatOwner={logedBoatOwner}
-          sendInstructorDeleteRequestHandler={
-            sendInstructorDeleteRequestHandler
+          sendBoatOwnerDeleteRequestHandler={
+            sendBoatOwnerDeleteRequestHandler
+          }
+          updateBoatOwnerHandler={
+            updateBoatOwnerHandler
           }
         ></BoatOwnerProfileLabels> 
         <BoatOwnerHomeButtons></BoatOwnerHomeButtons>

@@ -11,8 +11,9 @@ import CottageOwnerHomeButtons from "./CottageOwnerHomeButtons";
 
 export default function CottageOwnerProfile({
   logedCottageOwner,
-  sendInstructorDeleteRequestHandler,
-  fishingClassesByInstructor,
+  sendCottageOwnerDeleteRequestHandler,
+  updateCottageOwnerHandler,
+  cottagesByOwner,
 }) {
   return (
     <div className="container rounded bg-white mt-5 mb-5">
@@ -22,11 +23,16 @@ export default function CottageOwnerProfile({
         ></CottageOwnerProfilePicture>
         <CottageOwnerProfileLabels
           logedCottageOwner={logedCottageOwner}
-          sendInstructorDeleteRequestHandler={
-            sendInstructorDeleteRequestHandler
+          sendCottageOwnerDeleteRequestHandler={
+            sendCottageOwnerDeleteRequestHandler
+          }
+          updateCottageOwnerHandler={
+            updateCottageOwnerHandler
           }
         ></CottageOwnerProfileLabels> 
-        <CottageOwnerHomeButtons></CottageOwnerHomeButtons>
+        <CottageOwnerHomeButtons
+          cottagesByOwner = {cottagesByOwner}
+        ></CottageOwnerHomeButtons>
       </div>
     </div>
   );

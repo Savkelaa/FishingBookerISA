@@ -42,7 +42,7 @@ insert into instructor (name, surname, address, city, country, email, password, 
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Jaye', 'Speek', '096 Chive Point', 'Ubatã', 'Brazil', 'jspeek4@archive.org', 'yH4nFgGW', 'id justo sit amet', '843-342-2954', 'consequat morbi a ipsum', 'false', 'false');
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Rosalyn', 'Brandt', '68018 Hudson Plaza', 'El Cerrito', 'Mexico', 'rbrandt5@dailymotion.com', 'o7ATWWAFA', 'nulla suscipit ligula in lacus', '919-337-2121', 'eros elementum pellentesque quisque porta volutpat erat', 'false', 'false');
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', 'msalmons6@hao123.com', 'B8ktNE6', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'false', 'false');
-insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', '1msalmons6@hao123.com', '$2a$04$73u1ZkS.qAFp1JHxrzAu.Oi9jit3DPL1zEaeXOq9cKaMzjnSVkwmW', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'false', 'false');
+insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', 'savke@gmail.com', '$2a$04$mXrsdCi9JyM3bwCFli9lVeJqan3zcD/DBF5vrueFcbSpuPuEndNLq', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'true', 'false');
 
 insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (9, 1, 7,'false','true');
 insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (7, 6, 5,'false','true');
@@ -212,9 +212,9 @@ insert into cottage_behavioral_rule (name, description, cottage_id) values ('nam
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('etiam pretiu platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id', 'lacus at velit vivamus vea volutpat erat quisque erat eros viverra', 6);
 
 insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, cottage_id, status) values ('11/19/2021', '10/19/2022', 4, 9, 1, 'free');
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '8/2/2022', 26, 10, 1, 7, 'booked');
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '3/6/2022', 25, 11, 5, 7, 'booked');
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, cottage_id, status) values ('11/19/2021', '3/5/2022', 30, 1, 7, 'free');
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '8/2/2022', 26, 10, 1, 4, 'booked');
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '3/6/2022', 25, 11, 5, 5, 'booked');
+insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, cottage_id, status) values ('11/19/2021', '3/5/2022', 30, 1, 5, 'free');
 insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '5/24/2022', 28, 7, 7, 1, 'booked');
 insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/21/2021', 14, 5, 5, 6, 'finished');
 insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/20/2021', 11, 12, 7, 4, 'finished');

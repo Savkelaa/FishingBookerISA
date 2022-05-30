@@ -3,6 +3,7 @@ package com.isa.fishingbooker.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -55,7 +56,7 @@ public class CottageQuickReservation {
     @JoinColumn(name="client_id", nullable = true)
     private Client client;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.REMOVE)
     @JoinColumn(name="cottage_id", nullable = false)
     private Cottage cottage;
 	

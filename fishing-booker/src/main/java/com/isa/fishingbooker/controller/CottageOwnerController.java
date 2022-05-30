@@ -111,4 +111,10 @@ public class CottageOwnerController {
 	public CottageOwner getCottageOwnerByEmailAndPassword(@RequestParam (value="email")  String email, @RequestParam (value="password") String password) {
 		return cottageOwnerService.getCottageOwnerByEmailAndPassword(email, password);
 	}
+	
+	@PutMapping("/changePasswordCottageOwner/{id}")
+	public ResponseEntity<CottageOwner> changePasswordCottageOwner(@PathVariable(value = "id") int cottageOwnerId,
+													 @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
+		return cottageOwnerService.changePasswordCottageOwner(cottageOwnerId, cottageOwnerDetails);
+	}
 }

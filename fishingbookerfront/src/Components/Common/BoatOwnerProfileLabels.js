@@ -1,12 +1,22 @@
 import React, { useRef } from "react";
 
-export default function BoatOwnerProfileLabels({
+export default function ProfileLabels({
   logedBoatOwner,
   sendBoatOwnerDeleteRequestHandler,
+  updateBoatOwnerHandler,
 }) {
   console.log("logedBoatOwner", logedBoatOwner);
 
   const deleteReason = useRef();
+  const name = useRef();
+  const surname = useRef();
+  const address = useRef();
+  const city = useRef();
+  const country = useRef();
+  const email = useRef();
+  const number = useRef();
+  const explanation = useRef();
+  const shortBiography = useRef();
 
   return (
     <div className="col-md-5 border-right">
@@ -18,19 +28,19 @@ export default function BoatOwnerProfileLabels({
           <div className="col-md-6">
             <label className="labels">First Name</label>
             <input
+              ref={name}
               type="text"
               className="form-control"
-              placeholder="Enter first name"
-              value={logedBoatOwner.name}
+              placeholder={logedBoatOwner.name}
             />
           </div>
           <div className="col-md-6">
             <label className="labels">Surname</label>
             <input
+              ref={surname}
               type="text"
               className="form-control"
-              placeholder="Enter surname"
-              value={logedBoatOwner.surname}
+              placeholder={logedBoatOwner.surname}
             />
           </div>
         </div>
@@ -38,90 +48,95 @@ export default function BoatOwnerProfileLabels({
           <div className="col-md-12">
             <label className="labels">Address</label>
             <input
+              ref={address}
               type="text"
               className="form-control"
-              placeholder="Enter address"
-              value={logedBoatOwner.address}
+              placeholder={logedBoatOwner.address}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">City</label>
             <input
+              ref={city}
               type="text"
               className="form-control"
-              placeholder="Enter city"
-              value={logedBoatOwner.city}
+              placeholder={logedBoatOwner.city}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Country</label>
             <input
+              ref={country}
               type="text"
               className="form-control"
-              placeholder="Enter country"
-              value={logedBoatOwner.country}
+              placeholder={logedBoatOwner.country}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Email</label>
             <input
+              ref={email}
               type="text"
               className="form-control"
-              placeholder="Enter email address"
-              value={logedBoatOwner.email}
+              placeholder={logedBoatOwner.email}
             />
           </div>
-          <div className="col-md-12">
-            <label className="labels">Password</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter password"
-            />
-          </div>
+
           <div className="col-md-12">
             <label className="labels">Number</label>
             <input
+              ref={number}
               type="text"
               className="form-control"
-              placeholder="Enter phone number"
-              value={logedBoatOwner.number}
+              placeholder={logedBoatOwner.number}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Explanation of Registration</label>
             <input
+              ref={explanation}
               type="text"
               className="form-control"
-              placeholder="Enter explanation"
-              value={logedBoatOwner.explanation}
+              placeholder={logedBoatOwner.explanation}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Short Biography</label>
             <input
+              ref={shortBiography}
               type="text"
               className="form-control"
-              placeholder="Enter short biography"
-              value={logedBoatOwner.shortBiography}
+              placeholder={logedBoatOwner.shortBiography}
             />
           </div>
         </div>
 
         <div className="mt-5 text-center">
-          <button className="btn btn-success profile-button" type="button">
+          <button
+            className="btn btn-success profile-button"
+            type="button"
+            onClick={() => {
+              logedBoatOwner.name = name.current.value;
+              logedBoatOwner.surname = surname.current.value;
+              logedBoatOwner.address = address.current.value;
+              logedBoatOwner.city = city.current.value;
+              logedBoatOwner.country = country.current.value;
+              logedBoatOwner.email = email.current.value;
+              logedBoatOwner.number = number.current.value;
+              logedBoatOwner.explanation = explanation.current.value;
+              logedBoatOwner.shortBiography = shortBiography.current.value;
+
+              localStorage.setItem(
+                "BoatOwner",
+                JSON.stringify(logedBoatOwner)
+              );
+
+              updateBoatOwnerHandler(logedBoatOwner);
+            }}
+          >
             Update Profile
           </button>
           <button
-            // onClick={(e) => {
-            //   if (deleteReason.current.value == "") {
-            //     alert("You need to fill filed.");
-            //   } else {
-            //     logedBoatOwner.deleteReason = deleteReason.current.value;
-            //     sendBoatOwnerDeleteRequestHandler({ logedBoatOwner });
-            //   }
-            // }}
-
             onClick={() => {
               if (deleteReason.current.value == "") {
                 alert("You need to fill filed.");
