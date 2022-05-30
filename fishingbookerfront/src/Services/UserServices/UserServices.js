@@ -396,8 +396,8 @@ const userServices = {
 
   //// poeni nakon zavrsene rezervacije
 
-  getReservationPoints: (id) => {
-    return axios.get(`${process.env.REACT_APP_API_URL}reservationPoints/${id}`);
+  getReservationPoints: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}reservationPoints/1`);
   },
   updateReservationPoints: (points) => {
     return axios.put(
@@ -415,6 +415,12 @@ const userServices = {
     return axios.post(
       `${process.env.REACT_APP_API_URL}loyaltyCategories`,
       category
+    );
+  },
+
+  getLoyaltyCategoryByClient: (points) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}loyaltyCategoryClient?clientPoints=${points}`
     );
   },
 };

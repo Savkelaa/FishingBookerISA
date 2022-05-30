@@ -3,6 +3,12 @@ import React, { useRef } from "react";
 export default function ClientProfileLabel({
   logedClient,
   sendInstructorDeleteRequestHandler,
+  numFishingClass,
+  numFishingClassQuick,
+  numBoat,
+  numBoatQuick,
+  numCottage,
+  numCottageQuick,
 }) {
   console.log("logedClient", logedClient);
 
@@ -31,7 +37,6 @@ export default function ClientProfileLabel({
               className="form-control"
               placeholder="Enter surname"
               value={logedClient.surname}
-              
             />
           </div>
         </div>
@@ -96,6 +101,15 @@ export default function ClientProfileLabel({
               className="form-control"
               placeholder="Enter explanation"
               value={logedClient.explanation}
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Points For Loyalty Program</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="points"
+              value={logedClient.points}
             />
           </div>
         </div>

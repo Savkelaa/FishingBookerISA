@@ -15,19 +15,56 @@ export default function Profile({
   logedClient,
   sendInstructorDeleteRequestHandler,
   fishingClassesByInstructor,
+  numFishingClass,
+  numFishingClassQuick,
+  numBoat,
+  numBoatQuick,
+  numCottage,
+  numCottageQuick,
+  pointsByFinishedReservation,
+  group,
 }) {
+  console.log("group", group);
+  // console.log("numFishingClass", numFishingClass);
+  // console.log("numFishingClassQuick", numFishingClassQuick);
+  // console.log("numBoat", numBoat);
+  // console.log("numBoatQuick", numBoatQuick);
+  // console.log("numCottage", numCottage);
+  // console.log("numCottageQuick", numCottageQuick);
+  // console.log(
+  //   "pointsByFinishedReservation",
+  //   pointsByFinishedReservation.points
+  // );
+
+  // logedClient.points =
+  //   (numFishingClass +
+  //     numFishingClassQuick +
+  //     numBoat +
+  //     numBoatQuick +
+  //     numCottage +
+  //     numCottageQuick) *
+  //   pointsByFinishedReservation.points;
+
+  // console.log("logedClient.points", logedClient.points);
+
+  // localStorage.setItem("Client", JSON.stringify(logedClient));
+
   return (
     <div className="container rounded bg-white mt-5 mb-5">
       <div className="row">
-        <ClientProfilePicture
-        logedClient={logedClient}
-        ></ClientProfilePicture>
+        <ClientProfilePicture logedClient={logedClient}></ClientProfilePicture>
         <ClientProfileLabel
           logedClient={logedClient}
           sendInstructorDeleteRequestHandler={
             sendInstructorDeleteRequestHandler
           }
-        ></ClientProfileLabel> 
+          numFishingClass={numFishingClass}
+          numFishingClassQuick={numFishingClassQuick}
+          numBoat={numBoat}
+          numBoatQuick={numBoatQuick}
+          numCottage={numCottage}
+          numCottageQuick={numCottageQuick}
+        ></ClientProfileLabel>
         <ClientHomeButtons></ClientHomeButtons>
       </div>
     </div>

@@ -24,6 +24,9 @@ public class LoyaltyCategoryService {
         return this.loyaltyCategoryRepository.findAll();
     }
 
+    public List<LoyaltyCategory> getLoyaltyCategoryByClientPoints(Integer clientPoints){
+        return this.loyaltyCategoryRepository.getLoyaltyCategoryByClientPoints(clientPoints);
+    }
 
 
     public LoyaltyCategory createLoyaltyCategory(LoyaltyCategory loyaltyCategory) {
