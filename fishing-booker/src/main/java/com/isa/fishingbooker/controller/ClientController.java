@@ -93,6 +93,42 @@ public class ClientController {
 	{
 		return clientService.getClientsByInstructorFishingClassQuickReservations(instructorId);
 	}
+
+	@GetMapping("/numberOfFinishedFishingClassReservations")
+	public Integer getNuberOfPastFishingClassReservationsByClient(@RequestParam (value = "clientId") Integer clientId)
+	{
+		return this.clientService.getNuberOfPastFishingClassReservationsByClient(clientId);
+	}
+
+	@GetMapping("/numberOfFinishedFishingClassQuickReservations")
+	public Integer getNuberOfPastFishingClassQuickReservationsByClient(@RequestParam (value = "clientId") Integer clientId)
+	{
+		return this.clientService.getNuberOfPastFishingClassQuickReservationsByClient(clientId);
+	}
+
+	@GetMapping("/numberOfFinishedBoatReservations")
+	public Integer getNuberOfPastBoatReservationsByClient(@RequestParam (value = "clientId") Integer clientId)
+	{
+		return this.clientService.getNuberOfPastBoatReservationsByClient(clientId);
+	}
+
+	@GetMapping("/numberOfFinishedBoatQuickReservations")
+	public Integer getNuberOfPastBoatQuickReservationsByClient(@RequestParam (value = "clientId") Integer clientId)
+	{
+		return this.clientService.getNuberOfPastBoatQuickReservationsByClient(clientId);
+	}
+
+	@GetMapping("/numberOfFinishedCottageReservations")
+	public Integer getNuberOfPastCottageReservationsByClient(@RequestParam (value = "clientId") Integer clientId)
+	{
+		return this.clientService.getNuberOfPastCottageReservationsByClient(clientId);
+	}
+
+	@GetMapping("/numberOfFinishedCottageQuickReservations")
+	public Integer getNuberOfPastCottageQuickReservationsByClient(@RequestParam (value = "clientId") Integer clientId)
+	{
+		return this.clientService.getNuberOfPastCottageQuickReservationsByClient(clientId);
+	}
 	
 	@PostMapping("/clients")
 	public Client createClient(@RequestBody Client client) throws Exception {

@@ -60,4 +60,8 @@ public interface FishingClassReservationRepository extends JpaRepository<Fishing
 			+ "WHERE client_id = :clientId", nativeQuery = true)
 	List<FishingClassReservation> getFishingClassByClient(Integer clientId);
 
+
+
+
+
 }

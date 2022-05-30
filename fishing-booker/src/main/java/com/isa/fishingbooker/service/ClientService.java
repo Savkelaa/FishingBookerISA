@@ -50,6 +50,43 @@ public class ClientService {
 	 return ResponseEntity.ok().body(client);
 	}
 
+
+
+
+	public Integer getNuberOfPastFishingClassReservationsByClient(Integer clientId)
+	{
+		return this.clientRepository.getNuberOfPastFishingClassReservationsByClient(clientId);
+	}
+
+
+	public Integer getNuberOfPastFishingClassQuickReservationsByClient(Integer clientId)
+	{
+		return this.clientRepository.getNuberOfPastFishingClassQuickReservationsByClient(clientId);
+	}
+
+	public Integer getNuberOfPastBoatReservationsByClient(Integer clientId)
+	{
+		return this.clientRepository.getNuberOfPastBoatReservationsByClient(clientId);
+	}
+
+
+	public Integer getNuberOfPastBoatQuickReservationsByClient(Integer clientId)
+	{
+		return this.clientRepository.getNuberOfPastBoatQuickReservationsByClient(clientId);
+	}
+
+	public Integer getNuberOfPastCottageReservationsByClient(Integer clientId)
+	{
+		return this.clientRepository.getNuberOfPastCottageReservationsByClient(clientId);
+	}
+
+
+	public Integer getNuberOfPastCottageQuickReservationsByClient(Integer clientId)
+	{
+		return this.clientRepository.getNuberOfPastCottageQuickReservationsByClient(clientId);
+	}
+
+
 	public List<Client> getAllClientRequests()
 	{
 		return this.clientRepository.getAllClientRequests();
@@ -118,6 +155,7 @@ public class ClientService {
 		client.setPassword(clientDetails.getPassword());
 		client.setPenalty(clientDetails.getPenalty());
 		client.setSurname(clientDetails.getSurname());
+		client.setPoints(clientDetails.getPoints());
 		
 		final Client updatedClient = clientRepository.save(client);
 		return ResponseEntity.ok(updatedClient);
