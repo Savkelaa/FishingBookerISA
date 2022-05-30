@@ -26,10 +26,20 @@ public class LoyaltyCategoryController {
     }
 
 
+    @GetMapping("/loyaltyCategoryClient")
+    public List<LoyaltyCategory> getLoyaltyCategoryByClientPoints(@RequestParam (value = "clientPoints") Integer clientPoints) {
+        return this.loyaltyCategoryService.getLoyaltyCategoryByClientPoints(clientPoints);
+    }
+
+
+
+
     @PostMapping("/loyaltyCategories")
     public LoyaltyCategory createLoyaltyCategory(@RequestBody LoyaltyCategory loyaltyCategory) {
         return loyaltyCategoryService.createLoyaltyCategory(loyaltyCategory);
     }
+
+
 
 
 }

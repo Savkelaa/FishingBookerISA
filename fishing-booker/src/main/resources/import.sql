@@ -285,4 +285,7 @@ insert into instructor_report (bad,description,client_id,instructor_id) values (
 insert into instructor_report (bad,description,client_id,instructor_id) values ('true','namerno naginjes se',2,2);
 insert into instructor_report (bad,description,client_id,instructor_id) values ('true','eh sto nisam sunce',3,3);
 
-insert into reservation_points (points, owner_points) values (0,0);
+insert into reservation_points (points, owner_points) values (3,0);
+
+insert into loyalty_category(name,description,discount,min_points,max_points) values ('Gold','Gold kategorija',10,10,20);
+insert into loyalty_category(name,description,discount,min_points,max_points) values ('Silver','Silver kategorija',5,5,10);
