@@ -9,9 +9,10 @@ export default function ClientProfileLabel({
   numBoatQuick,
   numCottage,
   numCottageQuick,
+  group,
 }) {
   console.log("logedClient", logedClient);
-
+  console.log("groupp", group);
   const deleteReason = useRef();
 
   return (

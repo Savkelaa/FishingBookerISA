@@ -99,6 +99,7 @@ export default function ClientHomePage() {
       .then((data) => {
         setPointsByFinishedReservation(data.data);
         console.log("data.data", data.data);
+        setClient(logedClient);
       })
       .catch((error) => console.log(`error`, error));
 
@@ -117,9 +118,10 @@ export default function ClientHomePage() {
       .then((data) => {
         setGroup(data.data);
         console.log("KATEGORIJA", data.data);
+        localStorage.setItem("Category", JSON.stringify(data.data.content));
       })
       .catch((error) => console.log(`error`, error));
-  }, []);
+  }, [client]);
 
   function sendInstructorDeleteRequest(instructor) {
     userServices
@@ -143,7 +145,7 @@ export default function ClientHomePage() {
         numCottage={numCottage}
         numCottageQuick={numCottageQuick}
         pointsByFinishedReservation={pointsByFinishedReservation}
-        //   group={group}
+        group={group}
         client={client}
         logedClient={logedClient}
         sendInstructorDeleteRequestHandler={sendInstructorDeleteRequest}

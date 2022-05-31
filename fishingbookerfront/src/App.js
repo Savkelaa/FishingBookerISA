@@ -168,7 +168,7 @@ function App() {
           <Route path="/createLoyaltyCategory">
             <CreateLoyaltyCategoryContainer></CreateLoyaltyCategoryContainer>
           </Route>
-          
+
           <Route path="/cottage/:id">
             <CottageContainer></CottageContainer>
           </Route>
