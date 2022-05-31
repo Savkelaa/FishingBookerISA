@@ -48,6 +48,11 @@ import CottageContainer from "./Containers/CottageContainer";
 import CottagesByOwnerContainer from "./Containers/CottagesByOwnerContainer";
 import CreateCottageContainer from "./Containers/CreateCottageContainer";
 import ChangePasswordCottageOwnerContainer from "./Containers/ChangePasswordCottageOwnerContainer";
+import CottageReservationHistoryContainer from "./Containers/CottageReservationHistoryContainer";
+import CreateCottageActionContainer from "./Containers/CreateCottageActionContainer";
+import CottageUpcomingReservationsContainer from "./Containers/CottageUpcomingReservationsContainer";
+import CottageCurrentReservationsContainer from "./Containers/CottageCurrentReservations";
+
 
 function App() {
   return (
@@ -176,9 +181,26 @@ function App() {
             <CreateCottageContainer></CreateCottageContainer>
           </Route>
 
-          <Route path="/changePasswordCottageOwner">
+          <Route path ="/changePasswordCottageOwner">
             <ChangePasswordCottageOwnerContainer></ChangePasswordCottageOwnerContainer>
           </Route>
+
+          <Route path = "/cottageReservationHistory">
+            <CottageReservationHistoryContainer></CottageReservationHistoryContainer>
+          </Route>
+
+          <Route path = "/createCottageQuickReservationAction/:id">
+            <CreateCottageActionContainer></CreateCottageActionContainer>
+          </Route>
+
+          <Route path = "/cottageUpcomingReservation">
+            <CottageUpcomingReservationsContainer></CottageUpcomingReservationsContainer>
+          </Route>
+
+          <Route path = "/cottageCurrentReservation">
+            <CottageCurrentReservationsContainer></CottageCurrentReservationsContainer>
+          </Route>
+
         </Switch>
       </Router>
     </div>

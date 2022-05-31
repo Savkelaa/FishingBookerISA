@@ -54,7 +54,7 @@ export default function CottagesByOwner({
                       
                     </ListGroup>
                     <Card.Body>
-                      <Link to={`/createQuickReservation/${cottage.id}`}>
+                      <Link to={`/createCottageQuickReservationAction/${cottage.id}`}>
                         <Button
                           style={{ width: "8rem" }}
                           variant="outline-success"

@@ -148,6 +148,12 @@ export default function CottageForm({
                   </div>
                 </div>
               </div>
+
+              <Link to="cottageAvailabilityPeriod">
+                <button className="btn btn-primary profile-button" type="button">
+                  Enter availability period
+                </button>
+              </Link>
             
 
               <div className="row gutters">
