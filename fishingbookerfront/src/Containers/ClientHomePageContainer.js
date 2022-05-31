@@ -16,8 +16,8 @@ export default function ClientHomePage() {
   const [numCottageQuick, setNumCottageQuick] = useState({});
   const [pointsByFinishedReservation, setPointsByFinishedReservation] =
     useState({});
+  const [client, setClient] = useState({});
   const [group, setGroup] = useState({});
-
   const [fishingClassesByInstructor, setfishingClassesByInstructor] = useState(
     []
   );
@@ -81,6 +81,7 @@ export default function ClientHomePage() {
       .getNumberOfFinishedCottageReservations(logedClient.id)
       .then((data) => {
         setNumCottage(data.data);
+        setClient(logedClient);
         console.log("data.data", data.data);
       })
       .catch((error) => console.log(`error`, error));
@@ -101,13 +102,23 @@ export default function ClientHomePage() {
       })
       .catch((error) => console.log(`error`, error));
 
-    // userServices
-    //   .getLoyaltyCategoryByPoints(logedClient.points)
-    //   .then((data) => {
+    //  userServices
+    //    .getLoyaltyCategoryByPoints(logedClient.points)
+    //    .then((data) => {
     //     setGroup(data.data);
-    //     console.log("data.data", data.data);
+    //   console.log("data.data", data.data);
     //   })
     //   .catch((error) => console.log(`error`, error));
+  }, []);
+
+  useEffect(() => {
+    userServices
+      .getLoyaltyCategoryByPoints(logedClient.points)
+      .then((data) => {
+        setGroup(data.data);
+        console.log("KATEGORIJA", data.data);
+      })
+      .catch((error) => console.log(`error`, error));
   }, []);
 
   function sendInstructorDeleteRequest(instructor) {
@@ -132,7 +143,8 @@ export default function ClientHomePage() {
         numCottage={numCottage}
         numCottageQuick={numCottageQuick}
         pointsByFinishedReservation={pointsByFinishedReservation}
-        group={group}
+        //   group={group}
+        client={client}
         logedClient={logedClient}
         sendInstructorDeleteRequestHandler={sendInstructorDeleteRequest}
         fishingClassesByInstructor={fishingClassesByInstructor}
