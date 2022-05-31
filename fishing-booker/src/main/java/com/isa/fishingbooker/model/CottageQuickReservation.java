@@ -43,11 +43,20 @@ public class CottageQuickReservation {
 	@Column(name = "finish_date")
 	private Date finishDate;
 	
+	@Column(name = "start_date_action")
+	private Date startDateAction;
+	
+	@Column(name = "finish_date_action")
+	private Date finishDateAction;
+	
 	@Column(name = "discount")
 	private float discount;
 	
 	@Column(name = "max_people")
 	private int maxPeople;
+	
+	@Column(name = "price")
+	private int price;
 	
 	@Column(name = "status")
 	private String status;

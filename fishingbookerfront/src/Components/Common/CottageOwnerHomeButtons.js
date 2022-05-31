@@ -35,28 +35,25 @@ export default function CottageOwnerHomeButtons(cottagesByOwner) {
             Change password
           </button>
         </Link>
-        <Link to="availabilityPeriod">
-          <button className="btn btn-primary profile-button" type="button">
-            Enter availability period
-          </button>
-        </Link>
-        <Link to="currentReservations">
+        
+        <Link to="cottageCurrentReservation">
           <button className="btn btn-primary profile-button" type="button">
             Current reservations
           </button>
         </Link>
-        <Link to="fishingClassReservationHistory">
+        <Link to="cottageReservationHistory">
           <button className="btn btn-primary profile-button" type="button">
             History of reservations
           </button>
         </Link>
-        <button className="btn btn-primary profile-button" type="button">
-          Create an appointment for a quick reservation
-        </button>
-        <button className="btn btn-primary profile-button" type="button">
-          Finished reservations
-        </button>
-        <Link to="clientsByInstructor">
+        
+        <Link to = "cottageUpcomingReservation">
+          <button className="btn btn-primary profile-button" type="button">
+            Upcoming reservations
+          </button>
+        </Link>
+        
+        <Link to="clientsByCottageOwner">
           <button className="btn btn-primary profile-button" type="button">
             My clients
           </button>

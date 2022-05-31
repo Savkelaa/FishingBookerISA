@@ -127,11 +127,11 @@ insert into boat_rate (id, rate, boat_id, client_id) values (6, 5, 1, 6);
 insert into boat_rate (id, rate, boat_id, client_id) values (7, 5, 7, 6);
 
 
-insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Roma', '74 Petterle Hill', 114, 'purus eu magna vulputate', 4, 2, 2);
-insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Van', '19 Killdeer Park', 119, 'consectetuer adipiscing elit proin', 4, 2, 3);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Roma', '74 Petterle Hill', 114, 'purus eu magna vulputate', 7, 2, 2);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Van', '19 Killdeer Park', 119, 'consectetuer adipiscing elit proin', 7, 2, 3);
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Robinetta', '0 Evergreen Drive', 34, 'et ultrices posuere cubilia', 5, 3, 2);
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Rahal', '6623 Fulton Road', 117, 'non lectus aliquam sit amet diam', 6, 4, 2);
-insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Ravid', '9963 Grasskamp Hill', 144, 'a odio in hac habitasse', 3, 5, 2);
+insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Ravid', '9963 Grasskamp Hill', 144, 'a odio in hac habitasse', 7, 5, 2);
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Abigael', '405 Walton Terrace', 119, 'at nunc commodo placerat praesent', 6, 5, 2);
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Upton', '588 Donald Court', 131, 'suscipit a feugiat et', 7, 3, 2);
 
@@ -211,13 +211,13 @@ insert into cottage_behavioral_rule (name, description, cottage_id) values ('pos
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('nam dui pruat in consequat', 'quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus', 5);
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('etiam pretiu platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id', 'lacus at velit vivamus vea volutpat erat quisque erat eros viverra', 6);
 
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, cottage_id, status) values ('11/19/2021', '10/19/2022', 4, 9, 1, 'free');
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '8/2/2022', 26, 10, 1, 4, 'booked');
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '3/6/2022', 25, 11, 5, 5, 'booked');
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, cottage_id, status) values ('11/19/2021', '3/5/2022', 30, 1, 5, 'free');
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '5/24/2022', 28, 7, 7, 1, 'booked');
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/21/2021', 14, 5, 5, 6, 'finished');
-insert into cottage_quick_reservation (start_date, finish_date, discount, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/20/2021', 11, 12, 7, 4, 'finished');
+insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('5/30/2021', '6/2/2022', '12/19/2021', '10/19/2022', 4, 9, 2, 1, 'active', 110);
+insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2022', '12/2/2022','11/19/2021', '8/2/2022', 26, 10, 1, 1, 'booked', 120);
+insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2022', '12/6/2022', '11/19/2021', '3/6/2022', 25, 11, 5, 5, 'booked', 100);
+insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, cottage_id, status, price) values ('11/19/2021', '3/5/2022', '11/19/2021', '3/5/2022', 30, 1, 5, 'free', 90);
+insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2021', '5/24/2022', '11/19/2021', '5/24/2022', 28, 7, 7, 1, 'booked', 100);
+insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2021', '11/21/2021', '11/19/2021', '11/21/2021', 14, 5, 5, 6, 'finished', 130);
+insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2021', '11/20/2021', '11/19/2021', '11/20/2021', 11, 12, 7, 4, 'finished', 65);
 
 insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/20/2022', 9, 1, 6, 'finished');
 insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '3/29/2022', 3, 1, 'free');
