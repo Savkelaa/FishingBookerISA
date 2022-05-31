@@ -163,7 +163,7 @@ function App() {
           <Route path="/createLoyaltyCategory">
             <CreateLoyaltyCategoryContainer></CreateLoyaltyCategoryContainer>
           </Route>
-          
+
           <Route path="/cottage/:id">
             <CottageContainer></CottageContainer>
           </Route>
@@ -176,10 +176,9 @@ function App() {
             <CreateCottageContainer></CreateCottageContainer>
           </Route>
 
-          <Route path ="/changePasswordCottageOwner">adfadf
+          <Route path="/changePasswordCottageOwner">
             <ChangePasswordCottageOwnerContainer></ChangePasswordCottageOwnerContainer>
           </Route>
-
         </Switch>
       </Router>
     </div>
