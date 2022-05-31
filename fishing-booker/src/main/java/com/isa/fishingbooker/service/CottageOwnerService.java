@@ -87,7 +87,7 @@ public class CottageOwnerService {
 	public ResponseEntity<CottageOwner> removeCottageOwner(Integer cottageOwnerId,
 			 @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
 		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
-				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + cottageOwnerId));
+				.orElseThrow(() -> new ResourceNotFoundException("CottageOwner not found for this id :: " + cottageOwnerId));
 		
 		cottageOwner.setRefusalReason(cottageOwnerDetails.getRefusalReason());
 		cottageOwner.setDeleted("true");
@@ -107,7 +107,7 @@ public class CottageOwnerService {
 	public ResponseEntity<CottageOwner> removeCottageOwnerDeleteRequest(Integer cottageOwnerId,
 														   @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
 		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
-				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + cottageOwnerId));
+				.orElseThrow(() -> new ResourceNotFoundException("CottageOwner not found for this id :: " + cottageOwnerId));
 
 		cottageOwner.setRefusalReason(cottageOwnerDetails.getRefusalReason());
 		cottageOwner.setDeleteRequest("false");
@@ -156,15 +156,31 @@ public class CottageOwnerService {
 		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
 				.orElseThrow(() -> new ResourceNotFoundException("CottageOwner not found for this id :: " + cottageOwnerId));
 		
-		cottageOwner.setAddress(cottageOwnerDetails.getAddress());
-		cottageOwner.setCity(cottageOwnerDetails.getCity());
-		cottageOwner.setCountry(cottageOwnerDetails.getCountry());
-		cottageOwner.setEmail(cottageOwnerDetails.getEmail());
-		cottageOwner.setExplanation(cottageOwnerDetails.getExplanation());
-		cottageOwner.setName(cottageOwnerDetails.getName());
-		cottageOwner.setNumber(cottageOwnerDetails.getNumber());
-		cottageOwner.setPassword(cottageOwnerDetails.getPassword());
-		cottageOwner.setSurname(cottageOwnerDetails.getSurname());
+		if (cottageOwnerDetails.getAddress() != "") {
+			cottageOwner.setAddress(cottageOwnerDetails.getAddress());
+		}
+		if (cottageOwnerDetails.getCity() != "") {
+			cottageOwner.setCity(cottageOwnerDetails.getCity());
+		}
+		if (cottageOwnerDetails.getCountry() != "") {
+			cottageOwner.setCountry(cottageOwnerDetails.getCountry());
+		}
+		if (cottageOwnerDetails.getEmail() != "") {
+			cottageOwner.setEmail(cottageOwnerDetails.getEmail());
+		}
+		if (cottageOwnerDetails.getExplanation() != "") {
+			cottageOwner.setExplanation(cottageOwnerDetails.getExplanation());
+		}
+		if (cottageOwnerDetails.getName() != "") {
+			cottageOwner.setName(cottageOwnerDetails.getName());
+		}
+		if (cottageOwnerDetails.getNumber() != "" ) {
+			cottageOwner.setNumber(cottageOwnerDetails.getNumber());
+		}
+		if (cottageOwnerDetails.getSurname() != "") {
+			cottageOwner.setSurname(cottageOwnerDetails.getSurname());
+		}
+	
 		
 		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
 		return ResponseEntity.ok(updatedCottageOwner);
@@ -184,5 +200,17 @@ public class CottageOwnerService {
 	
 	public CottageOwner getCottageOwnerByEmailAndPassword(String email, String password) {
 		return CottageOwnerRepository.getCottageOwnerByEmailAndPassword(email, password);
+	}
+	
+	public ResponseEntity<CottageOwner> changePasswordCottageOwner(Integer cottageOwnerId,
+			   @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
+			CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
+			.orElseThrow(() -> new ResourceNotFoundException("CottageOwner not found for this id :: " + cottageOwnerId));
+			
+			cottageOwner.setPassword(passwordEncoder.encode(cottageOwnerDetails.getPassword()));
+			
+		
+			final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
+			return ResponseEntity.ok(updatedCottageOwner);
 	}
 }

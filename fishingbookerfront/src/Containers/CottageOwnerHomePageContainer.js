@@ -6,6 +6,8 @@ import CottageOwnerProfile from "../Components/Common/CottageOwnerProfile";
 import "../Assets/css/profile.css";
 import userServices from "../Services/UserServices/UserServices";
 import cottageServices from "../Services/CottageServices/CottageServices";
+import { Link, Route, Switch, useHistory, useLocation } from "react-router-dom";
+
 
 export default function CottageOwnerHomePageContainer() {
   //const [logedCottageOwner, setlogedCottageOwner] = useState();
@@ -17,25 +19,30 @@ export default function CottageOwnerHomePageContainer() {
 
   var logedCottageOwner = JSON.parse(localStorage.getItem("CottageOwner"));
 
-  /*
-   useEffect(() => {
-     cottageServices
-      .getCottagesByOwner(loggedCottageOwner.id)
+  
+  const history = useHistory();
+
+  function updateCottageOwner(cottageOwner) {
+    userServices
+      .updateCottageOwner(cottageOwner)
       .then((data) => {
-        setCottagesByOwner(data.data);
-        console.log("data.data", data.data);
+        history.replace("/cottageOwnerHomePage")
+        alert("sucessfuly updated CottageOwner");
+        
       })
-      .catch((error) => console.log(`error`, error));
-   }, []);*/
+      .catch((error) => {
+        alert("Something wen't wrong try again");
+      });
+  }
 
   function sendCottageOwnerDeleteRequest(cottageOwner) {
     userServices
       .cottageOwnerSendDeleteRequest(cottageOwner)
       .then((data) => {
-        console.log("sucessfuly sent a cottageOwner delete request");
+        alert("sucessfuly sent a cottageOwner delete request");
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        alert("Something wen't wrong try again");
       });
   }
 
@@ -45,7 +52,7 @@ export default function CottageOwnerHomePageContainer() {
       <CottageOwnerProfile
         logedCottageOwner={logedCottageOwner}
         sendCottageOwnerDeleteRequestHandler={sendCottageOwnerDeleteRequest}
-        //  fishingClassesByCottageOwner={fishingClassesByCottageOwner}
+        updateCottageOwnerHandler={updateCottageOwner}
       ></CottageOwnerProfile>
       <Footerr></Footerr>
     </div>

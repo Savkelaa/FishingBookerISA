@@ -44,13 +44,19 @@ public class CottageService {
 		Cottage cottage = CottageRepository.findById(cottageId)
 				.orElseThrow(() -> new ResourceNotFoundException("Cottage not found for this id :: " + cottageId));
 		
-		cottage.setName(cottageDetails.getName());
-		cottage.setAddress(cottageDetails.getAddress());
-		cottage.setPrice(cottageDetails.getPrice());
-		cottage.setPromoDescription(cottageDetails.getPromoDescription());
+		if (cottageDetails.getName() != "") {
+			cottage.setName(cottageDetails.getName());
+		}
+		if (cottageDetails.getAddress() != "") {
+			cottage.setAddress(cottageDetails.getAddress());
+		}
+		if (cottageDetails.getPrice() != 0) {
+			cottage.setPrice(cottageDetails.getPrice());
+		}
+		if (cottageDetails.getPromoDescription() != "") {
+			cottage.setPromoDescription(cottageDetails.getPromoDescription());
+		}
 		
-		
-	
 		final Cottage updatedCottage = CottageRepository.save(cottage);
 		return ResponseEntity.ok(updatedCottage);
 	}

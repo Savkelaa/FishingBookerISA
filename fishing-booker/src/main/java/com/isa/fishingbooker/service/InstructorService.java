@@ -147,7 +147,7 @@ public Integer getNuberOfPastBoatQuickReservationsByBoatOwner(Integer boatOwnerI
 		Instructor instructor = InstructorRepository.findById(instructorId)
 				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + instructorId));
 
-		instructor.setPassword(passwordEncoder.encode(instructor.getPassword()));
+		instructor.setPassword(passwordEncoder.encode(instructorDetails.getPassword()));
 
 		final Instructor updatedInstructor = InstructorRepository.save(instructor);
 		return ResponseEntity.ok(updatedInstructor);

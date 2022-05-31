@@ -4,8 +4,7 @@ import { ListGroup, Image } from "react-bootstrap";
 import "../../App.css";
 import { BrowserRouter as Link } from "react-router-dom";
 import slika from "../../Assets/img/slika1.jpg";
-import Box from "@mui/material/Box";
-import ImageList from "@mui/material/ImageList";
+
 
 export default function CreateLoyaltyCategory({ addCategoryHandler }) {
   const name = useRef();

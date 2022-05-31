@@ -98,7 +98,7 @@ function LoginContainer() {
                 cottageOwnerr.deleted == "false"
               ) {
                 if (Object.keys(cottageOwnerr).length !== 0) {
-                  history.push("/cottageOwnerHomePage"); //promenite kada napravite stranicu
+                  history.push("/cottageOwnerHomePage"); 
                   console.log("sucessfuly logedOn a cottage owner");
                 }
               } else if (Object.keys(cottageOwnerr).length == 0) {
@@ -133,7 +133,7 @@ function LoginContainer() {
               ) {
                 if (Object.keys(boatOwnerr).length !== 0) {
                   history.push("/boatOwnerHomePage");
-                  console.log("sucessfuly logedOn a BoatOnwer"); //promenite kada napravite stranicu
+                  console.log("sucessfuly logedOn a BoatOnwer"); 
                 }
               } else if (Object.keys(boatOwnerr).length == 0) {
               } else {

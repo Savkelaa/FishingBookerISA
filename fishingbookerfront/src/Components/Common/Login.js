@@ -33,7 +33,7 @@ export default function Login({
             <div className="login__field">
               <input
                 ref={password}
-                type="text"
+                type="password"
                 className="login__input"
                 placeholder="Password"
                 id="password"

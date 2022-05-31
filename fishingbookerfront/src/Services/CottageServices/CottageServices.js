@@ -25,9 +25,24 @@ const cottageServices = {
   },
   getCottagesById: (cottageId) => {
     return axios.get(
-      `${process.env.REACT_APP_API_URL}cottagesByOwner/${cottageId}`
+      `${process.env.REACT_APP_API_URL}cottages/${cottageId}`
     );
   },
+  getBehavioralRuleByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}cottageBehavioralRulesByCottage?cottageId=${cottageId}`
+    )
+  },
+  getAdditionalServicesByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}additionalServicesByCottage?cottageId=${cottageId}`
+    )
+  },
+  searchCottageByName: (cottageOwnerId, cottageName) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}cottagesByOwnerAndName?cottageOwnerId=${cottageOwnerId}&cottageName=${cottageName}`
+    );
+  }
 };
 
 export default cottageServices;

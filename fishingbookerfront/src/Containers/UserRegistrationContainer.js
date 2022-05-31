@@ -92,7 +92,7 @@ function UserRegistrationContainer() {
   return (
     <div>
       <Navbarr></Navbarr>
-      <RegistrationForm
+      <RegistrationForm 
         addClientHandler={addClient}
         addCottageOwnerHandler={addCottageOwner}
         addInstructorHandler={addInstructor}

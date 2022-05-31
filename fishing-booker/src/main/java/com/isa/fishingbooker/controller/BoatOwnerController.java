@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatOwner;
 import com.isa.fishingbooker.model.Client;
-import com.isa.fishingbooker.model.CottageOwner;
+import com.isa.fishingbooker.model.BoatOwner;
 import com.isa.fishingbooker.model.Instructor;
 import com.isa.fishingbooker.service.BoatOwnerService;
 import com.isa.fishingbooker.service.EmailService;
@@ -106,5 +106,11 @@ public class BoatOwnerController {
 	@GetMapping("/boatOwnerByEmailAndPassword")
 	public BoatOwner getBoatOwnerByEmailAndPassword(@RequestParam (value="email")  String email, @RequestParam (value="password") String password) {
 		return boatOwnerService.getBoatOwnerByEmailAndPassword(email, password);
+	}
+	
+	@PutMapping("/changePasswordBoatOwner/{id}")
+	public ResponseEntity<BoatOwner> changePasswordBoatOwner(@PathVariable(value = "id") int boatOwnerId,
+													 @RequestBody BoatOwner boatOwnerDetails) throws ResourceNotFoundException {
+		return boatOwnerService.changePasswordBoatOwner(boatOwnerId, boatOwnerDetails);
 	}
 }

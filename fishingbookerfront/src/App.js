@@ -44,6 +44,11 @@ import ReportRequestsContainer from "./Containers/ReportRequestsContainer";
 import DefinePointsContainer from "./Containers/DefinePointsContainer";
 import CreateLoyaltyCategoryContainer from "./Containers/CreateLoyaltyCategoryContainer";
 
+import CottageContainer from "./Containers/CottageContainer";
+import CottagesByOwnerContainer from "./Containers/CottagesByOwnerContainer";
+import CreateCottageContainer from "./Containers/CreateCottageContainer";
+import ChangePasswordCottageOwnerContainer from "./Containers/ChangePasswordCottageOwnerContainer";
+
 function App() {
   return (
     <div className="container">
@@ -121,7 +126,6 @@ function App() {
           <Route path="/clientHomePage">
             <ClientHomePageContainer></ClientHomePageContainer>
           </Route>
-
           <Route path="/availabilityPeriod">
             <AvailabilityPeriodContainer></AvailabilityPeriodContainer>
           </Route>
@@ -152,12 +156,30 @@ function App() {
           <Route path="/reportRequests">
             <ReportRequestsContainer></ReportRequestsContainer>
           </Route>
+
           <Route path="/definePoints">
             <DefinePointsContainer></DefinePointsContainer>
           </Route>
           <Route path="/createLoyaltyCategory">
             <CreateLoyaltyCategoryContainer></CreateLoyaltyCategoryContainer>
           </Route>
+          
+          <Route path="/cottage/:id">
+            <CottageContainer></CottageContainer>
+          </Route>
+
+          <Route path="/cottagesByOwner">
+            <CottagesByOwnerContainer></CottagesByOwnerContainer>
+          </Route>
+
+          <Route path="/createCottage">
+            <CreateCottageContainer></CreateCottageContainer>
+          </Route>
+
+          <Route path ="/changePasswordCottageOwner">adfadf
+            <ChangePasswordCottageOwnerContainer></ChangePasswordCottageOwnerContainer>
+          </Route>
+
         </Switch>
       </Router>
     </div>
