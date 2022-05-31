@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ListGroup, Image, Navbar } from "react-bootstrap";
 import "../../App.css";
 import pic from "../../Assets/img/profile.jpg";
@@ -10,6 +10,7 @@ import InstructorHomeButtons from "./InstructorHomeButtons";
 import ProfileLabels from "./ProfileLabels";
 import ClientProfileLabel from "./ClientProfileLabel";
 import ClientHomeButtons from "./ClientHomeButtons";
+import userServices from "../../Services/UserServices/UserServices";
 
 export default function Profile({
   logedClient,
@@ -22,9 +23,22 @@ export default function Profile({
   numCottage,
   numCottageQuick,
   pointsByFinishedReservation,
-  group,
+  client,
 }) {
-  console.log("group", group);
+  const [group, setGroup] = useState({});
+
+  console.log("client.points", client);
+
+  useEffect(() => {
+    userServices
+      .getLoyaltyCategoryByPoints(client.points)
+      .then((data) => {
+        setGroup(data.data);
+        console.log("data.data", data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+  }, [client]);
+
   // console.log("numFishingClass", numFishingClass);
   // console.log("numFishingClassQuick", numFishingClassQuick);
   // console.log("numBoat", numBoat);

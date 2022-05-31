@@ -29,7 +29,7 @@ import ClientHomePageContainer from "./Containers/ClientHomePageContainer";
 import ChangePasswordInstructorContainer from "./Containers/ChangePasswordInstructorContainer";
 import CottageOwnerHomePageContainer from "./Containers/CottageOwnerHomePageContainer";
 import BoatOwnerHomePageContainer from "./Containers/BoatOwnerHomePageContainer";
-import ScheduleContainer from "./Containers/ScheduleContainer";
+
 import AvailabilityPeriodContainer from "./Containers/AvailabilityPeriodContainer";
 import CurrentReservationsContainer from "./Containers/CurrentReservationsContainer";
 import CreateFishingClassReservationContainer from "./Containers/CreateFishingClassReservationContainer";
@@ -121,9 +121,7 @@ function App() {
           <Route path="/clientHomePage">
             <ClientHomePageContainer></ClientHomePageContainer>
           </Route>
-          <Route path="/mala">
-            <ScheduleContainer></ScheduleContainer>
-          </Route>
+
           <Route path="/availabilityPeriod">
             <AvailabilityPeriodContainer></AvailabilityPeriodContainer>
           </Route>

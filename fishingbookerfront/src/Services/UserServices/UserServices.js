@@ -418,7 +418,7 @@ const userServices = {
     );
   },
 
-  getLoyaltyCategoryByClient: (points) => {
+  getLoyaltyCategoryByPoints: (points) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}loyaltyCategoryClient?clientPoints=${points}`
     );
