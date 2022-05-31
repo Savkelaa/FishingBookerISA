@@ -44,6 +44,43 @@ public class InstructorController {
 		return this.instructorService.getAllInstructors();
 	}
 
+	@GetMapping("/numberOfFinishedFishingClassReservationsInstructor")
+	public Integer getNuberOfPastFishingClassReservationsByInstructor(@RequestParam (value = "instructorId") Integer instructorId)
+	{
+		return this.instructorService.getNuberOfPastFishingClassReservationsByInstructor(instructorId);
+	}
+
+	@GetMapping("/numberOfFinishedFishingClassQuickReservationsInstuctor")
+	public Integer getNuberOfPastFishingClassQuickReservationsByInstructor(@RequestParam (value = "instructorId") Integer instructorId)
+	{
+		return this.instructorService.getNuberOfPastFishingClassQuickReservationsByInstructor(instructorId);
+	}
+
+	@GetMapping("/numberOfFinishedBoatReservationsBoatOwner")
+	public Integer getNuberOfPastBoatReservationsByBoatOwner(@RequestParam (value = "boatOwnerId") Integer boatOwnerId)
+	{
+		return this.instructorService.getNuberOfPastBoatReservationsByBoatOwner(boatOwnerId);
+	}
+
+	@GetMapping("/numberOfFinishedBoatQuickReservationsBoatOwner")
+	public Integer getNuberOfPastBoatQuickReservationsByBoatOwner(@RequestParam (value = "boatOwnerId") Integer boatOwnerId)
+	{
+		return this.instructorService.getNuberOfPastBoatQuickReservationsByBoatOwner(boatOwnerId);
+	}
+
+	@GetMapping("/numberOfFinishedCottageReservationsCottageOwner")
+	public Integer getNuberOfPastCottageReservationsByCottageOwner(@RequestParam (value = "cottageOwner") Integer cottageOwner)
+	{
+		return this.instructorService.getNuberOfPastCottageReservationsByCottageOwner(cottageOwner);
+	}
+
+	@GetMapping("/numberOfFinishedCottageQuickReservationsCottageOwner")
+	public Integer getNuberOfPastCottageQuickReservationsByCottageOwner(@RequestParam (value = "cottageOwner") Integer cottageOwner)
+	{
+		return this.instructorService.getNuberOfPastCottageQuickReservationsByCottageOwner(cottageOwner);
+	}
+
+
 	@GetMapping("/instructorDeleteRequests")
 	public List<Instructor> getAllInstructorDeleteRequests() {
 		return this.instructorService.getAllInstructorDeleteRequests();

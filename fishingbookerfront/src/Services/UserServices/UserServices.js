@@ -326,6 +326,117 @@ const userServices = {
   getClientsById: (clientID) => {
     return axios.get(`${process.env.REACT_APP_API_URL}clients/${clientID}`);
   },
+
+  /// Broj ukupnog broja rezervacija od klienta
+
+  getNumberOfFinishedFishingClassReservations: (clientID) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedFishingClassReservations?clientId=${clientID}`
+    );
+  },
+
+  getNumberOfFinishedFishingClassQuickReservations: (clientID) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedFishingClassQuickReservations?clientId=${clientID}`
+    );
+  },
+
+  getNumberOfFinishedBoatReservations: (clientID) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedBoatReservations?clientId=${clientID}`
+    );
+  },
+
+  getNumberOfFinishedBoatQuickReservations: (clientID) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedBoatQuickReservations?clientId=${clientID}`
+    );
+  },
+
+  getNumberOfFinishedCottageReservations: (clientID) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedCottageReservations?clientId=${clientID}`
+    );
+  },
+
+  getNumberOfFinishedCottageQuickReservations: (clientID) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedCottageQuickReservations?clientId=${clientID}`
+    );
+  },
+
+  ///BROJ UKUPNIH REZERVACIJA ZA SVAKOG OD INSTRUKTORA
+
+  getNumberOfFinishedFishingClassReservationsInstructor: (instructorId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedFishingClassReservationsInstructor?instructorId=${instructorId}`
+    );
+  },
+
+  getNumberOfFinishedFishingClassQuickReservationsInstructor: (
+    instructorId
+  ) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedFishingClassQuickReservationsInstuctor?instructorId=${instructorId}`
+    );
+  },
+
+  ///BROJ UKUPNIH REZERVACIJA ZA SVAKOG OD BOATOWNERA
+
+  getNumberOfFinishedBoatReservationsBoatOwner: (boatOwnerId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedBoatReservationsBoatOwner?boatOwnerId=${boatOwnerId}`
+    );
+  },
+
+  getNumberOfFinishedBoatQuickReservationsBoatOwner: (boatOwnerId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedBoatQuickReservationsBoatOwner?boatOwnerId=${boatOwnerId}`
+    );
+  },
+  ///BROJ UKUPNIH REZERVACIJA ZA SVAKOG OD COTTAGEOWNERA
+
+  getNumberOfFinishedCottageReservationsCottageOwner: (cottageOwner) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedCottageReservationsCottageOwner?cottageOwner=${cottageOwner}`
+    );
+  },
+
+  getNumberOfFinishedCottageQuickReservationsCottageOwner: (cottageOwner) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}numberOfFinishedCottageQuickReservationsCottageOwner?cottageOwner=${cottageOwner}`
+    );
+  },
+
+  //// poeni nakon zavrsene rezervacije
+
+  getReservationPoints: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}reservationPoints/1`);
+  },
+  updateReservationPoints: (points) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}reservationPoints/${points.id}`,
+      points
+    );
+  },
+
+  ///KATEGORIJE
+
+  getAllLoyaltyCategories: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}loyaltyCategories`);
+  },
+  createLoyaltyCategory: (category) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}loyaltyCategories`,
+      category
+    );
+  },
+
+  getLoyaltyCategoryByPoints: (points) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}loyaltyCategoryClient?clientPoints=${points}`
+    );
+  },
 };
 
 export default userServices;

@@ -43,5 +43,40 @@ public interface InstructorRepository extends JpaRepository<Instructor, Integer>
 	@Query(value="select * from instructor where delete_request='true'", nativeQuery=true)
 	List<Instructor> getAllInstructorDeleteRequests();
 
+	/// GET NUMBER OF ALL RESERVATIONS BY INSTRUCTOR, BOAT OWNER, COTTAGE OWNER
+
+
+	@Query(value="SELECT count(*) from fishing_class_reservation\n" +
+			"INNER JOIN fishing_class ON fishing_class_reservation.fishing_class_id = fishing_class.id\n" +
+			"WHERE instructor_id = :instructorId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastFishingClassReservationsByInstructor(Integer instructorId);
+
+	@Query(value="SELECT count(*) from fishing_class_quick_reservation\n" +
+			"INNER JOIN fishing_class ON fishing_class_quick_reservation.fishing_class_id = fishing_class.id\n" +
+			"WHERE instructor_id = :instructorId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastFishingClassQuickReservationsByInstructor(Integer instructorId);
+
+	@Query(value="SELECT count(*) from boat_reservation\n" +
+			"INNER JOIN boat ON boat_reservation.boat_id = boat.id\n" +
+			"WHERE boat_owner_id = :boatOwnerId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastBoatReservationsByBoatOwner(Integer boatOwnerId);
+
+	@Query(value="SELECT count(*) from boat_quick_reservation\n" +
+			"INNER JOIN boat ON boat_quick_reservation.boat_id = boat.id\n" +
+			"WHERE boat_owner_id = :boatOwnerId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastBoatQuickReservationsByBoatOwner(Integer boatOwnerId);
+
+	@Query(value="SELECT count(*) from cottage_reservation\n" +
+			"INNER JOIN cottage ON cottage_reservation.cottage_id = cottage.id\n" +
+			"WHERE cottage_owner_id = :cottageOwnerId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastCottageReservationsByCottageOwner(Integer cottageOwnerId);
+
+	@Query(value="SELECT count(*) from cottage_quick_reservation\n" +
+			"INNER JOIN cottage ON cottage_quick_reservation.cottage_id = cottage.id\n" +
+			"WHERE cottage_owner_id = :cottageOwnerId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
+	Integer getNuberOfPastCottageQuickReservationsByCottageOwner(Integer cottageOwnerId);
+
+
+
 
 }

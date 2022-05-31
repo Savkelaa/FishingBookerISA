@@ -30,7 +30,6 @@ import ChangePasswordInstructorContainer from "./Containers/ChangePasswordInstru
 import CottageOwnerHomePageContainer from "./Containers/CottageOwnerHomePageContainer";
 import BoatOwnerHomePageContainer from "./Containers/BoatOwnerHomePageContainer";
 
-
 import AvailabilityPeriodContainer from "./Containers/AvailabilityPeriodContainer";
 import CurrentReservationsContainer from "./Containers/CurrentReservationsContainer";
 import CreateFishingClassReservationContainer from "./Containers/CreateFishingClassReservationContainer";
@@ -42,6 +41,8 @@ import ComplaintRequestsContainer from "./Containers/ComplaintRequestsContainer"
 import ClientsByInstructorContainer from "./Containers/ClientsByInstructorContainer";
 import InstructorCreateReportContainer from "./Containers/InstructorCreateReportContainer";
 import ReportRequestsContainer from "./Containers/ReportRequestsContainer";
+import DefinePointsContainer from "./Containers/DefinePointsContainer";
+import CreateLoyaltyCategoryContainer from "./Containers/CreateLoyaltyCategoryContainer";
 
 import CottageContainer from "./Containers/CottageContainer";
 import CottagesByOwnerContainer from "./Containers/CottagesByOwnerContainer";
@@ -156,7 +157,13 @@ function App() {
             <ReportRequestsContainer></ReportRequestsContainer>
           </Route>
 
-
+          <Route path="/definePoints">
+            <DefinePointsContainer></DefinePointsContainer>
+          </Route>
+          <Route path="/createLoyaltyCategory">
+            <CreateLoyaltyCategoryContainer></CreateLoyaltyCategoryContainer>
+          </Route>
+          
           <Route path="/cottage/:id">
             <CottageContainer></CottageContainer>
           </Route>
@@ -169,7 +176,7 @@ function App() {
             <CreateCottageContainer></CreateCottageContainer>
           </Route>
 
-          <Route path ="/changePasswordCottageOwner">
+          <Route path ="/changePasswordCottageOwner">adfadf
             <ChangePasswordCottageOwnerContainer></ChangePasswordCottageOwnerContainer>
           </Route>
 
