@@ -346,6 +346,22 @@ public class EmailService {
 		System.out.println("Email poslat!");
 	}
 
+////
+@Async
+public void sendNotificaitionToSubscribersForNewAction(Client client) throws MailException, InterruptedException {
+
+	Thread.sleep(1000);
+	System.out.println("Slanje emaila...");
+
+	SimpleMailMessage mail = new SimpleMailMessage();
+
+	mail.setTo(client.getEmail());
+	mail.setFrom(env.getProperty("spring.mail.username"));
+	mail.setSubject("New action");
+	mail.setText("Hi, " + client.getName() + " " +  client.getSurname() +",\n\nA new offer with a discount for fishing lessons has been released.");
+	javaMailSender.send(mail);
+	System.out.println("Email poslat!");
+}
 
 
 }

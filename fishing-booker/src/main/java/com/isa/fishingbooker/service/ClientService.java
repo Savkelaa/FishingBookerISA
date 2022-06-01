@@ -112,6 +112,12 @@ public class ClientService {
 		return ResponseEntity.ok(updatedClient);
 	}
 
+	public List<Client> getAllSubscribersByFishingClass(Integer fishingClassId)
+	{
+
+		return clientRepository.getAllSubscribersByFishingClass(fishingClassId);
+	}
+
 	public List<Client> getClientsByInstructorFishingClassReservations(Integer instructorId, String name)
 	{
 		return clientRepository.getClientsByInstructorFishingClassReservations(instructorId,name);
