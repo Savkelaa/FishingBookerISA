@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.FishingClassReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,12 @@ public class FishingClassQuickReservationService {
 	public List<FishingClassQuickReservation> getAllFishingClassQuickReservations(){
 		return this.FishingClassQuickReservationRepository.findAll();
 	}
-	
+
+	public List<FishingClassQuickReservation> getFishingClassQuickReservationsByInstructor(Integer instructorId)
+	{
+		return FishingClassQuickReservationRepository.getFishingClassQuickReservationsByInstructor(instructorId);
+	}
+
 	public Integer getPriceWithDiscountQuickReservationByFishingClass(Integer fishingClassId)
 	{
 		return FishingClassQuickReservationRepository.getPriceWithDiscountQuickReservationByFishingClass(fishingClassId);

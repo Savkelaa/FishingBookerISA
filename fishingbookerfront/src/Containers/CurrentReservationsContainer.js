@@ -8,12 +8,22 @@ import userServices from "../Services/UserServices/UserServices";
 
 export default function CurrentReservationsContainer() {
   const [currentReservations, setCurrentReservations] = useState([]);
+  const [currentQuickReservations, setCurrentQuickReservations] = useState([]);
+
+  var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
 
   useEffect(() => {
     fishingClassQuickReservationServices
-      .getAllFishingClassReservationsByInstructor(1)
+      .getAllFishingClassReservationsByInstructor(logedInstructor.id)
       .then((data) => {
         setCurrentReservations(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+
+    fishingClassQuickReservationServices
+      .getAllFishingClassQuickReservationsByInstructor(logedInstructor.id)
+      .then((data) => {
+        setCurrentQuickReservations(data.data);
       })
       .catch((error) => console.log(`error`, error));
   }, []);
@@ -23,6 +33,7 @@ export default function CurrentReservationsContainer() {
       <Navbarr></Navbarr>
       <CurrentReservations
         currentReservations={currentReservations}
+        currentQuickReservations={currentQuickReservations}
       ></CurrentReservations>
       <Footerr></Footerr>
     </div>
