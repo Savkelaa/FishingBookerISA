@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.isa.fishingbooker.model.CottageRate;
+import com.isa.fishingbooker.model.FishingClassReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,6 +36,11 @@ public class FishingClassQuickReservationController {
 		return this.fishingClassQuickReservationService.getAllFishingClassQuickReservations();
 	}
 
+	@GetMapping("/fishingClassQuickReservationInstructor")
+	public List<FishingClassQuickReservation> getFishingClassQuickReservationsByInstructor(@RequestParam (value="instructorId")  Integer instructorId)
+	{
+		return fishingClassQuickReservationService.getFishingClassQuickReservationsByInstructor(instructorId);
+	}
 
 
 	@GetMapping("/fishingClassFreeQuickReservation")
