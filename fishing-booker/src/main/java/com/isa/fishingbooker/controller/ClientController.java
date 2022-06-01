@@ -83,15 +83,15 @@ public class ClientController {
 
 
 	@GetMapping("/clientsByInstructorFishingClassReservations")
-	public List<Client> getClientsByInstructorFishingClassReservations(@RequestParam (value = "instructorId") Integer instructorId)
+	public List<Client> getClientsByInstructorFishingClassReservations(@RequestParam (value = "instructorId") Integer instructorId,@RequestParam (value="name")  String name)
 	{
-		return clientService.getClientsByInstructorFishingClassReservations(instructorId);
+		return clientService.getClientsByInstructorFishingClassReservations(instructorId,name);
 	}
 	
 	@GetMapping("/clientsByInstructorQuickFishingClassReservations")
-	public List<Client> getClientsByInstructorFishingClassQuickReservations(@RequestParam (value = "instructorId") Integer instructorId)
+	public List<Client> getClientsByInstructorFishingClassQuickReservations(@RequestParam (value = "instructorId") Integer instructorId,@RequestParam (value="name")  String name)
 	{
-		return clientService.getClientsByInstructorFishingClassQuickReservations(instructorId);
+		return clientService.getClientsByInstructorFishingClassQuickReservations(instructorId,name);
 	}
 
 	@GetMapping("/numberOfFinishedFishingClassReservations")
