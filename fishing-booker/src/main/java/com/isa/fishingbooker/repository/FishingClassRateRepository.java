@@ -15,6 +15,8 @@ public interface FishingClassRateRepository extends JpaRepository<FishingClassRa
     @Query(value = "Select * from fishing_class_rate where accepted='false' and request='true'", nativeQuery = true)
     List<FishingClassRate> getAllFishingClassRateRequests();
 
+    @Query(value = "Select avg(rate) from fishing_class_rate where accepted = 'true' and fishing_class_id = :fishingClassId", nativeQuery = true)
+    Double getFishingClassAvgRate(Integer fishingClassId);
 
 
 }

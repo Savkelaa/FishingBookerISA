@@ -193,6 +193,15 @@ insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,reque
 insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (8, 7, 1,'false','true');
 insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 3, 3,'false','true');
 insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 3, 3,'false','true');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 6, 7,'true','false');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (3, 1, 1,'true','false');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (5, 1, 3,'true','false');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (6, 1, 3,'true','false');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (8, 2, 7,'true','false');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (5, 2, 1,'true','false');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 3, 3,'true','false');
+insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 3, 3,'true','false');
+
 
 insert into fishing_equipment (name, description, boat_reservation_id) values ('Compactor', 'ultrices posuere cubilia', 5);
 insert into fishing_equipment (name, description, boat_reservation_id) values ('Skid-Steer', 'nec sem duis aliquam', 7);

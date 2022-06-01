@@ -12,6 +12,7 @@ export default function FcForm({
   updateFishingClassHandler,
   images,
   fishingClassQuickReservations,
+  avgRate,
 }) {
   console.log(`fishingClass`, fishingClass);
   console.log(`behavioralRule`, behavioralRule);
@@ -120,6 +121,16 @@ export default function FcForm({
                       id="website"
                       // value={fishingClass.maxPeople}
                       placeholder={fishingClass.price}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <h6 for="website">Average rate</h6>
+                    <input
+                      ref={price}
+                      type="url"
+                      className="form-control"
+                      id="website"
+                      value={avgRate}
                     />
                   </div>
                 </div>
