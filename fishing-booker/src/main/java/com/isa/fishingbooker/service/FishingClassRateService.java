@@ -34,6 +34,10 @@ public class FishingClassRateService {
 		return this.FishingClassRateRepository.findAll();
 	}
 
+	public Double getFishingClassAvgRate( Integer fishingClassId){
+		return this.FishingClassRateRepository.getFishingClassAvgRate(fishingClassId);
+	}
+
 	public List<FishingClassRate> getAllFishingClassRateRequests(){
 		return this.FishingClassRateRepository.getAllFishingClassRateRequests();
 	}

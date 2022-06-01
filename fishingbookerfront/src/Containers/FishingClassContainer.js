@@ -8,6 +8,7 @@ import Footerr from "../Components/Common/Footerr";
 import FcForm from "../Components/Common/FcForm";
 import { useParams } from "react-router";
 import fishingClassQuickReservationServices from "../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
+import rateServices from "../Services/RateServices/RateServices";
 
 function FishingClassContainer() {
   let { id } = useParams();
@@ -17,6 +18,7 @@ function FishingClassContainer() {
   const [images, setImages] = useState([]);
   const [fishingClassQuickReservations, setFishingClassQuickReservations] =
     useState([]);
+  const [avgRate, setavgRate] = useState();
 
   useEffect(() => {
     fishingClassServices
@@ -53,6 +55,13 @@ function FishingClassContainer() {
         setFishingClassQuickReservations(data.data);
       })
       .catch((error) => console.log(`error`, error));
+
+    rateServices
+      .getAvgRateByFishingClass(id)
+      .then((data) => {
+        setavgRate(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
   }, []);
 
   function updateFishingClass(fishingClass) {
@@ -77,6 +86,7 @@ function FishingClassContainer() {
         updateFishingClassHandler={updateFishingClass}
         fishingClassQuickReservations={fishingClassQuickReservations}
         images={images}
+        avgRate={avgRate}
       ></FcForm>
       <Footerr></Footerr>
     </div>
