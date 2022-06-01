@@ -3,6 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.FishingClassRate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,6 +37,10 @@ public class BoatRateController {
 	public ResponseEntity<BoatRate> getBoatRateById(@PathVariable(value = "id") int boatRateId)
 			throws ResourceNotFoundException {
 		return boatRateService.getBoatRateById(boatRateId);
+	}
+	@GetMapping("/boatRateRequests")
+	public List<BoatRate> getAllBoatRateRequests() {
+		return this.boatRateService.getAllBoatRateRequests();
 	}
 
 	@PostMapping("/boatRates")

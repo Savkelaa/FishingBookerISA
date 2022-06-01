@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.controller.UserController;
+import com.isa.fishingbooker.model.InstructorRate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,11 @@ import com.isa.fishingbooker.repository.BoatOwnerRateRepository;
 
 @Service
 public class BoatOwnerRateService {
+	@Autowired
+	private EmailService emailService;
+
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
 
 	@Autowired
 	private BoatOwnerRateRepository BoatOwnerRateRepository;
@@ -31,7 +40,9 @@ public class BoatOwnerRateService {
 		BoatOwnerRate boatOwnerRate = BoatOwnerRateRepository.findById(boatOwnerRateId).orElseThrow(() -> new ResourceNotFoundException("BoatOwnerRate not found for this id :: " + boatOwnerRateId));
 	 return ResponseEntity.ok().body(boatOwnerRate);
 	}
-	
+	public List<BoatOwnerRate> getAllBoatOwnerRateRequests(){
+		return this.BoatOwnerRateRepository.getAllBoatOwnerRateRequests();
+	}
 	
 	public BoatOwnerRate createBoatOwnerRate(BoatOwnerRate boatOwnerRate) {
 		return BoatOwnerRateRepository.save(boatOwnerRate);
@@ -43,9 +54,20 @@ public class BoatOwnerRateService {
 			 @RequestBody BoatOwnerRate boatOwnerRateDetails) throws ResourceNotFoundException {
 		BoatOwnerRate boatOwnerRate = BoatOwnerRateRepository.findById(boatOwnerRateId)
 				.orElseThrow(() -> new ResourceNotFoundException("BoatOwnerRate not found for this id :: " + boatOwnerRateId));
-		
+
+		boatOwnerRate.setAccepted(boatOwnerRateDetails.getAccepted());
 		boatOwnerRate.setRate(boatOwnerRateDetails.getRate());
-		
+		boatOwnerRate.setRequest(boatOwnerRateDetails.getRequest());
+
+		if(boatOwnerRate.getAccepted().toString().equals("true")) {
+			try {
+				System.out.println("Thread id: " + Thread.currentThread().getId());
+				emailService.sendNotificaitionAsyncAcceptRate(boatOwnerRate.getClient());
+			} catch (Exception e) {
+				logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+			}
+		}
+
 		final BoatOwnerRate updatedBoatOwnerRate = BoatOwnerRateRepository.save(boatOwnerRate);
 		return ResponseEntity.ok(updatedBoatOwnerRate);
 	}

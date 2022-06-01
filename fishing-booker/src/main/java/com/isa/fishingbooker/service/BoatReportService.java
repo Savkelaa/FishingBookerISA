@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.BoatRate;
+import com.isa.fishingbooker.model.FishingClassRate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,7 +33,9 @@ public class BoatReportService {
 		BoatReport boatReport = BoatReportRepository.findById(boatReportId).orElseThrow(() -> new ResourceNotFoundException("BoatReport not found for this id :: " + boatReportId));
 	 return ResponseEntity.ok().body(boatReport);
 	}
-	
+
+
+
 	
 	public BoatReport createBoatReport(BoatReport boatReport) {
 		return BoatReportRepository.save(boatReport);

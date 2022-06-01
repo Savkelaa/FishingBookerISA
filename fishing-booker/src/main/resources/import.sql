@@ -110,21 +110,21 @@ insert into boat_report (id, description, boat_reservation_id, boat_owner_id) va
 insert into boat_report (id, description, boat_reservation_id, boat_owner_id) values (7, 'condimentum curabitur in libero ut massa volutpat', 6, 3);
 
 
-insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (1, 5, 6, 7);
-insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (2, 4, 4, 5);
-insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (3, 2, 1, 1);
-insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (4, 5, 1, 5);
-insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (5, 2, 4, 1);
-insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (6, 5, 4, 3);
-insert into boat_owner_rate (id, rate, boat_owner_id, client_id) values (7, 1, 1, 4);
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id,accepted,request) values (1, 5, 6, 7,'false','true');
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id,accepted,request) values (2, 4, 4, 5,'false','true');
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id,accepted,request) values (3, 2, 1, 1,'false','true');
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id,accepted,request) values (4, 5, 1, 5,'false','true');
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id,accepted,request) values (5, 2, 4, 1,'false','true');
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id,accepted,request) values (6, 5, 4, 3,'false','true');
+insert into boat_owner_rate (id, rate, boat_owner_id, client_id,accepted,request) values (7, 1, 1, 4,'false','true');
 
-insert into boat_rate (id, rate, boat_id, client_id) values (1, 3, 2, 6);
-insert into boat_rate (id, rate, boat_id, client_id) values (2, 5, 7, 5);
-insert into boat_rate (id, rate, boat_id, client_id) values (3, 4, 5, 4);
-insert into boat_rate (id, rate, boat_id, client_id) values (4, 2, 6, 6);
-insert into boat_rate (id, rate, boat_id, client_id) values (5, 3, 4, 7);
-insert into boat_rate (id, rate, boat_id, client_id) values (6, 5, 1, 6);
-insert into boat_rate (id, rate, boat_id, client_id) values (7, 5, 7, 6);
+insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (1, 3, 2, 6,'false','true');
+insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (2, 5, 7, 5,'false','true');
+insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (3, 4, 5, 4,'false','true');
+insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (4, 2, 6, 6,'false','true');
+insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (5, 3, 4, 7,'false','true');
+insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (6, 5, 1, 6,'false','true');
+insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (7, 5, 7, 6,'false','true');
 
 
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Roma', '74 Petterle Hill', 114, 'purus eu magna vulputate', 7, 2, 2);
@@ -250,12 +250,21 @@ insert into cottage_report (description, cottage_reservation_id, cottage_owner_i
 insert into cottage_report (description, cottage_reservation_id, cottage_owner_id) values ('diam erat fermentum justo nec condimentum neque sapien', 6, 6);
 insert into cottage_report (description, cottage_reservation_id, cottage_owner_id) values ('amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam', 3, 2);
 
-insert into cottage_rate (rate, cottage_id, client_id) values (10, 6, 6);
-insert into cottage_rate (rate, cottage_id, client_id) values (9, 2, 6);
-insert into cottage_rate (rate, cottage_id, client_id) values (5, 5, 3);
-insert into cottage_rate (rate, cottage_id, client_id) values (10, 1, 1);
-insert into cottage_rate (rate, cottage_id, client_id) values (9, 7, 2);
-insert into cottage_rate (rate, cottage_id, client_id) values (5, 5, 3);
+insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (10, 6, 6,'false','true');
+insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (9, 2, 6,'false','true');
+insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (5, 5, 3,'false','true');
+insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (10, 1, 1,'false','true');
+insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (9, 7, 2,'false','true');
+insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (5, 5, 3,'false','true');
+
+
+insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (9, 1, 7,'false','true');
+insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (7, 4, 5,'false','true');
+insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (5, 5, 3,'false','true');
+insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (5, 5, 3,'false','true');
+insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (6, 2, 1,'false','true');
+insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (6, 2, 2,'false','true');
+insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (5, 5, 7,'false','true');
 
 insert into additional_service (name, price, description, cottage_reservation_id) values ('WiFi', 3, 'id ligula suspendisse ornare', 1);
 insert into additional_service (name, price, description, cottage_reservation_id) values ('parking', 4, 'id ligula suspendisse ornare', 2);
