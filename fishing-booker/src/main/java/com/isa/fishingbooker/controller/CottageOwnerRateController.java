@@ -3,6 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.InstructorRate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,6 +31,11 @@ public class CottageOwnerRateController {
 	@GetMapping("/cottageOwnerRates")
 	public List<CottageOwnerRate> getAllCottageOwnerRates() {
 		return this.cottageOwnerRateService.getAllCottageOwnerRates();
+	}
+
+	@GetMapping("/cottageOwnerRateRequests")
+	public List<CottageOwnerRate> getAllCottageOwnerRateRequests() {
+		return this.cottageOwnerRateService.getAllCottageOwnerRateRequests();
 	}
 
 	@GetMapping("/cottageOwnerRates/{id}")

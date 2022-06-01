@@ -10,6 +10,12 @@ export default function RateRequestsContainer() {
   const [fishingClassRateRequests, setfishingClassRateRequests] = useState([]);
   const [instructorRateRequests, setInstructorRateRequests] = useState([]);
 
+  const [cottageRateRequests, setcottageRateRequests] = useState([]);
+  const [cottageOwnerRateRequests, setcottageOwnerRateRequests] = useState([]);
+
+  const [boatRateRequests, setboatRateRequests] = useState([]);
+  const [boatOwnerRateRequests, setboatOwnerRateRequests] = useState([]);
+
   useEffect(() => {
     rateServices
       .getAllFishingClassRateRequests()
@@ -22,6 +28,34 @@ export default function RateRequestsContainer() {
       .getAllInstructorRateRequests()
       .then((data) => {
         setInstructorRateRequests(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+
+    rateServices
+      .getAllCottageRateRequests()
+      .then((data) => {
+        setcottageRateRequests(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+
+    rateServices
+      .getAllCottageOwnerRateRequests()
+      .then((data) => {
+        setcottageOwnerRateRequests(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+
+    rateServices
+      .getAllBoatRateRequests()
+      .then((data) => {
+        setboatRateRequests(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+
+    rateServices
+      .getAllBoatOwnerRateRequests()
+      .then((data) => {
+        setboatOwnerRateRequests(data.data);
       })
       .catch((error) => console.log(`error`, error));
   }, []);
@@ -68,6 +102,90 @@ export default function RateRequestsContainer() {
       });
   }
 
+  function updateCottageRate(rate) {
+    console.log("rate", rate);
+    rateServices
+      .updateCottageRate(rate)
+      .then((data) => {
+        if (data.status === 204) setcottageRateRequests([]);
+        else {
+          rateServices
+            .getAllCottageRateRequests()
+            .then((data) => {
+              setcottageRateRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a cottage rate requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function updateCottageOwnerRate(rate) {
+    console.log("rate", rate);
+    rateServices
+      .updateCottageOwnerRate(rate)
+      .then((data) => {
+        if (data.status === 204) setcottageOwnerRateRequests([]);
+        else {
+          rateServices
+            .getAllCottageOwnerRateRequests()
+            .then((data) => {
+              setcottageOwnerRateRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a cottage owner requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function updateBoatRate(rate) {
+    console.log("rate", rate);
+    rateServices
+      .updateBoatRate(rate)
+      .then((data) => {
+        if (data.status === 204) setboatRateRequests([]);
+        else {
+          rateServices
+            .getAllBoatRateRequests()
+            .then((data) => {
+              setboatRateRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a baot rate requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
+  function updateBoatOwnerRate(rate) {
+    console.log("rate", rate);
+    rateServices
+      .updateBoatOwnerRate(rate)
+      .then((data) => {
+        if (data.status === 204) setboatOwnerRateRequests([]);
+        else {
+          rateServices
+            .getAllBoatOwnerRateRequests()
+            .then((data) => {
+              setboatOwnerRateRequests(data.data);
+            })
+            .catch((error) => console.log(`error`, error));
+          console.log("sucessfuly updated a boat owner requests");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
   return (
     <div>
       <Navbarr></Navbarr>
@@ -76,6 +194,14 @@ export default function RateRequestsContainer() {
         instructorRateRequests={instructorRateRequests}
         updateFishingClassRateHandler={updateFishingClassRate}
         updateInstructorRateHandler={updateInstructorRate}
+        cottageRateRequests={cottageRateRequests}
+        cottageOwnerRateRequests={cottageOwnerRateRequests}
+        updateCottageRateHandler={updateCottageRate}
+        updateCottageOwnerRateHandler={updateCottageOwnerRate}
+        boatRateRequests={boatRateRequests}
+        boatOwnerRateRequests={boatOwnerRateRequests}
+        updateBoatRateHandler={updateBoatRate}
+        updateBoatOwnerRateHandler={updateBoatOwnerRate}
       ></RateRequests>
       <Footerr></Footerr>
     </div>
