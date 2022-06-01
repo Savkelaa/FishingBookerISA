@@ -307,3 +307,21 @@ insert into reservation_points (points, owner_points) values (3,0);
 
 insert into loyalty_category(name,description,discount,min_points,max_points) values ('Gold','Gold kategorija',10,10,20);
 insert into loyalty_category(name,description,discount,min_points,max_points) values ('Silver','Silver kategorija',5,5,10);
+
+
+
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (1,1);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (1,2);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (1,3);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (1,4);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (1,5);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (2,1);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (2,2);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (2,3);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (2,4);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (2,5);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (3,1);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (3,2);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (3,3);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (3,4);
+insert into fishing_class_subscribers(fishing_class_id,client_id) values (3,5);

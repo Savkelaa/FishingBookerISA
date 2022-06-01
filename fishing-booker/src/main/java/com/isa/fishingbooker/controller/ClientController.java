@@ -80,7 +80,11 @@ public class ClientController {
 		return clientService.activateClient(clientId);
 	}
 
-
+	@GetMapping("/fishingClassSubscribers")
+	public List<Client> getAllSubscribersByFishingClass(@RequestParam (value = "fishingClassId") Integer fishingClassId)
+	{
+		return clientService.getAllSubscribersByFishingClass(fishingClassId);
+	}
 
 	@GetMapping("/clientsByInstructorFishingClassReservations")
 	public List<Client> getClientsByInstructorFishingClassReservations(@RequestParam (value = "instructorId") Integer instructorId,@RequestParam (value="name")  String name)

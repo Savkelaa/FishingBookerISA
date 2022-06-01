@@ -4,7 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.controller.UserController;
+import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.FishingClassReservation;
+import com.isa.fishingbooker.repository.ClientRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,6 +25,13 @@ import com.isa.fishingbooker.repository.FishingClassQuickReservationRepository;
 
 @Service
 public class FishingClassQuickReservationService {
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private EmailService emailService;
+
+	@Autowired
+	private ClientRepository clientRepository;
 
 	@Autowired
 	private FishingClassQuickReservationRepository FishingClassQuickReservationRepository;
@@ -74,6 +86,17 @@ public class FishingClassQuickReservationService {
 	
 	
 	public FishingClassQuickReservation createFishingClassQuickReservation(FishingClassQuickReservation fishingClassQuickReservation) {
+		List<Client> subscribers = clientRepository.getAllSubscribersByFishingClass(fishingClassQuickReservation.getFishingClass().getId());
+		for (Client client : subscribers)
+		{
+			try {
+				System.out.println("Thread id: " + Thread.currentThread().getId());
+				emailService.sendNotificaitionToSubscribersForNewAction(client);
+			}catch( Exception e ){
+				logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+			}
+		}
+
 		return FishingClassQuickReservationRepository.save(fishingClassQuickReservation);
 	}
 	

@@ -27,6 +27,11 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 			+ "INNER JOIN cottage ON cottage_quick_reservation.cottage_id = cottage.id\r\n"
 			+ "WHERE finish_date < CURRENT_TIMESTAMP AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
 	List<Client> getClientsByOwnerCottageQuickReservations(Integer cottageOwnerId);
+
+	@Query(value = "SELECT * FROM client\n" +
+			"INNER JOIN fishing_class_subscribers ON client.id = client_id\n" +
+			"WHERE fishing_class_id = :fishingClassId", nativeQuery = true)
+	List<Client> getAllSubscribersByFishingClass(Integer fishingClassId);
 	
 	@Query(value = "SELECT * FROM client\r\n"
 	+ "INNER JOIN fishing_class_reservation ON client.id = client_id\r\n"
