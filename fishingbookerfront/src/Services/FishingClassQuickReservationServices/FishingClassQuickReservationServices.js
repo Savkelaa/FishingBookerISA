@@ -38,6 +38,12 @@ const fishingClassQuickReservationServices = {
       rate
     );
   },
+
+  getAllFishingClassQuickReservationsByFishingClass: (fishingClassId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingClassQuickReservationFC?fishingClassId=${fishingClassId}`
+    );
+  },
 };
 
 export default fishingClassQuickReservationServices;

@@ -433,8 +433,7 @@ const fishingClassServices = {
       `${process.env.REACT_APP_API_URL}imagesFC?fishingClassId=${fishingClassId}`
     );
   },
+
 };
 
 export default fishingClassServices;
-
-/// IMAGES

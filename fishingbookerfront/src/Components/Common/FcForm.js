@@ -11,11 +11,13 @@ export default function FcForm({
   additionalItems,
   updateFishingClassHandler,
   images,
+  fishingClassQuickReservations,
 }) {
   console.log(`fishingClass`, fishingClass);
   console.log(`behavioralRule`, behavioralRule);
   console.log(`additionalServices`, additionalItems);
   console.log("images", images);
+  console.log("fishingClassQuickReservations", fishingClassQuickReservations);
 
   const name = useRef();
   const address = useRef();
@@ -24,6 +26,27 @@ export default function FcForm({
   const biography = useRef();
   const conditions = useRef();
   const price = useRef();
+
+  const timeElapsed = Date.now();
+  const today = new Date(timeElapsed);
+  var futureReservations = [];
+
+  fishingClassQuickReservations.forEach((reservation) => {
+    const startDate = new Date(reservation.startDate);
+    const endDate = new Date(reservation.finishDate);
+
+    const startDateAction = new Date(reservation.startDateAction);
+    const endDateAction = new Date(reservation.finishDateAction);
+
+    if (startDate > today && startDateAction < today && endDateAction > today) {
+      console.log("✅ Current date is future reservation");
+      futureReservations.push(reservation);
+    } else {
+      console.log("⛔️ date is not in the range");
+      console.log("reservation.startDate", startDate);
+      console.log("reservation.endDate", endDate);
+    }
+  });
 
   return (
     <div className="container">
@@ -158,28 +181,33 @@ export default function FcForm({
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
-                    <h6 for="sTate">Aditional Items</h6>
+                    <h6 for="sTate">Fishing Class Actions</h6>
                     <ListGroup>
-                      {additionalItems.map((additionalItem) => (
+                      {futureReservations.map((reservation) => (
                         <ListGroup.Item>
-                          {additionalItem.name} : {additionalItem.price} euro
+                          At {reservation.place} : {reservation.price} euro,{" "}
+                          <br></br>
+                          Start: {reservation.startDate} <br></br>
+                          End: {reservation.finishDate}
                         </ListGroup.Item>
                       ))}
                     </ListGroup>
                   </div>
                 </div>
               </div>
-
-              {images.map((slika, index) => (
-                <img
-                  className="img-fluid"
-                  alt={slika.url}
-                  src={slika.url}
-                  width="200"
-                  height="200"
-                  position="absolute"
-                />
-              ))}
+              <div className="form-group">
+                <h6 for="sTate">Images: </h6>
+                {images.map((slika, index) => (
+                  <img
+                    className="img-fluid"
+                    alt={slika.url}
+                    src={slika.url}
+                    width="200"
+                    height="200"
+                    position="absolute"
+                  />
+                ))}
+              </div>
 
               <div className="row gutters">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
