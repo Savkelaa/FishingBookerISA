@@ -31,14 +31,14 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 	@Query(value = "SELECT * FROM client\r\n"
 	+ "INNER JOIN fishing_class_reservation ON client.id = client_id\r\n"
 	+ "INNER JOIN fishing_class ON fishing_class_reservation.fishing_class_id = fishing_class.id\r\n"
-	+ "WHERE finish_date < CURRENT_TIMESTAMP AND instructor_id = :instructorId", nativeQuery = true)
-	List<Client> getClientsByInstructorFishingClassReservations(Integer instructorId);
+	+ "WHERE finish_date < CURRENT_TIMESTAMP AND instructor_id = :instructorId and client.name like :name%", nativeQuery = true)
+	List<Client> getClientsByInstructorFishingClassReservations(Integer instructorId, String name);
 	
 	@Query(value = "SELECT * FROM client\r\n"
 			+ "INNER JOIN fishing_class_quick_reservation ON client.id = client_id\r\n"
 			+ "INNER JOIN fishing_class ON fishing_class_quick_reservation.fishing_class_id = fishing_class.id\r\n"
-			+ "WHERE status != 'free' AND instructor_id = :instructorId", nativeQuery = true)
-	List<Client> getClientsByInstructorFishingClassQuickReservations(Integer instructorId);
+			+ "WHERE status != 'free' AND instructor_id = :instructorId and client.name like :name%", nativeQuery = true)
+	List<Client> getClientsByInstructorFishingClassQuickReservations(Integer instructorId, String name);
 	
 	@Query(value="select * from client where email= :email ", nativeQuery=true)
 	Client findByEmail(String email);

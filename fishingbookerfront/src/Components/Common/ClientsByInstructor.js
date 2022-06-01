@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Card,
   ListGroup,
@@ -12,6 +12,7 @@ import Popup from "./Popup";
 export default function ClientsByInstructor({
   clientsByInstructor,
   clientsByInstructorQuick,
+  changeFilterClientsText,
 }) {
   console.log("clientsByInstructor", clientsByInstructor);
   console.log("clientsByInstructorQuick", clientsByInstructorQuick);
@@ -27,9 +28,17 @@ export default function ClientsByInstructor({
   ];
 
   console.log("clientsByInstructorUnique", clientsByInstructorUnique);
-
+  const search = useRef("");
   return (
     <div>
+      <input
+        ref={search}
+        type="search"
+        className="form-control"
+        name="search-fishingClass"
+        placeholder="Search clients by name.."
+        onKeyUp={(e) => changeFilterClientsText(search.current.value)}
+      ></input>
       <div className="header">
         <h2 style={{ textAlign: "center" }}>
           {" "}

@@ -309,15 +309,18 @@ const userServices = {
 
   /// DOBAVLJANJE SVIH KLIENTA OD INSTRUKTORA CIJE SU REZERVACIJE ZAVRSENE
 
-  getAllClientsByInstructorFishingClassReservations: (instructorID) => {
+  getAllClientsByInstructorFishingClassReservations: (instructorID, name) => {
     return axios.get(
-      `${process.env.REACT_APP_API_URL}clientsByInstructorFishingClassReservations?instructorId=${instructorID}`
+      `${process.env.REACT_APP_API_URL}clientsByInstructorFishingClassReservations?instructorId=${instructorID}&name=${name}`
     );
   },
 
-  getAllClientsByInstructorFishingClassQuickReservations: (instructorID) => {
+  getAllClientsByInstructorFishingClassQuickReservations: (
+    instructorID,
+    name
+  ) => {
     return axios.get(
-      `${process.env.REACT_APP_API_URL}clientsByInstructorQuickFishingClassReservations?instructorId=${instructorID}`
+      `${process.env.REACT_APP_API_URL}clientsByInstructorQuickFishingClassReservations?instructorId=${instructorID}&name=${name}`
     );
   },
 

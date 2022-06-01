@@ -112,14 +112,14 @@ public class ClientService {
 		return ResponseEntity.ok(updatedClient);
 	}
 
-	public List<Client> getClientsByInstructorFishingClassReservations(Integer instructorId)
+	public List<Client> getClientsByInstructorFishingClassReservations(Integer instructorId, String name)
 	{
-		return clientRepository.getClientsByInstructorFishingClassReservations(instructorId);
+		return clientRepository.getClientsByInstructorFishingClassReservations(instructorId,name);
 	}
 	
-	public List<Client> getClientsByInstructorFishingClassQuickReservations(Integer instructorId)
+	public List<Client> getClientsByInstructorFishingClassQuickReservations(Integer instructorId, String name)
 	{
-		return clientRepository.getClientsByInstructorFishingClassQuickReservations(instructorId);
+		return clientRepository.getClientsByInstructorFishingClassQuickReservations(instructorId,name);
 	}
 	
 	public Client createClient(Client client) throws Exception {
