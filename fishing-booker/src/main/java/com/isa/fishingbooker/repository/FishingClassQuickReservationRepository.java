@@ -46,6 +46,12 @@ public interface FishingClassQuickReservationRepository extends JpaRepository<Fi
 	List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClientSortedByDurationDesc(Integer clientId);
 
 
+
+
+
+	@Query(value="Select * from fishing_class_quick_reservation where fishing_class_id = :fishingClassId", nativeQuery=true)
+	List<FishingClassQuickReservation> getAllFishingClassQuickReservationByFishingClass(Integer fishingClassId);
+
 	@Query(value="SELECT *\r\n"
 	+ "FROM fishing_class_quick_reservation\r\n"
 	+ "INNER JOIN fishing_class on fishing_class_quick_reservation.fishing_class_id = fishing_class.id\r\n"

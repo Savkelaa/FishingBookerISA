@@ -135,13 +135,13 @@ insert into cottage (name, address, price, promo_description, cottage_owner_id, 
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Abigael', '405 Walton Terrace', 119, 'at nunc commodo placerat praesent', 6, 5, 2);
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Upton', '588 Donald Court', 131, 'suscipit a feugiat et', 7, 3, 2);
 
-insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Tomi', '139 Fair Oaks Point', 'justo etiam pretium iaculis justo in', 3, 14);
-insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,4,'Min', '028 Esch Junction',  'ut volutpat sapien arcu sed augue aliquam', 7, 4);
-insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Kale', '09 Spohn Way',  'odio cras mi pede malesuada in', 7, 5);
-insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,5,'Ann-marie', '7 Bluejay Junction',  'justo in hac habitasse platea dictumst etiam', 7, 11);
-insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,7,'Ad', '2 Warner Parkway',  'erat curabitur gravida nisi at nibh', 3, 6);
-insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Salli', '850 Almo Pass',  'risus praesent lectus vestibulum quam', 3, 11);
-insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,10,'Lesley', '3056 Vidon Court',  'nunc vestibulum ante ipsum primis in', 2, 7);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Tomi', '139 Fair Oaks Point', 'justo etiam pretium iaculis justo in', 1, 14);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,4,'Min', '028 Esch Junction',  'ut volutpat sapien arcu sed augue aliquam', 1, 4);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Kale', '09 Spohn Way',  'odio cras mi pede malesuada in', 1, 5);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,5,'Ann-marie', '7 Bluejay Junction',  'justo in hac habitasse platea dictumst etiam', 1, 11);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,7,'Ad', '2 Warner Parkway',  'erat curabitur gravida nisi at nibh', 1, 6);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,3,'Salli', '850 Almo Pass',  'risus praesent lectus vestibulum quam', 1, 11);
+insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,10,'Lesley', '3056 Vidon Court',  'nunc vestibulum ante ipsum primis in', 1, 7);
 insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,11,'Vikenica', 'Zelena gora',  'nunc vestibulum ante ipsum primis in', 1, 7);
 insert into fishing_class (price,max_people,name, address, promo_description, instructor_id, cancellation_condition) values (100,11,'Vikenica', 'Zelena gora',  'nunc vestibulum ante ipsum primis in', 1, 8);
 
@@ -153,13 +153,13 @@ insert into fishing_class_behavioral_rule (name, description, fishing_class_id) 
 insert into fishing_class_behavioral_rule (name, description, fishing_class_id) values ('Bernier, Stanton and West', 'pretium iaculis diam', 1);
 insert into fishing_class_behavioral_rule (name, description, fishing_class_id) values ('Cruickshank and Sons', 'pede posuere nonummy integer non', 1);
 
-insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (65,'Leiwang', 2, 3, '8/2/2021', '7/3/2021','8/2/2021', '7/3/2021','active');
-insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (34,'Tha Bo', 6, 3, '9/21/2021', '2/2/2021','8/2/2021', '7/3/2021','active');
-insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (64,'Bettendorf', 3, 1, '11/9/2021', '6/1/2021','8/2/2021', '7/3/2021','active');
-insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (120,'Didou', 1, 7, '12/17/2020', '7/20/2021','8/2/2021', '7/3/2021','active');
-insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (52,'Langley', 2, 4, '1/8/2021', '8/19/2021','8/2/2021', '7/3/2021','active');
-insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (97,'Xidajie', 4, 7, '10/3/2021', '10/14/2021','8/2/2021', '7/3/2021','active');
-insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (101,'Penhold', 4, 3, '7/31/2021', '11/6/2021','8/2/2021', '7/3/2021','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (65,'Leiwang', 2, 3, '8/2/2022', '8/3/2022','5/31/2022', '6/13/2022','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (34,'Tha Bo', 6, 3, '9/21/2022', '10/2/2022','5/31/2022', '6/13/2022','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (64,'Bettendorf', 3, 1, '11/9/2022', '11/10/2022','5/31/2022', '6/13/2022','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (120,'Didou', 1, 7, '6/17/2022', '7/20/2022','5/31/2022', '6/13/2022','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (52,'Langley', 2, 4, '1/8/2021', '8/19/2021','5/31/2022', '6/13/2022','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (97,'Xidajie', 4, 7, '10/3/2021', '10/14/2021','5/31/2022', '6/13/2022','active');
+insert into fishing_class_quick_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,start_date_action,finish_date_action,status) values (101,'Penhold', 4, 3, '7/31/2021', '11/6/2021','5/31/2022', '6/13/2022','active');
 
 insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (30, 'Moita da Roda', 5, 8, '5/10/2022', '5/27/2022','active');
 insert into fishing_class_reservation (price, place, client_id, fishing_class_id, start_date, finish_date,status) values (99, 'Joypur Hāt', 3, 9, '5/10/2022', '5/27/2022','active');

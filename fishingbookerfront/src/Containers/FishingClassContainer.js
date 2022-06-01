@@ -7,6 +7,7 @@ import Navbarr from "../Components/Common/Navbarr";
 import Footerr from "../Components/Common/Footerr";
 import FcForm from "../Components/Common/FcForm";
 import { useParams } from "react-router";
+import fishingClassQuickReservationServices from "../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
 
 function FishingClassContainer() {
   let { id } = useParams();
@@ -14,6 +15,8 @@ function FishingClassContainer() {
   const [behavioralRule, setbehavioralRule] = useState([]);
   const [additionalItems, setAdditionalItems] = useState([]);
   const [images, setImages] = useState([]);
+  const [fishingClassQuickReservations, setFishingClassQuickReservations] =
+    useState([]);
 
   useEffect(() => {
     fishingClassServices
@@ -43,6 +46,13 @@ function FishingClassContainer() {
         setImages(data.data);
       })
       .catch((error) => console.log(`error`, error));
+
+    fishingClassQuickReservationServices
+      .getAllFishingClassQuickReservationsByFishingClass(id)
+      .then((data) => {
+        setFishingClassQuickReservations(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
   }, []);
 
   function updateFishingClass(fishingClass) {
@@ -65,6 +75,7 @@ function FishingClassContainer() {
         behavioralRule={behavioralRule}
         additionalItems={additionalItems}
         updateFishingClassHandler={updateFishingClass}
+        fishingClassQuickReservations={fishingClassQuickReservations}
         images={images}
       ></FcForm>
       <Footerr></Footerr>
