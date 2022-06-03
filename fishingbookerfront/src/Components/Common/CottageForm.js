@@ -1,14 +1,21 @@
 import React, { useRef } from "react";
 import { ListGroup, Image } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+
 
 import "../../App.css";
 import { BrowserRouter as Link } from "react-router-dom";
 import slika from "../../Assets/img/slika1.jpg";
+import {
+  Button,
+ } from "react-bootstrap";
 
 export default function CottageForm({
   behavioralRule,
   cottage,
   additionalItems,
+  actions,
+  avgRate,
   updateCottageHandler,
   deleteCottageHandler,
   images,
@@ -16,7 +23,9 @@ export default function CottageForm({
   console.log(`cottage`, cottage);
   console.log(`behavioralRule`, behavioralRule);
   console.log(`additionalServices`, additionalItems);
-  //console.log("images", images);
+  console.log(`actions`, actions);
+  console.log("images", images);
+  console.log("averageRate", avgRate);
 
   const name = useRef(cottage.name);
   const address = useRef(cottage.address);
@@ -24,6 +33,7 @@ export default function CottageForm({
   const price = useRef(cottage.price);
   const num_rooms = useRef(cottage.numRooms);
   const num_beds = useRef(cottage.numBeds);
+  let { id } = useParams();
 
   return (
     <div className="container">
@@ -35,6 +45,19 @@ export default function CottageForm({
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <h5 className="mb-2 text-primary">Cottage Details</h5>
                 </div>
+
+                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div className="form-group"></div>
+                    <Link to={`/cottageAvailabilityPeriod/${id}`}>
+                            <Button
+                              style={{ width: "6.5rem" }}
+                              variant="outline-success"
+                            >
+                              Enter availability period
+                            </Button>
+                    </Link>
+                </div>
+
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
                     <h6 for="fullName">Name</h6>
@@ -91,6 +114,10 @@ export default function CottageForm({
                   </div>
                 </div>
 
+                
+              
+
+
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
                     <h6 for="phone">Promotion description</h6>
@@ -101,6 +128,19 @@ export default function CottageForm({
                       id="phone"
                       //value={cottage.promoDescription}
                       placeholder={cottage.promoDescription}
+                    />
+                  </div>
+                </div>
+
+                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div className="form-group">
+                    <h6 for="phone">Average Rate</h6>
+                    <input
+                      ref={description}
+                      type="text"
+                      className="form-control"
+                      id="phone"
+                      value={avgRate}
                     />
                   </div>
                 </div>
@@ -119,7 +159,12 @@ export default function CottageForm({
                     />
                   </div>
                 </div>
+                
+               
               </div>
+
+              
+
               <div className="row gutters">
                 
                 
@@ -130,6 +175,22 @@ export default function CottageForm({
                     <ListGroup>
                       {behavioralRule.map((rule) => (
                         <ListGroup.Item>{rule.name}</ListGroup.Item>
+                      ))}
+                    </ListGroup>
+                  </div>
+                </div>
+
+                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div className="form-group">
+                    <h6 for="sTate"> Cottage Actions</h6>
+                    <ListGroup>
+                      {actions.map((action) => (
+                        <ListGroup.Item>
+                          StartDateAction: {action.startDateAction} <br></br>
+                          EndDateAction: {action.finishDateAction}
+                          <br></br>
+                          Price : {action.price} euro,{" "}
+                        </ListGroup.Item>
                       ))}
                     </ListGroup>
                   </div>
@@ -149,11 +210,20 @@ export default function CottageForm({
                 </div>
               </div>
 
-              <Link to="cottageAvailabilityPeriod">
-                <button className="btn btn-primary profile-button" type="button">
-                  Enter availability period
-                </button>
-              </Link>
+              <div className="form-group">
+                <h6 for="sTate">Images: </h6>
+                {images.map((slika, index) => (
+                  <img
+                    className="img-fluid"
+                    alt={slika.url}
+                    src={slika.url}
+                    width="200"
+                    height="200"
+                    position="absolute"
+                  />
+                ))}
+              </div>
+
             
 
               <div className="row gutters">

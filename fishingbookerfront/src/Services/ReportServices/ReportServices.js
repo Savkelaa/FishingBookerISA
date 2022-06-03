@@ -18,6 +18,13 @@ const reportServices = {
       report
     );
   },
+
+  createCottageOwnerReport: (report) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}cottageOwnerReport`,
+      report
+    );
+  },
 };
 
 export default reportServices;

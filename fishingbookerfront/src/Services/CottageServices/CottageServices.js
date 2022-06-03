@@ -38,6 +38,13 @@ const cottageServices = {
       `${process.env.REACT_APP_API_URL}additionalServicesByCottage?cottageId=${cottageId}`
     )
   },
+
+  getImagesByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}cottageImage?cottageId=${cottageId}`
+    )
+  },
+
   searchCottageByName: (cottageOwnerId, cottageName) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}cottagesByOwnerAndName?cottageOwnerId=${cottageOwnerId}&cottageName=${cottageName}`

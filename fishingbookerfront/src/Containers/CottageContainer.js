@@ -8,12 +8,16 @@ import Footerr from "../Components/Common/Footerr";
 import FcForm from "../Components/Common/FcForm";
 import CottageForm from "../Components/Common/CottageForm";
 import { useParams } from "react-router";
+import cottageQuickReservationServices from "../Services/CottageQuickReservationServices/CottageQuickReservationServices";
+import rateServices from "../Services/RateServices/RateServices";
 
 function CottageContainer() {
   let { id } = useParams();
   const [cottage, setCottage] = useState({});
   const [behavioralRule, setbehavioralRule] = useState([]);
   const [additionalItems, setAdditionalItems] = useState([]);
+  const [avgRate, setavgRate] = useState([]);
+  const [actions, setActions] = useState([]);
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -39,15 +43,28 @@ function CottageContainer() {
       })
       .catch((error) => alert(`error`, error));
 
+    cottageQuickReservationServices
+      .getFreeCottageQuickReservation(id)
+      .then((data) => {
+        setActions(data.data);
+      })
+      .catch((eror) => alert(`error, error`));
     
-      /*
+      
     cottageServices
-      .imagesByCottage(id)
+      .getImagesByCottage(id)
       .then((data) => {
         setImages(data.data);
       })
       .catch((error) => console.log(`error`, error));
-      */
+
+    rateServices
+      .getAvgRateByCottage(id)
+      .then((data) => {
+        setavgRate(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+      
   }, []);
 
   function updateCottage(cottage) {
@@ -80,9 +97,11 @@ function CottageContainer() {
         cottage={cottage}
         behavioralRule={behavioralRule}
         additionalItems={additionalItems}
+        actions={actions}
+        avgRate={avgRate}
         updateCottageHandler={updateCottage}
         deleteCottageHandler={deleteCottage}
-        //images={images}
+        images={images}
       ></CottageForm>
       <Footerr></Footerr>
     </div>

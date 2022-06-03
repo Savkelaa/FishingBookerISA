@@ -82,6 +82,12 @@ const rateServices = {
       `${process.env.REACT_APP_API_URL}fishingClassAvgRate?fishingClassId=${fishingClassId}`
     );
   },
+
+  getAvgRateByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}cottageAvgRate?cottageId=${cottageId}`
+    );
+  },
 };
 
 export default rateServices;

@@ -52,7 +52,11 @@ import CottageReservationHistoryContainer from "./Containers/CottageReservationH
 import CreateCottageActionContainer from "./Containers/CreateCottageActionContainer";
 import CottageUpcomingReservationsContainer from "./Containers/CottageUpcomingReservationsContainer";
 import CottageCurrentReservationsContainer from "./Containers/CottageCurrentReservations";
-import CalendarContainer from "./Containers/CalendarContainer";
+import ClientsByCottageOwnerContainer from "./Containers/ClientsByCottageOwner";
+import CottageOwnerCreateReportContainer from "./Containers/CottageOwnerCreateReportContainer";
+import CottageAvailabilityPeriodContainer from "./Containers/CottageAvailabilityPeriodContainer";
+import CreateCottageReservationContainer from "./Containers/CreateCottageReservationContainer";
+
 
 function App() {
   return (
@@ -201,9 +205,22 @@ function App() {
             <CottageCurrentReservationsContainer></CottageCurrentReservationsContainer>
           </Route>
 
-          <Route path="/calendar">
-            <CalendarContainer></CalendarContainer>
+          <Route path = "/clientsByCottageOwner">
+            <ClientsByCottageOwnerContainer></ClientsByCottageOwnerContainer>
           </Route>
+          
+          <Route path = "/cottageOwnerCreateReport/:id">
+            <CottageOwnerCreateReportContainer></CottageOwnerCreateReportContainer>
+          </Route>
+
+          <Route path = "/cottageAvailabilityPeriod/:id">
+            <CottageAvailabilityPeriodContainer></CottageAvailabilityPeriodContainer>
+          </Route>
+
+          <Route path = "/createCottageReservation/:id">
+            <CreateCottageReservationContainer></CreateCottageReservationContainer>
+          </Route>
+
         </Switch>
       </Router>
     </div>
