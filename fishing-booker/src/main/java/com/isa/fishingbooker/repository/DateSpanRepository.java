@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface DateSpanRepository extends JpaRepository<DateSpanInstructor, Integer> {
 
-    @Query(value = "SELECT * FROM datespan\r\n"
+    @Query(value = "SELECT * FROM datespaninstructor\r\n"
             + "WHERE instructor_id = :instructorId", nativeQuery = true)
     List<DateSpanInstructor> getDateSpansByInstructor(Integer instructorId);
 }

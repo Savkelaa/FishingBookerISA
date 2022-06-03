@@ -56,7 +56,7 @@ import ClientsByCottageOwnerContainer from "./Containers/ClientsByCottageOwner";
 import CottageOwnerCreateReportContainer from "./Containers/CottageOwnerCreateReportContainer";
 import CottageAvailabilityPeriodContainer from "./Containers/CottageAvailabilityPeriodContainer";
 import CreateCottageReservationContainer from "./Containers/CreateCottageReservationContainer";
-
+import CalendarContainer from "./Containers/CalendarContainer";
 
 function App() {
   return (
@@ -205,22 +205,25 @@ function App() {
             <CottageCurrentReservationsContainer></CottageCurrentReservationsContainer>
           </Route>
 
-          <Route path = "/clientsByCottageOwner">
+          <Route path="/clientsByCottageOwner">
             <ClientsByCottageOwnerContainer></ClientsByCottageOwnerContainer>
           </Route>
-          
-          <Route path = "/cottageOwnerCreateReport/:id">
+
+          <Route path="/cottageOwnerCreateReport/:id">
             <CottageOwnerCreateReportContainer></CottageOwnerCreateReportContainer>
           </Route>
 
-          <Route path = "/cottageAvailabilityPeriod/:id">
+          <Route path="/cottageAvailabilityPeriod/:id">
             <CottageAvailabilityPeriodContainer></CottageAvailabilityPeriodContainer>
           </Route>
 
-          <Route path = "/createCottageReservation/:id">
+          <Route path="/createCottageReservation/:id">
             <CreateCottageReservationContainer></CreateCottageReservationContainer>
           </Route>
 
+          <Route path="/calendar">
+            <CalendarContainer></CalendarContainer>
+          </Route>
         </Switch>
       </Router>
     </div>
