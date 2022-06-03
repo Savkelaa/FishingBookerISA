@@ -19,6 +19,7 @@ function FishingClassContainer() {
   const [fishingClassQuickReservations, setFishingClassQuickReservations] =
     useState([]);
   const [avgRate, setavgRate] = useState();
+  const [fishingEquipments, setFishingEquipments] = useState([]);
 
   useEffect(() => {
     fishingClassServices
@@ -35,8 +36,9 @@ function FishingClassContainer() {
       })
       .catch((error) => console.log(`error`, error));
 
-    fishingClassServices
-      .getAdditionalServiceByFishingClass(id)
+    fishingClassQuickReservationServices
+      .getAllAdditionalServices()
+
       .then((data) => {
         setAdditionalItems(data.data);
       })
@@ -62,6 +64,13 @@ function FishingClassContainer() {
         setavgRate(data.data);
       })
       .catch((error) => console.log(`error`, error));
+
+    fishingClassServices
+      .getFishingEquipmentFC()
+      .then((data) => {
+        setFishingEquipments(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
   }, []);
 
   function updateFishingClass(fishingClass) {
@@ -69,6 +78,7 @@ function FishingClassContainer() {
       .updateFishingClass(fishingClass)
       .then((data) => {
         console.log("sucessfuly updated fishingClass");
+        alert("sucessfuly updated fishingClass");
       })
       .catch((error) => {
         console.log("Something wen't wrong try again");
@@ -87,6 +97,7 @@ function FishingClassContainer() {
         fishingClassQuickReservations={fishingClassQuickReservations}
         images={images}
         avgRate={avgRate}
+        fishingEquipments={fishingEquipments}
       ></FcForm>
       <Footerr></Footerr>
     </div>

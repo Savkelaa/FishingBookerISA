@@ -40,6 +40,11 @@ public class AdditionalServiceController {
 		return this.additionalServiceService.getAllAdditionalServices();
 	}
 
+	@GetMapping("/additionalServicesNames")
+	public List<String> getAllAdditionalServiceNames() {
+		return this.additionalServiceService.getAllAdditionalServiceNames();
+	}
+
 	@GetMapping("/additionalServices/{id}")
 	public ResponseEntity<AdditionalService> getAdditionalServiceById(@PathVariable(value = "id") int additionalServiceId)
 			throws ResourceNotFoundException {

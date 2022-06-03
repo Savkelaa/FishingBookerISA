@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { ListGroup, Image } from "react-bootstrap";
 
 import "../../App.css";
@@ -13,12 +13,14 @@ export default function FcForm({
   images,
   fishingClassQuickReservations,
   avgRate,
+  fishingEquipments,
 }) {
   console.log(`fishingClass`, fishingClass);
   console.log(`behavioralRule`, behavioralRule);
   console.log(`additionalServices`, additionalItems);
   console.log("images", images);
   console.log("fishingClassQuickReservations", fishingClassQuickReservations);
+  console.log("fishiingEqipments", fishingEquipments);
 
   const name = useRef();
   const address = useRef();
@@ -126,7 +128,6 @@ export default function FcForm({
                   <div className="form-group">
                     <h6 for="website">Average rate</h6>
                     <input
-                      ref={price}
                       type="url"
                       className="form-control"
                       id="website"
@@ -149,6 +150,7 @@ export default function FcForm({
                     />
                   </div>
                 </div>
+
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
                     <h6 for="zIp">Cancelation conditions</h6>
@@ -174,6 +176,19 @@ export default function FcForm({
                     <ListGroup>
                       {behavioralRule.map((rule) => (
                         <ListGroup.Item>{rule.name}</ListGroup.Item>
+                      ))}
+                    </ListGroup>
+                  </div>
+                </div>
+                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div className="form-group">
+                    <h6 for="ciTy">Fishing Equipments</h6>
+                    <ListGroup>
+                      {fishingEquipments.map((fishingEquipment) => (
+                        <ListGroup.Item>
+                          {fishingEquipment.name} :{" "}
+                          {fishingEquipment.description}
+                        </ListGroup.Item>
                       ))}
                     </ListGroup>
                   </div>

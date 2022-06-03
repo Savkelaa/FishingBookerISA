@@ -37,11 +37,19 @@ public class FishingEquipmentController {
 		return this.fishingEquipmentService.getAllFishingEquipments();
 	}
 
+	@GetMapping("/fishingEquipmentsFishingClass")
+	public List<FishingEquipment> getAllFishingEquipmentsFishingClass() {
+		return this.fishingEquipmentService.getAllFishingEquipmentsFishingClass();
+	}
+
 	@GetMapping("/fishingEquipment/{id}")
 	public ResponseEntity<FishingEquipment> getFishingEquipmentById(@PathVariable(value = "id") int fishingEquipmentId)
 			throws ResourceNotFoundException {
 		return fishingEquipmentService.getFishingEquipmentById(fishingEquipmentId);
 	}
+
+
+
 
 	@PostMapping("/fishingEquipment")
 	public FishingEquipment createFishingEquipment(@RequestBody FishingEquipment fishingEquipment) {

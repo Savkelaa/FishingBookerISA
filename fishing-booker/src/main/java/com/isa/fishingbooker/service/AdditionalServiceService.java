@@ -33,6 +33,10 @@ public class AdditionalServiceService {
 	public List<AdditionalService> getAllAdditionalServices(){
 		return this.AdditionalServiceRepository.findAll();
 	}
+
+	public List<String> getAllAdditionalServiceNames(){
+		return this.AdditionalServiceRepository.getAllAdditionalServiceNames();
+	}
 		
 	public ResponseEntity<AdditionalService> getAdditionalServiceById(int additionalServiceId)
 		throws ResourceNotFoundException{

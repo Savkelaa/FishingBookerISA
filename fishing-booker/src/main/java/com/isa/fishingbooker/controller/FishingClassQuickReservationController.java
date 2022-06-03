@@ -3,6 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.dto.FishingClassQuickReservationAdditionalServices;
 import com.isa.fishingbooker.model.CottageRate;
 import com.isa.fishingbooker.model.FishingClassReservation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,7 @@ public class FishingClassQuickReservationController {
 	}
 
 
+
 	@GetMapping("/fishingClassFreeQuickReservation")
 	public List<FishingClassQuickReservation> getAllFreeFishingClassQuickReservation(@RequestParam (value="fishingClassId")  Integer fishingClassId)
 	{
@@ -80,16 +82,20 @@ public class FishingClassQuickReservationController {
 		return fishingClassQuickReservationService.getFinishedFishingClassQuickReservationsByInstructor(instructorId);
 	}
 
-	@GetMapping("/fishingClassQuickReservations/{id}")
-	public ResponseEntity<FishingClassQuickReservation> getFishingClassQuickReservationById(@PathVariable(value = "id") int fishingClassQuickReservationId)
-			throws ResourceNotFoundException {
-		return fishingClassQuickReservationService.getFishingClassQuickReservationById(fishingClassQuickReservationId);
-	}
+
+
+
 
 	@PostMapping("/fishingClassQuickReservations")
 	public FishingClassQuickReservation createFishingClassQuickReservation(@RequestBody FishingClassQuickReservation fishingClassQuickReservation) {
 		return fishingClassQuickReservationService.createFishingClassQuickReservation(fishingClassQuickReservation);
 	}
+
+	@PostMapping("/fishingClassQuickReservations/{id}/additionalServices")	public ResponseEntity<FishingClassQuickReservation> addNewAdditionalService(@PathVariable(value = "id") int fishingClassQuickReservationId, @RequestBody FishingClassQuickReservationAdditionalServices additionalServices)
+			throws ResourceNotFoundException {
+		return fishingClassQuickReservationService.addNewAdditionalService(fishingClassQuickReservationId,additionalServices);
+	}
+
 
 	@PutMapping("/fishingClassQuickReservations/{id}")
 	public ResponseEntity<FishingClassQuickReservation> updateFishingClassQuickReservation(@PathVariable(value = "id") int fishingClassQuickReservationId,

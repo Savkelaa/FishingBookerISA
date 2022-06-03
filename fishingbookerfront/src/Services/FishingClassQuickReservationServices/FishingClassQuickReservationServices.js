@@ -50,6 +50,26 @@ const fishingClassQuickReservationServices = {
       `${process.env.REACT_APP_API_URL}fishingClassQuickReservationFC?fishingClassId=${fishingClassId}`
     );
   },
+
+  /// ADD additional services to fishing class quick reservations
+
+  addAdditionalServiceToFishingClassQuickReservation: (
+    fishingClassQuickReservationId,
+    posedovanje
+  ) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}fishingClassQuickReservations/${fishingClassQuickReservationId}/additionalServices`,
+      posedovanje
+    );
+  },
+
+  getAllAdditionalServices: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}additionalServices`);
+  },
+
+  getAllAdditionalServiceNames: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}additionalServicesNames`);
+  },
 };
 
 export default fishingClassQuickReservationServices;
