@@ -2,27 +2,27 @@ import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export default function CottageActionForm({
-  createCottageQuickReservationHandler,
+export default function CreateCottageReservation({
+  createCottageReservationHandler,
 }) {
-  const startDateAction = useRef();
-  const finishDateAction = useRef();
   const startDate = useRef();
   const finishDate = useRef();
+  const place = useRef();
   const price = useRef();
   let { id } = useParams();
 
+  const reservation = JSON.parse(localStorage.getItem("reservation"));
+  console.log("reservation", reservation);
+
   function saveHandler(e) {
-    createCottageQuickReservationHandler({
-      startDateAction: startDateAction.current.value,
-      finishDateAction: finishDateAction.current.value,
+    createCottageReservationHandler({
       startDate: startDate.current.value,
       finishDate: finishDate.current.value,
       price: price.current.value,
-      status: "free",
-      // client: {
-      //    id: id,
-      //  },
+      status: "active",
+      client: {
+        id: reservation.client.id,
+      },
       cottage: { id: id },
     });
   }
@@ -38,45 +38,24 @@ export default function CottageActionForm({
               <div className="card-body">
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h5 className="mb-2 text-primary">
-                      Create Quick Reservation Action
-                    </h5>
+                    <h5 className="mb-2 text-primary">Create Reservation</h5>
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h6 for="start_date_action">Start date for action</h6>
+                    <h6 for="start_date_action">Start date:</h6>
                     <input
-                      ref={startDateAction}
+                      ref={startDate}
                       type="date"
                       className="form-control"
                       id="startAction"
                     />
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h6 for="end_date_action">The last day for action </h6>
-                    <input
-                      ref={finishDateAction}
-                      type="date"
-                      className="form-control"
-                      id="lastAction"
-                    />
-                  </div>
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h6 for="start_date">Start date</h6>
-
-                    <input
-                      ref={startDate}
-                      type="date"
-                      className="form-control"
-                      id="start"
-                    />
-                  </div>
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h6 for="start_date">The last day </h6>
+                    <h6 for="end_date_action">The last day: </h6>
                     <input
                       ref={finishDate}
                       type="date"
                       className="form-control"
-                      id="last"
+                      id="lastAction"
                     />
                   </div>
 

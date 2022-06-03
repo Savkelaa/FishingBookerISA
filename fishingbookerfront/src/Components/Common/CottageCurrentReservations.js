@@ -97,8 +97,27 @@ export default function CottageCurrentReservations({
                             {" "}
                             Penalty: {reservation.client.penalty}
                           </Card.Text>
+
                         </ListGroupItem>
                       </ListGroup>
+
+                      <Link
+                        reservation={reservation}
+                        to={`/createCottageReservation/${reservation.cottage.id}`}
+                      >
+                        <Card.Body>
+                          <Button
+                            onClick={() =>
+                              localStorage.setItem(
+                                "reservation",
+                                JSON.stringify(reservation)
+                              )
+                            }
+                          >
+                            Book a new ordinary reservation for this client
+                          </Button>
+                        </Card.Body>
+                      </Link>
                       
                     </Card>
                   </div>

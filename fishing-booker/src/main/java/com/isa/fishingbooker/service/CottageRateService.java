@@ -6,7 +6,7 @@ import java.util.Map;
 
 import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.model.Cottage;
-import com.isa.fishingbooker.model.FishingClassRate;
+import com.isa.fishingbooker.model.CottageRate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +35,10 @@ public class CottageRateService {
 	
 	public List<CottageRate> getAllCottageRates(){
 		return this.CottageRateRepository.findAll();
+	}
+	
+	public Double getCottageAvgRate( Integer cottageId){
+		return this.CottageRateRepository.getCottageAvgRate(cottageId);
 	}
 		
 	public ResponseEntity<CottageRate> getCottageRateById(int cottageRateId)

@@ -8,6 +8,8 @@ import CottageUpcomingReservations from "../Components/Common/CottageUpcomingRes
 
 export default function CottageUpcomingReservationsContainer() {
   const [upcomingReservations, setUpcomingReservations] = useState([]);
+  const [upcomingOrdReservations, setUpcomingOrdReservations] = useState([]);
+
 
   var logedOwner = JSON.parse(localStorage.getItem("CottageOwner"));
 
@@ -18,13 +20,26 @@ export default function CottageUpcomingReservationsContainer() {
         setUpcomingReservations(data.data);
       })
       .catch((error) => console.log(`error`, error));
+
+      cottageQuickReservationServices
+      .getAllCottageReservationsByOwner(logedOwner.id)
+      .then((data) => {
+        setUpcomingOrdReservations(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+
+
+
   }, []);
+
+
 
   return (
     <div>
       <Navbarr></Navbarr>
       <CottageUpcomingReservations
         upcomingReservations={upcomingReservations}
+        upcomingOrdReservations={upcomingOrdReservations}
       ></CottageUpcomingReservations>
       <Footerr></Footerr>
     </div>

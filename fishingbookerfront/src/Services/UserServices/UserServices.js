@@ -307,6 +307,10 @@ const userServices = {
     return axios.post(`${process.env.REACT_APP_API_URL}dateSpan`, dateSpan);
   },
 
+  createDateSpanCottage: (dateSpan) => {
+    return axios.post(`${process.env.REACT_APP_API_URL}dateSpanCottage`, dateSpan);
+  },
+
   /// DOBAVLJANJE SVIH KLIENTA OD INSTRUKTORA CIJE SU REZERVACIJE ZAVRSENE
 
   getAllClientsByInstructorFishingClassReservations: (instructorID, name) => {
@@ -321,6 +325,24 @@ const userServices = {
   ) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}clientsByInstructorQuickFishingClassReservations?instructorId=${instructorID}&name=${name}`
+    );
+  },
+
+  getAllClientsByCottageOwnerCottageQuickReservations: (
+    cottageOwnerID,
+    name
+  ) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}clientsByOwnerCottageQuickReservations?cottageOwnerId=${cottageOwnerID}&name=${name}`
+    );
+  },
+
+  getAllClientsByCottageOwnerCottageReservations: (
+    cottageOwnerID,
+    name
+  ) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}clientsByOwnerCottageReservations?cottageOwnerId=${cottageOwnerID}&name=${name}`
     );
   },
 

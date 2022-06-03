@@ -212,15 +212,15 @@ insert into fishing_equipment (name, description, fishing_class_quick_reservatio
 insert into fishing_equipment (name, description, fishing_class_quick_reservation_id) values ('Dump Truck', 'ac tellus semper interdum mauris', 5);
 
 
-insert into cottage_behavioral_rule (name, description, cottage_id) values ('nec dui luctus rutrum nulla tellus in sagitt', 'oncus mauris enim leo rhoncus sed', 6);
-insert into cottage_behavioral_rule (name, description, cottage_id) values ('nulla sverra dapibus nulla', 's turpis enim blandit mi in porttitor pede justo eu', 5);
+insert into cottage_behavioral_rule (name, description, cottage_id) values ('nec dui luctus rutrum nulla tellus in sagitt', 'oncus mauris enim leo rhoncus sed', 7);
+insert into cottage_behavioral_rule (name, description, cottage_id) values ('nulla sverra dapibus nulla', 's turpis enim blandit mi in porttitor pede justo eu', 7);
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('sempe in consequat ut nulla sed accumsan felis ut', 'tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat', 2);
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('vestibulum abus orci luctus et ultrices posuere cubilia curae nulla', 'sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulpndit ultrices', 4);
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at', 'iaculis congue vivamus metus tate eget nunc donec quis', 4);
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('nam dui pruat in consequat', 'quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus', 5);
 insert into cottage_behavioral_rule (name, description, cottage_id) values ('etiam pretiu platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id', 'lacus at velit vivamus vea volutpat erat quisque erat eros viverra', 6);
 
-insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('5/30/2021', '6/2/2022', '12/19/2021', '10/19/2022', 4, 9, 2, 1, 'active', 110);
+insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('6/2/2022', '6/8/2022', '12/19/2021', '10/19/2022', 4, 9, 2, 7, 'active', 110);
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2022', '12/2/2022','11/19/2021', '8/2/2022', 26, 10, 1, 1, 'booked', 120);
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2022', '12/6/2022', '11/19/2021', '3/6/2022', 25, 11, 5, 5, 'booked', 100);
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, cottage_id, status, price) values ('11/19/2021', '3/5/2022', '11/19/2021', '3/5/2022', 30, 1, 5, 'free', 90);
@@ -228,8 +228,8 @@ insert into cottage_quick_reservation (start_date, finish_date, start_date_actio
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2021', '11/21/2021', '11/19/2021', '11/21/2021', 14, 5, 5, 6, 'finished', 130);
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2021', '11/20/2021', '11/19/2021', '11/20/2021', 11, 12, 7, 4, 'finished', 65);
 
-insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/20/2022', 9, 1, 6, 'finished');
-insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '3/29/2022', 3, 1, 'free');
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/20/2022', 9, 1, 7, 'finished');
+insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '3/29/2022', 3, 7, 'free');
 insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '1/11/2022', 3, 2, 'free');
 insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '12/19/2021', 1, 4, 'free');
 insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '12/15/2021', 5, 6, 4, 'booked');
@@ -261,9 +261,9 @@ insert into cottage_report (description, cottage_reservation_id, cottage_owner_i
 
 insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (10, 6, 6,'false','true');
 insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (9, 2, 6,'false','true');
-insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (5, 5, 3,'false','true');
+insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (5, 7, 3,'true','true');
 insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (10, 1, 1,'false','true');
-insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (9, 7, 2,'false','true');
+insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (9, 7, 2,'true','true');
 insert into cottage_rate (rate, cottage_id, client_id,accepted,request) values (5, 5, 3,'false','true');
 
 
@@ -276,7 +276,7 @@ insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,reque
 insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (5, 5, 7,'false','true');
 
 insert into additional_service (name, price, description, cottage_reservation_id) values ('WiFi', 3, 'id ligula suspendisse ornare', 1);
-insert into additional_service (name, price, description, cottage_reservation_id) values ('parking', 4, 'id ligula suspendisse ornare', 2);
+insert into additional_service (name, price, description, cottage_reservation_id) values ('parking', 4, 'id ligula suspendisse ornare', 1);
 insert into additional_service (name, price, description, boat_quick_reservation_id) values ('WiFi', 2, 'id ligula suspendisse ornare', 3);
 insert into additional_service (name, price, description, boat_reservation_id) values ('minibar', 5, 'id ligula suspendisse ornare', 3);
 insert into additional_service (name, price, description, boat_quick_reservation_id) values ('minibar', 3, 'id ligula suspendisse ornare', 1);
@@ -290,6 +290,9 @@ insert into additional_service (name, price, description, fishing_class_quick_re
 INSERT INTO image (url, fishing_class_id) VALUES ('https://www.kirksflyshop.com/wp-content/uploads/2017/10/Kelly-Prier-Daugther-300x200.jpg', 1);
 INSERT INTO image (url, fishing_class_id) VALUES ('https://www.everettpotter.com/wp-content/uploads/2010/09/6a00d8341c91bb53ef0115701c12c6970b-pi.jpg', 1);
 INSERT INTO image (url, fishing_class_id) VALUES ('https://dreamcastidaho.com/wp-content/uploads/2016/03/services2-370x224.jpg', 1);
+
+insert into cottageimage(url, cottage_id) VALUES ('https://www.arts.gov/sites/default/files/styles/nea_media_large_16x9/public/CottageTomMarks.jpeg?h=52605a11&itok=0gO-wCVA', 7)
+insert into cottageimage(url, cottage_id) VALUES ('https://g-pulse.com/wordpress/wp-content/uploads/2020/11/G-Pulse-cottage-interior-design-Getty-cottage-interior-Hero.jpg', 7)
 
 
 INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2021-07-02','2021-07-02',1);

@@ -23,7 +23,7 @@ export default function CottagesByOwner({
         type="search"
         className="form-control"
         name="search-cottage"
-        placeholder="Search fishing classes by name.."
+        placeholder="Search cottages classes by name.."
         onKeyUp={(e) => changeFilterClientsText(search.current.value)}
       ></input>
       {cottagesByOwner.map((cottage) => (
@@ -33,10 +33,7 @@ export default function CottagesByOwner({
               <div className="card h-100">
                 <div className="card-body">
                   <Card className="cardContainer" style={{ width: "30rem" }}>
-                    <Card.Img
-                      variant="top"
-                      src="holder.js/100px180?text=Image cap"
-                    />
+                    
                     <Card.Body>
                       <Card.Title className="cardTitle">
                         {cottage.name}
