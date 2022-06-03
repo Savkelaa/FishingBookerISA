@@ -24,16 +24,6 @@ function FishingClassCardByInstructorContainer() {
 
   var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
 
-  // useEffect(() => {
-  //   fishingClassServices
-  //     .getFishingClassByInstructor(logedInstructor.id)
-  //     .then((data) => {
-  //       setfishingClassesByInstructor(data.data);
-  //       console.log("data.data", data.data);
-  //     })
-  //     .catch((error) => console.log(`error`, error));
-  // }, []);
-
   useEffect(() => {
     fishingClassServices
       .searchFishingClassByName(logedInstructor.id, filterText)
@@ -53,8 +43,6 @@ function FishingClassCardByInstructorContainer() {
     }, 300);
   }
 
-
-  
   return (
     <div>
       <Navbarr></Navbarr>

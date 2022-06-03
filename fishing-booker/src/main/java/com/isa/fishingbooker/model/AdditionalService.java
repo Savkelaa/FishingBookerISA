@@ -56,10 +56,12 @@ public class AdditionalService {
     private BoatQuickReservation boatQuickReservation;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name="fishing_class_reservation_id", nullable = true)
+   @JoinColumn(name="fishing_class_reservation_id", nullable = true)
     private FishingClassReservation fishingClassReservation;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name="fishing_class_quick_reservation_id", nullable = true)
-    private FishingClassQuickReservation fishingClassQuickReservation;
+	//@ManyToOne(fetch = FetchType.LAZY, optional = true)
+   // @JoinColumn(name="fishing_class_quick_reservation_id", nullable = true)
+   // private FishingClassQuickReservation fishingClassQuickReservation;
+
+
 }

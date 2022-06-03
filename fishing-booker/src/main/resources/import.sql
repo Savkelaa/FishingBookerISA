@@ -202,8 +202,10 @@ insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,reque
 insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 3, 3,'true','false');
 insert into fishing_class_rate (rate, fishing_class_id, client_id,accepted,request) values (10, 3, 3,'true','false');
 
-
-insert into fishing_equipment (name, description, boat_reservation_id) values ('Compactor', 'ultrices posuere cubilia', 5);
+insert into fishing_equipment (name, description, fishing_class_quick_reservation_id) values ('Dump Truck', 'ac tellus semper interdum mauris', 1);
+insert into fishing_equipment (name, description, fishing_class_quick_reservation_id) values ('Compactor', 'ultrices posuere cubilia', 1);
+insert into fishing_equipment (name, description, fishing_class_reservation_id) values ('Skid-Steer', 'nec sem duis aliquam', 1);
+insert into fishing_equipment (name, description, fishing_class_reservation_id) values ('Compactor', 'ultrices posuere cubilia', 5);
 insert into fishing_equipment (name, description, boat_reservation_id) values ('Skid-Steer', 'nec sem duis aliquam', 7);
 insert into fishing_equipment (name, description, boat_quick_reservation_id) values ('Skid-Steer', 'in hac habitasse platea dictumst morbi vestibulum', 2);
 insert into fishing_equipment (name, description, fishing_class_reservation_id) values ('Grader', 'sollicitudin mi sit amet', 2);
@@ -275,17 +277,20 @@ insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,reque
 insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (6, 2, 2,'false','true');
 insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,request) values (5, 5, 7,'false','true');
 
+
 insert into additional_service (name, price, description, cottage_reservation_id) values ('WiFi', 3, 'id ligula suspendisse ornare', 1);
-insert into additional_service (name, price, description, cottage_reservation_id) values ('parking', 4, 'id ligula suspendisse ornare', 1);
+insert into additional_service (name, price, description, cottage_reservation_id) values ('parking', 4, 'id ligula suspendisse ornare', 2);
 insert into additional_service (name, price, description, boat_quick_reservation_id) values ('WiFi', 2, 'id ligula suspendisse ornare', 3);
 insert into additional_service (name, price, description, boat_reservation_id) values ('minibar', 5, 'id ligula suspendisse ornare', 3);
 insert into additional_service (name, price, description, boat_quick_reservation_id) values ('minibar', 3, 'id ligula suspendisse ornare', 1);
 insert into additional_service (name, price, description, boat_reservation_id) values ('minibar', 1, 'id ligula suspendisse ornare', 2);
 insert into additional_service (name, price, description, boat_quick_reservation_id) values ('WiFi', 6, 'id ligula suspendisse ornare', 1);
-insert into additional_service (name, price, description, fishing_class_reservation_id) values ('minibar', 4, 'id ligula suspendisse ornare', 3);
-insert into additional_service (name, price, description, fishing_class_quick_reservation_id) values ('minibar', 3, 'id ligula suspendisse ornare', 1);
-insert into additional_service (name, price, description, fishing_class_reservation_id) values ('minibar', 2, 'id ligula suspendisse ornare', 2);
-insert into additional_service (name, price, description, fishing_class_quick_reservation_id) values ('WiFi', 4, 'id ligula suspendisse ornare', 1);
+
+insert into additional_service (name, price, description) values ('WiFi', 2, 'id ligula suspendisse ornare');
+insert into additional_service (name, price, description) values ('Parking', 10, 'id ligula suspendisse ornare');
+insert into additional_service (name, price, description) values ('WC', 12, 'id ligula suspendisse ornare');
+
+
 
 INSERT INTO image (url, fishing_class_id) VALUES ('https://www.kirksflyshop.com/wp-content/uploads/2017/10/Kelly-Prier-Daugther-300x200.jpg', 1);
 INSERT INTO image (url, fishing_class_id) VALUES ('https://www.everettpotter.com/wp-content/uploads/2010/09/6a00d8341c91bb53ef0115701c12c6970b-pi.jpg', 1);

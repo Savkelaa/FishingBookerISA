@@ -48,7 +48,8 @@ export default function CurrentReservations({
     }
   });
 
-  console.log("currentReservationssssss", currReservations);
+  console.log("classic", currReservations);
+  console.log("quick", quickReservations);
 
   return (
     <div>
@@ -56,7 +57,7 @@ export default function CurrentReservations({
         <div className="header">
           <h1 style={{ textAlign: "center" }}> Current reservations </h1>
         </div>
-        {currReservations.map((reservation) => (
+        {currReservations?.map((reservation) => (
           <div className="container">
             <div className="row gutters">
               <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -119,66 +120,74 @@ export default function CurrentReservations({
         <div className="header">
           <h1 style={{ textAlign: "center" }}> Current quick reservations </h1>
         </div>
-        {currentQuickReservations.map((reservation) => (
-          <div className="container">
-            <div className="row gutters">
-              <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <div className="card h-100">
-                  <div className="card-body">
-                    <Card className="cardContainer" style={{ width: "30rem" }}>
-                      <Card.Img variant="top" />
-                      <Card.Body>
-                        <Card.Title className="cardTitle">
-                          Fishing Class: {reservation.fishingClass.name}
-                        </Card.Title>
-                        <Card.Text>
-                          Description:{" "}
-                          {reservation.fishingClass.promoDescription}
-                        </Card.Text>
-                        <Card.Text>Price: {reservation.price} euro</Card.Text>
-                        <Card.Text> Place: {reservation.place}</Card.Text>
 
-                        <Card.Text>
-                          Start date: {reservation.startDate}
-                        </Card.Text>
-                        <Card.Text>
-                          End date: {reservation.finishDate}
-                        </Card.Text>
-                      </Card.Body>
-                      <ListGroup className="list-group-flush">
-                        <ListGroupItem>
-                          Client: {reservation.client.name}{" "}
-                          {reservation.client.surname}
-                        </ListGroupItem>
-                        <ListGroupItem>
-                          Adress of client : {reservation.client.address}{" "}
-                          {reservation.client.city} {reservation.client.country}
-                        </ListGroupItem>
-                      </ListGroup>
-                      <Link
-                        reservation={reservation}
-                        to={`/createReservation/${reservation.fishingClass.id}`}
+        {quickReservations?.map((reservation) => {
+          console.log("reservation", reservation);
+          return (
+            <div className="container">
+              <div className="row gutters">
+                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div className="card h-100">
+                    <div className="card-body">
+                      <Card
+                        className="cardContainer"
+                        style={{ width: "30rem" }}
                       >
+                        <Card.Img variant="top" />
                         <Card.Body>
-                          <Button
-                            onClick={() =>
-                              localStorage.setItem(
-                                "reservation",
-                                JSON.stringify(reservation)
-                              )
-                            }
-                          >
-                            Book a new quick reservation for this client
-                          </Button>
+                          <Card.Title className="cardTitle">
+                            Fishing Class: {reservation.fishingClass.name}
+                          </Card.Title>
+                          <Card.Text>
+                            Description:{" "}
+                            {reservation.fishingClass.promoDescription}
+                          </Card.Text>
+                          <Card.Text>Price: {reservation.price} euro</Card.Text>
+                          <Card.Text> Place: {reservation.place}</Card.Text>
+
+                          <Card.Text>
+                            Start date: {reservation.startDate}
+                          </Card.Text>
+                          <Card.Text>
+                            End date: {reservation.finishDate}
+                          </Card.Text>
                         </Card.Body>
-                      </Link>
-                    </Card>
+                        <ListGroup className="list-group-flush">
+                          <ListGroupItem>
+                            Client: {reservation.client.name}{" "}
+                            {reservation.client.surname}
+                          </ListGroupItem>
+                          <ListGroupItem>
+                            Adress of client : {reservation.client.address}{" "}
+                            {reservation.client.city}{" "}
+                            {reservation.client.country}
+                          </ListGroupItem>
+                        </ListGroup>
+                        <Link
+                          reservation={reservation}
+                          to={`/createReservation/${reservation.fishingClass.id}`}
+                        >
+                          <Card.Body>
+                            <Button
+                              onClick={() =>
+                                localStorage.setItem(
+                                  "reservation",
+                                  JSON.stringify(reservation)
+                                )
+                              }
+                            >
+                              Book a new quick reservation for this client
+                            </Button>
+                          </Card.Body>
+                        </Link>
+                      </Card>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

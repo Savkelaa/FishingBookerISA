@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.isa.fishingbooker.controller.UserController;
-import com.isa.fishingbooker.model.Client;
-import com.isa.fishingbooker.model.FishingClassReservation;
+import com.isa.fishingbooker.dto.FishingClassQuickReservationAdditionalServices;
+import com.isa.fishingbooker.model.*;
+import com.isa.fishingbooker.repository.AdditionalServiceRepository;
 import com.isa.fishingbooker.repository.ClientRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.FishingClassQuickReservation;
-import com.isa.fishingbooker.model.FishingClassQuickReservation;
 import com.isa.fishingbooker.repository.FishingClassQuickReservationRepository;
 
 @Service
@@ -32,6 +32,8 @@ public class FishingClassQuickReservationService {
 
 	@Autowired
 	private ClientRepository clientRepository;
+	@Autowired
+	private AdditionalServiceRepository additionalServiceRepository;
 
 	@Autowired
 	private FishingClassQuickReservationRepository FishingClassQuickReservationRepository;
@@ -106,7 +108,7 @@ public class FishingClassQuickReservationService {
 		FishingClassQuickReservation fishingClassQuickReservation = FishingClassQuickReservationRepository.findById(fishingClassQuickReservationId)
 				.orElseThrow(() -> new ResourceNotFoundException("FishingClassQuickReservation not found for this id :: " + fishingClassQuickReservationId));
 
-
+		fishingClassQuickReservation.setAdditionalServices(fishingClassQuickReservationDetails.getAdditionalServices());
 		fishingClassQuickReservation.setStartDate(fishingClassQuickReservationDetails.getStartDate());
 		fishingClassQuickReservation.setFinishDate(fishingClassQuickReservationDetails.getFinishDate());
 	    fishingClassQuickReservation.setStatus(fishingClassQuickReservationDetails.getStatus());
@@ -116,7 +118,18 @@ public class FishingClassQuickReservationService {
 		final FishingClassQuickReservation updatedFishingClassQuickReservation = FishingClassQuickReservationRepository.save(fishingClassQuickReservation);
 		return ResponseEntity.ok(updatedFishingClassQuickReservation);
 	}
-	
+
+
+	public ResponseEntity<FishingClassQuickReservation> addNewAdditionalService(int fishingClassQuickReservationId, FishingClassQuickReservationAdditionalServices additionalServices)
+	{
+		FishingClassQuickReservation fishingClassQuickReservation = FishingClassQuickReservationRepository.getById(fishingClassQuickReservationId);
+		AdditionalService additionalServiceee = additionalServiceRepository.getById(additionalServices.getAdditional_service_id());
+		fishingClassQuickReservation.getAdditionalServices().add(additionalServiceee);
+
+		final FishingClassQuickReservation updatedFishingClassQuickReservation = FishingClassQuickReservationRepository.save(fishingClassQuickReservation);
+		return ResponseEntity.ok(updatedFishingClassQuickReservation);
+
+	}
 
 	public Map<String, Boolean> deleteFishingClassQuickReservation(int fishingClassQuickReservationId)
 			throws ResourceNotFoundException {
