@@ -300,8 +300,8 @@ insert into cottageimage(url, cottage_id) VALUES ('https://www.arts.gov/sites/de
 insert into cottageimage(url, cottage_id) VALUES ('https://g-pulse.com/wordpress/wp-content/uploads/2020/11/G-Pulse-cottage-interior-design-Getty-cottage-interior-Hero.jpg', 7)
 
 
-INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2021-07-02','2021-07-02',1);
-
+INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2022-06-01','2021-07-02',1);
+INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2022-06-04','2021-07-08',1);
 
 insert into instructor_complaint (active, answer, description,client_id, instructor_id) values ('true', '', 'id ligula suspendisse ornare', 1,1);
 insert into instructor_complaint (active, answer, description,client_id, instructor_id) values ('true', '', 'ooooo sto plavo oko', 2,2);

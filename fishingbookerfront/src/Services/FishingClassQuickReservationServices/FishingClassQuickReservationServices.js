@@ -70,6 +70,12 @@ const fishingClassQuickReservationServices = {
   getAllAdditionalServiceNames: () => {
     return axios.get(`${process.env.REACT_APP_API_URL}additionalServicesNames`);
   },
+
+  getAllDateSpansInstructor: (instructorId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}dateSpanInstructor?instructorId=${instructorId}`
+    );
+  },
 };
 
 export default fishingClassQuickReservationServices;

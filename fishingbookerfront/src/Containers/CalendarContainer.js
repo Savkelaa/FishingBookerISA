@@ -2,11 +2,14 @@ import format from "date-fns/format";
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Footerr from "../Components/Common/Footerr";
+import fishingClassQuickReservationServices from "../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
+import fishingClassServices from "../Services/FishingClassServices/FishingClassServices";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -19,32 +22,79 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const events = [
-  {
-    title: "Big Meeting",
-    allDay: true,
-    start: new Date(2022, 5, 2),
-    end: new Date(2022, 5, 10),
-  },
-  {
-    title: "Vacation",
-    start: new Date(2022, 6, 7),
-    end: new Date(2022, 6, 10),
-  },
-  {
-    title: "Conference",
-    start: new Date(2022, 5, 7),
-    end: new Date(2022, 5, 12),
-  },
-];
+// const events = [
+//   {
+//     title: "Big Meeting",
+//     allDay: false,
+//     start: new Date(2022, 5, 2),
+//     end: new Date(2022, 5, 10),
+//   },
+//   {
+//     title: "Vacation",
+//     start: new Date(2022, 6, 7),
+//     end: new Date(2022, 6, 10),
+//   },
+//   {
+//     title: "Conference",
+//     start: new Date(2022, 5, 7),
+//     end: new Date(2022, 5, 12),
+//   },
+// ];
 
 export default function CalendarContainer() {
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
-  const [allEvents, setAllEvents] = useState(events);
+  const [
+    fishingClassReservationsByInstructor,
+    setfishingClassReservationsByInstructor,
+  ] = useState([]);
+
+  const [allEvents, setAllEvents] = useState([]);
+
+  var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
 
   function handleAddEvent() {
     setAllEvents([...allEvents, newEvent]);
   }
+
+  console.log("allEvents", allEvents);
+
+  useEffect(() => {
+    fishingClassQuickReservationServices
+      .getAllFishingClassReservationsByInstructor(logedInstructor.id)
+      .then(({ data }) => {
+        console.log("fishingClassReservations", data);
+        setAllEvents(
+          data.map(
+            ({
+              fishingClass,
+              startDate,
+              finishDate,
+              client: { name, surname },
+            }) => ({
+              title: `At ${fishingClass.name} - ${name} ${surname} : ${startDate} - ${finishDate} , ${fishingClass.price} euro, ${fishingClass.maxPeople} people`,
+              start: new Date(startDate),
+              end: new Date(finishDate),
+            })
+          )
+        );
+      })
+      .catch((error) => console.log(`error`, error));
+
+    fishingClassQuickReservationServices
+      .getAllDateSpansInstructor(logedInstructor.id)
+      .then(({ data }) => {
+        console.log("free", data);
+        setAllEvents((allEvents) => [
+          ...allEvents,
+          ...data.map(({ startDate, endDate }) => ({
+            title: `FREE`,
+            start: new Date(startDate),
+            end: new Date(endDate),
+          })),
+        ]);
+      })
+      .catch((error) => console.log(`error`, error));
+  }, []);
 
   return (
     <div>
@@ -74,7 +124,7 @@ export default function CalendarContainer() {
           onChange={(end) => setNewEvent({ ...newEvent, end })}
         />
         <button
-          class="btn btn-info"
+          className="btn btn-info"
           stlye={{ marginTop: "10px" }}
           onClick={handleAddEvent}
         >
@@ -86,8 +136,15 @@ export default function CalendarContainer() {
         events={allEvents}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500, margin: "50px" }}
+        style={{
+          height: 700,
+          marginLeft: "50px",
+          marginRight: "50px",
+          marginTop: "200px",
+          marginBottom: "150px",
+        }}
       />
+      <Footerr></Footerr>
     </div>
   );
 }
