@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   Card,
   ListGroup,
@@ -15,6 +15,8 @@ export default function FishingClassCardByInstructor({
   filterText,
 }) {
   const search = useRef("");
+
+ 
 
   return (
     <div>
@@ -33,10 +35,6 @@ export default function FishingClassCardByInstructor({
               <div className="card h-100">
                 <div className="card-body">
                   <Card className="cardContainer" style={{ width: "30rem" }}>
-                    <Card.Img
-                      variant="top"
-                      src="holder.js/100px180?text=Image cap"
-                    />
                     <Card.Body>
                       <Card.Title className="cardTitle">
                         {fishingClass.name}
@@ -57,6 +55,7 @@ export default function FishingClassCardByInstructor({
                         Cancellation Condition:{" "}
                         {fishingClass.cancellationCondition} %
                       </ListGroupItem>
+                     
                     </ListGroup>
                     <Card.Body>
                       <Link to={`/createQuickReservation/${fishingClass.id}`}>

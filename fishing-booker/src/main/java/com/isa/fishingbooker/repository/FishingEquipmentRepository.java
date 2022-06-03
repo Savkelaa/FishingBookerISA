@@ -17,5 +17,9 @@ public interface FishingEquipmentRepository extends JpaRepository<FishingEquipme
 	+ "INNER JOIN fishing_equipment on fishing_class_reservation.id = fishing_equipment.fishing_class_reservation_id\r\n"
 	+ "where fishing_class_reservation.id = :fishingClassReservationId",nativeQuery=true)	
 			List<String> getFishingEquipmentByFishingClassReservation(Integer fishingClassReservationId);
-	
+
+	@Query(value="Select * from fishing_equipment where fishing_class_quick_reservation_id IS NOT NULL or fishing_class_reservation_id IS NOT NULL",nativeQuery=true)
+	List<FishingEquipment> getAllFishingEquipmentsFishingClass();
+
+
 }

@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import "../../Assets/css/tags.scss";
 
 export default function QuickReservationForm({
   createFishingClassQuickReservationHandler,
+  tags,
+  addTags,
+  removeTags,
 }) {
   const startDateAction = useRef();
   const finishDateAction = useRef();
@@ -11,6 +15,7 @@ export default function QuickReservationForm({
   const finishDate = useRef();
   const place = useRef();
   const price = useRef();
+
   let { id } = useParams();
 
   function saveHandler(e) {
@@ -26,6 +31,7 @@ export default function QuickReservationForm({
       //    id: id,
       //  },
       fishingClass: { id: id },
+      additionalServicess: tags,
     });
   }
 
@@ -100,6 +106,29 @@ export default function QuickReservationForm({
                       id="price"
                     />
                   </div>
+                </div>
+                <h6 for="website">Additional items</h6>
+                <div className="tags-input">
+                  <ul id="tags">
+                    {tags?.map((tag, index) => (
+                      <li key={index} className="tag">
+                        <span className="tag-title">{tag}</span>
+                        <span
+                          className="tag-close-icon"
+                          onClick={() => removeTags(index)}
+                        >
+                          x
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <input
+                    type="text"
+                    onKeyUp={(event) =>
+                      event.key === "Shift" ? addTags(event) : null
+                    }
+                    placeholder="Press shift to add tags"
+                  />
                 </div>
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

@@ -28,5 +28,9 @@ public interface AdditionalServiceRepository extends JpaRepository<AdditionalSer
 			+ "INNER JOIN cottage on cottage_reservation.id = cottage.id\r\n"
 			+ "WHERE cottage_id = :cottageId", nativeQuery = true)
 	List<AdditionalService> getAdditionalServicesByCottage(Integer cottageId);
+
+
+	@Query(value = "SELECT name from additional_service", nativeQuery = true)
+	List<String> getAllAdditionalServiceNames();
 	
 }

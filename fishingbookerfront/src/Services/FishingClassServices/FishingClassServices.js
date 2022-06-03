@@ -434,6 +434,11 @@ const fishingClassServices = {
     );
   },
 
+  getFishingEquipmentFC: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingEquipmentsFishingClass`
+    );
+  },
 };
 
 export default fishingClassServices;

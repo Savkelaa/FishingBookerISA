@@ -26,8 +26,13 @@ public class FishingEquipmentService {
 	{
 		return FishingEquipmentRepository.getFishingEquipmentByFishingClassReservation(fishingClassReservationId);
 	}
-	
-	
+
+
+	public List<FishingEquipment> getAllFishingEquipmentsFishingClass()
+	{
+		return FishingEquipmentRepository.getAllFishingEquipmentsFishingClass();
+	}
+
 	public List<FishingEquipment> getAllFishingEquipments(){
 		return this.FishingEquipmentRepository.findAll();
 	}
