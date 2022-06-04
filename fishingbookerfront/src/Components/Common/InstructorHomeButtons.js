@@ -50,13 +50,8 @@ export default function InstructorHomeButtons(fishingClassesByInstructor) {
             History of reservations
           </button>
         </Link>
-        <button className="btn btn-primary profile-button" type="button">
-          Create an appointment for a quick reservation
-        </button>
-        <button className="btn btn-primary profile-button" type="button">
-          Finished reservations
-        </button>
-        <Link to="mala">
+
+        <Link to="calendar">
           <button className="btn btn-primary profile-button" type="button">
             Schedule
           </button>

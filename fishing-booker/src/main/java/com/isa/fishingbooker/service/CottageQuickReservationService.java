@@ -4,13 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.FishingClassReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.CottageQuickReservation;
@@ -26,7 +24,13 @@ public class CottageQuickReservationService {
 	public List<CottageQuickReservation> getAllCottageQuickReservations(){
 		return this.CottageQuickReservationRepository.findAll();
 	}
-		
+
+
+	public List<CottageQuickReservation> getCottageQuickReservationsByCottageOwner(Integer cottageOwnerId)
+	{
+		return CottageQuickReservationRepository.getCottageQuickReservationsByCottageOwner(cottageOwnerId);
+	}
+
 	public ResponseEntity<CottageQuickReservation> getCottageQuickReservationById(int cottageQuickReservationId)
 		throws ResourceNotFoundException{
 		CottageQuickReservation cottageQuickReservation = CottageQuickReservationRepository.findById(cottageQuickReservationId).orElseThrow(() -> new ResourceNotFoundException("CottageQuickReservation not found for this id :: " + cottageQuickReservationId));

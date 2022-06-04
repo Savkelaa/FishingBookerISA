@@ -2,6 +2,7 @@ package com.isa.fishingbooker.repository;
 
 import java.util.List;
 
+import com.isa.fishingbooker.model.CottageReservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,6 +21,12 @@ public interface BoatReservationRepository extends JpaRepository<BoatReservation
 	
 	@Query(value="select * from boat_reservation where start_date >CURRENT_TIMESTAMP and client_id=:clientId ", nativeQuery=true)
 	List<BoatReservation> getAllBoatReservationAtPresentByClient(Integer clientId);
+
+	@Query(value = "SELECT * FROM boat_reservation\n" +
+			"INNER JOIN boat ON boat_reservation.boat_id = boat.id\n" +
+			"WHERE boat_owner_id = :boatOwnerId", nativeQuery = true)
+	List<BoatReservation> getBoatReservationsByBoatOwner(Integer boatOwnerId);
+
 
 	@Query(value="select * from boat_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date asc ", nativeQuery=true)
 	List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDateAsc(Integer clientId);

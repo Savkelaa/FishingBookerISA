@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.BoatReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,11 @@ public class BoatQuickReservationService {
 		BoatQuickReservation boatQuickReservation = BoatQuickReservationRepository.findById(boatQuickReservationId).orElseThrow(() -> new ResourceNotFoundException("BoatQuickReservation not found for this id :: " + boatQuickReservationId));
 	 return ResponseEntity.ok().body(boatQuickReservation);
 	}
-	
+	public List<BoatQuickReservation> getBoatQuickReservationsByBoatOwner(Integer boatOwnerId)
+	{
+		return BoatQuickReservationRepository.getBoatQuickReservationsByBoatOwner(boatOwnerId);
+	}
+
 
 	public BoatQuickReservation createBoatQuickReservation(BoatQuickReservation boatQuickReservation) {
 		return BoatQuickReservationRepository.save(boatQuickReservation);

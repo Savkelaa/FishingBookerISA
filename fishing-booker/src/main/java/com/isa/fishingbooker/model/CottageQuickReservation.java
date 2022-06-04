@@ -1,5 +1,6 @@
 package com.isa.fishingbooker.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -38,16 +39,16 @@ public class CottageQuickReservation {
 	private Integer id;
 	
 	@Column(name = "start_date")
-	private Date startDate;
+	private LocalDate startDate;
 	
 	@Column(name = "finish_date")
-	private Date finishDate;
-	
+	private LocalDate finishDate;
+
 	@Column(name = "start_date_action")
-	private Date startDateAction;
+	private LocalDate startDateAction;
 	
 	@Column(name = "finish_date_action")
-	private Date finishDateAction;
+	private LocalDate finishDateAction;
 	
 	@Column(name = "discount")
 	private float discount;

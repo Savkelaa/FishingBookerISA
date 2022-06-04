@@ -3,6 +3,7 @@ package com.isa.fishingbooker.repository;
 import java.util.Date;
 import java.util.List;
 
+import com.isa.fishingbooker.model.CottageQuickReservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -25,7 +26,14 @@ public interface CottageReservationRepository extends JpaRepository<CottageReser
 			+ "INNER JOIN cottage ON cottage_reservation.cottage_id = cottage.id\r\n"
 			+ "WHERE status != 'free' AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
 	List<CottageReservation> getCottageReservationsByOwner(Integer cottageOwnerId);
-	
+
+
+	@Query(value = "SELECT * FROM cottage_reservation\n" +
+			"INNER JOIN cottage ON cottage_reservation.cottage_id = cottage.id\n" +
+			"WHERE cottage_owner_id = :cottageOwnerId", nativeQuery = true)
+	List<CottageReservation> getCottageReservationsByCottageOwner(Integer cottageOwnerId);
+
+
 	@Query(value = "SELECT * from cottage_reservation\r\n"
 			+ "INNER JOIN cottage on cottage_reservation.cottage_id = cottage.id\r\n"
 			+ "WHERE status = 'finished' AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)

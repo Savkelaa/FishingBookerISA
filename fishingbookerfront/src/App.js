@@ -57,6 +57,8 @@ import CottageOwnerCreateReportContainer from "./Containers/CottageOwnerCreateRe
 import CottageAvailabilityPeriodContainer from "./Containers/CottageAvailabilityPeriodContainer";
 import CreateCottageReservationContainer from "./Containers/CreateCottageReservationContainer";
 import CalendarContainer from "./Containers/CalendarContainer";
+import CalendarCottageOwnerContainer from "./Containers/CalendarCottageOwnerContainer";
+import CalendarBoatOwnerContainer from "./Containers/CalendarBoatOwnerContainer";
 
 function App() {
   return (
@@ -223,6 +225,14 @@ function App() {
 
           <Route path="/calendar">
             <CalendarContainer></CalendarContainer>
+          </Route>
+
+          <Route path="/calendarCottageOwner">
+            <CalendarCottageOwnerContainer></CalendarCottageOwnerContainer>
+          </Route>
+
+          <Route path="/calendarBoatOwner">
+            <CalendarBoatOwnerContainer></CalendarBoatOwnerContainer>
           </Route>
         </Switch>
       </Router>

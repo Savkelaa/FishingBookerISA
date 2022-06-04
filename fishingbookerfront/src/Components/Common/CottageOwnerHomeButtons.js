@@ -29,13 +29,13 @@ export default function CottageOwnerHomeButtons(cottagesByOwner) {
             Cottages
           </button>
         </Link>
-          
+
         <Link to="changePasswordCottageOwner">
           <button className="btn btn-primary profile-button" type="button">
             Change password
           </button>
         </Link>
-        
+
         <Link to="cottageCurrentReservation">
           <button className="btn btn-primary profile-button" type="button">
             Current reservations
@@ -46,13 +46,17 @@ export default function CottageOwnerHomeButtons(cottagesByOwner) {
             History of reservations
           </button>
         </Link>
-        
-        <Link to = "cottageUpcomingReservation">
+
+        <Link to="cottageUpcomingReservation">
           <button className="btn btn-primary profile-button" type="button">
             Upcoming reservations
           </button>
         </Link>
-        
+        <Link to="calendarCottageOwner">
+          <button className="btn btn-primary profile-button" type="button">
+            Calendar
+          </button>
+        </Link>
         <Link to="clientsByCottageOwner">
           <button className="btn btn-primary profile-button" type="button">
             My clients
