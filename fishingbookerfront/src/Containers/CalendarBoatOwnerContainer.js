@@ -8,6 +8,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Footerr from "../Components/Common/Footerr";
+import cottageQuickReservationServices from "../Services/CottageQuickReservationServices/CottageQuickReservationServices";
 import fishingClassQuickReservationServices from "../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
 import fishingClassServices from "../Services/FishingClassServices/FishingClassServices";
 
@@ -41,7 +42,7 @@ const localizer = dateFnsLocalizer({
 //   },
 // ];
 
-export default function CalendarContainer() {
+export default function CalendarBoatOwnerContainer() {
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
   const [
     fishingClassReservationsByInstructor,
@@ -50,7 +51,7 @@ export default function CalendarContainer() {
 
   const [allEvents, setAllEvents] = useState([]);
 
-  var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
+  var logedInstructor = JSON.parse(localStorage.getItem("BoatOwner"));
 
   function handleAddEvent() {
     setAllEvents([...allEvents, newEvent]);
@@ -59,19 +60,14 @@ export default function CalendarContainer() {
   console.log("allEvents", allEvents);
 
   useEffect(() => {
-    fishingClassQuickReservationServices
-      .getAllFishingClassReservationsByInstructor(logedInstructor.id)
+    cottageQuickReservationServices
+      .getAllBoatReservationsByBoatOwner(logedInstructor.id)
       .then(({ data }) => {
-        console.log("fishingClassReservations", data);
+        console.log("reservations", data);
         setAllEvents(
           data.map(
-            ({
-              fishingClass,
-              startDate,
-              finishDate,
-              client: { name, surname },
-            }) => ({
-              title: `Reservation: ${fishingClass.name} - ${name} ${surname} : ${startDate} - ${finishDate} , ${fishingClass.price} euro, ${fishingClass.maxPeople} people`,
+            ({ boat, startDate, finishDate, client: { name, surname } }) => ({
+              title: `Reservation: ${boat.name} - ${name} ${surname} : ${startDate} - ${finishDate} , ${boat.price} euro, ${boat.maxPeople} people`,
               start: new Date(startDate),
               end: new Date(finishDate),
             })
@@ -80,37 +76,17 @@ export default function CalendarContainer() {
       })
       .catch((error) => console.log(`error`, error));
 
-    fishingClassQuickReservationServices
-      .getAllDateSpansInstructor(logedInstructor.id)
+    cottageQuickReservationServices
+      .getAllBoatQuickReservationsByBoatOwner(logedInstructor.id)
       .then(({ data }) => {
-        console.log("free", data);
-        setAllEvents((allEvents) => [
-          ...allEvents,
-          ...data.map(({ startDate, endDate }) => ({
-            title: `FREE`,
-            start: new Date(startDate),
-            end: new Date(endDate),
-          })),
-        ]);
-      })
-      .catch((error) => console.log(`error`, error));
-
-    fishingClassQuickReservationServices
-      .getAllFishingClassQuickReservationsByInstructor(logedInstructor.id)
-      .then(({ data }) => {
-        console.log("free", data);
+        console.log("quick", data);
         setAllEvents((allEvents) => [
           ...allEvents,
           ...data.map(
-            ({
-              fishingClass,
-              startDateAction,
-              finishDateAction,
-              client: { name, surname },
-            }) => ({
-              title: `Quick Reservation: ${fishingClass.name} - ${name} ${surname} : ${startDateAction} - ${finishDateAction} , ${fishingClass.price} euro, ${fishingClass.maxPeople} people`,
-              start: new Date(finishDateAction),
-              end: new Date(finishDateAction),
+            ({ boat, startDate, finishDate, client: { name, surname } }) => ({
+              title: `Quick Reservation: ${boat.name} - ${name} ${surname} : ${startDate} - ${finishDate} , ${boat.price} euro, ${boat.maxPeople} people`,
+              start: new Date(startDate),
+              end: new Date(finishDate),
             })
           ),
         ]);

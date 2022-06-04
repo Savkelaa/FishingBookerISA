@@ -1,5 +1,6 @@
 package com.isa.fishingbooker.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -39,10 +40,10 @@ public class CottageReservation {
 	private Integer id;
 	
 	@Column(name = "start_date")
-	private Date startDate;
+	private LocalDate startDate;
 	
 	@Column(name = "finish_date")
-	private Date finishDate;
+	private LocalDate finishDate;
 	
 	@Column(name = "max_people")
 	private int maxPeople;

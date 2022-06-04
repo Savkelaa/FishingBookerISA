@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.CottageQuickReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,6 +33,12 @@ public class CottageReservationController {
 	@GetMapping("/cottageReservations")
 	public List<CottageReservation> getAllCottageReservations() {
 		return this.cottageReservationService.getAllCottageReservations();
+	}
+
+	@GetMapping("/cottageReservationCottageOwner")
+	public List<CottageReservation> getCottageReservationsByCottageOwner(@RequestParam (value="cottageOwnerId")  Integer cottageOwnerId)
+	{
+		return cottageReservationService.getCottageReservationsByCottageOwner(cottageOwnerId);
 	}
 
 	@GetMapping("/cottageReservations/{id}")

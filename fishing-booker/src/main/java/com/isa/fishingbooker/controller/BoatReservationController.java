@@ -3,6 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.CottageReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -39,6 +40,13 @@ public class BoatReservationController {
 			throws ResourceNotFoundException {
 		return boatReservationService.getBoatReservationById(boatReservationId);
 	}
+
+	@GetMapping("/boatReservationBoatOwner")
+	public List<BoatReservation> getBoatReservationsByBoatOwner(@RequestParam (value="boatOwnerId")  Integer boatOwnerId)
+	{
+		return boatReservationService.getBoatReservationsByBoatOwner(boatOwnerId);
+	}
+
 
 	@PostMapping("/boatReservations")
 	public BoatReservation createBoatReservation(@RequestBody BoatReservation boatReservation) {

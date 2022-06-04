@@ -32,7 +32,12 @@ public class BoatReservationService {
 		BoatReservation boatReservation = BoatReservationRepository.findById(boatReservationId).orElseThrow(() -> new ResourceNotFoundException("BoatReservation not found for this id :: " + boatReservationId));
 	 return ResponseEntity.ok().body(boatReservation);
 	}
-	
+
+	public List<BoatReservation> getBoatReservationsByBoatOwner(Integer boatOwnerId)
+	{
+		return BoatReservationRepository.getBoatReservationsByBoatOwner(boatOwnerId);
+	}
+
 	
 	public BoatReservation createBoatReservation(BoatReservation boatReservation) {
 		return BoatReservationRepository.save(boatReservation);

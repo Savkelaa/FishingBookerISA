@@ -19,6 +19,12 @@ export default function BoatOwnerHomeButtons() {
         <button className="btn btn-primary profile-button" type="button">
           Create an appointment for a quick reservation
         </button>
+        <Link to="calendarBoatOwner">
+          <button className="btn btn-primary profile-button" type="button">
+            Calendar
+          </button>
+        </Link>
+
         <button className="btn btn-primary profile-button" type="button">
           Finished reservations
         </button>
