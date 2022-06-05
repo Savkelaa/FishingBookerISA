@@ -32,9 +32,10 @@ export default function InstructorHomePageContainer() {
       .instructorSendDeleteRequest(instructor)
       .then((data) => {
         console.log("sucessfuly sent a instructor delete request");
+        alert("sucessfuly sent a instructor delete request");
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        alert("Something wen't wrong try again");
       });
   }
 
@@ -43,9 +44,10 @@ export default function InstructorHomePageContainer() {
       .updateInstructor(instructor)
       .then((data) => {
         console.log("sucessfuly updated Instructor");
+        alert("sucessfuly updated Instructor");
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        alert("Something wen't wrong try again");
       });
   }
 

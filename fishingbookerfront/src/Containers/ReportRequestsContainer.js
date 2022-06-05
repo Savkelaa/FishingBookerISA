@@ -27,10 +27,12 @@ export default function ReportRequestsContainer() {
       .updateClient(client)
       .then((data) => {
         console.log("sucessfuly updated a client ");
+        alert("sucessfuly updated a client ");
+
         console.log("client", client);
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        alert("Something wen't wrong try again");
       });
   }
 
@@ -49,6 +51,7 @@ export default function ReportRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a instructor requests");
+          alert("sucessfuly updated a instructor requests");
         }
       })
       .catch((error) => {

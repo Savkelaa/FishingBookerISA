@@ -63,6 +63,7 @@ export default function DeleteRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly deleted Instructor");
+          alert("sucessfuly deleted Instructor");
         }
       })
       .catch((error) => {
@@ -83,6 +84,7 @@ export default function DeleteRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly deleted Instructor delete request");
+          alert("sucessfuly deleted Instructor delete request");
         }
       })
       .catch((error) => {

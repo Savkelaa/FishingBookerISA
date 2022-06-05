@@ -134,6 +134,7 @@ export default function ClientHomePage() {
       .instructorSendDeleteRequest(instructor)
       .then((data) => {
         console.log("sucessfuly sent a instructor delete request");
+        alert("sucessfuly sent a instructor delete request");
       })
       .catch((error) => {
         console.log("Something wen't wrong try again");

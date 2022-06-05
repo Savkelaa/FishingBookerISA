@@ -74,6 +74,7 @@ export default function RateRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a fishingClass requests");
+          alert("sucessfuly updated a fishingClass requests");
         }
       })
       .catch((error) => {
@@ -95,6 +96,7 @@ export default function RateRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a instructor requests");
+          alert("sucessfuly updated a instructor requests");
         }
       })
       .catch((error) => {
@@ -116,6 +118,7 @@ export default function RateRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a cottage rate requests");
+          alert("sucessfuly updated a cottage rate requests");
         }
       })
       .catch((error) => {
@@ -137,6 +140,7 @@ export default function RateRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a cottage owner requests");
+          alert("sucessfuly updated a cottage rate requests");
         }
       })
       .catch((error) => {
@@ -158,6 +162,7 @@ export default function RateRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a baot rate requests");
+          alert("sucessfuly updated a baot rate requests");
         }
       })
       .catch((error) => {
@@ -179,6 +184,7 @@ export default function RateRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a boat owner requests");
+          alert("sucessfuly updated a baot rate requests");
         }
       })
       .catch((error) => {

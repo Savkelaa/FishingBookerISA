@@ -16,10 +16,11 @@ export default function CreateFishingClass() {
         else {
           setFishingClass(data.data);
           console.log("sucessfuly added a fishingClass");
+          alert("sucessfuly added a fishingClass");
         }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again", error);
+        alert("Something wen't wrong try again", error);
       });
   }
 

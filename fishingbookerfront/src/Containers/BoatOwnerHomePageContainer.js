@@ -12,10 +12,8 @@ import { Link, Route, Switch, useHistory, useLocation } from "react-router-dom";
 export default function BoatOwnerHomePageContainer() {
   //const [logedBoatOwner, setlogedBoatOwner] = useState();
 
-   const [boatOwnerRequest, setBoatOwnerRequest] = useState([]);
-   const [boatsByOwner, setBoatsByOwner] = useState(
-     []
-   );
+  const [boatOwnerRequest, setBoatOwnerRequest] = useState([]);
+  const [boatsByOwner, setBoatsByOwner] = useState([]);
 
   var logedBoatOwner = JSON.parse(localStorage.getItem("BoatOwner"));
 

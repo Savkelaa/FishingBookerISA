@@ -28,7 +28,6 @@ function CottageContainer() {
       })
       .catch((error) => alert(`error`, error));
 
-      
     cottageServices
       .getBehavioralRuleByCottage(id)
       .then((data) => {
@@ -49,8 +48,7 @@ function CottageContainer() {
         setActions(data.data);
       })
       .catch((eror) => alert(`error, error`));
-    
-      
+
     cottageServices
       .getImagesByCottage(id)
       .then((data) => {
@@ -64,7 +62,6 @@ function CottageContainer() {
         setavgRate(data.data);
       })
       .catch((error) => console.log(`error`, error));
-      
   }, []);
 
   function updateCottage(cottage) {
@@ -80,13 +77,13 @@ function CottageContainer() {
 
   function deleteCottage(cottage) {
     cottageServices
-        .deleteCottage(cottage.id)
-        .then((data) => {
+      .deleteCottage(cottage.id)
+      .then((data) => {
         alert("sucessfuly deleted a cottage");
-        })
-        .catch((error) => {
+      })
+      .catch((error) => {
         alert("Something went wrong, please try again");
-        });
+      });
   }
 
   return (
@@ -109,4 +106,3 @@ function CottageContainer() {
 }
 
 export default CottageContainer;
-
