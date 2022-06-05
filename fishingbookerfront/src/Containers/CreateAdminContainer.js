@@ -17,6 +17,7 @@ function UserRegistrationContainer() {
         else {
           setAdmin(data.data.content);
           console.log("sucessfuly added a admin");
+          alert("sucessfuly added a admin");
         }
       })
       .catch((error) => {

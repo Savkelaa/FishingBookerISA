@@ -31,6 +31,7 @@ function LoginContainer() {
                 if (Object.keys(clientt).length !== 0) {
                   history.push("/clientHomePage");
                   console.log("sucessfuly logedOn a client");
+                  alert("sucessfuly logedOn a client");
                 }
               } else if (Object.keys(clientt).length == 0) {
               } else {
@@ -65,6 +66,7 @@ function LoginContainer() {
                 if (Object.keys(adminn).length !== 0) {
                   history.push("/adminHomePage");
                   console.log("sucessfuly logedOn a admin");
+                  alert("sucessfuly logedOn a admin");
                 }
               } else if (Object.keys(adminn).length == 0) {
               } else {
@@ -98,8 +100,9 @@ function LoginContainer() {
                 cottageOwnerr.deleted == "false"
               ) {
                 if (Object.keys(cottageOwnerr).length !== 0) {
-                  history.push("/cottageOwnerHomePage"); 
+                  history.push("/cottageOwnerHomePage");
                   console.log("sucessfuly logedOn a cottage owner");
+                  alert("sucessfuly logedOn a cottage owner");
                 }
               } else if (Object.keys(cottageOwnerr).length == 0) {
               } else {
@@ -133,7 +136,8 @@ function LoginContainer() {
               ) {
                 if (Object.keys(boatOwnerr).length !== 0) {
                   history.push("/boatOwnerHomePage");
-                  console.log("sucessfuly logedOn a BoatOnwer"); 
+                  console.log("sucessfuly logedOn a BoatOnwer");
+                  alert("sucessfuly logedOn a BoatOnwer");
                 }
               } else if (Object.keys(boatOwnerr).length == 0) {
               } else {
@@ -167,6 +171,7 @@ function LoginContainer() {
                 if (Object.keys(instructorr).length !== 0) {
                   history.push("/instructorHomePage");
                   console.log("sucessfuly logedOn a instructor", data.data);
+                  alert("sucessfuly logedOn a instructor");
                 }
               } else if (Object.keys(instructorr).length == 0) {
               } else {

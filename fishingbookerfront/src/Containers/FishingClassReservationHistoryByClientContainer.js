@@ -36,7 +36,7 @@ export default function FishingClassReservationHistoryByClientContainer() {
         }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        alert("Something wen't wrong try again");
       });
   }
 

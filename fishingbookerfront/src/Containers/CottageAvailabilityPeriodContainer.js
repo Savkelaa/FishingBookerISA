@@ -16,6 +16,7 @@ function CottageAvailabilityPeriodContainer() {
         else {
           setDateSpan(data.data.content);
           console.log("sucessfuly added a datespan.");
+          alert("sucessfuly added a datespan.");
         }
       })
       .catch((error) => {
