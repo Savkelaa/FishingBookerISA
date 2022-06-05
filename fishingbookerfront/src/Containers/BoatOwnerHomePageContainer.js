@@ -10,22 +10,20 @@ import boatServices from "../Services/BoatServices/BoatServices";
 export default function BoatOwnerHomePageContainer() {
   //const [logedBoatOwner, setlogedBoatOwner] = useState();
 
-   const [boatOwnerRequest, setBoatOwnerRequest] = useState([]);
-   const [boatsByOwner, setBoatsByOwner] = useState(
-     []
-   );
+  const [boatOwnerRequest, setBoatOwnerRequest] = useState([]);
+  const [boatsByOwner, setBoatsByOwner] = useState([]);
 
   var logedBoatOwner = JSON.parse(localStorage.getItem("BoatOwner"));
-
 
   function updateBoatOwner(boatOwner) {
     userServices
       .updateBoatOwner(boatOwner)
       .then((data) => {
         console.log("sucessfuly updated BoatOwner");
+        alert("sucessfuly updated BoatOwner");
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        alert("Something wen't wrong try again");
       });
   }
 
@@ -34,9 +32,10 @@ export default function BoatOwnerHomePageContainer() {
       .boatOwnerSendDeleteRequest(boatOwner)
       .then((data) => {
         console.log("sucessfuly sent a boatOwner delete request");
+        alert("sucessfuly sent a boatOwner delete request");
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        alert("Something wen't wrong try again");
       });
   }
 

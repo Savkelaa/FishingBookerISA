@@ -34,6 +34,8 @@ export default function ComplaintRequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a complaint requests");
+          alert("sucessfuly updated a complaint requests");
+
           console.log("data.data", data.data);
         }
       })

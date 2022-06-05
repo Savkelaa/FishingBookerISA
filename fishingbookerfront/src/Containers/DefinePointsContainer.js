@@ -33,6 +33,7 @@ export default function DefinePointsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a points");
+          alert("sucessfuly updated a points");
         }
       })
       .catch((error) => {

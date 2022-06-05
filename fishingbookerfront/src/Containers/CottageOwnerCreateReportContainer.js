@@ -29,11 +29,13 @@ function CottageOwnerCreateReportContainer() {
         else {
           setCottageOwnerReports(data.data.content);
           console.log("sucessfuly added a cottageOwner report .");
+          alert("sucessfuly added a cottageOwner report .");
+
           console.log("cottageOwnerReport", cottageOwnerReport);
         }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        alert("Something wen't wrong try again");
       });
   }
 
@@ -43,6 +45,8 @@ function CottageOwnerCreateReportContainer() {
       .updateClient(client)
       .then((data) => {
         console.log("sucessfuly updated a client ");
+        alert("sucessfuly updated a client ");
+
         console.log("client", client);
       })
       .catch((error) => {

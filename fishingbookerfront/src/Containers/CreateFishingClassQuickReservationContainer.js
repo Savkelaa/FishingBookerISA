@@ -19,10 +19,11 @@ export default function CreateFishingClassQuickReservationContainer() {
         else {
           setQuickReservation(data.data);
           console.log("sucessfuly added a quickReservation");
+          alert("sucessfuly added a quickReservation");
         }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again", error);
+        alert("Something wen't wrong try again", error);
       });
   }
 

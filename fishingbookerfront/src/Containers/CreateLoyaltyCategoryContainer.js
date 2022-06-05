@@ -19,10 +19,11 @@ function CreateLoyaltyCategoryContainer() {
         else {
           setCategory(data.data.content);
           console.log("sucessfuly added a category");
+          alert("sucessfuly added a category");
         }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again", error);
+        alert("Something wen't wrong try again", error);
       });
   }
 

@@ -12,9 +12,10 @@ function ChangePasswordInstructorContainer() {
       .changePasswordInstructor(instructor)
       .then((data) => {
         console.log("sucessfuly updated instructor");
+        alert("sucessfuly updated instructor");
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again", error);
+        alert("Something wen't wrong try again", error);
       });
   }
 

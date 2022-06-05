@@ -9,14 +9,13 @@ export default function CreateCottageReservationContainer() {
   const [reservation, setReservation] = useState();
 
   function createCottageReservation(reservation) {
-    CottageQuickReservationServices.createCottageReservation(
-      reservation
-    )
+    CottageQuickReservationServices.createCottageReservation(reservation)
       .then((data) => {
         if (data.status === 204) setReservation();
         else {
           setReservation(data.data);
           console.log("sucessfuly added a reservation");
+          alert("sucessfuly added a reservation");
         }
       })
       .catch((error) => {

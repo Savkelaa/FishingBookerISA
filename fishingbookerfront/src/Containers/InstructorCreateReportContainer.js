@@ -30,10 +30,11 @@ function InstructorCreateReportContainer() {
           setInstructorReports(data.data.content);
           console.log("sucessfuly added a instructor report .");
           console.log("instructorReport", instructorReport);
+          alert("sucessfuly added a instructor report .");
         }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again");
+        alert("Something wen't wrong try again");
       });
   }
 
@@ -43,6 +44,8 @@ function InstructorCreateReportContainer() {
       .updateClient(client)
       .then((data) => {
         console.log("sucessfuly updated a client ");
+        alert("sucessfuly updated a client ");
+
         console.log("client", client);
       })
       .catch((error) => {

@@ -52,6 +52,7 @@ function UserRegistrationContainer() {
         else {
           setBoatOwner(data.data.content);
           console.log("sucessfuly added a boat Owner");
+          alert("sucessfuly added a boat Owner");
         }
       })
       .catch((error) => {
@@ -67,6 +68,7 @@ function UserRegistrationContainer() {
         else {
           setInstructor(data.data.content);
           console.log("sucessfuly added a instructor");
+          alert("sucessfuly added a instructor");
         }
       })
       .catch((error) => {
@@ -82,6 +84,7 @@ function UserRegistrationContainer() {
         else {
           setCottageOwner(data.data.content);
           console.log("sucessfuly added a cottage owner.");
+          alert("sucessfuly added a cottage owner.");
         }
       })
       .catch((error) => {
@@ -92,7 +95,7 @@ function UserRegistrationContainer() {
   return (
     <div>
       <Navbarr></Navbarr>
-      <RegistrationForm 
+      <RegistrationForm
         addClientHandler={addClient}
         addCottageOwnerHandler={addCottageOwner}
         addInstructorHandler={addInstructor}

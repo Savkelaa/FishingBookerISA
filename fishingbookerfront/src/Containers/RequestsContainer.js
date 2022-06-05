@@ -56,6 +56,7 @@ export default function RequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a Client requests");
+          alert("sucessfuly updated a Client requests");
         }
       })
       .catch((error) => {
@@ -76,6 +77,7 @@ export default function RequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a Client requests");
+          alert("sucessfuly updated a Client requests");
         }
       })
       .catch((error) => {
@@ -96,6 +98,7 @@ export default function RequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a CottageOwner requests");
+          alert("sucessfuly updated a CottageOwner requests");
         }
       })
       .catch((error) => {
@@ -116,6 +119,7 @@ export default function RequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a CottageOwner requests");
+          alert("sucessfuly updated a CottageOwner requests");
         }
       })
       .catch((error) => {
@@ -136,6 +140,7 @@ export default function RequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a BoatOwner requests");
+          alert("sucessfuly updated a BoatOwner requests");
         }
       })
       .catch((error) => {
@@ -156,6 +161,7 @@ export default function RequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a BoatOwner requests");
+          alert("sucessfuly updated a BoatOwner requests");
         }
       })
       .catch((error) => {
@@ -176,6 +182,7 @@ export default function RequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a instructor requests");
+          alert("sucessfuly updated a instructor requests");
         }
       })
       .catch((error) => {
@@ -196,6 +203,7 @@ export default function RequestsContainer() {
             })
             .catch((error) => console.log(`error`, error));
           console.log("sucessfuly updated a instructor requests");
+          alert("sucessfuly updated a instructor requests");
         }
       })
       .catch((error) => {
