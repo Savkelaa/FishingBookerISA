@@ -39,19 +39,6 @@ const cottageQuickReservationServices = {
     );
   },
 
-  ////ZA KALENDAR BOATRESERVATION
-
-  getAllBoatReservationsByBoatOwner: (boatOwnerId) => {
-    return axios.get(
-      `${process.env.REACT_APP_API_URL}boatReservationBoatOwner?boatOwnerId=${boatOwnerId}`
-    );
-  },
-
-  getAllBoatQuickReservationsByBoatOwner: (boatOwnerId) => {
-    return axios.get(
-      `${process.env.REACT_APP_API_URL}boatQuickReservationBoatOwner?boatOwnerId=${boatOwnerId}`
-    );
-  },
 
   ////ZA KALENDAR COTTAGERESERVATION
 

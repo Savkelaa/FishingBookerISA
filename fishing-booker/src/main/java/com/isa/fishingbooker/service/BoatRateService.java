@@ -47,7 +47,9 @@ public class BoatRateService {
 		return BoatRateRepository.save(boatRate);
 	}
 	
-	
+	public Double getBoatAvgRate( Integer boatId){
+		return this.BoatRateRepository.getBoatAvgRate(boatId);
+	}
 	
 	public ResponseEntity<BoatRate> updateBoatRate(Integer boatRateId,
 			 @RequestBody BoatRate boatRateDetails) throws ResourceNotFoundException {

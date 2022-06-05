@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
@@ -59,4 +60,11 @@ public class BoatRateController {
 			throws ResourceNotFoundException {
 		return boatRateService.deleteBoatRate(boatRateId);
 	}
+	
+	@GetMapping("/boatAvgRate")
+	public Double getBoatAvgRate(@RequestParam(value="boatId")  Integer boatId)
+	{
+		return boatRateService.getBoatAvgRate(boatId);
+	}
+	
 }

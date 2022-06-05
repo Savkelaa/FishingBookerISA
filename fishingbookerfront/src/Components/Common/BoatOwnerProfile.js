@@ -13,6 +13,7 @@ export default function BoatOwnerProfile({
   logedBoatOwner,
   sendBoatOwnerDeleteRequestHandler,
   updateBoatOwnerHandler,
+  boatsByOwner,
 }) {
   return (
     <div className="container rounded bg-white mt-5 mb-5">
@@ -29,7 +30,9 @@ export default function BoatOwnerProfile({
             updateBoatOwnerHandler
           }
         ></BoatOwnerProfileLabels> 
-        <BoatOwnerHomeButtons></BoatOwnerHomeButtons>
+        <BoatOwnerHomeButtons
+          boatsByOwner = {boatsByOwner}
+        ></BoatOwnerHomeButtons>
       </div>
     </div>
   );

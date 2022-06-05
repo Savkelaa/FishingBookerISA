@@ -3,7 +3,7 @@ package com.isa.fishingbooker.controller;
 import java.util.List;
 import java.util.Map;
 
-import com.isa.fishingbooker.model.CottageReservation;
+import com.isa.fishingbooker.model.BoatReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -98,4 +98,10 @@ public class BoatReservationController {
 	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDurationDesc(@RequestParam (value="clientId")  Integer clientId){
 		return boatReservationService.getAllFinishedBoatReservationByClientSortedByDurationDesc(clientId);
 	}
+	
+	@GetMapping("/boatReservationsByOwner")
+	public List<BoatReservation> getBoatReservationsByOwner(@RequestParam (value = "boatOwnerId") Integer boatOwnerId){
+		return boatReservationService.getBoatReservationsByOwner(boatOwnerId);
+	}
+	
 }

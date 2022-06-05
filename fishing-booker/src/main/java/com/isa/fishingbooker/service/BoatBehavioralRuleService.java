@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatBehavioralRule;
+import com.isa.fishingbooker.model.BoatBehavioralRule;
 import com.isa.fishingbooker.repository.BoatBehavioralRuleRepository;
 
 @Service
@@ -61,4 +62,9 @@ public class BoatBehavioralRuleService {
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
+	
+	public List<BoatBehavioralRule> getBoatBehavioralRulesByBoat(Integer boatId) {
+		return BoatBehavioralRuleRepository.getBoatBehavioralRulesByBoat(boatId);
+	}
+	
 }

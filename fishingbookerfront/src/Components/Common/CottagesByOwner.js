@@ -67,6 +67,14 @@ export default function CottagesByOwner({
                           More details
                         </Button>
                       </Link>
+                      <Link to={`/cottageAvailabilityPeriod/${cottage.id}`}>
+                        <Button
+                          style={{ width: "8rem" }}
+                          variant="outline-info"
+                        >
+                          Enter availability period
+                        </Button>
+                      </Link>
                     </Card.Body>
                   </Card>
                 </div>

@@ -59,6 +59,19 @@ import CreateCottageReservationContainer from "./Containers/CreateCottageReserva
 import CalendarContainer from "./Containers/CalendarContainer";
 import CalendarCottageOwnerContainer from "./Containers/CalendarCottageOwnerContainer";
 import CalendarBoatOwnerContainer from "./Containers/CalendarBoatOwnerContainer";
+import ChangePasswordBoatOwnerContainer from "./Containers/ChangePasswordBoatOwnerContainer"
+import BoatContainer from "./Containers/BoatContainer";
+import CreateBoatContainer from "./Containers/CreateBoatContainer";
+import BoatsByOwnerContainer from "./Containers/BoatsByOwnerContainer";
+import BoatUpcomingReservationsContainer from "./Containers/BoatUpcomingReservationsContainer";
+import BoatReservationHistoryContainer from "./Containers/BoatReservationHistoryContainer";
+import BoatCurrentReservationsContainer from "./Containers/BoatCurrentReservations";
+import CreateBoatReservationContainer from "./Containers/CreateBoatReservationContainer";
+import CreateBoatActionContainer from "./Containers/CreateBoatActionContainer";
+import BoatAvailabilityPeriodContainer from "./Containers/BoatAvailabilityPeriodContainer";
+import ClientsByBoatOwnerContainer from "./Containers/ClientsByBoatOwnerContainer";
+import BoatOwnerCreateReport from "./Components/Common/BoatOwnerCreateReport";
+import BoatOwnerCreateReportContainer from "./Containers/BoatOwnerCreateReportContainer";
 
 function App() {
   return (
@@ -234,6 +247,55 @@ function App() {
           <Route path="/calendarBoatOwner">
             <CalendarBoatOwnerContainer></CalendarBoatOwnerContainer>
           </Route>
+
+          <Route path="/changePasswordBoatOwner">
+            <ChangePasswordBoatOwnerContainer></ChangePasswordBoatOwnerContainer>
+          </Route>
+
+          <Route path = "/boat/:id">
+            <BoatContainer></BoatContainer>
+          </Route>
+
+          <Route path = "/createBoat">
+            <CreateBoatContainer></CreateBoatContainer>
+          </Route>
+
+          <Route path = "/boatsByOwner">
+            <BoatsByOwnerContainer></BoatsByOwnerContainer>
+          </Route>
+
+          <Route path = "/boatUpcomingReservation">
+            <BoatUpcomingReservationsContainer></BoatUpcomingReservationsContainer>
+          </Route>
+
+          <Route path = "/boatReservationHistory">
+            <BoatReservationHistoryContainer></BoatReservationHistoryContainer>
+          </Route>
+
+          <Route path = "/boatCurrentReservation">
+            <BoatCurrentReservationsContainer></BoatCurrentReservationsContainer>
+          </Route>
+
+          <Route path = "/createBoatReservation/:id">
+            <CreateBoatReservationContainer></CreateBoatReservationContainer>
+          </Route>
+
+          <Route path = "/createBoatQuickReservationAction/:id">
+            <CreateBoatActionContainer></CreateBoatActionContainer>
+          </Route>
+
+          <Route path = "/boatAvailabilityPeriod/:id">
+            <BoatAvailabilityPeriodContainer></BoatAvailabilityPeriodContainer>
+          </Route>
+
+          <Route path = "/clientsByBoatOwner">
+            <ClientsByBoatOwnerContainer></ClientsByBoatOwnerContainer>
+          </Route>
+
+          <Route path = "/boatOwnerCreateReport/:id">
+            <BoatOwnerCreateReportContainer></BoatOwnerCreateReportContainer>
+          </Route>
+
         </Switch>
       </Router>
     </div>

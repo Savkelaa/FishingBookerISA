@@ -42,7 +42,7 @@ export default function CottageAvailabilityPeriod({
                   </div>
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h6 for="dateTo">Availability Period From</h6>
+                    <h6 for="dateTo">Availability Period To</h6>
                     <input
                       ref={dateTo}
                       type="date"

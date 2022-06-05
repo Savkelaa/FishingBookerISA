@@ -25,6 +25,13 @@ const reportServices = {
       report
     );
   },
+
+  createBoatOwnerReport: (report) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}boatOwnerReport`,
+      report
+    );
+  },
 };
 
 export default reportServices;

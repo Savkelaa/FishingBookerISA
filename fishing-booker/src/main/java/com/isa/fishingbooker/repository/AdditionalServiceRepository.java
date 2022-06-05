@@ -28,6 +28,13 @@ public interface AdditionalServiceRepository extends JpaRepository<AdditionalSer
 			+ "INNER JOIN cottage on cottage_reservation.id = cottage.id\r\n"
 			+ "WHERE cottage_id = :cottageId", nativeQuery = true)
 	List<AdditionalService> getAdditionalServicesByCottage(Integer cottageId);
+	
+	@Query(value = "SELECT *\r\n"
+			+ "FROM additional_service\r\n"
+			+ "INNER JOIN boat_reservation on additional_service.boat_reservation_id = boat_reservation.id\r\n"
+			+ "INNER JOIN boat on boat_reservation.id = boat.id\r\n"
+			+ "WHERE boat_id = :boatId", nativeQuery = true)
+	List<AdditionalService> getAdditionalServicesByBoat(Integer boatId);
 
 
 

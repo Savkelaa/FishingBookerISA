@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.isa.fishingbooker.model.BoatReservation;
+import com.isa.fishingbooker.model.BoatQuickReservation;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatQuickReservation;
-import com.isa.fishingbooker.model.CottageQuickReservation;
+import com.isa.fishingbooker.model.BoatQuickReservation;
 import com.isa.fishingbooker.service.BoatQuickReservationService;
 
 @CrossOrigin
@@ -97,4 +99,15 @@ public class BoatQuickReservationController {
 	public List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDurationDesc(@RequestParam (value="clientId")  Integer clientId){
 		return boatQuickReservationService.getAllFinishedBoatQuickReservationByClientSortedByDurationDesc(clientId);
 	}
+	
+	@GetMapping("/boatQuickReservationsByOwner")
+	public List<BoatQuickReservation> getBoatQuickReservationsByOwner(@RequestParam (value = "boatOwnerId") Integer boatOwnerId){
+		return boatQuickReservationService.getBoatQuickReservationsByOwner(boatOwnerId);
+	}
+	
+	@GetMapping("/freeBoatQuickReservationsByBoat")
+	public List<BoatQuickReservation> getFreeBoatQuickReservationsByBoat(@RequestParam (value = "boatId") Integer boatId){
+		return boatQuickReservationService.getFreeBoatQuickReservationsByBoat(boatId);
+	}
+	
 }

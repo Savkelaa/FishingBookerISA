@@ -6,6 +6,8 @@ import BoatOwnerProfile from "../Components/Common/BoatOwnerProfile";
 import "../Assets/css/profile.css";
 import userServices from "../Services/UserServices/UserServices";
 import boatServices from "../Services/BoatServices/BoatServices";
+import { Link, Route, Switch, useHistory, useLocation } from "react-router-dom";
+
 
 export default function BoatOwnerHomePageContainer() {
   //const [logedBoatOwner, setlogedBoatOwner] = useState();
@@ -15,12 +17,16 @@ export default function BoatOwnerHomePageContainer() {
 
   var logedBoatOwner = JSON.parse(localStorage.getItem("BoatOwner"));
 
+  
+  const history = useHistory();
+
   function updateBoatOwner(boatOwner) {
     userServices
       .updateBoatOwner(boatOwner)
       .then((data) => {
-        console.log("sucessfuly updated BoatOwner");
+        history.replace("/boatOwnerHomePage")
         alert("sucessfuly updated BoatOwner");
+        
       })
       .catch((error) => {
         alert("Something wen't wrong try again");
@@ -31,7 +37,6 @@ export default function BoatOwnerHomePageContainer() {
     userServices
       .boatOwnerSendDeleteRequest(boatOwner)
       .then((data) => {
-        console.log("sucessfuly sent a boatOwner delete request");
         alert("sucessfuly sent a boatOwner delete request");
       })
       .catch((error) => {

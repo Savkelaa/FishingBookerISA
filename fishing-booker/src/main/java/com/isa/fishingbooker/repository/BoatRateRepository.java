@@ -13,4 +13,8 @@ import java.util.List;
 public interface BoatRateRepository extends JpaRepository<BoatRate, Integer> {
     @Query(value = "Select * from boat_rate where accepted='false' and request='true'", nativeQuery = true)
     List<BoatRate> getAllBoatRateRequests();
+    
+    @Query(value = "Select avg(rate) from boat_rate where accepted = 'true' and boat_id = :boatId", nativeQuery = true)
+    Double getBoatAvgRate(Integer boatId);
+    
 }

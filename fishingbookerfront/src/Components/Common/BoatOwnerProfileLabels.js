@@ -100,15 +100,7 @@ export default function ProfileLabels({
               placeholder={logedBoatOwner.explanation}
             />
           </div>
-          <div className="col-md-12">
-            <label className="labels">Short Biography</label>
-            <input
-              ref={shortBiography}
-              type="text"
-              className="form-control"
-              placeholder={logedBoatOwner.shortBiography}
-            />
-          </div>
+          
         </div>
 
         <div className="mt-5 text-center">
@@ -124,7 +116,7 @@ export default function ProfileLabels({
               logedBoatOwner.email = email.current.value;
               logedBoatOwner.number = number.current.value;
               logedBoatOwner.explanation = explanation.current.value;
-              logedBoatOwner.shortBiography = shortBiography.current.value;
+              
 
               localStorage.setItem(
                 "BoatOwner",

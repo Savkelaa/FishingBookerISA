@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.BoatBehavioralRule;
 import com.isa.fishingbooker.model.BoatBehavioralRule;
 import com.isa.fishingbooker.service.BoatBehavioralRuleService;
 
@@ -54,4 +56,10 @@ public class BoatBehavioralRuleController {
 			throws ResourceNotFoundException {
 		return boatBehavioralRuleService.deleteBoatBehavioralRule(boatBehavioralRuleId);
 	}
+	
+	@GetMapping("/boatBehavioralRulesByBoat")
+	public List<BoatBehavioralRule> getBoatsBehavioralRulesByBoat(@RequestParam (value = "boatId") Integer boatId){
+		return boatBehavioralRuleService.getBoatBehavioralRulesByBoat(boatId);
+	}
+	
 }

@@ -72,4 +72,10 @@ public class AdditionalServiceController {
 	public List<AdditionalService> getAdditionalServicesByCottage(@RequestParam (value = "cottageId") Integer cottageId){
 		return additionalServiceService.getAdditionalServicesByCottage(cottageId);
 	}
+	
+	@GetMapping("/additionalServicesByBoat")
+	public List<AdditionalService> getAdditionalServicesByBoat(@RequestParam (value = "boatId") Integer boatId){
+		return additionalServiceService.getAdditionalServicesByBoat(boatId);
+	}
+	
 }

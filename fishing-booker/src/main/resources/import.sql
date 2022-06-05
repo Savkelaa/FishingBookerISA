@@ -77,21 +77,21 @@ insert into boat_navigation_equipment (id, name, description, boat_id) values (5
 insert into boat_navigation_equipment (id, name, description, boat_id) values (6, 'Quo Lux', 'vestibulum vestibulum ante ipsum primis', 4);
 insert into boat_navigation_equipment (id, name, description, boat_id) values (7, 'Ronstring', 'erat eros viverra eget congue', 2);
 
-insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (1, 12, 3, 4, 1, '8/6/2021', '12/4/2021');
-insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (2, 11, 7, 3, 7, '9/26/2021', '10/13/2021');
-insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (3, 6, 4, 5, 1, '12/16/2020', '2/11/2021');
-insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (4, 6, 3, 5, 3, '10/9/2021', '11/5/2021');
-insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (5, 2, 4, 4, 2, '8/11/2021', '9/13/2021');
-insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (6, 15, 4, 5, 3, '5/31/2021', '8/28/2021');
-insert into boat_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date) values (7, 0, 6, 5, 4, '12/30/2021', '12/14/2021');
+insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status) values (12, 2, 4, 1, '8/6/2022', '12/7/2022', 'booked');
+insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status) values (11, 7, 3, 7, '9/26/2021', '10/13/2021', 'finished');
+insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status) values (6, 2, 5, 1, '12/16/2020', '2/11/2021', 'finished');
+insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status) values (6, 3, 5, 3, '10/9/2021', '11/5/2021', 'finished');
+insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status) values (2, 4, 4, 2, '8/11/2021', '9/13/2021', 'finished');
+insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status) values (15, 4, 5, 3, '5/31/2021', '8/28/2021', 'finished');
+insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status) values (0, 6, 5, 4, '7/30/2022', '12/14/2022', 'booked');
 
-insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (1, 8, 3, 7, 1, '6/16/2021', '5/18/2021', 30);
-insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (2, 1, 2, 4, 5, '5/20/2021', '1/22/2021', 18);
-insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (3, 2, 2, 6, 4, '1/21/2021', '6/8/2021', 29);
-insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (4, 7, 4, 6, 5, '2/15/2021', '9/5/2021', 14);
-insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (5, 5, 1, 7, 6, '10/25/2021', '5/12/2021', 16);
-insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (6, 13, 3, 2, 5, '10/2/2021', '1/12/2021', 16);
-insert into boat_quick_reservation (id, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount) values (7, 12, 3, 3, 7, '11/27/2021', '12/4/2021', 11);
+insert into boat_quick_reservation (start_date_action, finish_date_action, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount, status, price) values ('6/10/2022', '6/18/2022', 8, 7, 7, 1, '6/16/2022', '6/18/2022', 30, 'booked', 120);
+insert into boat_quick_reservation (start_date_action, finish_date_action, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount, status, price) values ('8/20/2022', '1/22/2022', 1, 2, 4, 5, '8/20/2022', '1/22/2022', 18, 'finished', 100);
+insert into boat_quick_reservation (start_date_action, finish_date_action, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount, status, price) values ('8/20/2022', '1/22/2022', 2, 2, 6, 4, '9/21/2022', '9/25/2022', 29, 'free', 110);
+insert into boat_quick_reservation (start_date_action, finish_date_action, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount, status, price) values ('8/20/2022', '1/22/2022', 7, 4, 6, 5, '2/15/2021', '9/5/2021', 14, 'finished', 150);
+insert into boat_quick_reservation (start_date_action, finish_date_action, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount, status, price) values ('8/20/2022', '1/22/2022', 5, 1, 7, 6, '10/25/2021', '5/12/2021', 16, 'finished', 160);
+insert into boat_quick_reservation (start_date_action, finish_date_action, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount, status, price) values ('8/20/2022', '1/22/2022', 13, 3, 2, 5, '10/2/2021', '1/12/2021', 16, 'finished', 170);
+insert into boat_quick_reservation (start_date_action, finish_date_action, cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, discount, status, price) values ('8/20/2022', '1/22/2022', 12, 2, 3, 7, '6/4/2022', '6/10/2022', 11, 'active', 120);
 
 insert into boat_complaint (id, description, boat_reservation_id, client_id) values (1, 'congue etiam justo etiam pretium iaculis', 5, 5);
 insert into boat_complaint (id, description, boat_reservation_id, client_id) values (2, 'sapien non mi integer ac neque', 3, 2);
@@ -119,12 +119,12 @@ insert into boat_owner_rate (id, rate, boat_owner_id, client_id,accepted,request
 insert into boat_owner_rate (id, rate, boat_owner_id, client_id,accepted,request) values (7, 1, 1, 4,'false','true');
 
 insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (1, 3, 2, 6,'false','true');
-insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (2, 5, 7, 5,'false','true');
+insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (2, 5, 7, 5,'true','true');
 insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (3, 4, 5, 4,'false','true');
 insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (4, 2, 6, 6,'false','true');
 insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (5, 3, 4, 7,'false','true');
 insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (6, 5, 1, 6,'false','true');
-insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (7, 5, 7, 6,'false','true');
+insert into boat_rate (id, rate, boat_id, client_id,accepted,request) values (7, 5, 7, 6,'true','true');
 
 
 insert into cottage (name, address, price, promo_description, cottage_owner_id, num_rooms, num_beds) values ('Roma', '74 Petterle Hill', 114, 'purus eu magna vulputate', 7, 2, 2);
@@ -225,15 +225,15 @@ insert into cottage_behavioral_rule (name, description, cottage_id) values ('eti
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('6/2/2022', '6/8/2022', '12/19/2021', '10/19/2022', 4, 9, 2, 7, 'active', 110);
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2022', '12/2/2022','11/19/2021', '8/2/2022', 26, 10, 1, 1, 'booked', 120);
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2022', '12/6/2022', '11/19/2021', '3/6/2022', 25, 11, 5, 5, 'booked', 100);
-insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, cottage_id, status, price) values ('11/19/2021', '3/5/2022', '11/19/2021', '3/5/2022', 30, 1, 5, 'free', 90);
+insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2021', '3/5/2022', '11/19/2021', '3/5/2022', 30, 1, 5, 6, 'free', 90);
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2021', '5/24/2022', '11/19/2021', '5/24/2022', 28, 7, 7, 1, 'booked', 100);
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2021', '11/21/2021', '11/19/2021', '11/21/2021', 14, 5, 5, 6, 'finished', 130);
 insert into cottage_quick_reservation (start_date, finish_date, start_date_action, finish_date_action, discount, max_people, client_id, cottage_id, status, price) values ('11/19/2021', '11/20/2021', '11/19/2021', '11/20/2021', 11, 12, 7, 4, 'finished', 65);
 
 insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/20/2022', 9, 1, 7, 'finished');
-insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '3/29/2022', 3, 7, 'free');
-insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '1/11/2022', 3, 2, 'free');
-insert into cottage_reservation (start_date, finish_date, max_people, cottage_id, status) values ('11/19/2021', '12/19/2021', 1, 4, 'free');
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '3/29/2022', 3, 5, 7, 'free');
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '1/11/2022', 3, 4, 2, 'free');
+insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '12/19/2021', 1, 6, 4, 'free');
 insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '12/15/2021', 5, 6, 4, 'booked');
 insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/21/2021', 11, 2, 5, 'finished');
 insert into cottage_reservation (start_date, finish_date, max_people, client_id, cottage_id, status) values ('11/19/2021', '11/22/2021', 2, 2, 3, 'finished');
@@ -299,6 +299,7 @@ INSERT INTO image (url, fishing_class_id) VALUES ('https://dreamcastidaho.com/wp
 insert into cottageimage(url, cottage_id) VALUES ('https://www.arts.gov/sites/default/files/styles/nea_media_large_16x9/public/CottageTomMarks.jpeg?h=52605a11&itok=0gO-wCVA', 7)
 insert into cottageimage(url, cottage_id) VALUES ('https://g-pulse.com/wordpress/wp-content/uploads/2020/11/G-Pulse-cottage-interior-design-Getty-cottage-interior-Hero.jpg', 7)
 
+insert into boatimage(url, boat_id) VALUES ('https://www.quicksilver-boats.com/media/1tubmvsn/875_sundeck_running_0346_hero_2000x1125px_c.jpg?mode=crop&width=616&height=347&rnd=132800886602230000', 7)
 
 INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2022-06-01','2021-07-02',1);
 INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2022-06-04','2021-07-08',1);
