@@ -46,6 +46,9 @@ public class BoatReservation {
 	@Column(name = "max_people")
 	private int maxPeople;
 	
+	@Column(name = "status")
+	private String status;
+	
 	@Column(name = "cancellation_condition")
 	private int cancellationCondition;
 	

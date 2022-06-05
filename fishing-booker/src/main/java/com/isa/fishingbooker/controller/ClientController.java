@@ -184,6 +184,19 @@ public class ClientController {
 	public List<Client> getClientByOwnerCottageQuickReservations(@RequestParam (value = "cottageOwnerId") Integer cottageOwnerId) {
 		return clientService.getClientsByOwnerCottageQuickReservation(cottageOwnerId);
 	}
+	
+	@GetMapping("/clientsByOwnerBoatQuickReservations")
+	public List<Client> getClientByOwnerBoatQuickReservations(@RequestParam (value = "boatOwnerId") Integer cottageOwnerId, @RequestParam (value = "name") String name) {
+		return clientService.getClientsByOwnerBoatQuickReservation(cottageOwnerId, name);
+	}
+	
+	@GetMapping("/clientsByOwnerBoatReservations")
+	public List<Client> getClientByOwnerBoatReservations(@RequestParam (value = "boatOwnerId") Integer cottageOwnerId, @RequestParam (value = "name") String name) {
+		return clientService.getClientsByOwnerBoatReservation(cottageOwnerId, name);
+	}
+	
+	
+
 
 }
 

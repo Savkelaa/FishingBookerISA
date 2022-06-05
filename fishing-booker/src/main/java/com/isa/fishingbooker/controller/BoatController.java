@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.Boat;
 import com.isa.fishingbooker.model.Boat;
 import com.isa.fishingbooker.service.BoatService;
 
@@ -82,4 +84,15 @@ public class BoatController {
 	public List<Boat> getAllBoatsSortedByPriceDesc(){
 		return boatService.getAllBoatsSortedByPriceDesc();
 	}
+	
+	@GetMapping("/boatsByOwner")
+	public List<Boat> getBoatsByOwner(@RequestParam (value = "boatOwnerId") Integer boatOwnerId){
+		return boatService.getBoatsByOwner(boatOwnerId);
+	}
+	
+	@GetMapping("/boatsByOwnerAndName")
+	public List<Boat> getBoatsByOwnerAndName(@RequestParam (value = "boatOwnerId") Integer boatOwnerId, @RequestParam (value = "boatName") String boatName){
+		return boatService.getBoatsByOwnerAndName(boatOwnerId, boatName);
+	}
+	
 }

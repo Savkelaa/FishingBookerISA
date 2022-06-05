@@ -43,17 +43,29 @@ public class BoatQuickReservation {
 	@Column(name = "finish_date")
 	private LocalDate finishDate;
 	
+	@Column(name = "start_date_action")
+	private LocalDate startDateAction;
+	
+	@Column(name = "price")
+	private Double price;
+	
+	@Column(name = "finish_date_action")
+	private LocalDate finishDateAction;
+	
 	@Column(name = "max_people")
 	private int maxPeople;
 	
 	@Column(name = "discount")
 	private int discount;
 	
+	@Column(name = "status")
+	private String status;
+	
 	@Column(name = "cancellation_condition")
 	private int cancellationCondition;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="client_id", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name="client_id", nullable = true)
     private Client client;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

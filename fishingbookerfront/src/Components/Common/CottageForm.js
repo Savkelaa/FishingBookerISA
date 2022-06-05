@@ -46,17 +46,7 @@ export default function CottageForm({
                   <h5 className="mb-2 text-primary">Cottage Details</h5>
                 </div>
 
-                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div className="form-group"></div>
-                    <Link to={`/cottageAvailabilityPeriod/${id}`}>
-                            <Button
-                              style={{ width: "6.5rem" }}
-                              variant="outline-success"
-                            >
-                              Enter availability period
-                            </Button>
-                    </Link>
-                </div>
+                
 
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">

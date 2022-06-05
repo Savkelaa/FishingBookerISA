@@ -88,6 +88,12 @@ const rateServices = {
       `${process.env.REACT_APP_API_URL}cottageAvgRate?cottageId=${cottageId}`
     );
   },
+
+  getAvgRateByBoat: (boatId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}boatAvgRate?boatId=${boatId}`
+    );
+  },
 };
 
 export default rateServices;

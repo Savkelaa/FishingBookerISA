@@ -128,6 +128,16 @@ public class ClientService {
 		return clientRepository.getClientsByInstructorFishingClassQuickReservations(instructorId,name);
 	}
 	
+	public List<Client> getClientsByOwnerBoatQuickReservation(Integer boatOwnerId, String name) {
+		return clientRepository.getClientsByOwnerBoatQuickReservations(boatOwnerId, name);
+	}
+	
+	public List<Client> getClientsByOwnerBoatReservation(Integer boatOwnerId, String name) {
+		return clientRepository.getClientsByOwnerBoatReservations(boatOwnerId, name);
+	}
+	
+	
+	
 	public Client createClient(Client client) throws Exception {
 
 

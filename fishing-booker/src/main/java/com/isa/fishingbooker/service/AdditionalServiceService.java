@@ -29,6 +29,10 @@ public class AdditionalServiceService {
 		return AdditionalServiceRepository.getAdditionalServiceByFishingClass(fishingClassId);
 	}
 	
+	public List<AdditionalService> getAdditionalServicesByBoat(Integer boatId) {
+		return AdditionalServiceRepository.getAdditionalServicesByBoat(boatId);
+	}
+	
 	
 	public List<AdditionalService> getAllAdditionalServices(){
 		return this.AdditionalServiceRepository.findAll();

@@ -36,7 +36,7 @@ public interface CottageQuickReservationRepository extends JpaRepository<Cottage
 
 	@Query(value = "SELECT * FROM cottage_quick_reservation\r\n"
 			+ "INNER JOIN cottage ON cottage_quick_reservation.cottage_id = cottage.id\r\n"
-			+ "WHERE status != 'free' AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
+			+ "WHERE client.id != null AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
 	List<CottageQuickReservation> getCottageQuickReservationsByOwner(Integer cottageOwnerId);
 	
 	@Query(value = "SELECT * from cottage_quick_reservation\r\n"

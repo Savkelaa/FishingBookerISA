@@ -87,6 +87,11 @@ public class Boat {
 	
 	@JsonIgnore
     @OneToMany(mappedBy="boat",fetch=FetchType.LAZY)
+    private List<BoatImage> images ;
+	
+	
+	@JsonIgnore
+    @OneToMany(mappedBy="boat",fetch=FetchType.LAZY)
     private List<BoatNavigationEquipment> navigationEquipment ;
 	
 	@JsonIgnore

@@ -16,11 +16,11 @@ export default function CreateCottageReservationContainer() {
         if (data.status === 204) setReservation();
         else {
           setReservation(data.data);
-          console.log("sucessfuly added a reservation");
+          alert("sucessfuly added a reservation");
         }
       })
       .catch((error) => {
-        console.log("Something wen't wrong try again", error);
+        alert("Something wen't wrong try again", error);
       });
   }
 

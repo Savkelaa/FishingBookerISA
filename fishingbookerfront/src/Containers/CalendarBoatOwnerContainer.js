@@ -8,7 +8,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Footerr from "../Components/Common/Footerr";
-import cottageQuickReservationServices from "../Services/CottageQuickReservationServices/CottageQuickReservationServices";
+import boatQuickReservationServices from "../Services/BoatQuickReservationServices/BoatQuickReservationServices";
 import fishingClassQuickReservationServices from "../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
 import fishingClassServices from "../Services/FishingClassServices/FishingClassServices";
 
@@ -60,7 +60,7 @@ export default function CalendarBoatOwnerContainer() {
   console.log("allEvents", allEvents);
 
   useEffect(() => {
-    cottageQuickReservationServices
+    boatQuickReservationServices
       .getAllBoatReservationsByBoatOwner(logedInstructor.id)
       .then(({ data }) => {
         console.log("reservations", data);
@@ -76,7 +76,7 @@ export default function CalendarBoatOwnerContainer() {
       })
       .catch((error) => console.log(`error`, error));
 
-    cottageQuickReservationServices
+    boatQuickReservationServices
       .getAllBoatQuickReservationsByBoatOwner(logedInstructor.id)
       .then(({ data }) => {
         console.log("quick", data);
