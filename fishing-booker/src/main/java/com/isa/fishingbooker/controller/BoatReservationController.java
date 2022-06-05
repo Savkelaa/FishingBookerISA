@@ -47,6 +47,11 @@ public class BoatReservationController {
 		return boatReservationService.getBoatReservationsByBoatOwner(boatOwnerId);
 	}
 
+	@GetMapping("/priceCompletedBoatReservation")
+	public Double getTotalPriceCompletedBoatReservations()
+	{
+		return boatReservationService.getTotalPriceCompletedBoatReservations();
+	}
 
 	@PostMapping("/boatReservations")
 	public BoatReservation createBoatReservation(@RequestBody BoatReservation boatReservation) {

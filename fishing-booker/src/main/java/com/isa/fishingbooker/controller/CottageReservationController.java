@@ -35,6 +35,12 @@ public class CottageReservationController {
 		return this.cottageReservationService.getAllCottageReservations();
 	}
 
+	@GetMapping("/priceCompletedCottageReservation")
+	public Double getTotalPriceComplatedCottageReservations()
+	{
+		return cottageReservationService.getTotalPriceComplatedCottageReservations();
+	}
+
 	@GetMapping("/cottageReservationCottageOwner")
 	public List<CottageReservation> getCottageReservationsByCottageOwner(@RequestParam (value="cottageOwnerId")  Integer cottageOwnerId)
 	{

@@ -1,6 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
-export default function AdminProfileLabels({ logedAdmin, updateAdminHandler }) {
+export default function AdminProfileLabels({
+  logedAdmin,
+  updateAdminHandler,
+  totalPrice,
+}) {
   const name = useRef();
   const surname = useRef();
   const address = useRef();
@@ -11,6 +15,23 @@ export default function AdminProfileLabels({ logedAdmin, updateAdminHandler }) {
   const explanation = useRef();
   const money = useRef();
   const percentage = useRef();
+
+  const [percentageReservations, setpercentageReservations] = useState(
+    logedAdmin.percentage
+  );
+
+  const handleChange = (event) => {
+    setpercentageReservations(event.target.value);
+  };
+
+  const handleClick = (event) => {
+    event.preventDefault();
+
+    console.log("totalPrice", totalPrice);
+    console.log("old value: ", percentageReservations);
+
+    setpercentageReservations("Enter percentage");
+  };
 
   console.log("logedAdmin", logedAdmin);
   console.log("name", name);
@@ -103,7 +124,7 @@ export default function AdminProfileLabels({ logedAdmin, updateAdminHandler }) {
               ref={money}
               type="text"
               className="form-control"
-              placeholder={logedAdmin.money}
+              value={totalPrice}
             />
           </div>
           <div className="col-md-12">
@@ -113,11 +134,28 @@ export default function AdminProfileLabels({ logedAdmin, updateAdminHandler }) {
               type="text"
               className="form-control"
               placeholder={logedAdmin.percentage}
+              id="percentageReservations"
+              name="percentageReservations"
+              onChange={handleChange}
+              value={percentageReservations}
             />
           </div>
         </div>
 
         <div className="mt-5 text-center">
+          <button
+            onClick={(e) => {
+              handleClick(e);
+
+              logedAdmin.percentage = percentageReservations;
+              updateAdminHandler(logedAdmin);
+              localStorage.setItem("Admin", JSON.stringify(logedAdmin));
+            }}
+            className="btn btn-success profile-button"
+            type="button"
+          >
+            Update Percentage
+          </button>
           <button
             className="btn btn-success profile-button"
             type="button"

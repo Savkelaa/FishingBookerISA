@@ -27,7 +27,12 @@ public class CottageReservationService {
 	public List<CottageReservation> getAllCottageReservations(){
 		return this.CottageReservationRepository.findAll();
 	}
-		
+
+	public Double getTotalPriceComplatedCottageReservations(){
+		return this.CottageReservationRepository.getTotalPriceComplatedCottageReservations();
+	}
+
+
 	public ResponseEntity<CottageReservation> getCottageReservationById(int cottageReservationId)
 		throws ResourceNotFoundException{
 		CottageReservation cottageReservation = CottageReservationRepository.findById(cottageReservationId).orElseThrow(() -> new ResourceNotFoundException("CottageReservation not found for this id :: " + cottageReservationId));

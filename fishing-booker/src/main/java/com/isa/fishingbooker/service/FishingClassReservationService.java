@@ -34,6 +34,10 @@ public class FishingClassReservationService {
 
 
 
+	public Double getTotalPriceCompletedFishingClassReservations(){
+		return this.FishingClassReservationRepository.getTotalPriceCompletedFishingClassReservations();
+	}
+
 	
 	public List<FishingClassReservation> getAllFishingClassReservations(){
 		return this.FishingClassReservationRepository.findAll();

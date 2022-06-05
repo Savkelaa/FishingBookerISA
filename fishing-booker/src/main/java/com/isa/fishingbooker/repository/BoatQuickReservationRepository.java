@@ -30,7 +30,10 @@ public interface BoatQuickReservationRepository extends JpaRepository<BoatQuickR
 			"WHERE boat_owner_id = :boatOwnerId", nativeQuery = true)
 	List<BoatQuickReservation> getBoatQuickReservationsByBoatOwner(Integer boatOwnerId);
 
-
+	@Query(value = "Select sum(boat.price) from boat\n" +
+			"INNER JOIN boat_quick_reservation on boat.id = boat_quick_reservation.boat_id\n" +
+			"where finish_date <CURRENT_TIMESTAMP ", nativeQuery = true)
+	Double getTotalPriceCompletedBoatQuickReservations();
 
 	@Query(value="select * from boat_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date desc ", nativeQuery=true)
 	List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClientSortedByDateDesc(Integer clientId);

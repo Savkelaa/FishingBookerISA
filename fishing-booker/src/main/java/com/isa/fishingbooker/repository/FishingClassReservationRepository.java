@@ -33,6 +33,11 @@ public interface FishingClassReservationRepository extends JpaRepository<Fishing
 			+ "WHERE instructor_id = :instructorId", nativeQuery = true)
 	List<FishingClassReservation> getFishingClassReservationsByInstructor(Integer instructorId);
 
+	@Query(value = "Select sum(fishing_class_reservation.price) from fishing_class\n" +
+			"INNER JOIN fishing_class_reservation on fishing_class.id = fishing_class_reservation.fishing_class_id\n" +
+			"where finish_date <CURRENT_TIMESTAMP and status='finished'", nativeQuery = true)
+	Double getTotalPriceCompletedFishingClassReservations();
+
 
 	@Query(value = "SELECT * from fishing_class_reservation\r\n"
 			+ "INNER JOIN fishing_class on fishing_class_reservation.fishing_class_id = fishing_class.id\r\n"

@@ -28,6 +28,12 @@ public interface FishingClassQuickReservationRepository extends JpaRepository<Fi
 			+ "WHERE instructor_id = :instructorId", nativeQuery = true)
 	List<FishingClassQuickReservation> getFishingClassQuickReservationsByInstructor(Integer instructorId);
 
+	@Query(value = "Select sum(fishing_class_quick_reservation.price) from fishing_class\n" +
+			"INNER JOIN fishing_class_quick_reservation on fishing_class.id = fishing_class_quick_reservation.fishing_class_id\n" +
+			"where finish_date <CURRENT_TIMESTAMP and status='finished'", nativeQuery = true)
+	Double getTotalPriceCompletedFishingClassQuickReservations();
+
+
 
 	@Query(value = "SELECT * FROM fishing_class_quick_reservation\r\n"
 	+ "	INNER JOIN fishing_class ON fishing_class_quick_reservation.fishing_class_id = fishing_class.id\r\n"
