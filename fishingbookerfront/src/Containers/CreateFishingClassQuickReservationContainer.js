@@ -9,6 +9,9 @@ export default function CreateFishingClassQuickReservationContainer() {
   const [quickReservation, setQuickReservation] = useState();
   // const [allAdditionalServices, setAdditionalServices] = useState([]);
   const [tags, setTags] = useState([]);
+  const [reservations, setReservations] = useState([]);
+
+  var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
 
   function createFishingClassQuickReservation(quickReservation) {
     FishingClassQuickReservationServices.createFishingClassQuickReservation(
