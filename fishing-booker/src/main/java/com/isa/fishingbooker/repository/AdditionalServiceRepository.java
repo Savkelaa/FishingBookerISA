@@ -30,6 +30,8 @@ public interface AdditionalServiceRepository extends JpaRepository<AdditionalSer
 	List<AdditionalService> getAdditionalServicesByCottage(Integer cottageId);
 
 
+
+
 	@Query(value = "SELECT name from additional_service", nativeQuery = true)
 	List<String> getAllAdditionalServiceNames();
 	

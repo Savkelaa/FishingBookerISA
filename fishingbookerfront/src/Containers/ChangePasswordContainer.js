@@ -12,12 +12,15 @@ function ChangePasswordContainer() {
   const [admin, setAdmin] = useState([]);
 
   var logedAdmin = JSON.parse(localStorage.getItem("Admin"));
+  const history = useHistory();
 
   function changePassword(admin) {
     userServices
       .changePassword(admin)
       .then((data) => {
         console.log("sucessfuly updated Admin");
+        alert("Sucessfuly updated Admin password.");
+        history.push("/adminHomePage");
       })
       .catch((error) => {
         console.log("Something wen't wrong try again", error);

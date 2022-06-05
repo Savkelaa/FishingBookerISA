@@ -21,20 +21,20 @@ export default function ClientHomePage() {
   const [fishingClassesByInstructor, setfishingClassesByInstructor] = useState(
     []
   );
+  //const [countPoints, setCountPoints] = useState();
 
   var logedClient = JSON.parse(localStorage.getItem("Client"));
 
-  console.log("numFishingClass", numFishingClass);
-  console.log("numFishingClassQuick", numFishingClassQuick);
-  console.log("numBoat", numBoat);
-  console.log("numBoatQuick", numBoatQuick);
-  console.log("numCottage", numCottage);
-  console.log("numCottageQuick", numCottageQuick);
-  console.log(
-    "pointsByFinishedReservation",
-    pointsByFinishedReservation.points
-  );
-
+  // console.log("numFishingClass", numFishingClass);
+  // console.log("numFishingClassQuick", numFishingClassQuick);
+  // console.log("numBoat", numBoat);
+  // console.log("numBoatQuick", numBoatQuick);
+  // console.log("numCottage", numCottage);
+  // console.log("numCottageQuick", numCottageQuick);
+  // console.log(
+  //   "pointsByFinishedReservation",
+  //   pointsByFinishedReservation.points
+  // );
   logedClient.points =
     (numFishingClass +
       numFishingClassQuick +
@@ -43,13 +43,15 @@ export default function ClientHomePage() {
       numCottage +
       numCottageQuick) *
     pointsByFinishedReservation.points;
-
   useEffect(() => {
+    var countPoints = 0;
+
     userServices
       .getNumberOfFinishedFishingClassReservations(logedClient.id)
       .then((data) => {
         setNumFishingClass(data.data);
-        console.log("data.data", data.data);
+        console.log("numFishing", data.data);
+        countPoints = countPoints + data.data;
       })
       .catch((error) => console.log(`error`, error));
 
@@ -57,7 +59,8 @@ export default function ClientHomePage() {
       .getNumberOfFinishedFishingClassQuickReservations(logedClient.id)
       .then((data) => {
         setNumFishingClassQuick(data.data);
-        console.log("data.data", data.data);
+        console.log("numFishingQuick", data.data);
+        countPoints = countPoints + data.data;
       })
       .catch((error) => console.log(`error`, error));
 
@@ -65,7 +68,8 @@ export default function ClientHomePage() {
       .getNumberOfFinishedBoatReservations(logedClient.id)
       .then((data) => {
         setNumBoat(data.data);
-        console.log("data.data", data.data);
+        console.log("numBoat", data.data);
+        countPoints = countPoints + data.data;
       })
       .catch((error) => console.log(`error`, error));
 
@@ -73,7 +77,8 @@ export default function ClientHomePage() {
       .getNumberOfFinishedBoatQuickReservations(logedClient.id)
       .then((data) => {
         setNumBoatQuick(data.data);
-        console.log("data.data", data.data);
+        console.log("numBoatQuick", data.data);
+        countPoints = countPoints + data.data;
       })
       .catch((error) => console.log(`error`, error));
 
@@ -82,7 +87,8 @@ export default function ClientHomePage() {
       .then((data) => {
         setNumCottage(data.data);
         setClient(logedClient);
-        console.log("data.data", data.data);
+        console.log("numCottage", data.data);
+        countPoints = countPoints + data.data;
       })
       .catch((error) => console.log(`error`, error));
 
@@ -90,7 +96,9 @@ export default function ClientHomePage() {
       .getNumberOfFinishedCottageQuickReservations(logedClient.id)
       .then((data) => {
         setNumCottageQuick(data.data);
-        console.log("data.data", data.data);
+        console.log("numCottageQuick", data.data);
+        countPoints = countPoints + data.data;
+        console.log("countPoints", countPoints);
       })
       .catch((error) => console.log(`error`, error));
 
@@ -98,30 +106,28 @@ export default function ClientHomePage() {
       .getReservationPoints()
       .then((data) => {
         setPointsByFinishedReservation(data.data);
-        console.log("data.data", data.data);
+        console.log("poeni", data.data.points);
         setClient(logedClient);
+        userServices
+          .getLoyaltyCategoryByPoints(2 * data.data.points)
+          .then((data) => {
+            setGroup(data.data);
+            console.log("KATEGORIJA", data.data);
+          })
+          .catch((error) => console.log(`error`, error));
       })
       .catch((error) => console.log(`error`, error));
 
+    localStorage.setItem("Category", JSON.stringify(group));
     //  userServices
     //    .getLoyaltyCategoryByPoints(logedClient.points)
-    //    .then((data) => {
     //     setGroup(data.data);
     //   console.log("data.data", data.data);
     //   })
     //   .catch((error) => console.log(`error`, error));
   }, []);
 
-  useEffect(() => {
-    userServices
-      .getLoyaltyCategoryByPoints(logedClient.points)
-      .then((data) => {
-        setGroup(data.data);
-        console.log("KATEGORIJA", data.data);
-        localStorage.setItem("Category", JSON.stringify(data.data.content));
-      })
-      .catch((error) => console.log(`error`, error));
-  }, [client]);
+  useEffect(() => {}, [client]);
 
   function sendInstructorDeleteRequest(instructor) {
     userServices

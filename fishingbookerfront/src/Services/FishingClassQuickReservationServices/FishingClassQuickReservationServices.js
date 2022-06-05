@@ -76,6 +76,49 @@ const fishingClassQuickReservationServices = {
       `${process.env.REACT_APP_API_URL}dateSpanInstructor?instructorId=${instructorId}`
     );
   },
+
+  /// UKUPNA KOLICINA NOVCA PO REZERVACIJAMA
+  //FISHING CLASS
+
+  getTotalPriceCompletedFishinClassReservations: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}priceCompletedFishingClassReservation`
+    );
+  },
+
+  getTotalPriceCompletedFishinClassQuickReservations: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}priceCompletedFishingClassQuickReservation`
+    );
+  },
+
+  //BOAT
+
+  getTotalPriceCompletedBoatReservations: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}priceCompletedBoatReservation`
+    );
+  },
+
+  getTotalPriceCompletedBoatQuickReservations: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}priceCompletedBoatQuickReservation`
+    );
+  },
+
+  //COTTAGE
+
+  getTotalPriceCompletedCottageReservations: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}priceCompletedCottageReservation`
+    );
+  },
+
+  getTotalPriceCompletedCottageQuickReservations: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}priceCompletedCottageQuickReservation`
+    );
+  },
 };
 
 export default fishingClassQuickReservationServices;

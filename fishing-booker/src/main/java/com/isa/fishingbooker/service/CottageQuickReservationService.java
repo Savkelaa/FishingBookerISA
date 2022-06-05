@@ -25,6 +25,9 @@ public class CottageQuickReservationService {
 		return this.CottageQuickReservationRepository.findAll();
 	}
 
+	public Double getTotalPriceComplatedCottageQuickReservations(){
+		return this.CottageQuickReservationRepository.getTotalPriceComplatedCottageQuickReservations();
+	}
 
 	public List<CottageQuickReservation> getCottageQuickReservationsByCottageOwner(Integer cottageOwnerId)
 	{

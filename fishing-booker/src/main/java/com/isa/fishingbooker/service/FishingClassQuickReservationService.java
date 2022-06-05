@@ -42,6 +42,10 @@ public class FishingClassQuickReservationService {
 		return this.FishingClassQuickReservationRepository.findAll();
 	}
 
+	public Double getTotalPriceCompletedFishingClassQuickReservations(){
+		return this.FishingClassQuickReservationRepository.getTotalPriceCompletedFishingClassQuickReservations();
+	}
+
 	public List<FishingClassQuickReservation> getFishingClassQuickReservationsByInstructor(Integer instructorId)
 	{
 		return FishingClassQuickReservationRepository.getFishingClassQuickReservationsByInstructor(instructorId);

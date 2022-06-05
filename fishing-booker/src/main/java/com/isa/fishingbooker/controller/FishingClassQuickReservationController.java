@@ -43,7 +43,11 @@ public class FishingClassQuickReservationController {
 		return fishingClassQuickReservationService.getFishingClassQuickReservationsByInstructor(instructorId);
 	}
 
-
+	@GetMapping("/priceCompletedFishingClassQuickReservation")
+	public Double getTotalPriceCompletedFishingClassQuickReservations()
+	{
+		return fishingClassQuickReservationService.getTotalPriceCompletedFishingClassQuickReservations();
+	}
 
 	@GetMapping("/fishingClassFreeQuickReservation")
 	public List<FishingClassQuickReservation> getAllFreeFishingClassQuickReservation(@RequestParam (value="fishingClassId")  Integer fishingClassId)

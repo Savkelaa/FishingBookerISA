@@ -35,6 +35,12 @@ public class CottageQuickReservationController {
 		return this.cottageQuickReservationService.getAllCottageQuickReservations();
 	}
 
+	@GetMapping("/priceCompletedCottageQuickReservation")
+	public Double getTotalPriceComplatedCottageQuickReservations()
+	{
+		return cottageQuickReservationService.getTotalPriceComplatedCottageQuickReservations();
+	}
+
 	@GetMapping("/cottageQuickReservationCottageOwner")
 	public List<CottageQuickReservation> getCottageQuickReservationsByCottageOwner(@RequestParam (value="cottageOwnerId")  Integer cottageOwnerId)
 	{

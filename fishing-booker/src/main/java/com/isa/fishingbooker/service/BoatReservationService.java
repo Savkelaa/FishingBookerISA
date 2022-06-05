@@ -33,6 +33,11 @@ public class BoatReservationService {
 	 return ResponseEntity.ok().body(boatReservation);
 	}
 
+	public Double getTotalPriceCompletedBoatReservations(){
+		return this.BoatReservationRepository.getTotalPriceCompletedBoatReservations();
+	}
+
+
 	public List<BoatReservation> getBoatReservationsByBoatOwner(Integer boatOwnerId)
 	{
 		return BoatReservationRepository.getBoatReservationsByBoatOwner(boatOwnerId);

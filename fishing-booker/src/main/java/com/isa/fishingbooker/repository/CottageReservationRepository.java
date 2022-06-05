@@ -27,6 +27,11 @@ public interface CottageReservationRepository extends JpaRepository<CottageReser
 			+ "WHERE status != 'free' AND cottage_owner_id = :cottageOwnerId", nativeQuery = true)
 	List<CottageReservation> getCottageReservationsByOwner(Integer cottageOwnerId);
 
+	@Query(value = "Select sum(cottage.price) from cottage\n" +
+			"INNER JOIN cottage_reservation on cottage.id = cottage_reservation.cottage_id\n" +
+			"where finish_date <CURRENT_TIMESTAMP and status='finished'", nativeQuery = true)
+	Double getTotalPriceComplatedCottageReservations();
+
 
 	@Query(value = "SELECT * FROM cottage_reservation\n" +
 			"INNER JOIN cottage ON cottage_reservation.cottage_id = cottage.id\n" +

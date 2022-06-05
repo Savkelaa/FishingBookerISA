@@ -39,6 +39,10 @@ public class BoatQuickReservationService {
 	}
 
 
+	public Double getTotalPriceCompletedBoatQuickReservations(){
+		return this.BoatQuickReservationRepository.getTotalPriceCompletedBoatQuickReservations();
+	}
+
 	public BoatQuickReservation createBoatQuickReservation(BoatQuickReservation boatQuickReservation) {
 		return BoatQuickReservationRepository.save(boatQuickReservation);
 	}

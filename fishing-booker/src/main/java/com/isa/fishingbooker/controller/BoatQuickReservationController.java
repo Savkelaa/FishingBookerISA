@@ -57,6 +57,12 @@ public class BoatQuickReservationController {
 		return boatQuickReservationService.getBoatQuickReservationsByBoatOwner(boatOwnerId);
 	}
 
+	@GetMapping("/priceCompletedBoatQuickReservation")
+	public Double getTotalPriceCompletedBoatQuickReservations()
+	{
+		return this.boatQuickReservationService.getTotalPriceCompletedBoatQuickReservations();
+	}
+
 	@DeleteMapping("/boatQuickReservations/{id}")
 	public Map<String, Boolean> deleteBoatQuickReservation(@PathVariable(value = "id") int boatQuickReservationId)
 			throws ResourceNotFoundException {

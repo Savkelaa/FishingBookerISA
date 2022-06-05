@@ -28,6 +28,10 @@ public interface CottageQuickReservationRepository extends JpaRepository<Cottage
 			"WHERE cottage_owner_id = :cottageOwnerId", nativeQuery = true)
 	List<CottageQuickReservation> getCottageQuickReservationsByCottageOwner(Integer cottageOwnerId);
 
+	@Query(value = "Select sum(cottage_quick_reservation.price) from cottage\n" +
+			"INNER JOIN cottage_quick_reservation on cottage.id = cottage_quick_reservation.cottage_id\n" +
+			"where finish_date <CURRENT_TIMESTAMP and status='finished' ", nativeQuery = true)
+	Double getTotalPriceComplatedCottageQuickReservations();
 
 
 	@Query(value = "SELECT * FROM cottage_quick_reservation\r\n"
