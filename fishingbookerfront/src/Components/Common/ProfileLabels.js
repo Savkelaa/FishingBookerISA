@@ -4,8 +4,16 @@ export default function ProfileLabels({
   logedInstructor,
   sendInstructorDeleteRequestHandler,
   updateInstructorHandler,
+  points,
+  group,
+  numfishingClassesByInstructor,
+  pointsByFinishedReservation,
 }) {
   console.log("logedInstructor", logedInstructor);
+  console.log("group", group);
+  console.log("points", points);
+
+  var grupa = JSON.parse(localStorage.getItem("Category"));
 
   const deleteReason = useRef();
   const name = useRef();
@@ -107,6 +115,24 @@ export default function ProfileLabels({
               type="text"
               className="form-control"
               placeholder={logedInstructor.shortBiography}
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Loyalty Points</label>
+            <input
+              type="text"
+              className="form-control"
+              value={
+                numfishingClassesByInstructor * pointsByFinishedReservation
+              }
+            />
+          </div>
+          <div className="col-md-12">
+            <label className="labels">Loyalty Category</label>
+            <input
+              type="text"
+              className="form-control"
+              value={grupa[0]?.name}
             />
           </div>
         </div>
