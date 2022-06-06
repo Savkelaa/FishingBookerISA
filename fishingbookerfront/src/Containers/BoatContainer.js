@@ -11,11 +11,13 @@ import { useParams } from "react-router";
 import boatQuickReservationServices from "../Services/BoatQuickReservationServices/BoatQuickReservationServices";
 import rateServices from "../Services/RateServices/RateServices";
 
+ 
 function BoatContainer() {
   let { id } = useParams();
   const [boat, setBoat] = useState({});
   const [behavioralRule, setbehavioralRule] = useState([]);
   const [additionalItems, setAdditionalItems] = useState([]);
+  const [fishingEquipments, setFishingEquipments] = useState([]);
   const [avgRate, setavgRate] = useState([]);
   const [actions, setActions] = useState([]);
   const [images, setImages] = useState([]);
@@ -64,6 +66,13 @@ function BoatContainer() {
         setavgRate(data.data);
       })
       .catch((error) => console.log(`error`, error));
+
+      boatServices
+      .getFishingEquipmentBoat()
+      .then((data) => {
+        setFishingEquipments(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
       
   }, []);
 
@@ -97,6 +106,7 @@ function BoatContainer() {
         boat={boat}
         behavioralRule={behavioralRule}
         additionalItems={additionalItems}
+        fishingEquipments={fishingEquipments}
         actions={actions}
         avgRate={avgRate}
         updateBoatHandler={updateBoat}

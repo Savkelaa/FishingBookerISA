@@ -32,6 +32,11 @@ public class FishingEquipmentService {
 	{
 		return FishingEquipmentRepository.getAllFishingEquipmentsFishingClass();
 	}
+	
+	public List<FishingEquipment> getAllFishingEquipmentsBoat()
+	{
+		return FishingEquipmentRepository.getAllFishingEquipmentsBoat();
+	}
 
 	public List<FishingEquipment> getAllFishingEquipments(){
 		return this.FishingEquipmentRepository.findAll();

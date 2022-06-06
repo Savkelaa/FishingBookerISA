@@ -6,14 +6,18 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -70,9 +74,7 @@ public class CottageQuickReservation {
     @JoinColumn(name="cottage_id", nullable = false)
     private Cottage cottage;
 	
-	@JsonIgnore
-    @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY)
-    private List<AdditionalService> additionalServices ;
+	;
 	
 	@JsonIgnore
     @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY)
@@ -81,4 +83,15 @@ public class CottageQuickReservation {
 	@JsonIgnore
     @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY)
     private List<CottageComplaint> cottageComplaint ;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+			joinColumns = @JoinColumn(name="cottage_quick_reservation_id", referencedColumnName = "id"),
+		inverseJoinColumns = @JoinColumn(name="additional_service_id",referencedColumnName = "id"))
+	private List<AdditionalService> additionalServices;
+	
+	@ElementCollection
+	@OrderColumn(name = "additional_services")
+	private String[] additionalServicess;
+	
 }

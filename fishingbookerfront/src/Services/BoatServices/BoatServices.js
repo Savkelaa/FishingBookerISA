@@ -50,8 +50,13 @@ const boatServices = {
     return axios.get(
       `${process.env.REACT_APP_API_URL}boatsByOwnerAndName?boatOwnerId=${boatOwnerId}&boatName=${boatName}`
     );
-  }
+  },
 
+  getFishingEquipmentBoat: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingEquipmentsBoat`
+    );
+  },
 
 };
 

@@ -15,6 +15,7 @@ export default function BoatForm({
   avgRate,
   updateBoatHandler,
   deleteBoatHandler,
+  fishingEquipments,
   images,
 }) {
   console.log(`boat`, boat);
@@ -227,6 +228,20 @@ export default function BoatForm({
                     <ListGroup>
                       {behavioralRule.map((rule) => (
                         <ListGroup.Item>{rule.name}</ListGroup.Item>
+                      ))}
+                    </ListGroup>
+                  </div>
+                </div>
+
+                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div className="form-group">
+                    <h6 for="ciTy">Fishing Equipments</h6>
+                    <ListGroup>
+                      {fishingEquipments.map((fishingEquipment) => (
+                        <ListGroup.Item>
+                          {fishingEquipment.name} :{" "}
+                          {fishingEquipment.description}
+                        </ListGroup.Item>
                       ))}
                     </ListGroup>
                   </div>
