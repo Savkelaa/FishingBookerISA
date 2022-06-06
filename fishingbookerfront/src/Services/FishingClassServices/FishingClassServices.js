@@ -457,6 +457,24 @@ const fishingClassServices = {
       `${process.env.REACT_APP_API_URL}yearlyFishingClassReservation?fishingClassId=${fishingClassId}`
     );
   },
+
+  getYearlyIncomeByFishingClass: (fishingClassId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}yearlyFishingClassIncome?fishingClassId=${fishingClassId}`
+    );
+  },
+
+  getMonthlyIncomeByFishingClass: (fishingClassId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}monthlyFishingClassIncome?fishingClassId=${fishingClassId}`
+    );
+  },
+
+  getWeeklyIncomeByFishingClass: (fishingClassId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}weeklyFishingClassIncome?fishingClassId=${fishingClassId}`
+    );
+  },
 };
 
 export default fishingClassServices;

@@ -19,6 +19,9 @@ export default function FcForm({
   weeklyRes,
   monthlyRes,
   yearlyRes,
+  weeklyIncome,
+  monthlyIncome,
+  yearlyIncome,
 }) {
   console.log(`fishingClass`, fishingClass);
   console.log(`behavioralRule`, behavioralRule);
@@ -50,6 +53,21 @@ export default function FcForm({
     },
   ];
 
+  const series1 = [
+    {
+      name: "Weekly",
+      data: [weeklyIncome],
+    },
+    {
+      name: "Monthly",
+      data: [monthlyIncome],
+    },
+    {
+      name: "Yearly",
+      data: [yearlyIncome],
+    },
+  ];
+
   const [aa, setAa] = useState({
     options: {
       chart: {
@@ -72,7 +90,7 @@ export default function FcForm({
         colors: "transparent",
       },
       xaxis: {
-        categories: ["Cottage Report"],
+        categories: ["Fishing class Report"],
       },
       yaxis: {
         title: {
@@ -300,6 +318,14 @@ export default function FcForm({
                 <ReactApexChart
                   options={aa.options}
                   series={series}
+                  type="bar"
+                  height={350}
+                />
+              </div>
+              <div id="chart">
+                <ReactApexChart
+                  options={aa.options}
+                  series={series1}
                   type="bar"
                   height={350}
                 />

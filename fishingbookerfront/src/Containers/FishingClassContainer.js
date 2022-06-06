@@ -25,7 +25,32 @@ function FishingClassContainer() {
   const [yearlyRes, setYearlyRes] = useState([]);
   const history = useHistory();
 
+  const [weeklyIncome, setWeeklyIncome] = useState([]);
+  const [monthlyIncome, setMonthlyIncome] = useState([]);
+  const [yearlyIncome, setYearlyIncome] = useState([]);
+
   useEffect(() => {
+    fishingClassServices
+      .getWeeklyIncomeByFishingClass(id)
+      .then((data) => {
+        setWeeklyIncome(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+    fishingClassServices
+      .getMonthlyIncomeByFishingClass(id)
+      .then((data) => {
+        setMonthlyIncome(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+    fishingClassServices
+      .getYearlyIncomeByFishingClass(id)
+      .then((data) => {
+        setYearlyIncome(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
     fishingClassServices
       .getFishingClassById(id)
       .then((data) => {
@@ -140,6 +165,9 @@ function FishingClassContainer() {
         weeklyRes={weeklyRes}
         monthlyRes={monthlyRes}
         yearlyRes={yearlyRes}
+        weeklyIncome={weeklyIncome}
+        monthlyIncome={monthlyIncome}
+        yearlyIncome={yearlyIncome}
       ></FcForm>
       <Footerr></Footerr>
     </div>
