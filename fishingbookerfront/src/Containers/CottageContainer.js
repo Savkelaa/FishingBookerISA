@@ -17,6 +17,9 @@ function CottageContainer() {
   const [behavioralRule, setbehavioralRule] = useState([]);
   const [additionalItems, setAdditionalItems] = useState([]);
   const [avgRate, setavgRate] = useState([]);
+  const [weeklyRes, setWeeklyRes] = useState([]);
+  const [monthlyRes, setMonthlyRes] = useState([]);
+  const [yearlyRes, setYearlyRes] = useState([]);
   const [actions, setActions] = useState([]);
   const [images, setImages] = useState([]);
 
@@ -27,6 +30,29 @@ function CottageContainer() {
         setCottage(data.data);
       })
       .catch((error) => alert(`error`, error));
+
+    cottageServices
+      .getWeeklyNumReservationsByCottage(id)
+      .then((data) => {
+        setWeeklyRes(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+    cottageServices
+    .getMonthlyNumReservationsByCottage(id)
+    .then((data) => {
+      setMonthlyRes(data.data);
+    })
+    .catch((error) => alert(`error`, error));
+
+    cottageServices
+      .getYearlyNumReservationsByCottage(id)
+      .then((data) => {
+        setYearlyRes(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+
 
     cottageServices
       .getBehavioralRuleByCottage(id)
@@ -96,6 +122,9 @@ function CottageContainer() {
         additionalItems={additionalItems}
         actions={actions}
         avgRate={avgRate}
+        weeklyRes={weeklyRes}
+        monthlyRes={monthlyRes}
+        yearlyRes={yearlyRes}
         updateCottageHandler={updateCottage}
         deleteCottageHandler={deleteCottage}
         images={images}

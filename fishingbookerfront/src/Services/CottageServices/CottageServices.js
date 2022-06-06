@@ -49,7 +49,25 @@ const cottageServices = {
     return axios.get(
       `${process.env.REACT_APP_API_URL}cottagesByOwnerAndName?cottageOwnerId=${cottageOwnerId}&cottageName=${cottageName}`
     );
-  }
+  },
+
+  getWeeklyNumReservationsByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}weeklyCottageReservation?cottageId=${cottageId}`
+    )
+  },
+
+  getMonthlyNumReservationsByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}monthlyCottageReservation?cottageId=${cottageId}`
+    )
+  },
+
+  getYearlyNumReservationsByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}yearlyCottageReservation?cottageId=${cottageId}`
+    )
+  },
 };
 
 export default cottageServices;

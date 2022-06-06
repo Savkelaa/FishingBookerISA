@@ -56,6 +56,19 @@ public interface CottageQuickReservationRepository extends JpaRepository<Cottage
 			+ "WHERE cottage_id = :cottageId", nativeQuery = true)
 	List<CottageQuickReservation> getCottageQuickReservationsByCottage(Integer cottageId);
 	
+	@Query(value = "select count (*) from cottage_quick_reservation where cottage_id = :cottageId "
+			+ "and finish_date > current_date-350\r\n", nativeQuery = true)
+	Double CountYearlyCottageQuickReservations(Integer cottageId);
+	
+	@Query(value = "select count (*) from cottage_reservation where cottage_id = :cottageId "
+			+ "and finish_date > current_date-30\r\n", nativeQuery = true)
+	Double CountMonthlyCottageQuickReservations(Integer cottageId);
+	
+	@Query(value = "select count (*) from cottage_reservation where cottage_id = :cottageId "
+			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
+	Double CountWeeklyCottageQuickReservations(Integer cottageId);
+	
+	
 	
 	
 	@Query(value="select * from cottage_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date asc ", nativeQuery=true)

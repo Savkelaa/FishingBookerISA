@@ -49,4 +49,16 @@ public interface BoatReservationRepository extends JpaRepository<BoatReservation
 			+ "WHERE boat_reservation.status != 'free' AND boat_owner_id = :boatOwnerId", nativeQuery = true)
 	List<BoatReservation> getBoatReservationsByOwner(Integer boatOwnerId);
 	
+	@Query(value = "select count (*) from boat_reservation where boat_id = :boatId "
+			+ "and finish_date > current_date-350\r\n", nativeQuery = true)
+	Double CountYearlyBoatReservations(Integer boatId);
+	
+	@Query(value = "select count (*) from boat_reservation where boat_id = :boatId "
+			+ "and finish_date > current_date-30\r\n", nativeQuery = true)
+	Double CountMonthlyBoatReservations(Integer boatId);
+	
+	@Query(value = "select count (*) from boat_reservation where boat_id = :boatId "
+			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
+	Double CountWeeklyBoatReservations(Integer boatId);
+	
 }

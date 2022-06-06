@@ -37,6 +37,18 @@ public interface CottageReservationRepository extends JpaRepository<CottageReser
 			"INNER JOIN cottage ON cottage_reservation.cottage_id = cottage.id\n" +
 			"WHERE cottage_owner_id = :cottageOwnerId", nativeQuery = true)
 	List<CottageReservation> getCottageReservationsByCottageOwner(Integer cottageOwnerId);
+	
+	@Query(value = "select count (*) from cottage_reservation where cottage_id = :cottageId "
+			+ "and finish_date > current_date-350\r\n", nativeQuery = true)
+	Double CountYearlyCottageReservations(Integer cottageId);
+	
+	@Query(value = "select count (*) from cottage_reservation where cottage_id = :cottageId "
+			+ "and finish_date > current_date-30\r\n", nativeQuery = true)
+	Double CountMonthlyCottageReservations(Integer cottageId);
+	
+	@Query(value = "select count (*) from cottage_reservation where cottage_id = :cottageId "
+			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
+	Double CountWeeklyCottageReservations(Integer cottageId);
 
 
 	@Query(value = "SELECT * from cottage_reservation\r\n"

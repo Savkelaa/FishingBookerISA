@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { ListGroup, Image } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
@@ -9,6 +9,7 @@ import slika from "../../Assets/img/slika1.jpg";
 import {
   Button,
  } from "react-bootstrap";
+ import ReactApexChart from 'react-apexcharts'
 
 export default function CottageForm({
   behavioralRule,
@@ -19,6 +20,9 @@ export default function CottageForm({
   updateCottageHandler,
   deleteCottageHandler,
   images,
+  weeklyRes,
+  monthlyRes,
+  yearlyRes,
 }) {
   console.log(`cottage`, cottage);
   console.log(`behavioralRule`, behavioralRule);
@@ -26,6 +30,9 @@ export default function CottageForm({
   console.log(`actions`, actions);
   console.log("images", images);
   console.log("averageRate", avgRate);
+  console.log("weeklyRes", weeklyRes);
+  console.log("monthlyRes", monthlyRes);
+  console.log("yearlyRes", yearlyRes);
 
   const name = useRef(cottage.name);
   const address = useRef(cottage.address);
@@ -33,7 +40,70 @@ export default function CottageForm({
   const price = useRef(cottage.price);
   const num_rooms = useRef(cottage.numRooms);
   const num_beds = useRef(cottage.numBeds);
-  let { id } = useParams();
+  
+
+  const series = [{
+    name: 'Weekly',
+    data: [weeklyRes]
+  }, {
+    name: 'Monthly',
+    data: [monthlyRes]
+  }, {
+    name: 'Yearly',
+    data: [yearlyRes]
+  }];
+
+  
+  const [aa, setAa] = useState({
+    
+    options: {
+      chart: {
+        type: 'bar',
+        height: 350
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '55%',
+          endingShape: 'rounded'
+        },
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        show: true,
+        width: 2,
+        colors: 'transparent'
+      },
+      xaxis: {
+        categories: ['Cottage Report']
+      },
+      yaxis: {
+        title: {
+          text: 'Number'
+          
+        }
+      },
+      fill: {
+        opacity: 1
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return val 
+          }
+        }
+      }
+    },
+  
+  
+  });
+
+  
+
+  
+
 
   return (
     <div className="container">
@@ -216,6 +286,10 @@ export default function CottageForm({
                   />
                 ))}
               </div>
+
+              <div id="chart">
+  <ReactApexChart  options={aa.options} series={series} type="bar" height={350} /> 
+  </div>
 
             
 

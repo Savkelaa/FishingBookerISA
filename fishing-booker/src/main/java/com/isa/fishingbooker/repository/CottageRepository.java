@@ -36,4 +36,6 @@ public interface CottageRepository extends JpaRepository<Cottage, Integer> {
 	
 	@Query(value="select * from cottage order by price desc",nativeQuery=true)
 	List<Cottage> getAllCottagesSortedByPriceDesc();
+	
+	
 }
