@@ -81,6 +81,21 @@ public class CottageController {
 		return cottageService.getAllCottagesSortedByNameAsc();
 	}
 	
+	@GetMapping("/weeklyCottageReservation")
+	public Double getWeeklyCottageReservation(@RequestParam (value = "cottageId") Integer cottageId){
+		return cottageService.getWeeklyReservationsByCottage(cottageId);
+	}
+	
+	@GetMapping("/monthlyCottageReservation")
+	public Double getMonthlyCottageReservation(@RequestParam (value = "cottageId") Integer cottageId){
+		return cottageService.getMonthlyReservationsByCottage(cottageId);
+	}
+	
+	@GetMapping("/yearlyCottageReservation")
+	public Double getYearlyCottageReservation(@RequestParam (value = "cottageId") Integer cottageId){
+		return cottageService.getYearlyReservationsByCottage(cottageId);
+	}
+	
 	@GetMapping("/allCottagesOrderedByNameDesc")
 	public 	List<Cottage> getAllCottagesSortedByNameDesc(){
 		return cottageService.getAllCottagesSortedByNameDesc();

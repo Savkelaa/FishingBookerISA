@@ -46,6 +46,24 @@ const boatServices = {
     )
   },
 
+  getWeeklyNumReservationsByBoat: (boatId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}weeklyBoatReservation?boatId=${boatId}`
+    )
+  },
+
+  getMonthlyNumReservationsByBoat: (boatId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}monthlyBoatReservation?boatId=${boatId}`
+    )
+  },
+
+  getYearlyNumReservationsByBoat: (boatId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}yearlyBoatReservation?boatId=${boatId}`
+    )
+  },
+
   searchBoatByName: (boatOwnerId, boatName) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}boatsByOwnerAndName?boatOwnerId=${boatOwnerId}&boatName=${boatName}`

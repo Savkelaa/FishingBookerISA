@@ -21,12 +21,36 @@ function BoatContainer() {
   const [avgRate, setavgRate] = useState([]);
   const [actions, setActions] = useState([]);
   const [images, setImages] = useState([]);
+  const [weeklyRes, setWeeklyRes] = useState([]);
+  const [monthlyRes, setMonthlyRes] = useState([]);
+  const [yearlyRes, setYearlyRes] = useState([]);
 
   useEffect(() => {
     boatServices
       .getBoatsById(id)
       .then((data) => {
         setBoat(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+      boatServices
+      .getWeeklyNumReservationsByBoat(id)
+      .then((data) => {
+        setWeeklyRes(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+    boatServices
+    .getMonthlyNumReservationsByBoat(id)
+    .then((data) => {
+      setMonthlyRes(data.data);
+    })
+    .catch((error) => alert(`error`, error));
+
+    boatServices
+      .getYearlyNumReservationsByBoat(id)
+      .then((data) => {
+        setYearlyRes(data.data);
       })
       .catch((error) => alert(`error`, error));
 
@@ -112,6 +136,9 @@ function BoatContainer() {
         updateBoatHandler={updateBoat}
         deleteBoatHandler={deleteBoat}
         images={images}
+        weeklyRes={weeklyRes}
+        monthlyRes={monthlyRes}
+        yearlyRes={yearlyRes}
       ></BoatForm>
       <Footerr></Footerr>
     </div>

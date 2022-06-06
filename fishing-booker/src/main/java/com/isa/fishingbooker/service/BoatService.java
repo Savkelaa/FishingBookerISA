@@ -7,21 +7,26 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Boat;
-import com.isa.fishingbooker.model.Boat;
+import com.isa.fishingbooker.repository.BoatQuickReservationRepository;
 import com.isa.fishingbooker.repository.BoatRepository;
+import com.isa.fishingbooker.repository.BoatReservationRepository;
 
 @Service
 public class BoatService {
 
 	@Autowired
 	private BoatRepository BoatRepository;
+	
+	@Autowired
+	private BoatReservationRepository boatReservationRepository;
+	
+	@Autowired
+	private BoatQuickReservationRepository boatQuickReservationRepository;
+	
 	
 	public List<Boat> getAllBoats(){
 		return this.BoatRepository.findAll();
@@ -105,6 +110,21 @@ public class BoatService {
 	
 	public List<Boat> getBoatsByOwner(Integer boatOwnerId) {
 		return BoatRepository.getBoatsByOwner(boatOwnerId);
+	}
+	
+	public Double getWeeklyReservationsByBoat(Integer boatId) {
+		double numReservations = boatReservationRepository.CountWeeklyBoatReservations(boatId) + boatQuickReservationRepository.CountWeeklyBoatQuickReservations(boatId);
+		return numReservations;
+	}
+	
+	public Double getMonthlyReservationsByBoat(Integer boatId) {
+		double numReservations = boatReservationRepository.CountMonthlyBoatReservations(boatId) + boatQuickReservationRepository.CountMonthlyBoatQuickReservations(boatId);
+		return numReservations;
+	}
+	
+	public Double getYearlyReservationsByBoat(Integer boatId) {
+		double numReservations = boatReservationRepository.CountYearlyBoatReservations(boatId) + boatQuickReservationRepository.CountYearlyBoatQuickReservations(boatId);
+		return numReservations;
 	}
 	
 }

@@ -7,21 +7,25 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Cottage;
-import com.isa.fishingbooker.model.CottageReservation;
+import com.isa.fishingbooker.repository.CottageQuickReservationRepository;
 import com.isa.fishingbooker.repository.CottageRepository;
+import com.isa.fishingbooker.repository.CottageReservationRepository;
 
 @Service
 public class CottageService {
 
 	@Autowired
 	private CottageRepository CottageRepository;
+	
+	@Autowired
+	private CottageReservationRepository cottageReservationRepository;
+	
+	@Autowired
+	private CottageQuickReservationRepository cottageQuickReservationRepository;
 	
 	public List<Cottage> getAllCottages(){
 		return this.CottageRepository.findAll();
@@ -75,6 +79,21 @@ public class CottageService {
 	
 	public List<Cottage> getCottagesByOwnerAndName(Integer cottageOwnerId, String cottageName) {
 		return CottageRepository.getCottagesByOwnerAndName(cottageOwnerId, cottageName);
+	}
+	
+	public Double getWeeklyReservationsByCottage(Integer cottageId) {
+		double numReservations = cottageReservationRepository.CountWeeklyCottageReservations(cottageId) + cottageQuickReservationRepository.CountWeeklyCottageQuickReservations(cottageId);
+		return numReservations;
+	}
+	
+	public Double getMonthlyReservationsByCottage(Integer cottageId) {
+		double numReservations = cottageReservationRepository.CountMonthlyCottageReservations(cottageId) + cottageQuickReservationRepository.CountMonthlyCottageQuickReservations(cottageId);
+		return numReservations;
+	}
+	
+	public Double getYearlyReservationsByCottage(Integer cottageId) {
+		double numReservations = cottageReservationRepository.CountYearlyCottageReservations(cottageId) + cottageQuickReservationRepository.CountYearlyCottageQuickReservations(cottageId);
+		return numReservations;
 	}
 	
 	public List<Cottage> getCottagesByOwner(Integer cottageOwnerId) {

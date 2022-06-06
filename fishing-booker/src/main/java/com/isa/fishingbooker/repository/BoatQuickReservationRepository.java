@@ -65,4 +65,16 @@ public interface BoatQuickReservationRepository extends JpaRepository<BoatQuickR
 			+ "WHERE boat_id = :boatId", nativeQuery = true)
 	List<BoatQuickReservation> getBoatQuickReservationsByBoat(Integer boatId);
 	
+	@Query(value = "select count (*) from boat_quick_reservation where boat_id = :boatId "
+			+ "and finish_date > current_date-350\r\n", nativeQuery = true)
+	Double CountYearlyBoatQuickReservations(Integer boatId);
+	
+	@Query(value = "select count (*) from boat_reservation where boat_id = :boatId "
+			+ "and finish_date > current_date-30\r\n", nativeQuery = true)
+	Double CountMonthlyBoatQuickReservations(Integer boatId);
+	
+	@Query(value = "select count (*) from boat_reservation where boat_id = :boatId "
+			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
+	Double CountWeeklyBoatQuickReservations(Integer boatId);
+	
 }

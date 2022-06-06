@@ -95,4 +95,19 @@ public class BoatController {
 		return boatService.getBoatsByOwnerAndName(boatOwnerId, boatName);
 	}
 	
+	@GetMapping("/weeklyBoatReservation")
+	public Double getWeeklyBoatReservation(@RequestParam (value = "boatId") Integer boatId){
+		return boatService.getWeeklyReservationsByBoat(boatId);
+	}
+	
+	@GetMapping("/monthlyBoatReservation")
+	public Double getMonthlyBoatReservation(@RequestParam (value = "boatId") Integer boatId){
+		return boatService.getMonthlyReservationsByBoat(boatId);
+	}
+	
+	@GetMapping("/yearlyBoatReservation")
+	public Double getYearlyBoatReservation(@RequestParam (value = "boatId") Integer boatId){
+		return boatService.getYearlyReservationsByBoat(boatId);
+	}
+	
 }
