@@ -25,11 +25,43 @@ function BoatContainer() {
   const [monthlyRes, setMonthlyRes] = useState([]);
   const [yearlyRes, setYearlyRes] = useState([]);
 
+  const [weeklyIncome, setWeeklyIncome] = useState([]);
+  const [monthlyIncome, setMonthlyIncome] = useState([]);
+  const [yearlyIncome, setYearlyIncome] = useState([]);
+
   useEffect(() => {
     boatServices
       .getBoatsById(id)
       .then((data) => {
         setBoat(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+      boatServices
+      .getYearlyNumReservationsByBoat(id)
+      .then((data) => {
+        setYearlyRes(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+    boatServices
+      .getWeeklyIncomeByBoat(id)
+      .then((data) => {
+        setWeeklyIncome(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+      boatServices
+      .getMonthlyIncomeByBoat(id)
+      .then((data) => {
+        setMonthlyIncome(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+      boatServices
+      .getYearlyIncomeByBoat(id)
+      .then((data) => {
+        setYearlyIncome(data.data);
       })
       .catch((error) => alert(`error`, error));
 
@@ -47,12 +79,7 @@ function BoatContainer() {
     })
     .catch((error) => alert(`error`, error));
 
-    boatServices
-      .getYearlyNumReservationsByBoat(id)
-      .then((data) => {
-        setYearlyRes(data.data);
-      })
-      .catch((error) => alert(`error`, error));
+    
 
       
     boatServices
@@ -139,6 +166,9 @@ function BoatContainer() {
         weeklyRes={weeklyRes}
         monthlyRes={monthlyRes}
         yearlyRes={yearlyRes}
+        weeklyIncome={weeklyIncome}
+        monthlyIncome={monthlyIncome}
+        yearlyIncome={yearlyIncome}
       ></BoatForm>
       <Footerr></Footerr>
     </div>

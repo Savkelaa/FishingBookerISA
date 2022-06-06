@@ -114,4 +114,19 @@ public class CottageController {
 	public List<Cottage> getAllCottagesSortedByPriceDesc(){
 		return cottageService.getAllCottagesSortedByPriceDesc();
 	}
+	
+	@GetMapping("/yearlyCottageIncome")
+	public Double getYearlyCottageIncome(@RequestParam (value = "cottageId") Integer cottageId) {
+		return cottageService.getYearlyIncomeByCottage(cottageId);
+	}
+	
+	@GetMapping("/monthlyCottageIncome")
+	public Double getMonthlyCottageIncome(@RequestParam (value = "cottageId") Integer cottageId) {
+		return cottageService.getMonthlyIncomeByCottage(cottageId);
+	}
+	
+	@GetMapping("/weeklyCottageIncome")
+	public Double getWeeklyCottageIncome(@RequestParam (value = "cottageId") Integer cottageId) {
+		return cottageService.getWeeklyIncomeByCottage(cottageId);
+	}
 }

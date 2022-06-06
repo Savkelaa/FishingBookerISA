@@ -23,6 +23,9 @@ export default function CottageForm({
   weeklyRes,
   monthlyRes,
   yearlyRes,
+  weeklyIncome,
+  monthlyIncome,
+  yearlyIncome,
 }) {
   console.log(`cottage`, cottage);
   console.log(`behavioralRule`, behavioralRule);
@@ -51,6 +54,17 @@ export default function CottageForm({
   }, {
     name: 'Yearly',
     data: [yearlyRes]
+  }];
+
+  const series1 = [{
+    name: 'Weekly',
+    data: [weeklyIncome]
+  }, {
+    name: 'Monthly',
+    data: [monthlyIncome]
+  }, {
+    name: 'Yearly',
+    data: [yearlyIncome]
   }];
 
   
@@ -289,6 +303,10 @@ export default function CottageForm({
 
               <div id="chart">
   <ReactApexChart  options={aa.options} series={series} type="bar" height={350} /> 
+  </div>
+
+  <div id="chart">
+  <ReactApexChart  options={aa.options} series={series1} type="bar" height={350} /> 
   </div>
 
             
