@@ -279,7 +279,7 @@ public class EmailService {
 		System.out.println("Email poslat!");
 	}
 	
-	public void sendNotificaitionForBoatReservation(BoatReservation boatReservation) throws MailException, InterruptedException {
+	public void sendNotificaitionForBoatReservation(Client client, BoatReservation boatReservation) throws MailException, InterruptedException {
 
 		Thread.sleep(500);
 		System.out.println("Slanje emaila...");
@@ -287,7 +287,7 @@ public class EmailService {
 
 		SimpleMailMessage mail = new SimpleMailMessage();
 		///vidi da saljes na klijentov mail
-		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setTo(client.getEmail());
 		mail.setFrom(env.getProperty("spring.mail.username"));
 		mail.setSubject("Succesfull reservation");
 		mail.setText("Hi, "  +"\n\nA new booking date for "+ boatReservation.getStartDate()  + " has been successfully booked. "  + ".");
@@ -406,7 +406,7 @@ public void sendNotificaitionToSubscribersForNewCottageAction(Client client) thr
 	mail.setTo(client.getEmail());
 	mail.setFrom(env.getProperty("spring.mail.username"));
 	mail.setSubject("New action");
-	mail.setText("Hi, " + client.getName() + " " +  client.getSurname() +",\n\nA new offer with a discount for fishing lessons has been released.");
+	mail.setText("Hi, " + client.getName() + " " +  client.getSurname() +",\n\nA new offer with a discount for cottage has been released.");
 	javaMailSender.send(mail);
 	System.out.println("Email poslat!");
 }
@@ -422,7 +422,7 @@ public void sendNotificaitionToSubscribersForNewBoatAction(Client client) throws
 	mail.setTo(client.getEmail());
 	mail.setFrom(env.getProperty("spring.mail.username"));
 	mail.setSubject("New action");
-	mail.setText("Hi, " + client.getName() + " " +  client.getSurname() +",\n\nA new offer with a discount for fishing lessons has been released.");
+	mail.setText("Hi, " + client.getName() + " " +  client.getSurname() +",\n\nA new offer with a discount for boats has been released.");
 	javaMailSender.send(mail);
 	System.out.println("Email poslat!");
 }

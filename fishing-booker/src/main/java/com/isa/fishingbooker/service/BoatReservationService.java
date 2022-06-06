@@ -59,7 +59,7 @@ public class BoatReservationService {
 	public BoatReservation createBoatReservation(BoatReservation boatReservation) {
 		try {
 			System.out.println("Thread id: " + Thread.currentThread().getId());
-			emailService.sendNotificaitionForBoatReservation(boatReservation);
+			emailService.sendNotificaitionForBoatReservation(boatReservation.getClient(), boatReservation);
 		}catch( Exception e ){
 			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 		}

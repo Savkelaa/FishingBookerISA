@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 
 export default function BoatActionForm({
   createBoatQuickReservationHandler,
+  tags,
+  addTags,
+  removeTags,
 }) {
   const startDateAction = useRef();
   const finishDateAction = useRef();
@@ -26,6 +29,7 @@ export default function BoatActionForm({
       //    id: id,
       //  },
       boat: { id: id },
+      additionalServicess: tags,
     });
   }
 
@@ -101,6 +105,31 @@ export default function BoatActionForm({
                       id="price"
                     />
                   </div>
+
+                  <h6 for="website">Additional items</h6>
+                <div className="tags-input">
+                  <ul id="tags">
+                    {tags?.map((tag, index) => (
+                      <li key={index} className="tag">
+                        <span className="tag-title">{tag}</span>
+                        <span
+                          className="tag-close-icon"
+                          onClick={() => removeTags(index)}
+                        >
+                          x
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <input
+                    type="text"
+                    onKeyUp={(event) =>
+                      event.key === "Shift" ? addTags(event) : null
+                    }
+                    placeholder="Press shift to add tags"
+                  />
+                </div>
+
                 </div>
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

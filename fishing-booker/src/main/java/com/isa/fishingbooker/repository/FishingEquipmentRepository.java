@@ -20,6 +20,11 @@ public interface FishingEquipmentRepository extends JpaRepository<FishingEquipme
 
 	@Query(value="Select * from fishing_equipment where fishing_class_quick_reservation_id IS NOT NULL or fishing_class_reservation_id IS NOT NULL",nativeQuery=true)
 	List<FishingEquipment> getAllFishingEquipmentsFishingClass();
+	
+	@Query(value="Select * from fishing_equipment where boat_quick_reservation_id IS NOT NULL or boat_reservation_id IS NOT NULL",nativeQuery=true)
+	List<FishingEquipment> getAllFishingEquipmentsBoat();
+	
+	
 
 
 }

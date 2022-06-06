@@ -41,6 +41,11 @@ public class FishingEquipmentController {
 	public List<FishingEquipment> getAllFishingEquipmentsFishingClass() {
 		return this.fishingEquipmentService.getAllFishingEquipmentsFishingClass();
 	}
+	
+	@GetMapping("/fishingEquipmentsBoat")
+	public List<FishingEquipment> getAllFishingEquipmentsBoat() {
+		return this.fishingEquipmentService.getAllFishingEquipmentsBoat();
+	}
 
 	@GetMapping("/fishingEquipment/{id}")
 	public ResponseEntity<FishingEquipment> getFishingEquipmentById(@PathVariable(value = "id") int fishingEquipmentId)

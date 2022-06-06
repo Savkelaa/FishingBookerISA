@@ -78,7 +78,7 @@ insert into boat_navigation_equipment (id, name, description, boat_id) values (6
 insert into boat_navigation_equipment (id, name, description, boat_id) values (7, 'Ronstring', 'erat eros viverra eget congue', 2);
 
 insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status, price) values (12, 2, 4, 1, '8/6/2022', '12/7/2022', 'booked', 120);
-insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status, price values (11, 7, 3, 7, '9/26/2021', '10/13/2021', 'finished', 130);
+insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status, price) values (11, 7, 3, 7, '9/26/2021', '10/13/2021', 'finished', 130);
 insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status, price) values (6, 2, 5, 1, '12/16/2020', '2/11/2021', 'finished', 140);
 insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status, price) values (6, 3, 5, 3, '10/9/2021', '11/5/2021', 'finished', 150);
 insert into boat_reservation (cancellation_condition, boat_id, client_id, max_people, start_date, finish_date, status, price) values (2, 4, 4, 2, '8/11/2021', '9/13/2021', 'finished', 160);
@@ -98,7 +98,7 @@ insert into boat_quick_reservation (start_date_action, finish_date_action, cance
 insert into boat_complaint (id, description, boat_reservation_id, client_id) values (1, 'congue etiam justo etiam pretium iaculis', 5, 5);
 insert into boat_complaint (id, description, boat_reservation_id, client_id) values (2, 'sapien non mi integer ac neque', 3, 2);
 insert into boat_complaint (id, description, boat_reservation_id, client_id) values (3, 'neque aenean auctor gravida sem praesent', 1, 4);
-insert into boat_complaint (id, description, boat_reservation_id, client_id) values (4, 'eleifend quam a odio in hac', 7, 3);
+insert into boat_complaint (id, description, boat_reservation_id, client_id) values (4, 'eleifend quam a odio in hac', 6, 3);
 insert into boat_complaint (id, description, boat_quick_reservation_id, client_id) values (5, 'quis tortor id nulla ultrices', 2, 5);
 insert into boat_complaint (id, description, boat_quick_reservation_id, client_id) values (6, 'id turpis integer aliquet massa id lobortis', 4, 4);
 insert into boat_complaint (id, description, boat_quick_reservation_id, client_id) values (7, 'rutrum at lorem integer tincidunt ante vel', 6, 4);
@@ -282,11 +282,11 @@ insert into cottage_owner_rate (rate, cottage_owner_id, client_id,accepted,reque
 
 insert into additional_service (name, price, description, cottage_reservation_id) values ('WiFi', 3, 'id ligula suspendisse ornare', 1);
 insert into additional_service (name, price, description, cottage_reservation_id) values ('parking', 4, 'id ligula suspendisse ornare', 2);
-insert into additional_service (name, price, description, boat_quick_reservation_id) values ('WiFi', 2, 'id ligula suspendisse ornare', 3);
+insert into additional_service (name, price, description, boat_reservation_id) values ('WiFi', 2, 'id ligula suspendisse ornare', 3);
 insert into additional_service (name, price, description, boat_reservation_id) values ('minibar', 5, 'id ligula suspendisse ornare', 3);
-insert into additional_service (name, price, description, boat_quick_reservation_id) values ('minibar', 3, 'id ligula suspendisse ornare', 1);
+insert into additional_service (name, price, description, cottage_reservation_id) values ('minibar', 3, 'id ligula suspendisse ornare', 1);
 insert into additional_service (name, price, description, boat_reservation_id) values ('minibar', 1, 'id ligula suspendisse ornare', 2);
-insert into additional_service (name, price, description, boat_quick_reservation_id) values ('WiFi', 6, 'id ligula suspendisse ornare', 1);
+insert into additional_service (name, price, description, boat_reservation_id) values ('WiFi', 6, 'id ligula suspendisse ornare', 1);
 
 insert into additional_service (name, price, description) values ('WiFi', 2, 'id ligula suspendisse ornare');
 insert into additional_service (name, price, description) values ('Parking', 10, 'id ligula suspendisse ornare');
