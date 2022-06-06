@@ -42,7 +42,15 @@ public class BoatOwnerController {
 	public List<BoatOwner> getAllBoatOwners() {
 		return this.boatOwnerService.getAllBoatOwners();
 	}
-	
+
+
+	@GetMapping("/boatOwnersNotDeleted")
+	public List<BoatOwner> getAllBoatOwnersNotDeleted() {
+		return this.boatOwnerService.getAllBoatOwnersNotDeleted();
+	}
+
+
+
 	@GetMapping("/boatOwnerRequests")
 	public List<BoatOwner> getAllBoatOwnerRequests()
 	{

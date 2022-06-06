@@ -20,10 +20,6 @@ export default function BoatCard({ boats }) {
               <div className="card h-100">
                 <div className="card-body">
                   <Card className="cardContainer" style={{ width: "30rem" }}>
-                    <Card.Img
-                      variant="top"
-                      src="holder.js/100px180?text=Image cap"
-                    />
                     <Card.Body>
                       <Card.Title className="cardTitle">{boat.name}</Card.Title>
                       <Card.Text>{boat.promoDescription}</Card.Text>
@@ -43,18 +39,12 @@ export default function BoatCard({ boats }) {
                       <ListGroupItem>Price: {boat.price} euro</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <Button
-                        style={{ width: "8rem" }}
-                        variant="outline-success"
-                      >
-                        More details
-                      </Button>
                       <Link to={`/boat/${boat.id}`}>
                         <Button
                           style={{ width: "8rem" }}
-                          variant="outline-danger"
+                          variant="outline-success"
                         >
-                          Delete
+                          More details
                         </Button>
                       </Link>
                     </Card.Body>

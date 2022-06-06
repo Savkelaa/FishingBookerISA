@@ -14,20 +14,50 @@ export default function CreateFishingClassQuickReservationContainer() {
   var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
 
   function createFishingClassQuickReservation(quickReservation) {
-    FishingClassQuickReservationServices.createFishingClassQuickReservation(
-      quickReservation
-    )
-      .then((data) => {
-        if (data.status === 204) setQuickReservation();
-        else {
-          setQuickReservation(data.data);
-          console.log("sucessfuly added a quickReservation");
-          alert("sucessfuly added a quickReservation");
-        }
-      })
-      .catch((error) => {
-        alert("Something wen't wrong try again", error);
-      });
+    function myFunction(reservation) {
+      var x = 1;
+      var startDateReservation = new Date(reservation.startDate);
+      var endDateReservation = new Date(reservation.finishDate);
+      var startDateReservationAction = new Date(reservation.startDateAction);
+      var endDateReservationAction = new Date(reservation.finishDateAction);
+      console.log("startDateReservation", startDateReservation);
+      console.log("endDateReservation", endDateReservation);
+      console.log("startDateReservationAction", startDateReservationAction);
+      console.log("endDateReservationAction", endDateReservationAction);
+
+      if (
+        startDateReservation < endDateReservation &&
+        startDateReservationAction < endDateReservationAction
+      ) {
+        console.log("NE PREKLAPA");
+      } else {
+        console.log("PREKLAPA");
+        x = 0;
+      }
+
+      return x;
+    }
+
+    let x = myFunction(quickReservation);
+    if (x == 0) {
+      alert(" the start date is later than the last day");
+    }
+    if (x != 0) {
+      FishingClassQuickReservationServices.createFishingClassQuickReservation(
+        quickReservation
+      )
+        .then((data) => {
+          if (data.status === 204) setQuickReservation();
+          else {
+            setQuickReservation(data.data);
+            console.log("sucessfuly added a quickReservation", data.data);
+            alert("sucessfuly added a quickReservation");
+          }
+        })
+        .catch((error) => {
+          alert("Something wen't wrong try again", error);
+        });
+    }
   }
 
   useEffect(() => {

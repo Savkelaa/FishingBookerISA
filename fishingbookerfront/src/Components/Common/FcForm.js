@@ -6,6 +6,7 @@ import { BrowserRouter as Link } from "react-router-dom";
 import slika from "../../Assets/img/slika1.jpg";
 
 export default function FcForm({
+  deleteFishingClassHandler,
   behavioralRule,
   fishingClass,
   additionalItems,
@@ -262,6 +263,9 @@ export default function FcForm({
                     </button>
 
                     <button
+                      onClick={() => {
+                        deleteFishingClassHandler(fishingClass);
+                      }}
                       type="button"
                       id="submit"
                       name="submit"

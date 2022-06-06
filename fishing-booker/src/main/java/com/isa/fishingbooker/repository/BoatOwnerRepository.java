@@ -17,8 +17,11 @@ public interface BoatOwnerRepository extends JpaRepository<BoatOwner, Integer> {
 	@Query(value = "SELECT * FROM boat_owner\r\n"
 			+ "WHERE email = :email AND password = :password", nativeQuery = true)
 	BoatOwner getBoatOwnerByEmailAndPassword(String email, String password);
-	
-	
+
+	@Query(value="Select * from boat_owner where activated = 'true' and deleted = 'false';",nativeQuery=true)
+	List<BoatOwner> getAllBoatOwnersNotDeleted();
+
+
 	@Query(value="Select * from boat_owner where activated = 'false' and deleted = 'false';",nativeQuery=true)
 	List<BoatOwner> getAllBoatOwnerRequests();
 

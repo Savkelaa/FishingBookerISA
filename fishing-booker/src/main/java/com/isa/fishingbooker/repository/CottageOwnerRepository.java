@@ -16,7 +16,8 @@ public interface CottageOwnerRepository extends JpaRepository<CottageOwner, Inte
 	@Query(value = "SELECT * FROM cottage_owner\r\n"
 			+ "WHERE email = :email AND password = :password", nativeQuery = true)
 	CottageOwner getCottageOwnerByEmailAndPassword(String email, String password);
-	
+	@Query(value="Select * from cottage_owner where activated='true' and deleted = 'false';",nativeQuery=true)
+	List<CottageOwner> getAllCottageOwnersNotDeleted();
 	
 	@Query(value="Select * from cottage_owner where activated = 'false' and deleted = 'false';",nativeQuery=true)
 	List<CottageOwner> getAllCottageOwnerRequests();
