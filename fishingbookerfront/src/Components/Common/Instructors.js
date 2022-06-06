@@ -48,12 +48,6 @@ export default function Instructors({ instructors, updateInstructorHandler }) {
                     <Card.Body>
                       <Button
                         style={{ width: "8rem" }}
-                        variant="outline-success"
-                      >
-                        More Details
-                      </Button>
-                      <Button
-                        style={{ width: "8rem" }}
                         variant="outline-danger"
                         onClick={() => {
                           instructor.deleted = "true";

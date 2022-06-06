@@ -51,12 +51,6 @@ export default function CottageOwners({
                     <Card.Body>
                       <Button
                         style={{ width: "8rem" }}
-                        variant="outline-success"
-                      >
-                        More Details
-                      </Button>
-                      <Button
-                        style={{ width: "8rem" }}
                         variant="outline-danger"
                         onClick={() => {
                           cottageOwner.deleted = "true";
