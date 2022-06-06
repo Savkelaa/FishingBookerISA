@@ -18,7 +18,17 @@ export default function AdministratorHomeButtons() {
         </Link>
         <Link to="/rateRequests">
           <button className="btn btn-primary profile-button" type="button">
-            Rate requirements
+            Rate requests
+          </button>
+        </Link>
+        <Link to="/complaintRequests">
+          <button className="btn btn-primary profile-button" type="button">
+            Complaint requests
+          </button>
+        </Link>
+        <Link to="/reportRequests">
+          <button className="btn btn-primary profile-button" type="button">
+            Report requests
           </button>
         </Link>
         <hr style={{ width: "100%", textAlign: "left", marginLeft: 0 }} />
@@ -55,21 +65,7 @@ export default function AdministratorHomeButtons() {
           </button>
         </Link>
         <hr style={{ width: "100%", textAlign: "left", marginLeft: 0 }} />
-        <Link to="/rateRequests">
-          <button className="btn btn-primary profile-button" type="button">
-            Rate requests
-          </button>
-        </Link>
-        <Link to="/complaintRequests">
-          <button className="btn btn-primary profile-button" type="button">
-            Complaint requests
-          </button>
-        </Link>
-        <Link to="/reportRequests">
-          <button className="btn btn-primary profile-button" type="button">
-            Report requests
-          </button>
-        </Link>
+
         <Link to="/definePoints">
           <button className="btn btn-primary profile-button" type="button">
             Define loyalty points

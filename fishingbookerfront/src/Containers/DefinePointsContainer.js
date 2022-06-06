@@ -7,6 +7,7 @@ import rateServices from "../Services/RateServices/RateServices";
 import RateRequests from "../Components/Common/RateRequests";
 import userServices from "../Services/UserServices/UserServices";
 import DefinePoints from "../Components/Common/DefinePoints";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 export default function DefinePointsContainer() {
   const [points, setPoints] = useState([]);
@@ -43,7 +44,7 @@ export default function DefinePointsContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <DefinePoints
         updatePointsHandler={updatePoints}
         reservationPoints={points}

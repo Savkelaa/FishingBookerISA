@@ -7,6 +7,7 @@ import RateRequests from "../Components/Common/ReportRequests";
 import reportServices from "../Services/ReportServices/ReportServices";
 import ReportRequests from "../Components/Common/ReportRequests";
 import userServices from "../Services/UserServices/UserServices";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 export default function ReportRequestsContainer() {
   const [badReports, setBadReports] = useState([]);
@@ -61,7 +62,7 @@ export default function ReportRequestsContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <ReportRequests
         badReports={badReports}
         updateClientHandler={updateClient}

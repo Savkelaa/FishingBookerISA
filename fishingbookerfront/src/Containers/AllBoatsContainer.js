@@ -5,6 +5,7 @@ import "../App.css";
 import FishingClassCard from "../Components/Common/FishingClassCard";
 import boatServices from "../Services/BoatServices/BoatServices";
 import BoatCard from "../Components/Common/BoatCard";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 function AllBoatsContainer() {
   const [boats, setBoats] = useState([]);
@@ -22,7 +23,7 @@ function AllBoatsContainer() {
   return (
     <div>
       {" "}
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <BoatCard boats={boats}></BoatCard>
       <Footerr></Footerr>
     </div>

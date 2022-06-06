@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DeleteRequests from "../Components/Common/DeleteRequests";
 import Footerr from "../Components/Common/Footerr";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 import Navbarr from "../Components/Common/Navbarr";
 import userServices from "../Services/UserServices/UserServices";
 
@@ -94,7 +95,7 @@ export default function DeleteRequestsContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <DeleteRequests
         instructorDeleteRequests={instructorDeleteRequests}
         boatOwnerDeleteRequests={boatOwnerDeleteRequests}

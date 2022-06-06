@@ -7,6 +7,7 @@ import AdminProfilePicture from "../Components/HomePageComponents/AdminProfilePi
 import AdminProfileLabels from "../Components/HomePageComponents/AdminProfileLabels";
 import userServices from "../Services/UserServices/UserServices";
 import fishingClassQuickReservationServices from "../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 export default function AdminHomePageContainer() {
   var logedAdmin = JSON.parse(localStorage.getItem("Admin"));
@@ -97,7 +98,7 @@ export default function AdminHomePageContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <div className="container rounded bg-white mt-5 mb-5">
         <div className="row">
           <AdminProfilePicture logedAdmin={logedAdmin}></AdminProfilePicture>

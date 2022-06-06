@@ -6,6 +6,7 @@ import FishingClassCard from "../Components/Common/FishingClassCard";
 import boatServices from "../Services/BoatServices/BoatServices";
 import CottageCard from "../Components/Common/CottageCard";
 import cottageServices from "../Services/CottageServices/CottageServices";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 function AllCottagesContainer() {
   const [cottages, setCottages] = useState([]);
@@ -22,7 +23,7 @@ function AllCottagesContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <CottageCard cottages={cottages}></CottageCard>
       <Footerr></Footerr>
     </div>
