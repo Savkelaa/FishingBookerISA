@@ -37,8 +37,14 @@ public class InstructorController {
 
 	@Autowired
 	private EmailService emailService;
-	
-	
+
+
+	@GetMapping("/instructorsNotDeleted")
+	public List<Instructor> getAllInstructorsNotDeleted() {
+		return this.instructorService.getAllInstructorsNotDeleted();
+	}
+
+
 	@GetMapping("/instructors")
 	public List<Instructor> getAllInstructors() {
 		return this.instructorService.getAllInstructors();

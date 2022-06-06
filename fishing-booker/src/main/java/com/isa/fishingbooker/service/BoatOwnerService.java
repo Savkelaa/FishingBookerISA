@@ -40,7 +40,9 @@ public class BoatOwnerService {
 	public List<BoatOwner> getAllBoatOwners(){
 		return this.BoatOwnerRepository.findAll();
 	}
-
+	public List<BoatOwner> getAllBoatOwnersNotDeleted(){
+		return this.BoatOwnerRepository.getAllBoatOwnersNotDeleted();
+	}
 
 	public List<BoatOwner> getAllBoatOwnerRequests()
 	{
@@ -90,7 +92,9 @@ public class BoatOwnerService {
 		boatOwner.setPassword(boatOwnerDetails.getPassword());
 		boatOwner.setSurname(boatOwnerDetails.getSurname());
 		boatOwner.setBiography(boatOwnerDetails.getBiography());
-		
+		boatOwner.setDeleted(boatOwnerDetails.getDeleted());
+
+
 		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
 		return ResponseEntity.ok(updatedBoatOwner);
 	}

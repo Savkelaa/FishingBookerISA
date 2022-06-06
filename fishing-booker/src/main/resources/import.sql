@@ -40,8 +40,8 @@ insert into instructor (name, surname, address, city, country, email, password, 
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Brynne', 'Kun', '11844 Bay Lane', 'Konga', 'Indonesia', 'bkun2@auda.org.au', 'UdIV9X', 'feugiat et eros vestibulum ac est', '281-946-1431', 'dapibus at diam nam tristique tortor', 'false', 'false');
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Kate', 'Backes', '8144 Cherokee Circle', 'Lipno', 'Poland', 'kbackes3@mashable.com', '4WmKmbmc4m5', 'justo pellentesque viverra pede', '492-126-5918', 'eu felis fusce posuere felis sed', 'false', 'false');
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Jaye', 'Speek', '096 Chive Point', 'Ubatã', 'Brazil', 'jspeek4@archive.org', 'yH4nFgGW', 'id justo sit amet', '843-342-2954', 'consequat morbi a ipsum', 'false', 'false');
-insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Rosalyn', 'Brandt', '68018 Hudson Plaza', 'El Cerrito', 'Mexico', 'rbrandt5@dailymotion.com', 'o7ATWWAFA', 'nulla suscipit ligula in lacus', '919-337-2121', 'eros elementum pellentesque quisque porta volutpat erat', 'false', 'false');
-insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', 'msalmons6@hao123.com', 'B8ktNE6', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'false', 'false');
+insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Rosalyn', 'Brandt', '68018 Hudson Plaza', 'El Cerrito', 'Mexico', 'rbrandt5@dailymotion.com', 'o7ATWWAFA', 'nulla suscipit ligula in lacus', '919-337-2121', 'eros elementum pellentesque quisque porta volutpat erat', 'true', 'false');
+insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', 'msalmons6@hao123.com', 'B8ktNE6', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'true', 'false');
 insert into instructor (name, surname, address, city, country, email, password, explanation, number, short_biography,activated,deleted) values ('Mano', 'Salmons', '210 Meadow Valley Point', 'Jabat', 'Marshall Islands', 'savke@gmail.com', '$2a$04$mXrsdCi9JyM3bwCFli9lVeJqan3zcD/DBF5vrueFcbSpuPuEndNLq', 'sapien arcu sed augue', '756-943-8916', 'pellentesque eget nunc donec quis orci', 'true', 'false');
 
 insert into instructor_rate (rate, instructor_id, client_id,accepted,request) values (9, 1, 7,'false','true');
@@ -316,6 +316,7 @@ insert into reservation_points (points, owner_points) values (3,0);
 
 insert into loyalty_category(name,description,discount,min_points,max_points) values ('Gold','Gold kategorija',10,10,20);
 insert into loyalty_category(name,description,discount,min_points,max_points) values ('Silver','Silver kategorija',5,5,10);
+insert into loyalty_category(name,description,discount,min_points,max_points) values ('bronze','Bronze kategorija',2,0,4);
 
 
 

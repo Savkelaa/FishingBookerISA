@@ -37,7 +37,11 @@ public class CottageOwnerService {
 	public List<CottageOwner> getAllCottageOwners(){
 		return this.CottageOwnerRepository.findAll();
 	}
-	
+
+	public List<CottageOwner> getAllCottageOwnersNotDeleted(){
+		return this.CottageOwnerRepository.getAllCottageOwnersNotDeleted();
+	}
+
 	
 	public  List<CottageOwner> getAllCottageOwnerRequests()	
 	{
@@ -180,7 +184,11 @@ public class CottageOwnerService {
 		if (cottageOwnerDetails.getSurname() != "") {
 			cottageOwner.setSurname(cottageOwnerDetails.getSurname());
 		}
-	
+		if (cottageOwnerDetails.getSurname() != "") {
+			cottageOwner.setSurname(cottageOwnerDetails.getSurname());
+		}
+
+		cottageOwner.setDeleted(cottageOwnerDetails.getDeleted());
 		
 		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
 		return ResponseEntity.ok(updatedCottageOwner);

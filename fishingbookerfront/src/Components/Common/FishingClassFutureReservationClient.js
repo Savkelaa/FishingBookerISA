@@ -33,9 +33,9 @@ export default function FishingClassFutureReservationClient({
 
   console.log("hisReservations", hisReservations);
   var category = JSON.parse(localStorage.getItem("Category"));
-  console.log("category", category[0].name);
+  console.log("category", category[0]?.name);
 
-  const pomnozi = 1 - category[0].discount / 100;
+  const pomnozi = 1 - category[0]?.discount / 100;
 
   console.log("pomnozi", pomnozi);
   return (
@@ -62,8 +62,8 @@ export default function FishingClassFutureReservationClient({
                         </Card.Text>
                         <Card.Text>Price: {reservation.price} euro</Card.Text>
                         <Card.Text>
-                          Loyalty Category: {category[0].name}, Discount:{" "}
-                          {category[0].discount} %
+                          Loyalty Category: {category[0]?.name}, Discount:{" "}
+                          {category[0]?.discount} %
                         </Card.Text>
                         <Card.Text>
                           NEW PRICE: {reservation.price * pomnozi} euro

@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import Popup from "./Popup";
 
-export default function Instructors({ instructors }) {
+export default function Instructors({ instructors, updateInstructorHandler }) {
   console.log("instructors", instructors);
 
   return (
@@ -55,6 +55,10 @@ export default function Instructors({ instructors }) {
                       <Button
                         style={{ width: "8rem" }}
                         variant="outline-danger"
+                        onClick={() => {
+                          instructor.deleted = "true";
+                          updateInstructorHandler(instructor);
+                        }}
                       >
                         Delete
                       </Button>

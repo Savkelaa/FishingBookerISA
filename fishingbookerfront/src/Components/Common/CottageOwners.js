@@ -9,7 +9,10 @@ import {
 import { Link } from "react-router-dom";
 import Popup from "./Popup";
 
-export default function CottageOwners({ cottageOwners }) {
+export default function CottageOwners({
+  cottageOwners,
+  updateCottageOwnerHandler,
+}) {
   console.log("cottageOwners", cottageOwners);
 
   return (
@@ -55,6 +58,10 @@ export default function CottageOwners({ cottageOwners }) {
                       <Button
                         style={{ width: "8rem" }}
                         variant="outline-danger"
+                        onClick={() => {
+                          cottageOwner.deleted = "true";
+                          updateCottageOwnerHandler(cottageOwner);
+                        }}
                       >
                         Delete
                       </Button>

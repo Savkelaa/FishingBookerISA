@@ -10,7 +10,7 @@ export default function AllBoatOwnersContainer() {
 
   useEffect(() => {
     userServices
-      .getAllBoatOwners()
+      .getAllNotDeletedBoatOwners()
 
       .then((data) => {
         setBoatOwners(data.data);
@@ -18,10 +18,32 @@ export default function AllBoatOwnersContainer() {
       .catch((error) => console.log(`error`, error));
   }, []);
 
+  function updateBoatOwner(boatOnwer) {
+    userServices
+      .updateBoatOwner(boatOnwer)
+      .then((data) => {
+        console.log("sucessfuly updated BoatOwnres owner");
+
+        alert("sucessfuly updated BoatOwnres");
+        userServices
+          .getAllNotDeletedBoatOwners()
+          .then((data) => {
+            setBoatOwners(data.data);
+          })
+          .catch((error) => console.log(`error`, error));
+      })
+      .catch((error) => {
+        alert("Something wen't wrong try again");
+      });
+  }
+
   return (
     <div>
       <Navbarr></Navbarr>
-      <BoatOwners boatOwners={boatOwners}></BoatOwners>
+      <BoatOwners
+        boatOwners={boatOwners}
+        updateBoatOwnerHandler={updateBoatOwner}
+      ></BoatOwners>
       <Footerr></Footerr>
     </div>
   );

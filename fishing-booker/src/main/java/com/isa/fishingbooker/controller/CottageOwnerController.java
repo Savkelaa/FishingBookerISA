@@ -33,7 +33,6 @@ public class CottageOwnerController {
 	@Autowired
 	private EmailService emailService;
 
-	
 	@Autowired
 	private CottageOwnerService cottageOwnerService;
 
@@ -41,7 +40,13 @@ public class CottageOwnerController {
 	public List<CottageOwner> getAllCottageOwners() {
 		return this.cottageOwnerService.getAllCottageOwners();
 	}
-	
+
+	@GetMapping("/cottageOwnersNotDeleted")
+	public List<CottageOwner> getAllCottageOwnersNotDeleted() {
+		return this.cottageOwnerService.getAllCottageOwnersNotDeleted();
+	}
+
+
 	@GetMapping("/cottageOwnerRequests")
 	public  List<CottageOwner> getAllCottageOwnerRequests()	
 	{

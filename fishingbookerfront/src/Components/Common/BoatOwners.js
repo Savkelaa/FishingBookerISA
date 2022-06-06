@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import Popup from "./Popup";
 
-export default function BoatOwners({ boatOwners }) {
+export default function BoatOwners({ boatOwners, updateBoatOwnerHandler }) {
   console.log("boatOwners", boatOwners);
 
   return (
@@ -51,6 +51,16 @@ export default function BoatOwners({ boatOwners }) {
                         variant="outline-success"
                       >
                         More Details
+                      </Button>
+                      <Button
+                        style={{ width: "8rem" }}
+                        variant="outline-danger"
+                        onClick={() => {
+                          boatOwner.deleted = "true";
+                          updateBoatOwnerHandler(boatOwner);
+                        }}
+                      >
+                        Delete
                       </Button>
                     </Card.Body>
                   </Card>
