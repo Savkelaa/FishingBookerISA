@@ -5,6 +5,7 @@ export default function PredefAdminProfileLabels({
   sendInstructorDeleteRequestHandler,
 }) {
   console.log("logedInstructor", logedInstructor);
+  var admin = JSON.parse(localStorage.getItem("Admin"));
 
   const deleteReason = useRef();
 
@@ -20,7 +21,7 @@ export default function PredefAdminProfileLabels({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter first name"
+              placeholder={admin.name}
               // value={logedInstructor.name}
             />
           </div>
@@ -29,7 +30,7 @@ export default function PredefAdminProfileLabels({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter surname"
+              placeholder={admin.surname}
               //value={logedInstructor.surname}
             />
           </div>
@@ -40,7 +41,7 @@ export default function PredefAdminProfileLabels({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter address"
+              placeholder={admin.address}
               // value={logedInstructor.address}
             />
           </div>
@@ -49,7 +50,7 @@ export default function PredefAdminProfileLabels({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter city"
+              placeholder={admin.city}
               // value={logedInstructor.city}
             />
           </div>
@@ -58,7 +59,7 @@ export default function PredefAdminProfileLabels({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter country"
+              placeholder={admin.country}
               //  value={logedInstructor.country}
             />
           </div>
@@ -67,7 +68,7 @@ export default function PredefAdminProfileLabels({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter email address"
+              placeholder={admin.email}
               //    value={logedInstructor.email}
             />
           </div>
@@ -84,7 +85,7 @@ export default function PredefAdminProfileLabels({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter phone number"
+              placeholder={admin.number}
               //   value={logedInstructor.number}
             />
           </div>
@@ -93,7 +94,7 @@ export default function PredefAdminProfileLabels({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter explanation"
+              placeholder={admin.explanation}
               //  value={logedInstructor.explanation}
             />
           </div>
@@ -102,7 +103,7 @@ export default function PredefAdminProfileLabels({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter short biography"
+              placeholder={admin.shortBiography}
               //   value={logedInstructor.shortBiography}
             />
           </div>

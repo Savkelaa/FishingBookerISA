@@ -301,8 +301,8 @@ insert into cottageimage(url, cottage_id) VALUES ('https://g-pulse.com/wordpress
 
 insert into boatimage(url, boat_id) VALUES ('https://www.quicksilver-boats.com/media/1tubmvsn/875_sundeck_running_0346_hero_2000x1125px_c.jpg?mode=crop&width=616&height=347&rnd=132800886602230000', 7)
 
-INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2022-06-01','2021-07-02',1);
-INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2022-06-04','2021-07-08',1);
+INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2022-07-01','2022-07-06',1);
+INSERT INTO datespaninstructor (end_date, start_date, instructor_id) VALUES ('2022-07-15','2022-07-20',1);
 
 insert into instructor_complaint (active, answer, description,client_id, instructor_id) values ('true', '', 'id ligula suspendisse ornare', 1,1);
 insert into instructor_complaint (active, answer, description,client_id, instructor_id) values ('true', '', 'ooooo sto plavo oko', 2,2);
