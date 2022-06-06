@@ -51,6 +51,9 @@ public class CottageReservation {
 	@Column(name = "status")
 	private String status;
 	
+	@Column(name = "price")
+	private int price;
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name="client_id", nullable = true)
     private Client client;

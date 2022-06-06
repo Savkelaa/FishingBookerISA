@@ -39,6 +39,12 @@ const cottageQuickReservationServices = {
     );
   },
 
+  getCottageQuickReservationByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}CottageQuickReservationsByCottage?cottageId=${cottageId}`
+    );
+  },
+
 
   ////ZA KALENDAR COTTAGERESERVATION
 

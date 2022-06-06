@@ -4,15 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.isa.fishingbooker.model.FishingClassReservation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.CottageQuickReservation;
-import com.isa.fishingbooker.model.CottageReservation;
+import com.isa.fishingbooker.repository.ClientRepository;
 import com.isa.fishingbooker.repository.CottageQuickReservationRepository;
 
 @Service
@@ -20,6 +23,14 @@ public class CottageQuickReservationService {
 
 	@Autowired
 	private CottageQuickReservationRepository CottageQuickReservationRepository;
+	
+	@Autowired
+	private ClientRepository clientRepository;
+	
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private EmailService emailService;
 	
 	public List<CottageQuickReservation> getAllCottageQuickReservations(){
 		return this.CottageQuickReservationRepository.findAll();
@@ -42,6 +53,17 @@ public class CottageQuickReservationService {
 	
 
 	public CottageQuickReservation createCottageQuickReservation(CottageQuickReservation cottageQuickReservation) {
+		List<Client> subscribers = clientRepository.getAllSubscribersByFishingClass(cottageQuickReservation.getCottage().getId());
+		for (Client client : subscribers)
+		{
+			try {
+				System.out.println("Thread id: " + Thread.currentThread().getId());
+				emailService.sendNotificaitionToSubscribersForNewCottageAction(client);
+			}catch( Exception e ){
+				logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+			}
+		}
+		
 		return CottageQuickReservationRepository.save(cottageQuickReservation);
 	}
 	
@@ -93,6 +115,10 @@ public class CottageQuickReservationService {
 	
 	public List<CottageQuickReservation> getFreeCottageQuickReservationsByCottage(Integer cottageId) {
 		return CottageQuickReservationRepository.getFreeCottageQuickReservationsByCottage(cottageId);
+	}
+	
+	public List<CottageQuickReservation> getCottageQuickReservationsByCottage(Integer cottageId) {
+		return CottageQuickReservationRepository.getCottageQuickReservationsByCottage(cottageId);
 	}
 	
 	public List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDateAsc(Integer clientId){

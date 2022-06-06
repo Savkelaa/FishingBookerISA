@@ -53,6 +53,12 @@ const boatQuickReservationServices = {
     );
   },
 
+  getBoatQuickReservationByBoat: (boatId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}BoatQuickReservationsByBoat?boatId=${boatId}`
+    );
+  },
+
 };
 
 export default boatQuickReservationServices;

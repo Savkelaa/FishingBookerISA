@@ -110,4 +110,9 @@ public class BoatQuickReservationController {
 		return boatQuickReservationService.getFreeBoatQuickReservationsByBoat(boatId);
 	}
 	
+	@GetMapping("/BoatQuickReservationsByBoat")
+	public List<BoatQuickReservation> getBoatQuickReservationsByBoat(@RequestParam (value = "boatId") Integer boatId){
+		return boatQuickReservationService.getBoatQuickReservationsByBoat(boatId);
+	}
+	
 }
