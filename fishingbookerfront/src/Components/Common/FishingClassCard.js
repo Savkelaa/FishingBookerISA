@@ -23,7 +23,7 @@ export default function FishingClassCard({ fishingClasses }) {
                   <Card className="cardContainer" style={{ width: "30rem" }}>
                     <Card.Img
                       variant="top"
-                      src="holder.js/100px180?text=Image cap"
+                      src="https://assets.orvis.com/is/image/orvisprd/FF101_2018_PondCasting_0149_1?wid=1980&src=is($object$:7-3)"
                     />
                     <Card.Body>
                       <Card.Title className="cardTitle">

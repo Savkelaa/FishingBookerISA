@@ -13,6 +13,7 @@ export default function CreateFishingClassReservationContainer() {
   console.log("reservations", reservations);
   var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
   let { id } = useParams();
+  const [tags, setTags] = useState([]);
 
   function createFishingClassReservation(reservation) {
     function myFunction(reservation) {
@@ -27,7 +28,10 @@ export default function CreateFishingClassReservationContainer() {
         console.log("startDateReservation", startDateReservation);
         console.log("endDateReservation", endDateReservation);
 
-        if (startDateReservation > endDate || endDateReservation < startDate) {
+        if (
+          (startDateReservation > endDate || endDateReservation < startDate) &&
+          startDateReservation < endDateReservation
+        ) {
           console.log("NE PREKLAPA");
         } else {
           console.log("PREKLAPA");
@@ -39,7 +43,9 @@ export default function CreateFishingClassReservationContainer() {
 
     let x = myFunction(reservation);
     if (x == 0) {
-      alert("your reservation overlaps with other reservations");
+      alert(
+        "your reservation overlaps with other reservations or the start date is later than the last day"
+      );
     }
 
     if (x != 0) {
@@ -52,6 +58,12 @@ export default function CreateFishingClassReservationContainer() {
             setReservation(data.data);
             console.log("sucessfuly added a reservation");
             alert("sucessfuly added a reservation");
+            fishingClassQuickReservationServices
+              .getAllFishingClassReservationsByInstructor(logedInstructor.id)
+              .then((data) => {
+                setReservations(data.data);
+              })
+              .catch((error) => console.log(`error`, error));
           }
         })
         .catch((error) => {
@@ -67,13 +79,35 @@ export default function CreateFishingClassReservationContainer() {
         setReservations(data.data);
       })
       .catch((error) => console.log(`error`, error));
+
+    fishingClassQuickReservationServices
+      .getAllAdditionalServiceNames()
+      .then((data) => {
+        setTags(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
   }, []);
+
+  const removeTags = (indexToRemove) => {
+    setTags([...tags.filter((_, index) => index !== indexToRemove)]);
+  };
+  const addTags = (event) => {
+    if (event.target.value !== "") {
+      setTags([...tags, event.target.value]);
+      //  props.selectedTags([...tags, event.target.value]);
+
+      event.target.value = "";
+    }
+  };
 
   return (
     <div>
       <Navbarr></Navbarr>
       <CreateFishingClassReservation
         createFishingClassReservationHandler={createFishingClassReservation}
+        tags={tags}
+        removeTags={removeTags}
+        addTags={addTags}
       ></CreateFishingClassReservation>
       <Footerr></Footerr>
     </div>

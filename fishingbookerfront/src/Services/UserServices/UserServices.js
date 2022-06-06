@@ -308,7 +308,10 @@ const userServices = {
   },
 
   createDateSpanCottage: (dateSpan) => {
-    return axios.post(`${process.env.REACT_APP_API_URL}dateSpanCottage`, dateSpan);
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}dateSpanCottage`,
+      dateSpan
+    );
   },
 
   createDateSpanBoat: (dateSpan) => {
@@ -341,28 +344,19 @@ const userServices = {
     );
   },
 
-  getAllClientsByBoatOwnerBoatQuickReservations: (
-    boatOwnerID,
-    name
-  ) => {
+  getAllClientsByBoatOwnerBoatQuickReservations: (boatOwnerID, name) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}clientsByOwnerBoatQuickReservations?boatOwnerId=${boatOwnerID}&name=${name}`
     );
   },
 
-  getAllClientsByCottageOwnerCottageReservations: (
-    cottageOwnerID,
-    name
-  ) => {
+  getAllClientsByCottageOwnerCottageReservations: (cottageOwnerID, name) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}clientsByOwnerCottageReservations?cottageOwnerId=${cottageOwnerID}&name=${name}`
     );
   },
 
-  getAllClientsByBoatOwnerBoatReservations: (
-    boatOwnerID,
-    name
-  ) => {
+  getAllClientsByBoatOwnerBoatReservations: (boatOwnerID, name) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}clientsByOwnerBoatReservations?boatOwnerId=${boatOwnerID}&name=${name}`
     );
@@ -483,6 +477,18 @@ const userServices = {
     return axios.get(
       `${process.env.REACT_APP_API_URL}loyaltyCategoryClient?clientPoints=${points}`
     );
+  },
+
+  getAllNotDeletedInstructors: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}instructorsNotDeleted`);
+  },
+
+  getAllNotDeletedBoatOwners: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}boatOwnersNotDeleted`);
+  },
+
+  getAllNotDeletedCottageOwners: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}cottageOwnersNotDeleted`);
   },
 };
 

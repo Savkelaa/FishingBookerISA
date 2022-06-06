@@ -13,6 +13,10 @@ import com.isa.fishingbooker.model.Instructor;
 @Repository
 public interface InstructorRepository extends JpaRepository<Instructor, Integer> {
 
+	@Query(value="select * from instructor where deleted = 'false' and activated='true'",nativeQuery=true)
+	List<Instructor> getAllInstructorsNotDeleted();
+
+
 	@Query(value="select * from instructor where email=:email and password=:password",nativeQuery=true)
 	Instructor getInstructorByEmailAndPassword(String email, String password);
 	

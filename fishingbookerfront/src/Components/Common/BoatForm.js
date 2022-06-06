@@ -2,13 +2,10 @@ import React, { useRef } from "react";
 import { ListGroup, Image } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
-
 import "../../App.css";
 import { BrowserRouter as Link } from "react-router-dom";
 import slika from "../../Assets/img/slika1.jpg";
-import {
-  Button,
- } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export default function BoatForm({
   behavioralRule,
@@ -51,7 +48,6 @@ export default function BoatForm({
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <h5 className="mb-2 text-primary">Boat Details</h5>
                 </div>
-                
 
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
@@ -77,14 +73,18 @@ export default function BoatForm({
                       //value={boat.address}
                       placeholder={boat.address}
                     />
-                    <iframe width="200" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q=712%20Hanson%20Place&t=&z=13&ie=UTF8&iwloc=&output=embed" 
-                      frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                    </iframe>
+                    <iframe
+                      width="200"
+                      height="150"
+                      id="gmap_canvas"
+                      src="https://maps.google.com/maps?q=712%20Hanson%20Place&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                      frameborder="0"
+                      scrolling="no"
+                      marginheight="0"
+                      marginwidth="0"
+                    ></iframe>
                   </div>
                 </div>
-
-                
-        
 
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
@@ -95,7 +95,6 @@ export default function BoatForm({
                       className="form-control"
                       id="numRooms"
                       value={boat.num_motors}
-                    
                     />
                   </div>
                 </div>
@@ -109,7 +108,6 @@ export default function BoatForm({
                       className="form-control"
                       id="numBeds"
                       value={boat.type}
-                      
                     />
                   </div>
                 </div>
@@ -167,10 +165,6 @@ export default function BoatForm({
                   </div>
                 </div>
 
-                
-              
-
-
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
                     <h6 for="phone">Promotion description</h6>
@@ -198,8 +192,8 @@ export default function BoatForm({
                     />
                     <ListGroup>
                       <ListGroup.Item>
-                        {boat.cancellationCondition} % of the total
-                        price you have to pay to cancel the reservation
+                        {boat.cancellationCondition} % of the total price you
+                        have to pay to cancel the reservation
                       </ListGroup.Item>
                     </ListGroup>
                   </div>
@@ -217,7 +211,7 @@ export default function BoatForm({
                     />
                   </div>
                 </div>
-                
+
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
                     <h6 for="website">Price</h6>
@@ -226,22 +220,14 @@ export default function BoatForm({
                       type="number"
                       className="form-control"
                       id="price"
-                     // value={boat.price}
+                      // value={boat.price}
                       placeholder={boat.price}
-                      
                     />
                   </div>
                 </div>
-                
-               
               </div>
 
-              
-
               <div className="row gutters">
-                
-                
-              
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
                     <h6 for="ciTy">Behavioral Rule</h6>
@@ -268,7 +254,7 @@ export default function BoatForm({
                     </ListGroup>
                   </div>
                 </div>
-                
+
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div className="form-group">
                     <h6 for="sTate">Additional Items</h6>
@@ -297,8 +283,6 @@ export default function BoatForm({
                 ))}
               </div>
 
-            
-
               <div className="row gutters">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <div className="text-right">
@@ -310,14 +294,10 @@ export default function BoatForm({
                       onClick={() => {
                         boat.name = name.current.value;
                         boat.address = address.current.value;
-                        
+
                         boat.price = price.current.value;
-                        
-                        boat.promoDescription =
-                          description.current.value;
 
-                      
-
+                        boat.promoDescription = description.current.value;
 
                         updateBoatHandler(boat);
                       }}
@@ -330,10 +310,9 @@ export default function BoatForm({
                       id="submit"
                       name="submit"
                       className="btn btn-danger"
-                      onClick={() => { 
-                        deleteBoatHandler(boat)
-                      }
-                    }
+                      onClick={() => {
+                        deleteBoatHandler(boat);
+                      }}
                     >
                       Delete
                     </button>

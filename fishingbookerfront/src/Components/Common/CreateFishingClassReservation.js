@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 
 export default function CreateFishingClassReservation({
   createFishingClassReservationHandler,
+  tags,
+  addTags,
+  removeTags,
 }) {
   const startDate = useRef();
   const finishDate = useRef();
@@ -76,6 +79,28 @@ export default function CreateFishingClassReservation({
                       type="text"
                       className="form-control"
                       id="price"
+                    />
+                  </div>
+                  <div className="tags-input">
+                    <ul id="tags">
+                      {tags?.map((tag, index) => (
+                        <li key={index} className="tag">
+                          <span className="tag-title">{tag}</span>
+                          <span
+                            className="tag-close-icon"
+                            onClick={() => removeTags(index)}
+                          >
+                            x
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    <input
+                      type="text"
+                      onKeyUp={(event) =>
+                        event.key === "Shift" ? addTags(event) : null
+                      }
+                      placeholder="Press shift to add tags"
                     />
                   </div>
                 </div>

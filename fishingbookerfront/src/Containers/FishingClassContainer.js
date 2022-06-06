@@ -21,6 +21,8 @@ function FishingClassContainer() {
   const [avgRate, setavgRate] = useState();
   const [fishingEquipments, setFishingEquipments] = useState([]);
 
+  const history = useHistory();
+
   useEffect(() => {
     fishingClassServices
       .getFishingClassById(id)
@@ -84,6 +86,19 @@ function FishingClassContainer() {
         console.log("Something wen't wrong try again");
       });
   }
+  function deleteFishingClass(fishingClass) {
+    fishingClassServices
+      .deleteFishingClass(fishingClass.id)
+      .then((data) => {
+        alert("sucessfuly deleted a cottage");
+        history.push("/fishingClassByInstructor");
+      })
+      .catch((error) => {
+        alert(
+          "You cant delete fishing class because fishin class has rezervations."
+        );
+      });
+  }
 
   return (
     <div>
@@ -98,6 +113,7 @@ function FishingClassContainer() {
         images={images}
         avgRate={avgRate}
         fishingEquipments={fishingEquipments}
+        deleteFishingClassHandler={deleteFishingClass}
       ></FcForm>
       <Footerr></Footerr>
     </div>

@@ -9,17 +9,40 @@ export default function AllCottageOwnersContainer() {
 
   useEffect(() => {
     userServices
-      .getAllCottageOwners()
+      .getAllNotDeletedCottageOwners()
       .then((data) => {
         setCottageOwners(data.data);
       })
       .catch((error) => console.log(`error`, error));
   }, []);
 
+  function updateCottageOwner(cottageOwner) {
+    userServices
+      .updateCottageOwner(cottageOwner)
+      .then((data) => {
+        console.log("sucessfuly updated Cottage owner");
+        console.log("INSTRUCTORRRR", cottageOwner);
+
+        alert("sucessfuly updated cottageOwner");
+        userServices
+          .getAllNotDeletedCottageOwners()
+          .then((data) => {
+            setCottageOwners(data.data);
+          })
+          .catch((error) => console.log(`error`, error));
+      })
+      .catch((error) => {
+        alert("Something wen't wrong try again");
+      });
+  }
+
   return (
     <div>
       <Navbarr></Navbarr>
-      <CottageOwners cottageOwners={cottageOwners}></CottageOwners>
+      <CottageOwners
+        cottageOwners={cottageOwners}
+        updateCottageOwnerHandler={updateCottageOwner}
+      ></CottageOwners>
       <Footerr></Footerr>
     </div>
   );

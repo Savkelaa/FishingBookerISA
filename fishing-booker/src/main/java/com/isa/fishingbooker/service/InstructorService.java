@@ -31,9 +31,14 @@ public class InstructorService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	public List<Instructor> getAllInstructorsNotDeleted(){
+		return this.InstructorRepository.getAllInstructorsNotDeleted();
+	}
+
 	public List<Instructor> getAllInstructors(){
 		return this.InstructorRepository.findAll();
 	}
+
 
 	public List<Instructor> getAllInstructorDeleteRequests(){
 		return this.InstructorRepository.getAllInstructorDeleteRequests();
@@ -116,7 +121,9 @@ public Integer getNuberOfPastBoatQuickReservationsByBoatOwner(Integer boatOwnerI
 		instructor.setPassword(instructorDetails.getPassword());
 		instructor.setShortBiography(instructorDetails.getShortBiography());
 		instructor.setSurname(instructorDetails.getSurname());
-		
+		instructor.setDeleted(instructorDetails.getDeleted());
+
+
 		final Instructor updatedInstructor = InstructorRepository.save(instructor);
 		return ResponseEntity.ok(updatedInstructor);
 	}
