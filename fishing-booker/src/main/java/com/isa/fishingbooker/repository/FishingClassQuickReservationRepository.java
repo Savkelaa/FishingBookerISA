@@ -84,7 +84,18 @@ public interface FishingClassQuickReservationRepository extends JpaRepository<Fi
 			+ "where fishing_class_quick_reservation.id = :fishingClassId\r\n"
 			+ "", nativeQuery=true)
     Integer getPriceQuickReservationByFishingClass(Integer fishingClassId);
-	
-	
-	
+
+
+	@Query(value = "select count (*) from fishing_class_quick_reservation where fishing_class_id = :fishingClassId "
+			+ "and finish_date > current_date-350\r\n", nativeQuery = true)
+	Double CountYearlyFishingClassQuickReservations(Integer fishingClassId);
+
+	@Query(value = "select count (*) from fishing_class_quick_reservation where fishing_class_id = :fishingClassId "
+			+ "and finish_date > current_date-30\r\n", nativeQuery = true)
+	Double CountMonthlyFishingClassQuickReservations(Integer fishingClassId);
+
+	@Query(value = "select count (*) from fishing_class_quick_reservation where fishing_class_id = :fishingClassId "
+			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
+	Double CountWeeklyFishingClassQuickReservations(Integer fishingClassId);
+
 }

@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.isa.fishingbooker.model.*;
+import com.isa.fishingbooker.repository.FishingClassQuickReservationRepository;
+import com.isa.fishingbooker.repository.FishingClassReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,16 +16,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
-import com.isa.fishingbooker.model.FishingClass;
-import com.isa.fishingbooker.model.FishingClassBehavioralRule;
 import com.isa.fishingbooker.repository.FishingClassRepository;
-import com.isa.fishingbooker.model.Instructor;
 
 @Service
 public class FishingClassService {
 
 	@Autowired
 	private FishingClassRepository fishingClassRepository;
+
+
+	@Autowired
+	private FishingClassReservationRepository fishingClassReservationRepository;
+
+	@Autowired
+	private FishingClassQuickReservationRepository fishingClassQuickReservationRepository;
+
+
 	
 	public List<String> getShortBiographyByFishingClass(Integer fishingClassId)
 	{
@@ -39,7 +48,20 @@ public class FishingClassService {
 		return fishingClassRepository.getFishingClassByInstructor(instructorId);
 	}
 
+	public Double getWeeklyFishingClassReservation(Integer fishingClassId) {
+		double numReservations = fishingClassReservationRepository.CountWeeklyFishingClassReservations(fishingClassId) + fishingClassQuickReservationRepository.CountWeeklyFishingClassQuickReservations(fishingClassId);
+		return numReservations;
+	}
 
+	public Double getMonthlyFishingClassReservation(Integer fishingClassId) {
+		double numReservations = fishingClassReservationRepository.CountMonthlyFishingClassReservations(fishingClassId) + fishingClassQuickReservationRepository.CountMonthlyFishingClassQuickReservations(fishingClassId);
+		return numReservations;
+	}
+
+	public Double getYearlyFishingClassReservation(Integer fishingClassId) {
+		double numReservations = fishingClassReservationRepository.CountYearlyFishingClassReservations(fishingClassId) + fishingClassQuickReservationRepository.CountYearlyFishingClassQuickReservations(fishingClassId);
+		return numReservations;
+	}
 
 
 	public List<FishingClass> getAllFishingClass(){

@@ -4,6 +4,7 @@ import { ListGroup, Image } from "react-bootstrap";
 import "../../App.css";
 import { BrowserRouter as Link } from "react-router-dom";
 import slika from "../../Assets/img/slika1.jpg";
+import ReactApexChart from "react-apexcharts";
 
 export default function FcForm({
   deleteFishingClassHandler,
@@ -15,6 +16,9 @@ export default function FcForm({
   fishingClassQuickReservations,
   avgRate,
   fishingEquipments,
+  weeklyRes,
+  monthlyRes,
+  yearlyRes,
 }) {
   console.log(`fishingClass`, fishingClass);
   console.log(`behavioralRule`, behavioralRule);
@@ -30,6 +34,63 @@ export default function FcForm({
   const biography = useRef();
   const conditions = useRef();
   const price = useRef();
+
+  const series = [
+    {
+      name: "Weekly",
+      data: [weeklyRes],
+    },
+    {
+      name: "Monthly",
+      data: [monthlyRes],
+    },
+    {
+      name: "Yearly",
+      data: [yearlyRes],
+    },
+  ];
+
+  const [aa, setAa] = useState({
+    options: {
+      chart: {
+        type: "bar",
+        height: 350,
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: "55%",
+          endingShape: "rounded",
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        show: true,
+        width: 2,
+        colors: "transparent",
+      },
+      xaxis: {
+        categories: ["Cottage Report"],
+      },
+      yaxis: {
+        title: {
+          text: "Number",
+        },
+      },
+      fill: {
+        opacity: 1,
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return val;
+          },
+        },
+      },
+    },
+  });
 
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
@@ -235,7 +296,14 @@ export default function FcForm({
                   />
                 ))}
               </div>
-
+              <div id="chart">
+                <ReactApexChart
+                  options={aa.options}
+                  series={series}
+                  type="bar"
+                  height={350}
+                />
+              </div>
               <div className="row gutters">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <div className="text-right">
