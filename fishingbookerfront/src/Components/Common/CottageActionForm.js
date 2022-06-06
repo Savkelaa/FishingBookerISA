@@ -10,6 +10,7 @@ export default function CottageActionForm({
   const startDate = useRef();
   const finishDate = useRef();
   const price = useRef();
+  const maxPeople = useRef();
   let { id } = useParams();
 
   function saveHandler(e) {
@@ -19,6 +20,7 @@ export default function CottageActionForm({
       startDate: startDate.current.value,
       finishDate: finishDate.current.value,
       price: price.current.value,
+      maxPeople: maxPeople.current.value,
       status: "free",
       // client: {
       //    id: id,
@@ -77,6 +79,16 @@ export default function CottageActionForm({
                       type="date"
                       className="form-control"
                       id="last"
+                    />
+                  </div>
+
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <h6 for="website">Max people</h6>
+                    <input
+                      ref={maxPeople}
+                      type="text"
+                      className="form-control"
+                      id="price"
                     />
                   </div>
 

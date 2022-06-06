@@ -5,6 +5,7 @@ import java.util.List;
 import com.isa.fishingbooker.model.BoatReservation;
 import com.isa.fishingbooker.model.BoatQuickReservation;
 import com.isa.fishingbooker.model.BoatQuickReservation;
+import com.isa.fishingbooker.model.BoatQuickReservation;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -57,5 +58,11 @@ public interface BoatQuickReservationRepository extends JpaRepository<BoatQuickR
 			+ "INNER JOIN boat on boat_quick_reservation.boat_id = boat.id\r\n"
 			+ "WHERE boat_quick_reservation.status = 'free' AND boat_id = :boatId", nativeQuery = true)
 	List<BoatQuickReservation> getFreeBoatQuickReservationsByBoat(Integer boatId);
+	
+	@Query(value = "SELECT *\r\n"
+			+ "FROM boat_quick_reservation\r\n"
+			+ "INNER JOIN boat on boat_quick_reservation.boat_id = boat.id\r\n"
+			+ "WHERE boat_id = :boatId", nativeQuery = true)
+	List<BoatQuickReservation> getBoatQuickReservationsByBoat(Integer boatId);
 	
 }

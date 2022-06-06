@@ -19,7 +19,7 @@ export default function CreateCottageReservation({
       startDate: startDate.current.value,
       finishDate: finishDate.current.value,
       price: price.current.value,
-      status: "active",
+      status: "booked",
       client: {
         id: reservation.client.id,
       },

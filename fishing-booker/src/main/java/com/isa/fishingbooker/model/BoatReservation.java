@@ -49,6 +49,9 @@ public class BoatReservation {
 	@Column(name = "status")
 	private String status;
 	
+	@Column(name = "price")
+	private int price;
+	
 	@Column(name = "cancellation_condition")
 	private int cancellationCondition;
 	

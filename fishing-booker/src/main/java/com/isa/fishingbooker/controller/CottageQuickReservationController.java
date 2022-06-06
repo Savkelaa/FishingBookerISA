@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.isa.fishingbooker.model.FishingClassReservation;
+import com.isa.fishingbooker.repository.ClientRepository;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,9 +22,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.CottageQuickReservation;
 import com.isa.fishingbooker.model.CottageReservation;
 import com.isa.fishingbooker.service.CottageQuickReservationService;
+import com.isa.fishingbooker.service.EmailService;
 
 @CrossOrigin
 @RestController
@@ -30,6 +36,14 @@ public class CottageQuickReservationController {
 	@Autowired
 	private CottageQuickReservationService cottageQuickReservationService;
 
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private EmailService emailService;
+	
+	@Autowired
+	private ClientRepository clientRepository;
+	
 	@GetMapping("/cottageQuickReservations")
 	public List<CottageQuickReservation> getAllCottageQuickReservations() {
 		return this.cottageQuickReservationService.getAllCottageQuickReservations();
@@ -55,6 +69,17 @@ public class CottageQuickReservationController {
 
 	@PostMapping("/cottageQuickReservations")
 	public CottageQuickReservation createCottageQuickReservation(@RequestBody CottageQuickReservation cottageQuickReservation) {
+		
+		List<Client> subscribers = clientRepository.getAllSubscribersByBoat(cottageQuickReservation.getCottage().getId());
+		for (Client client : subscribers)
+		{
+			try {
+				System.out.println("Thread id: " + Thread.currentThread().getId());
+				emailService.sendNotificaitionToSubscribersForNewCottageAction(client);
+			}catch( Exception e ){
+				logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+			}
+		}
 		return cottageQuickReservationService.createCottageQuickReservation(cottageQuickReservation);
 	}
 
@@ -92,6 +117,13 @@ public class CottageQuickReservationController {
 	public List<CottageQuickReservation> getFreeCottageQuickReservationsByCottage(@RequestParam (value = "cottageId") Integer cottageId){
 		return cottageQuickReservationService.getFreeCottageQuickReservationsByCottage(cottageId);
 	}
+	
+	@GetMapping("/CottageQuickReservationsByCottage")
+	public List<CottageQuickReservation> getCottageQuickReservationsByCottage(@RequestParam (value = "cottageId") Integer cottageId){
+		return cottageQuickReservationService.getCottageQuickReservationsByCottage(cottageId);
+	}
+	
+	
 	
 	
 	@GetMapping("/finishedCottageQuickReservationByOwner")

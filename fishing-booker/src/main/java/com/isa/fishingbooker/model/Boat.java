@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -55,6 +57,15 @@ public class Boat {
 	
 	@Column(name = "max_speed")
 	private int maxSpeed;
+	
+	@Column(name = "url")
+	private String url;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+			joinColumns = @JoinColumn(name="boat_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name="client_id",referencedColumnName = "id"))
+	private List<Client> subscribers;
 	
 	/*
 	 * @Column(name = "enteries_photos")

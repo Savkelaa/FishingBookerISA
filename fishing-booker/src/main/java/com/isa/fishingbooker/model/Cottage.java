@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -61,6 +63,13 @@ public class Cottage {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="cottage_owner_id", nullable = false)
     private CottageOwner cottageOwner;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+			joinColumns = @JoinColumn(name="cottage_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name="client_id",referencedColumnName = "id"))
+	private List<Client> subscribers;
+	
 	/*
 	 * @Column(name = "enteries_photos")
 	private String enteries_photos;
@@ -78,6 +87,9 @@ public class Cottage {
 	 * 
 	 * 
 	 */
+	
+	@Column(name = "url")
+	private String url;
 	
 	
 	@JsonIgnore

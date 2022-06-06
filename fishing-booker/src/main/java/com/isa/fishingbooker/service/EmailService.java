@@ -262,6 +262,38 @@ public class EmailService {
 		javaMailSender.send(mail);
 		System.out.println("Email poslat!");
 	}
+	
+	public void sendNotificaitionForCottageReservation(CottageReservation cottageReservation) throws MailException, InterruptedException {
+
+		Thread.sleep(500);
+		System.out.println("Slanje emaila...");
+
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		///vidi da saljes na klijentov mail
+		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Succesfull reservation");
+		mail.setText("Hi, "  +"\n\nA new booking date for "+ cottageReservation.getStartDate()  + " has been successfully booked. "  + ".");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
+	
+	public void sendNotificaitionForBoatReservation(BoatReservation boatReservation) throws MailException, InterruptedException {
+
+		Thread.sleep(500);
+		System.out.println("Slanje emaila...");
+
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		///vidi da saljes na klijentov mail
+		mail.setTo(env.getProperty("spring.mail.username"));
+		mail.setFrom(env.getProperty("spring.mail.username"));
+		mail.setSubject("Succesfull reservation");
+		mail.setText("Hi, "  +"\n\nA new booking date for "+ boatReservation.getStartDate()  + " has been successfully booked. "  + ".");
+		javaMailSender.send(mail);
+		System.out.println("Email poslat!");
+	}
 
 ///RATE
 	@Async
@@ -363,5 +395,36 @@ public void sendNotificaitionToSubscribersForNewAction(Client client) throws Mai
 	System.out.println("Email poslat!");
 }
 
+@Async
+public void sendNotificaitionToSubscribersForNewCottageAction(Client client) throws MailException, InterruptedException {
+
+	Thread.sleep(1000);
+	System.out.println("Slanje emaila...");
+
+	SimpleMailMessage mail = new SimpleMailMessage();
+
+	mail.setTo(client.getEmail());
+	mail.setFrom(env.getProperty("spring.mail.username"));
+	mail.setSubject("New action");
+	mail.setText("Hi, " + client.getName() + " " +  client.getSurname() +",\n\nA new offer with a discount for fishing lessons has been released.");
+	javaMailSender.send(mail);
+	System.out.println("Email poslat!");
+}
+
+@Async
+public void sendNotificaitionToSubscribersForNewBoatAction(Client client) throws MailException, InterruptedException {
+
+	Thread.sleep(1000);
+	System.out.println("Slanje emaila...");
+
+	SimpleMailMessage mail = new SimpleMailMessage();
+
+	mail.setTo(client.getEmail());
+	mail.setFrom(env.getProperty("spring.mail.username"));
+	mail.setSubject("New action");
+	mail.setText("Hi, " + client.getName() + " " +  client.getSurname() +",\n\nA new offer with a discount for fishing lessons has been released.");
+	javaMailSender.send(mail);
+	System.out.println("Email poslat!");
+}
 
 }

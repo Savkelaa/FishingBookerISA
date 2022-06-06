@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatReservation;
 import com.isa.fishingbooker.model.BoatReservation;
@@ -22,6 +25,11 @@ public class BoatReservationService {
 
 	@Autowired
 	private BoatReservationRepository BoatReservationRepository;
+	
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private EmailService emailService;
 	
 	public List<BoatReservation> getAllBoatReservations(){
 		return this.BoatReservationRepository.findAll();
@@ -49,6 +57,13 @@ public class BoatReservationService {
 
 	
 	public BoatReservation createBoatReservation(BoatReservation boatReservation) {
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionForBoatReservation(boatReservation);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
+		
 		return BoatReservationRepository.save(boatReservation);
 	}
 	

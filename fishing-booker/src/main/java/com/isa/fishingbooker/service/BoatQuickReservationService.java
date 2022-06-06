@@ -4,27 +4,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.isa.fishingbooker.model.BoatReservation;
-import com.isa.fishingbooker.model.BoatQuickReservation;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatQuickReservation;
-import com.isa.fishingbooker.model.BoatQuickReservation;
+import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.repository.BoatQuickReservationRepository;
+import com.isa.fishingbooker.repository.ClientRepository;
 
 @Service
 public class BoatQuickReservationService {
 
 	@Autowired
 	private BoatQuickReservationRepository BoatQuickReservationRepository;
+	
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private EmailService emailService;
+	
+	@Autowired
+	private ClientRepository clientRepository;
 	
 	public List<BoatQuickReservation> getAllBoatQuickReservations(){
 		return this.BoatQuickReservationRepository.findAll();
@@ -37,7 +43,11 @@ public class BoatQuickReservationService {
 	public List<BoatQuickReservation> getFreeBoatQuickReservationsByBoat(Integer boatId) {
 		return BoatQuickReservationRepository.getFreeBoatQuickReservationsByBoat(boatId);
 	}
-		
+	
+	public List<BoatQuickReservation> getBoatQuickReservationsByBoat(Integer boatId) {
+		return BoatQuickReservationRepository.getBoatQuickReservationsByBoat(boatId);
+	
+	}	
 	public ResponseEntity<BoatQuickReservation> getBoatQuickReservationById(int boatQuickReservationId)
 		throws ResourceNotFoundException{
 		BoatQuickReservation boatQuickReservation = BoatQuickReservationRepository.findById(boatQuickReservationId).orElseThrow(() -> new ResourceNotFoundException("BoatQuickReservation not found for this id :: " + boatQuickReservationId));
@@ -54,6 +64,18 @@ public class BoatQuickReservationService {
 	}
 
 	public BoatQuickReservation createBoatQuickReservation(BoatQuickReservation boatQuickReservation) {
+		
+		List<Client> subscribers = clientRepository.getAllSubscribersByBoat(boatQuickReservation.getBoat().getId());
+		for (Client client : subscribers)
+		{
+			try {
+				System.out.println("Thread id: " + Thread.currentThread().getId());
+				emailService.sendNotificaitionToSubscribersForNewBoatAction(client);
+			}catch( Exception e ){
+				logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+			}
+		}
+		
 		return BoatQuickReservationRepository.save(boatQuickReservation);
 	}
 	

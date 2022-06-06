@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.isa.fishingbooker.model.CottageQuickReservation;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.CottageReservation;
 import com.isa.fishingbooker.repository.CottageReservationRepository;
@@ -23,6 +27,11 @@ public class CottageReservationService {
 
 	@Autowired
 	private CottageReservationRepository CottageReservationRepository;
+	
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private EmailService emailService;
 	
 	public List<CottageReservation> getAllCottageReservations(){
 		return this.CottageReservationRepository.findAll();
@@ -45,6 +54,12 @@ public class CottageReservationService {
 	}
 
 	public CottageReservation createCottageReservation(CottageReservation cottageReservation) {
+		try {
+			System.out.println("Thread id: " + Thread.currentThread().getId());
+			emailService.sendNotificaitionForCottageReservation(cottageReservation);
+		}catch( Exception e ){
+			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+		}
 		return CottageReservationRepository.save(cottageReservation);
 	}
 	
