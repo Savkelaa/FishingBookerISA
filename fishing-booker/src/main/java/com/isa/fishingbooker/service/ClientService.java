@@ -9,6 +9,7 @@ import com.isa.fishingbooker.model.BoatOwner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,8 @@ import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.repository.ClientRepository;
+
+import javax.transaction.Transactional;
 
 @Service
 public class ClientService {
@@ -153,11 +156,12 @@ public class ClientService {
 		client.setPassword(passwordEncoder.encode(client.getPassword()));
 		return clientRepository.save(client);
 	}
-	
-	
-	
+
+
+	@Transactional
 	public ResponseEntity<Client> updateClient(Integer clientId,
 			 @RequestBody Client clientDetails) throws ResourceNotFoundException {
+		try{
 		Client client = clientRepository.findById(clientId)
 				.orElseThrow(() -> new ResourceNotFoundException("client not found for this id :: " + clientId));
 		
@@ -175,6 +179,10 @@ public class ClientService {
 		
 		final Client updatedClient = clientRepository.save(client);
 		return ResponseEntity.ok(updatedClient);
+		}catch(OptimisticLockingFailureException e)
+		{
+			return null;
+		}
 	}
 
 	public ResponseEntity<Client> clientSendDeleteRequest(Integer clientId,

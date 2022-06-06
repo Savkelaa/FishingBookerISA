@@ -38,4 +38,8 @@ public class InstructorComplaint {
     @JoinColumn(name="instructor_id", nullable = false)
     private Instructor instructor;
 
+    @Version
+    @Column(name= "version", nullable= false)
+    private Integer version;
+
 }

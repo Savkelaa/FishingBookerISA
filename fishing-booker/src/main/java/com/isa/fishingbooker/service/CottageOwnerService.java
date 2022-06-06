@@ -8,6 +8,7 @@ import com.isa.fishingbooker.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.repository.CottageOwnerRepository;
+
+import javax.transaction.Transactional;
 
 @Service
 public class CottageOwnerService {
@@ -154,9 +157,10 @@ public class CottageOwnerService {
 		return CottageOwnerRepository.getAllCottageOwnerDeleteRequests();
 	}
 
-
+	@Transactional
 	public ResponseEntity<CottageOwner> updateCottageOwner(Integer cottageOwnerId,
 			 @RequestBody CottageOwner cottageOwnerDetails) throws ResourceNotFoundException {
+		try{
 		CottageOwner cottageOwner = CottageOwnerRepository.findById(cottageOwnerId)
 				.orElseThrow(() -> new ResourceNotFoundException("CottageOwner not found for this id :: " + cottageOwnerId));
 		
@@ -192,6 +196,10 @@ public class CottageOwnerService {
 		
 		final CottageOwner updatedCottageOwner = CottageOwnerRepository.save(cottageOwner);
 		return ResponseEntity.ok(updatedCottageOwner);
+		}catch(OptimisticLockingFailureException e)
+		{
+			return null;
+		}
 	}
 	
 

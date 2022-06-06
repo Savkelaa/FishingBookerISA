@@ -3,14 +3,7 @@ package com.isa.fishingbooker.model;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
@@ -81,7 +74,11 @@ public class BoatOwner implements UserDetails {
 
 	@Column(name = "deleteReason")
 	private String deleteReason;
-	
+
+	@Version
+	@Column(name= "version", nullable= false)
+	private Integer version;
+
 	@JsonIgnore
     @OneToMany(mappedBy="boatOwner",fetch=FetchType.LAZY)
     private List<Boat> boats ;

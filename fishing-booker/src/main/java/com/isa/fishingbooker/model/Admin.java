@@ -2,12 +2,7 @@ package com.isa.fishingbooker.model;
 
 import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
@@ -81,6 +76,10 @@ public class Admin implements UserDetails {
 
 	@Column(name = "firstTimeLoged")
 	private String firstTimeLoged;
+
+	@Version
+	@Column(name= "version", nullable= false)
+	private Integer version;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
