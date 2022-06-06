@@ -14,6 +14,10 @@ export default function Profile({
   sendInstructorDeleteRequestHandler,
   fishingClassesByInstructor,
   updateInstructorHandler,
+  points,
+  group,
+  numfishingClassesByInstructor,
+  pointsByFinishedReservation,
 }) {
   return (
     <div className="container rounded bg-white mt-5 mb-5">
@@ -24,6 +28,10 @@ export default function Profile({
           sendInstructorDeleteRequestHandler={
             sendInstructorDeleteRequestHandler
           }
+          numfishingClassesByInstructor={numfishingClassesByInstructor}
+          pointsByFinishedReservation={pointsByFinishedReservation}
+          points={points}
+          group={group}
           updateInstructorHandler={updateInstructorHandler}
         ></ProfileLabels>
         <InstructorHomeButtons
