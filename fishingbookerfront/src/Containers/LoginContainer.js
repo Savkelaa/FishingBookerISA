@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbarr from "../Components/Common/Navbarr";
+import NavbarLogin from "../Components/Common/NavbarLogin";
 import Footerr from "../Components/Common/Footerr";
 import Login from "../Components/Common/Login";
 import userServices from "../Services/UserServices/UserServices";
@@ -188,7 +188,7 @@ function LoginContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarLogin></NavbarLogin>
 
       <Login
         instructor={instructor}

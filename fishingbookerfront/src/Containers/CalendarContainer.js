@@ -2,7 +2,7 @@ import format from "date-fns/format";
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Footerr from "../Components/Common/Footerr";
 import fishingClassQuickReservationServices from "../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
 import fishingClassServices from "../Services/FishingClassServices/FishingClassServices";
+import userServices from "../Services/UserServices/UserServices";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -42,15 +43,22 @@ const localizer = dateFnsLocalizer({
 // ];
 
 export default function CalendarContainer() {
-  const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
+  var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
+
+  const [newEvent, setNewEvent] = useState({
+    startDate: "",
+    endDate: "",
+    instructor: { id: logedInstructor.id },
+  });
   const [
     fishingClassReservationsByInstructor,
     setfishingClassReservationsByInstructor,
   ] = useState([]);
-
+  const [dateSpan, setDateSpan] = useState({});
   const [allEvents, setAllEvents] = useState([]);
 
-  var logedInstructor = JSON.parse(localStorage.getItem("Instructor"));
+  var startDatePeriod = useRef();
+  var endDatePeriod = useRef();
 
   function handleAddEvent() {
     setAllEvents([...allEvents, newEvent]);
@@ -118,10 +126,26 @@ export default function CalendarContainer() {
       .catch((error) => console.log(`error`, error));
   }, []);
 
+  function createDateSpan(dateSpan) {
+    userServices
+      .createDateSpan(dateSpan)
+      .then((data) => {
+        if (data.status === 204) setDateSpan([]);
+        else {
+          setDateSpan(data.data.content);
+          console.log("sucessfuly added a datespan.");
+          alert("sucessfuly added a datespan.");
+        }
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }
+
   return (
     <div>
       <h1>Calendar</h1>
-      <h2>Add New Event</h2>
+      <h2>Add a new availability period </h2>
       <div>
         <input
           type="text"
@@ -129,28 +153,34 @@ export default function CalendarContainer() {
           className="form-control"
           style={{ width: "20%", marginRight: "10px" }}
           value={newEvent.title}
-          onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+          //  onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
         />
         <DatePicker
           className="form-control"
           placeholderText="Start Date"
           style={{ width: "20%", marginRight: "10px" }}
-          selected={newEvent.start}
-          onChange={(start) => setNewEvent({ ...newEvent, start })}
+          selected={newEvent.startDate}
+          ref={startDatePeriod}
+          onChange={(startDate) => setNewEvent({ ...newEvent, startDate })}
         />
         <DatePicker
           className="form-control"
           placeholderText="End Date"
           style={{ width: "20%", marginRight: "10px" }}
-          selected={newEvent.end}
-          onChange={(end) => setNewEvent({ ...newEvent, end })}
+          selected={newEvent.endDate}
+          ref={endDatePeriod}
+          onChange={(endDate) => setNewEvent({ ...newEvent, endDate })}
         />
         <button
           className="btn btn-info"
           stlye={{ marginTop: "10px" }}
-          onClick={handleAddEvent}
+          onClick={() => {
+            handleAddEvent();
+
+            createDateSpan(newEvent);
+          }}
         >
-          Add Event
+          Add Period
         </button>
       </div>
       <Calendar
