@@ -73,6 +73,9 @@ export default function CottageForm({
                       placeholder={cottage.address}
                     />
                   </div>
+                  <iframe width="200" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q=712%20Hanson%20Place&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                      frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                    </iframe>
                 </div>
 
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
