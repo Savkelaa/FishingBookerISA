@@ -29,4 +29,5 @@ public interface FishingClassRepository extends JpaRepository<FishingClass, Inte
 
 
 
+
 }

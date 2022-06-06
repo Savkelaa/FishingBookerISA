@@ -65,7 +65,17 @@ public interface FishingClassReservationRepository extends JpaRepository<Fishing
 			+ "WHERE client_id = :clientId", nativeQuery = true)
 	List<FishingClassReservation> getFishingClassByClient(Integer clientId);
 
+	@Query(value = "select count (*) from fishing_class_reservation where fishing_class_id = :fishingClassId "
+			+ "and finish_date > current_date-350\r\n", nativeQuery = true)
+	Double CountYearlyFishingClassReservations(Integer fishingClassId);
 
+	@Query(value = "select count (*) from fishing_class_reservation where fishing_class_id = :fishingClassId "
+			+ "and finish_date > current_date-30\r\n", nativeQuery = true)
+	Double CountMonthlyFishingClassReservations(Integer fishingClassId);
+
+	@Query(value = "select count (*) from fishing_class_reservation where fishing_class_id = :fishingClassId "
+			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
+	Double CountWeeklyFishingClassReservations(Integer fishingClassId);
 
 
 

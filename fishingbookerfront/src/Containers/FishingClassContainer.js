@@ -20,7 +20,9 @@ function FishingClassContainer() {
     useState([]);
   const [avgRate, setavgRate] = useState();
   const [fishingEquipments, setFishingEquipments] = useState([]);
-
+  const [weeklyRes, setWeeklyRes] = useState([]);
+  const [monthlyRes, setMonthlyRes] = useState([]);
+  const [yearlyRes, setYearlyRes] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -73,6 +75,27 @@ function FishingClassContainer() {
         setFishingEquipments(data.data);
       })
       .catch((error) => console.log(`error`, error));
+
+    fishingClassServices
+      .getWeeklyNumReservationsByFishingClass(id)
+      .then((data) => {
+        setWeeklyRes(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+    fishingClassServices
+      .getMonthlyNumReservationsByFishingClass(id)
+      .then((data) => {
+        setMonthlyRes(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+    fishingClassServices
+      .getYearlyNumReservationsByFishingClass(id)
+      .then((data) => {
+        setYearlyRes(data.data);
+      })
+      .catch((error) => alert(`error`, error));
   }, []);
 
   function updateFishingClass(fishingClass) {
@@ -114,6 +137,9 @@ function FishingClassContainer() {
         avgRate={avgRate}
         fishingEquipments={fishingEquipments}
         deleteFishingClassHandler={deleteFishingClass}
+        weeklyRes={weeklyRes}
+        monthlyRes={monthlyRes}
+        yearlyRes={yearlyRes}
       ></FcForm>
       <Footerr></Footerr>
     </div>

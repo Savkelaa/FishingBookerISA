@@ -22,7 +22,6 @@ export default function AllCottageOwnersContainer() {
       .updateCottageOwner(cottageOwner)
       .then((data) => {
         console.log("sucessfuly updated Cottage owner");
-        console.log("INSTRUCTORRRR", cottageOwner);
 
         alert("sucessfuly updated cottageOwner");
         userServices
