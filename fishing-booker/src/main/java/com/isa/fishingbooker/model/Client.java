@@ -77,6 +77,10 @@ public class Client implements UserDetails{
 	@Column(name = "points")
 	private int points;
 
+	@Version
+	@Column(name= "version", nullable= false)
+	private Integer version;
+
 	@JsonIgnore
     @OneToMany(mappedBy="client",fetch=FetchType.LAZY)
     private List<CottageRate> cottageRates ;

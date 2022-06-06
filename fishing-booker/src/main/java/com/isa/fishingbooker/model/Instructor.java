@@ -101,6 +101,10 @@ public class Instructor implements UserDetails {
 	@Column(name="averageRate")
 	private Long averageRate;
 
+	@Version
+	@Column(name= "version", nullable= false)
+	private Integer version;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub

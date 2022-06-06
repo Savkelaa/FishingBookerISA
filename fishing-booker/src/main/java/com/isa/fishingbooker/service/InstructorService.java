@@ -7,6 +7,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,8 @@ import com.isa.fishingbooker.exception.ResourceNotFoundException;
 
 import com.isa.fishingbooker.model.Instructor;
 import com.isa.fishingbooker.repository.InstructorRepository;
+
+import javax.transaction.Transactional;
 
 @Service
 public class InstructorService {
@@ -105,9 +108,10 @@ public Integer getNuberOfPastBoatQuickReservationsByBoatOwner(Integer boatOwnerI
 
 
 
-
+	@Transactional
 	public ResponseEntity<Instructor> updateInstructor(Integer instructorId,
 			 @RequestBody Instructor instructorDetails) throws ResourceNotFoundException {
+		try{
 		Instructor instructor = InstructorRepository.findById(instructorId)
 				.orElseThrow(() -> new ResourceNotFoundException("Instructor not found for this id :: " + instructorId));
 		
@@ -126,6 +130,10 @@ public Integer getNuberOfPastBoatQuickReservationsByBoatOwner(Integer boatOwnerI
 
 		final Instructor updatedInstructor = InstructorRepository.save(instructor);
 		return ResponseEntity.ok(updatedInstructor);
+		}catch(OptimisticLockingFailureException e)
+		{
+			return null;
+		}
 	}
 
 

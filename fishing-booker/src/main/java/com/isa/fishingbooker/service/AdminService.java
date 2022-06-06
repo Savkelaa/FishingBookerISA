@@ -9,6 +9,7 @@ import com.isa.fishingbooker.model.Instructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,8 @@ import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.Admin;
 import com.isa.fishingbooker.model.Admin;
 import com.isa.fishingbooker.repository.AdminRepository;
+
+import javax.transaction.Transactional;
 
 @Service
 public class AdminService {
@@ -79,9 +82,11 @@ public class AdminService {
 	public List<Admin> getAllAdminDeleteRequests() {
 		return AdminRepository.getAllAdminDeleteRequests();
 	}
-	
+
+	@Transactional
 	public ResponseEntity<Admin> updateAdmin(Integer adminId,
 			 @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+		try{
 		Admin admin = AdminRepository.findById(adminId)
 				.orElseThrow(() -> new ResourceNotFoundException("Admin not found for this id :: " + adminId));
 		
@@ -106,6 +111,11 @@ public class AdminService {
 
 		final Admin updatedAdmin = AdminRepository.save(admin);
 		return ResponseEntity.ok(updatedAdmin);
+	}catch(
+	OptimisticLockingFailureException e)
+	{
+		return null;
+	}
 	}
 
 	public ResponseEntity<Admin> adminSendDeleteRequest(Integer adminId,

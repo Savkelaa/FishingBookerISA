@@ -9,10 +9,12 @@ import com.isa.fishingbooker.service.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,29 +47,37 @@ public class InstructorComplaintService {
         return instructorComplaintRepository.save(instructorComplaint);
     }
 
-
+@Transactional
     public ResponseEntity<InstructorComplaint> updateInstructorComplaint(Integer instructorComplaintId,
                                                                @RequestBody InstructorComplaint instructorComplaintDetails) throws ResourceNotFoundException {
-        InstructorComplaint instructorComplaint = instructorComplaintRepository.findById(instructorComplaintId)
-                .orElseThrow(() -> new ResourceNotFoundException("InstructorComplaint not found for this id :: " + instructorComplaintId));
 
-        instructorComplaint.setActive(instructorComplaintDetails.getActive());
-        instructorComplaint.setDescription(instructorComplaintDetails.getDescription());
-        instructorComplaint.setAnswer(instructorComplaintDetails.getAnswer());
-        instructorComplaint.setInstructor(instructorComplaintDetails.getInstructor());
-        instructorComplaint.setClient(instructorComplaintDetails.getClient());
 
-           try {
-               System.out.println("Thread id: " + Thread.currentThread().getId());
-               emailService.sendNotificaitionAsyncAcceptComplaintClient(instructorComplaint.getClient(), instructorComplaint.getAnswer());
-               emailService.sendNotificaitionAsyncAcceptComplaintInstructor(instructorComplaint.getInstructor(), instructorComplaint.getAnswer());
-           } catch (Exception e) {
+        try{
+            InstructorComplaint instructorComplaint = instructorComplaintRepository.findById(instructorComplaintId)
+                    .orElseThrow(() -> new ResourceNotFoundException("InstructorComplaint not found for this id :: " + instructorComplaintId));
+
+            instructorComplaint.setActive(instructorComplaintDetails.getActive());
+            instructorComplaint.setDescription(instructorComplaintDetails.getDescription());
+            instructorComplaint.setAnswer(instructorComplaintDetails.getAnswer());
+            instructorComplaint.setInstructor(instructorComplaintDetails.getInstructor());
+            instructorComplaint.setClient(instructorComplaintDetails.getClient());
+
+            try {
+                System.out.println("Thread id: " + Thread.currentThread().getId());
+                emailService.sendNotificaitionAsyncAcceptComplaintClient(instructorComplaint.getClient(), instructorComplaint.getAnswer());
+                emailService.sendNotificaitionAsyncAcceptComplaintInstructor(instructorComplaint.getInstructor(), instructorComplaint.getAnswer());
+            } catch (Exception e) {
                 logger.info("Greska prilikom slanja emaila: " + e.getMessage());
-         }
+            }
 
 
-        final InstructorComplaint updatedInstructorComplaint = instructorComplaintRepository.save(instructorComplaint);
-        return ResponseEntity.ok(updatedInstructorComplaint);
+            final InstructorComplaint updatedInstructorComplaint = instructorComplaintRepository.save(instructorComplaint);
+            return ResponseEntity.ok(updatedInstructorComplaint);
+        }catch(OptimisticLockingFailureException e)
+        {
+            return null;
+        }
+
     }
 
     public Map<String, Boolean> deleteInstructorComplaint(int instructorComplaintId)

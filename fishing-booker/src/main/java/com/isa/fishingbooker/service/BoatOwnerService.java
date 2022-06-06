@@ -8,6 +8,7 @@ import com.isa.fishingbooker.model.BoatOwner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +24,8 @@ import com.isa.fishingbooker.model.BoatOwner;
 import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.Instructor;
 import com.isa.fishingbooker.repository.BoatOwnerRepository;
+
+import javax.transaction.Transactional;
 
 @Service
 public class BoatOwnerService {
@@ -75,10 +78,11 @@ public class BoatOwnerService {
 		boatOwner.setPassword(passwordEncoder.encode(boatOwner.getPassword()));
 		return BoatOwnerRepository.save(boatOwner);
 	}
-	
-	
+
+	@Transactional
 	public ResponseEntity<BoatOwner> updateBoatOwner(Integer boatOwnerId,
-			 @RequestBody BoatOwner boatOwnerDetails) throws ResourceNotFoundException {
+	 @RequestBody BoatOwner boatOwnerDetails) throws ResourceNotFoundException {
+		try{
 		BoatOwner boatOwner = BoatOwnerRepository.findById(boatOwnerId)
 				.orElseThrow(() -> new ResourceNotFoundException("BoatOwner not found for this id :: " + boatOwnerId));
 		
@@ -97,6 +101,10 @@ public class BoatOwnerService {
 
 		final BoatOwner updatedBoatOwner = BoatOwnerRepository.save(boatOwner);
 		return ResponseEntity.ok(updatedBoatOwner);
+		}catch(OptimisticLockingFailureException e)
+		{
+			return null;
+		}
 	}
 	
 	public ResponseEntity<BoatOwner> activateBoatOwner(Integer boatOwnerId) throws ResourceNotFoundException {
