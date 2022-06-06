@@ -55,6 +55,23 @@ public class FishingClassController {
 		return fishingClassService.getYearlyFishingClassReservation(fishingClassId);
 	}
 
+
+	@GetMapping("/yearlyFishingClassIncome")
+	public Double getYearlyFishingClassIncome(@RequestParam (value = "fishingClassId") Integer fishingClassId) {
+		return fishingClassService.getYearlyIncomeByFishingClass(fishingClassId);
+	}
+
+	@GetMapping("/monthlyFishingClassIncome")
+	public Double getMonthlyFishingClassIncome(@RequestParam (value = "fishingClassId") Integer fishingClassId) {
+		return fishingClassService.getMonthlyIncomeByFishingClass(fishingClassId);
+	}
+
+	@GetMapping("/weeklyFishingClassIncome")
+	public Double getWeeklyFishingClassIncome(@RequestParam (value = "fishingClassId") Integer fishingClassId) {
+		return fishingClassService.getWeeklyIncomeByFishingClass(fishingClassId);
+	}
+
+
 	@GetMapping("/fishingClassInstructor")
 	public List<FishingClass> getFishingClassByInstructor(@RequestParam (value="instructorId")  Integer instructorId){
 		return fishingClassService.getFishingClassByInstructor(instructorId);

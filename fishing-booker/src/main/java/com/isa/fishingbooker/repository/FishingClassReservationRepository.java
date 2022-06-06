@@ -77,6 +77,19 @@ public interface FishingClassReservationRepository extends JpaRepository<Fishing
 			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
 	Double CountWeeklyFishingClassReservations(Integer fishingClassId);
 
+	@Query(value = "select sum(price) from fishing_class_reservation"
+			+ " where finish_date > current_date-7 and finish_date < current_date and fishing_class_id = :fishingClassId"
+			, nativeQuery = true)
+	Double CountWeeklyIncomeFishingClassReservations(Integer fishingClassId);
 
+	@Query(value = "select sum(price) from fishing_class_reservation where finish_date > current_date-30 and finish_date < current_date"
+			+ " and fishing_class_id = :fishingClassId"
+			, nativeQuery = true)
+	Double CountMonthlyIncomeFishingClassReservations(Integer fishingClassId);
+
+	@Query(value = "select sum(price) from fishing_class_reservation where finish_date > current_date-350 and finish_date < current_date"
+			+ " and fishing_class_id = :fishingClassId"
+			, nativeQuery = true)
+	Double CountYearlyIncomeFishingClassReservations(Integer fishingClassId);
 
 }

@@ -73,7 +73,40 @@ public class FishingClassService {
 		FishingClass fishingClass = fishingClassRepository.findById(fishingClassId).orElseThrow(() -> new ResourceNotFoundException("FishingClass not found for this id :: " + fishingClassId));
 	 return ResponseEntity.ok().body(fishingClass);
 	}
-	
+
+	public Double getWeeklyIncomeByFishingClass(Integer fishingClassId) {
+		double income = 0;
+		if (fishingClassReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId) != null) {
+			income += fishingClassReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId);
+		}
+		if (fishingClassQuickReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId) != null) {
+			income += fishingClassQuickReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId);
+		}
+		return income;
+	}
+
+	public Double getMonthlyIncomeByFishingClass(Integer fishingClassId) {
+		double income = 0;
+		if (fishingClassReservationRepository.CountMonthlyIncomeFishingClassReservations(fishingClassId) != null) {
+			income += fishingClassReservationRepository.CountMonthlyIncomeFishingClassReservations(fishingClassId);
+		}
+		if (fishingClassQuickReservationRepository.CountMonthlyFishingClassQuickReservations(fishingClassId) != null) {
+			income += fishingClassQuickReservationRepository.CountMonthlyFishingClassQuickReservations(fishingClassId);
+		}
+		return income;
+	}
+
+	public Double getYearlyIncomeByFishingClass(Integer fishingClassId) {
+		double income = 0;
+		if (fishingClassReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId) != null) {
+			income += fishingClassReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId);
+		}
+		if (fishingClassQuickReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId) != null) {
+			income += fishingClassQuickReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId);
+		}
+		return income;
+	}
+
 
 	public FishingClass createFishingClass(FishingClass fishingClass) {
 		return fishingClassRepository.save(fishingClass);
