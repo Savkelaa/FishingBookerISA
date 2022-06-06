@@ -68,7 +68,21 @@ public interface CottageQuickReservationRepository extends JpaRepository<Cottage
 			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
 	Double CountWeeklyCottageQuickReservations(Integer cottageId);
 	
+	@Query(value = "select sum(price) from cottage_quick_reservation where finish_date > current_date-7 and finish_date < current_date"
+			+ " and cottage_id = :cottageId"
+			+ "", nativeQuery = true)
+	Double CountWeeklyIncomeCottageReservations(Integer cottageId);
 	
+	@Query(value = "select sum(price) from cottage_quick_reservation where finish_date > current_date-30 and finish_date < current_date"
+			+ " and cottage_id = :cottageId"
+			+ "", nativeQuery = true)
+	Double CountMonthlyIncomeCottageReservations(Integer cottageId);
+	
+	@Query(value = "select sum(price) from cottage_quick_reservation where finish_date > current_date-350 and finish_date < current_date"
+			+ " and cottage_id = :cottageId"
+			+ "", nativeQuery = true)
+	Double CountYearlyIncomeCottageReservations(Integer cottageId);
+
 	
 	
 	@Query(value="select * from cottage_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by start_date asc ", nativeQuery=true)

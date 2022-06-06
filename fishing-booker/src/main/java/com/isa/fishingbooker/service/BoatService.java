@@ -112,6 +112,39 @@ public class BoatService {
 		return BoatRepository.getBoatsByOwner(boatOwnerId);
 	}
 	
+	public Double getWeeklyIncomeByBoat(Integer boatId) {
+		double income = 0;
+		if (boatReservationRepository.CountWeeklyIncomeBoatReservations(boatId) != null) {
+			income += boatReservationRepository.CountWeeklyIncomeBoatReservations(boatId);
+		}
+		if (boatQuickReservationRepository.CountWeeklyIncomeBoatReservations(boatId) != null) {
+			income += boatQuickReservationRepository.CountWeeklyIncomeBoatReservations(boatId);
+		}
+		return income; 	 
+	}
+	
+	public Double getMonthlyIncomeByBoat(Integer boatId) {
+		double income = 0;
+		if (boatReservationRepository.CountMonthlyIncomeBoatReservations(boatId) != null) {
+			income += boatReservationRepository.CountMonthlyIncomeBoatReservations(boatId);
+		}
+		if (boatQuickReservationRepository.CountMonthlyBoatQuickReservations(boatId) != null) {
+			income += boatQuickReservationRepository.CountMonthlyBoatQuickReservations(boatId);
+		}
+		return income; 
+	}
+	
+	public Double getYearlyIncomeByBoat(Integer boatId) {
+		double income = 0;
+		if (boatReservationRepository.CountYearlyIncomeBoatReservations(boatId) != null) {
+			income += boatReservationRepository.CountYearlyIncomeBoatReservations(boatId);
+		}
+		if (boatQuickReservationRepository.CountYearlyIncomeBoatReservations(boatId) != null) {
+			income += boatQuickReservationRepository.CountYearlyIncomeBoatReservations(boatId);
+		}
+		return income;	 
+	}
+	
 	public Double getWeeklyReservationsByBoat(Integer boatId) {
 		double numReservations = boatReservationRepository.CountWeeklyBoatReservations(boatId) + boatQuickReservationRepository.CountWeeklyBoatQuickReservations(boatId);
 		return numReservations;

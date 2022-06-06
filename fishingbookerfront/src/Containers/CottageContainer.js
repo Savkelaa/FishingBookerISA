@@ -20,6 +20,11 @@ function CottageContainer() {
   const [weeklyRes, setWeeklyRes] = useState([]);
   const [monthlyRes, setMonthlyRes] = useState([]);
   const [yearlyRes, setYearlyRes] = useState([]);
+
+  const [weeklyIncome, setWeeklyIncome] = useState([]);
+  const [monthlyIncome, setMonthlyIncome] = useState([]);
+  const [yearlyIncome, setYearlyIncome] = useState([]);
+
   const [actions, setActions] = useState([]);
   const [images, setImages] = useState([]);
 
@@ -52,6 +57,26 @@ function CottageContainer() {
       })
       .catch((error) => alert(`error`, error));
 
+    cottageServices
+      .getWeeklyIncomeByCottage(id)
+      .then((data) => {
+        setWeeklyIncome(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+      cottageServices
+      .getMonthlyIncomeByCottage(id)
+      .then((data) => {
+        setMonthlyIncome(data.data);
+      })
+      .catch((error) => alert(`error`, error));
+
+      cottageServices
+      .getYearlyIncomeByCottage(id)
+      .then((data) => {
+        setYearlyIncome(data.data);
+      })
+      .catch((error) => alert(`error`, error));
 
 
     cottageServices
@@ -125,6 +150,9 @@ function CottageContainer() {
         weeklyRes={weeklyRes}
         monthlyRes={monthlyRes}
         yearlyRes={yearlyRes}
+        weeklyIncome={weeklyIncome}
+        monthlyIncome={monthlyIncome}
+        yearlyIncome={yearlyIncome}
         updateCottageHandler={updateCottage}
         deleteCottageHandler={deleteCottage}
         images={images}

@@ -76,6 +76,24 @@ const boatServices = {
     );
   },
 
+  getYearlyIncomeByBoat: (boatId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}yearlyBoatIncome?boatId=${boatId}`
+    )
+  },
+
+  getMonthlyIncomeByBoat: (boatId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}monthlyBoatIncome?boatId=${boatId}`
+    )
+  },
+
+  getWeeklyIncomeByBoat: (boatId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}weeklyBoatIncome?boatId=${boatId}`
+    )
+  },
+
 };
 
 export default boatServices;

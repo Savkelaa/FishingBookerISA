@@ -96,6 +96,39 @@ public class CottageService {
 		return numReservations;
 	}
 	
+	public Double getWeeklyIncomeByCottage(Integer cottageId) {
+		double income = 0;
+		if (cottageReservationRepository.CountWeeklyIncomeCottageReservations(cottageId) != null) {
+			income += cottageReservationRepository.CountWeeklyIncomeCottageReservations(cottageId);
+		}
+		if (cottageQuickReservationRepository.CountWeeklyIncomeCottageReservations(cottageId) != null) {
+			income += cottageQuickReservationRepository.CountWeeklyIncomeCottageReservations(cottageId);
+		}
+		return income; 	 
+	}
+	
+	public Double getMonthlyIncomeByCottage(Integer cottageId) {
+		double income = 0;
+		if (cottageReservationRepository.CountMonthlyIncomeCottageReservations(cottageId) != null) {
+			income += cottageReservationRepository.CountMonthlyIncomeCottageReservations(cottageId);
+		}
+		if (cottageQuickReservationRepository.CountMonthlyCottageQuickReservations(cottageId) != null) {
+			income += cottageQuickReservationRepository.CountMonthlyCottageQuickReservations(cottageId);
+		}
+		return income; 
+	}
+	
+	public Double getYearlyIncomeByCottage(Integer cottageId) {
+		double income = 0;
+		if (cottageReservationRepository.CountYearlyIncomeCottageReservations(cottageId) != null) {
+			income += cottageReservationRepository.CountYearlyIncomeCottageReservations(cottageId);
+		}
+		if (cottageQuickReservationRepository.CountYearlyIncomeCottageReservations(cottageId) != null) {
+			income += cottageQuickReservationRepository.CountYearlyIncomeCottageReservations(cottageId);
+		}
+		return income;	 
+	}
+	
 	public List<Cottage> getCottagesByOwner(Integer cottageOwnerId) {
 		return CottageRepository.getCottagesByOwner(cottageOwnerId);
 	}

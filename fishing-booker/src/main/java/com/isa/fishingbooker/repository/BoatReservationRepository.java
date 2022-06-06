@@ -61,4 +61,18 @@ public interface BoatReservationRepository extends JpaRepository<BoatReservation
 			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
 	Double CountWeeklyBoatReservations(Integer boatId);
 	
+	@Query(value = "select sum(price) from boat_reservation"
+			+ " where finish_date > current_date-7 and finish_date < current_date and boat_id = :boatId"
+			, nativeQuery = true)
+	Double CountWeeklyIncomeBoatReservations(Integer boatId);
+	
+	@Query(value = "select sum(price) from boat_reservation where finish_date > current_date-30 and finish_date < current_date"
+			+ " and boat_id = :boatId"
+			, nativeQuery = true)
+	Double CountMonthlyIncomeBoatReservations(Integer boatId);
+	
+	@Query(value = "select sum(price) from boat_reservation where finish_date > current_date-350 and finish_date < current_date"
+			+ " and boat_id = :boatId"
+			, nativeQuery = true)
+	Double CountYearlyIncomeBoatReservations(Integer boatId);
 }

@@ -68,6 +68,24 @@ const cottageServices = {
       `${process.env.REACT_APP_API_URL}yearlyCottageReservation?cottageId=${cottageId}`
     )
   },
+
+  getYearlyIncomeByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}yearlyCottageIncome?cottageId=${cottageId}`
+    )
+  },
+
+  getMonthlyIncomeByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}monthlyCottageIncome?cottageId=${cottageId}`
+    )
+  },
+
+  getWeeklyIncomeByCottage: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}weeklyCottageIncome?cottageId=${cottageId}`
+    )
+  },
 };
 
 export default cottageServices;
