@@ -3,6 +3,7 @@ import Footerr from "../Components/Common/Footerr";
 import Navbarr from "../Components/Common/Navbarr";
 import userServices from "../Services/UserServices/UserServices";
 import CottageOwners from "../Components/Common/CottageOwners";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 export default function AllCottageOwnersContainer() {
   const [cottageOwners, setCottageOwners] = useState([]);
@@ -38,7 +39,7 @@ export default function AllCottageOwnersContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <CottageOwners
         cottageOwners={cottageOwners}
         updateCottageOwnerHandler={updateCottageOwner}

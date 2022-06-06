@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Footerr from "../Components/Common/Footerr";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 import Navbarr from "../Components/Common/Navbarr";
 import Request from "../Components/Common/Request";
 import userServices from "../Services/UserServices/UserServices";
@@ -213,7 +214,7 @@ export default function RequestsContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <Request
         instructorRequests={instructorRequests}
         boatOwnerRequests={boatOwnerRequests}

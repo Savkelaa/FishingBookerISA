@@ -7,6 +7,7 @@ import UserServices from "../Services/UserServices/UserServices";
 import userServices from "../Services/UserServices/UserServices";
 import RegistrationForm from "../Components/Common/RegistrationForm";
 import CreateLoyaltyCategory from "../Components/Common/CreateLoyaltyCategory";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 function CreateLoyaltyCategoryContainer() {
   const [category, setCategory] = useState([]);
@@ -29,7 +30,7 @@ function CreateLoyaltyCategoryContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <CreateLoyaltyCategory
         addCategoryHandler={addCategory}
       ></CreateLoyaltyCategory>

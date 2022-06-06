@@ -4,6 +4,7 @@ import Navbarr from "../Components/Common/Navbarr";
 import boatServices from "../Services/BoatServices/BoatServices";
 import BoatOwners from "../Components/Common/BoatOwners";
 import userServices from "../Services/UserServices/UserServices";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 export default function AllBoatOwnersContainer() {
   const [boatOwners, setBoatOwners] = useState([]);
@@ -39,7 +40,7 @@ export default function AllBoatOwnersContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <BoatOwners
         boatOwners={boatOwners}
         updateBoatOwnerHandler={updateBoatOwner}

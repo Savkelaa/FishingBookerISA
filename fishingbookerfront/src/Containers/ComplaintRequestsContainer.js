@@ -7,6 +7,7 @@ import rateServices from "../Services/RateServices/RateServices";
 import RateRequests from "../Components/Common/RateRequests";
 import complaintServices from "../Services/ComplaintServices/ComplaintServices";
 import ComplaintRequests from "../Components/Common/ComplaintRequests";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 export default function ComplaintRequestsContainer() {
   const [complaintRequests, setComplaintRequests] = useState([]);
@@ -46,7 +47,7 @@ export default function ComplaintRequestsContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <ComplaintRequests
         complaintRequests={complaintRequests}
         updateComplaintHandler={updateComplaint}

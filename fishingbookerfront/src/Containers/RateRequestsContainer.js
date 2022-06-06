@@ -5,6 +5,7 @@ import Request from "../Components/Common/Request";
 
 import rateServices from "../Services/RateServices/RateServices";
 import RateRequests from "../Components/Common/RateRequests";
+import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 export default function RateRequestsContainer() {
   const [fishingClassRateRequests, setfishingClassRateRequests] = useState([]);
@@ -194,7 +195,7 @@ export default function RateRequestsContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <NavbarAdmin></NavbarAdmin>
       <RateRequests
         fishingClassRateRequests={fishingClassRateRequests}
         instructorRateRequests={instructorRateRequests}
