@@ -148,8 +148,8 @@ export default function ClientHomePage() {
     userServices
       .updateClient(client)
       .then((data) => {
-        history.replace("/boatOwnerHomePage")
-        alert("sucessfuly updated BoatOwner");
+        history.replace("/clientHomePage")
+        alert("sucessfuly updated Client");
         
       })
       .catch((error) => {

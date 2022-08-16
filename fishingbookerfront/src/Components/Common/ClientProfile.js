@@ -23,6 +23,7 @@ export default function Profile({
   numBoatQuick,
   numCottage,
   numCottageQuick,
+  updateClientHandler
 }) {
   return (
     <div className="container rounded bg-white mt-5 mb-5">
@@ -40,6 +41,9 @@ export default function Profile({
           numBoatQuick={numBoatQuick}
           numCottage={numCottage}
           numCottageQuick={numCottageQuick}
+          updateClientHandler={
+            updateClientHandler
+          }
         ></ClientProfileLabel>
         <ClientHomeButtons></ClientHomeButtons>
       </div>
