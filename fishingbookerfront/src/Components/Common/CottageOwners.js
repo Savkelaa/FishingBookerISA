@@ -48,18 +48,7 @@ export default function CottageOwners({
                         Explanation of registration: {cottageOwner.explanation}
                       </ListGroupItem>
                     </ListGroup>
-                    <Card.Body>
-                      <Button
-                        style={{ width: "8rem" }}
-                        variant="outline-danger"
-                        onClick={() => {
-                          cottageOwner.deleted = "true";
-                          updateCottageOwnerHandler(cottageOwner);
-                        }}
-                      >
-                        Delete
-                      </Button>
-                    </Card.Body>
+                   
                   </Card>
                 </div>
               </div>

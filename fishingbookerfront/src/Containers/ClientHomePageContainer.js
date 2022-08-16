@@ -6,6 +6,8 @@ import ClientProfile from "../Components/Common/ClientProfile";
 import "../Assets/css/profile.css";
 import userServices from "../Services/UserServices/UserServices";
 import fishingClassServices from "../Services/FishingClassServices/FishingClassServices";
+import { Link, Route, Switch, useHistory, useLocation } from "react-router-dom";
+
 
 export default function ClientHomePage() {
   const [numFishingClass, setNumFishingClass] = useState({});
@@ -141,6 +143,20 @@ export default function ClientHomePage() {
       });
   }
 
+  const history = useHistory();
+  function updateClient(client) {
+    userServices
+      .updateClient(client)
+      .then((data) => {
+        history.replace("/boatOwnerHomePage")
+        alert("sucessfuly updated BoatOwner");
+        
+      })
+      .catch((error) => {
+        alert("Something wen't wrong try again");
+      });
+  }
+
   return (
     <div>
       <Navbarr></Navbarr>
@@ -157,6 +173,7 @@ export default function ClientHomePage() {
         logedClient={logedClient}
         sendInstructorDeleteRequestHandler={sendInstructorDeleteRequest}
         fishingClassesByInstructor={fishingClassesByInstructor}
+        updateClientHandler={updateClient}
       ></ClientProfile>
       <Footerr></Footerr>
     </div>

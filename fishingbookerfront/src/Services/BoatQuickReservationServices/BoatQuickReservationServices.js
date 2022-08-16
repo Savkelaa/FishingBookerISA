@@ -13,11 +13,17 @@ const boatQuickReservationServices = {
     );
   },
 
-  getAllBoatReservationsByClient: (clientId) => {
+  getAllBoatReservationsByClient2: (clientId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}boatReservationsClient?clientId=${clientId}`
     );
   },
+  getAllBoatReservationsByClient: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allBoatQuickReservationsByClient?clientId=${clientId}`
+    );
+  },
+  
 
   createBoatQuickReservationAction: (boatAction) => {
     return axios.post(
@@ -56,6 +62,30 @@ const boatQuickReservationServices = {
   getBoatQuickReservationByBoat: (boatId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}BoatQuickReservationsByBoat?boatId=${boatId}`
+    );
+  },
+
+  getBoatQuickReservationByDateAsc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allFinishedBoatQuickReservationsByClientSortedByDateAsc?clientId=${clientId}`
+    );
+  },
+
+  getBoatQuickReservationByDateDesc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allFinishedBoatQuickReservationsByClientSortedByDateDesc?clientId=${clientId}`
+    );
+  },
+
+  getBoatQuickReservationByDurationAsc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allFinishedBoatQuickReservationsByClientSortedByDurationAsc?clientId=${clientId}`
+    );
+  },
+
+  getBoatQuickReservationByDurationDesc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allFinishedBoatQuickReservationsByClientSortedByDurationDesc?clientId=${clientId}`
     );
   },
 

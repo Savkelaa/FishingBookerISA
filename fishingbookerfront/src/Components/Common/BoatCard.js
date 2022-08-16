@@ -1,4 +1,5 @@
 import React from "react";
+import rateService from "../../Services/BoatServices/RateServices";
 import {
   Card,
   ListGroup,
@@ -10,7 +11,19 @@ import "../../App.css";
 import { Link } from "react-router-dom";
 
 export default function BoatCard({ boats }) {
-  console.log("boats", boats);
+
+ /* boats.forEach(element => {
+  //  var a=rateService.getRateBoatById(element.id);
+  var a=0;
+    rateService.getRateBoatById(element.id).then(function(result) {
+      // here you can use the result of promiseB
+      a=result;
+  });
+  
+    element.averageRate=1;
+    console.log(a);
+   
+  }); */
   return (
     <div>
       {boats.map((boat) => (
@@ -36,7 +49,8 @@ export default function BoatCard({ boats }) {
                       </ListGroupItem>
                       <ListGroupItem>Max Speed: {boat.maxSpeed}</ListGroupItem>
                       <ListGroupItem>Status: {boat.status}</ListGroupItem>
-                      <ListGroupItem>Price: {boat.price} euro</ListGroupItem>
+                      <ListGroupItem>Price: {boat.averageRate} euro</ListGroupItem>
+                      <ListGroupItem>Rate: {boat.averageRate} </ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                       <Link to={`/boat/${boat.id}`}>

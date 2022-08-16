@@ -19,6 +19,12 @@ const cottageQuickReservationServices = {
     );
   },
 
+  getAllCottageQuickReservationByClient: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allQuickReservationsByClient?clientId=${clientId}`
+    );
+  },
+
   createCottageQuickReservationAction: (cottageAction) => {
     return axios.post(
       `${process.env.REACT_APP_API_URL}cottageQuickReservations`,
@@ -57,6 +63,32 @@ const cottageQuickReservationServices = {
   getAllCottageQuickReservationsByCottageOwner: (cottageOwnerId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}cottageQuickReservationCottageOwner?cottageOwnerId=${cottageOwnerId}`
+    );
+  },
+//client--------------------------------------------------------------------------------------
+  getAllCottageQuickReservationByClientDateAsc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allFinishedCottageQuickReservationsByClientSortedByDateAsc?clientId=${clientId}`
+    );
+  },
+
+
+  getAllCottageQuickReservationByClientDateDesc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allFinishedCottageQuickReservationsByClientSortedByDateDesc?clientId=${clientId}`
+    );
+  },
+
+
+  getAllCottageQuickReservationByClientDurationAsc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allFinishedCottageQuickReservationsByClientSortedByDurationAsc?clientId=${clientId}`
+    );
+  },
+
+  getAllCottageQuickReservationByClientDurationDesc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}allFinishedCottageQuickReservationsByClientSortedByDurationDesc?clientId=${clientId}`
     );
   },
 };

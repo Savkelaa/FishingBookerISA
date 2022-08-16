@@ -93,6 +93,24 @@ const boatServices = {
       `${process.env.REACT_APP_API_URL}weeklyBoatIncome?boatId=${boatId}`
     )
   },
+  getAllBoatsAddressAsc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allBoatsOrderedByAddressAsc`);
+  },
+  getAllBoatsAddressDesc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allBoatsOrderedByAddressDesc`);
+  },
+  getAllBoatsNameDesc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allBoatsOrderedByNameDesc`);
+  },
+  getAllBoatsNameAsc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allBoatsOrderedByNameAsc`);
+  },
+  getAllBoatsPriceAsc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allBoatsOrderedByPriceAsc`);
+  },
+  getAllBoatsPriceDesc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allBoatsOrderedByPriceDesc`);
+  },
 
 };
 

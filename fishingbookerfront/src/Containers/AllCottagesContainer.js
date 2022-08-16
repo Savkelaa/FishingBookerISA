@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbarr from "../Components/Common/Navbarr";
+import Navbarr from "../Components/Common/Navbarr-Home";
 import Footerr from "../Components/Common/Footerr";
 import "../App.css";
 import FishingClassCard from "../Components/Common/FishingClassCard";
@@ -23,7 +23,7 @@ function AllCottagesContainer() {
 
   return (
     <div>
-      <NavbarAdmin></NavbarAdmin>
+      <Navbarr></Navbarr>
       <CottageCard cottages={cottages}></CottageCard>
       <Footerr></Footerr>
     </div>

@@ -3,7 +3,7 @@ import { useLocation, useHistory } from "react-router";
 import boatServices from "../Services/BoatServices/BoatServices";
 import background from "../Assets/img/background.jpg";
 import "../App.css";
-import Navbarr from "../Components/Common/Navbarr";
+import Navbarr_Home from "../Components/Common/Navbarr-Home";
 import Footerr from "../Components/Common/Footerr";
 import FcForm from "../Components/Common/FcForm";
 import BoatForm from "../Components/Common/BoatForm";
@@ -151,7 +151,7 @@ function BoatContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <Navbarr_Home></Navbarr_Home>
 
       <BoatForm
         boat={boat}

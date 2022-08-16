@@ -86,6 +86,33 @@ const cottageServices = {
       `${process.env.REACT_APP_API_URL}weeklyCottageIncome?cottageId=${cottageId}`
     )
   },
+
+
+  getAllCottagesAddressAsc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allCottagesOrderedByAddressAsc`);
+  },
+
+
+  getAllCottagesAddressDesc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allCottagesOrderedByAddressDesc`);
+  },
+
+
+  getAllCottagesNameDesc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allCottagesOrderedByNameDesc`);
+  },
+
+  getAllCottagesNameAsc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allCottagesOrderedByNameAsc`);
+  },
+
+  getAllCottagesPriceAsc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allCottagesOrderedByPriceAsc`);
+  },
+
+  getAllCottagesPriceDesc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allCottagesOrderedByPriceDesc`);
+  },
 };
 
 export default cottageServices;

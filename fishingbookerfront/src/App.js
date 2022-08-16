@@ -72,6 +72,12 @@ import BoatAvailabilityPeriodContainer from "./Containers/BoatAvailabilityPeriod
 import ClientsByBoatOwnerContainer from "./Containers/ClientsByBoatOwnerContainer";
 import BoatOwnerCreateReport from "./Components/Common/BoatOwnerCreateReport";
 import BoatOwnerCreateReportContainer from "./Containers/BoatOwnerCreateReportContainer";
+import CottageReservationHistoryByClientContainer from  "./Containers/CottageReservationHistoryByClientContainer"
+import BoatReservationHistoryClientContainer from "./Containers/BoatReservationHistoryClientContainer"
+import BoatReservationClientAllContainer from "./Containers/BoatReservationClientAllContainer"
+import CottageReservationClientAllContainer from "./Containers/CottageReservationClientAllContainer"
+import FishingClassReservationClientAllContainer from "./Containers/FishingClassReservationClientAllContainer"
+
 
 function App() {
   return (
@@ -162,9 +168,13 @@ function App() {
           <Route path="/fishingClassReservationHistoryByClient">
             <FishingClassReservationHistoryByClientContainer></FishingClassReservationHistoryByClientContainer>
           </Route>
-          <Route path="/fishingClassFutureReservationByClient">
-            <FishingClassFutureReservationClientContainer></FishingClassFutureReservationClientContainer>
+          <Route path="/fishingClassReservationClientAll">
+            <FishingClassReservationClientAllContainer></FishingClassReservationClientAllContainer>
           </Route>
+          <Route path="/cottageReservationHistoryByClient">
+            <CottageReservationHistoryByClientContainer></CottageReservationHistoryByClientContainer>
+          </Route>
+
           <Route path="/rateRequests">
             <RateRequestsContainer></RateRequestsContainer>
           </Route>
@@ -206,6 +216,14 @@ function App() {
 
           <Route path="/cottageReservationHistory">
             <CottageReservationHistoryContainer></CottageReservationHistoryContainer>
+          </Route>
+
+          <Route path="/cottageReservationHistoryClient">
+            <CottageReservationHistoryByClientContainer></CottageReservationHistoryByClientContainer>
+          </Route>
+
+          <Route path="/cottageReservationClientAll">
+            <CottageReservationClientAllContainer></CottageReservationClientAllContainer>
           </Route>
 
           <Route path="/createCottageQuickReservationAction/:id">
@@ -270,6 +288,14 @@ function App() {
 
           <Route path = "/boatReservationHistory">
             <BoatReservationHistoryContainer></BoatReservationHistoryContainer>
+          </Route>
+
+          <Route path = "/boatReservationHistoryClient">
+            <BoatReservationHistoryClientContainer></BoatReservationHistoryClientContainer>
+          </Route>
+
+          <Route path = "/boatReservationClientAll">
+            <BoatReservationClientAllContainer></BoatReservationClientAllContainer>
           </Route>
 
           <Route path = "/boatCurrentReservation">

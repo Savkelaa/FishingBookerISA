@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import NavbarAdmin from "../Components/Common/NavbarAdmin";
+import Navbar from "../Components/Common/Navbarr-Home";
 import Footerr from "../Components/Common/Footerr";
 import "../App.css";
 
@@ -40,7 +40,7 @@ function AllInstrucotrsContainer() {
 
   return (
     <div>
-      <NavbarAdmin></NavbarAdmin>
+      <Navbar></Navbar>
       <Instructors
         instructors={instructors}
         updateInstructorHandler={updateInstructor}

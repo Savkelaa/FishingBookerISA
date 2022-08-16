@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
-import Navbarr from "../Components/Common/Navbarr";
+import Navbarr_Home from "../Components/Common/Navbarr-Home";
 import Footerr from "../Components/Common/Footerr";
 
 import UserServices from "../Services/UserServices/UserServices";
@@ -22,6 +22,7 @@ function UserRegistrationContainer() {
         else {
           setClient(data.data.content);
           console.log("sucessfuly added a client");
+          alert("sucessfuly added a Client");
         }
       })
       .catch((error) => {
@@ -94,7 +95,7 @@ function UserRegistrationContainer() {
 
   return (
     <div>
-      <Navbarr></Navbarr>
+      <Navbarr_Home></Navbarr_Home>
       <RegistrationForm
         addClientHandler={addClient}
         addCottageOwnerHandler={addCottageOwner}

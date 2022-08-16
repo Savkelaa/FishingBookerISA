@@ -490,6 +490,32 @@ const userServices = {
   getAllNotDeletedCottageOwners: () => {
     return axios.get(`${process.env.REACT_APP_API_URL}cottageOwnersNotDeleted`);
   },
+
+
+
+
+
+
+  //-----------------KLIJENTS
+
+  getAllInstructorsAddressAsc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allInstructorsOrderedByAddressAsc`);
+  },
+  getAllInstructorsNameAsc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allInstructorsOrderedByNameAsc`);
+  },
+  getAllInstructorsNameDesc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allInstructorsOrderedByNameDesc`);
+  },
+  getAllInstructorsAddressDesc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allInstructorsOrderedByAddressDesc`);
+  },
+  getAllInstructorsPriceAsc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allInstructorsOrderedByPriceAsc`);
+  },
+  getAllInstructorsPriceDesc: () => {
+    return axios.get(`${process.env.REACT_APP_API_URL}allInstructorsOrderedByPriceDesc`);
+  },
 };
 
 export default userServices;

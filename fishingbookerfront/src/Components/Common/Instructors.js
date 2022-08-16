@@ -40,23 +40,14 @@ export default function Instructors({ instructors, updateInstructorHandler }) {
                       <ListGroupItem>
                         Phone number: {instructor.number}
                       </ListGroupItem>
-
+                      <ListGroupItem>
+                        Rate: {instructor.averageRate}
+                      </ListGroupItem>
                       <ListGroupItem>
                         Explanation of registration: {instructor.explanation}
                       </ListGroupItem>
                     </ListGroup>
-                    <Card.Body>
-                      <Button
-                        style={{ width: "8rem" }}
-                        variant="outline-danger"
-                        onClick={() => {
-                          instructor.deleted = "true";
-                          updateInstructorHandler(instructor);
-                        }}
-                      >
-                        Delete
-                      </Button>
-                    </Card.Body>
+                
                   </Card>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Footerr from "../Components/Common/Footerr";
-import Navbarr from "../Components/Common/Navbarr";
+import Navbarr from "../Components/Common/Navbarr-Home";
 import userServices from "../Services/UserServices/UserServices";
 import CottageOwners from "../Components/Common/CottageOwners";
 import NavbarAdmin from "../Components/Common/NavbarAdmin";
@@ -38,7 +38,7 @@ export default function AllCottageOwnersContainer() {
 
   return (
     <div>
-      <NavbarAdmin></NavbarAdmin>
+      <Navbarr></Navbarr>
       <CottageOwners
         cottageOwners={cottageOwners}
         updateCottageOwnerHandler={updateCottageOwner}

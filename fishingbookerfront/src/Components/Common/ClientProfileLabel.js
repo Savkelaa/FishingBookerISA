@@ -10,10 +10,19 @@ export default function ClientProfileLabel({
   numCottage,
   numCottageQuick,
   group,
+  updateClientHandler
 }) {
   console.log("logedClient", logedClient);
   console.log("groupp", group);
   const deleteReason = useRef();
+  const name = useRef();
+  const surname = useRef();
+  const address = useRef();
+  const city = useRef();
+  const country = useRef();
+  const email = useRef();
+  const number = useRef();
+  const explanation = useRef();
 
   return (
     <div className="col-md-5 border-right">
@@ -25,10 +34,21 @@ export default function ClientProfileLabel({
           <div className="col-md-6">
             <label className="labels">First Name</label>
             <input
+              ref={name}
               type="text"
               className="form-control"
-              placeholder="Enter first name"
-              value={logedClient.name}
+              placeholder={logedClient.name}
+              //value={logedClient.name}
+            />
+          </div>
+          <div className="col-md-6">
+            <label className="labels">Surname</label>
+            <input
+              ref={surname}
+              type="text"
+              className="form-control"
+              placeholder={logedClient.surname}
+              //value={logedClient.surname}
             />
           </div>
           <div className="col-md-6">
@@ -36,8 +56,8 @@ export default function ClientProfileLabel({
             <input
               type="text"
               className="form-control"
-              placeholder="Enter surname"
-              value={logedClient.surname}
+              placeholder="Enter id"
+              value={logedClient.id}
             />
           </div>
         </div>
@@ -45,36 +65,40 @@ export default function ClientProfileLabel({
           <div className="col-md-12">
             <label className="labels">Address</label>
             <input
+              ref={address}
               type="text"
               className="form-control"
-              placeholder="Enter address"
-              value={logedClient.address}
+              placeholder={logedClient.address}
+           //   value={logedClient.address}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">City</label>
             <input
+              ref={city}
               type="text"
               className="form-control"
-              placeholder="Enter city"
-              value={logedClient.city}
+              placeholder={logedClient.city}
+             // value={logedClient.city}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Country</label>
             <input
+              ref={country}
               type="text"
               className="form-control"
-              placeholder="Enter country"
-              value={logedClient.country}
+              placeholder={logedClient.country}
+              //value={logedClient.country}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Email</label>
             <input
+              ref={email}
               type="text"
               className="form-control"
-              placeholder="Enter email address"
+              placeholder={logedClient.email}
               value={logedClient.email}
             />
           </div>
@@ -89,19 +113,21 @@ export default function ClientProfileLabel({
           <div className="col-md-12">
             <label className="labels">Number</label>
             <input
+              ref={number}
               type="text"
               className="form-control"
-              placeholder="Enter phone number"
-              value={logedClient.number}
+              placeholder={logedClient.number}
+             // value={logedClient.number}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Explanation of Registration</label>
             <input
+              ref={explanation}
               type="text"
               className="form-control"
-              placeholder="Enter explanation"
-              value={logedClient.explanation}
+              placeholder={logedClient.explanation}
+              //value={logedClient.explanation}
             />
           </div>
           <div className="col-md-12">
@@ -116,7 +142,27 @@ export default function ClientProfileLabel({
         </div>
 
         <div className="mt-5 text-center">
-          <button className="btn btn-success profile-button" type="button">
+          <button    className="btn btn-success profile-button"
+            type="button"
+            onClick={() => {
+              logedClient.name = name.current.value;
+              logedClient.surname = surname.current.value;
+              logedClient.address = address.current.value;
+              logedClient.city = city.current.value;
+              logedClient.country = country.current.value;
+              logedClient.email = email.current.value;
+              logedClient.number = number.current.value;
+              logedClient.explanation = explanation.current.value;
+              
+
+              localStorage.setItem(
+                "Client",
+                JSON.stringify(logedClient)
+              );
+
+              updateClientHandler(logedClient);
+            }}
+          >
             Update Profile
           </button>
           <button

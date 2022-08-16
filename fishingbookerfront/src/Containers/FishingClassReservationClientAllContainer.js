@@ -4,9 +4,8 @@ import Footerr from "../Components/Common/Footerr";
 import Navbarr from "../Components/Common/Navbarr";
 import Request from "../Components/Common/Request";
 import fishingClassQuickReservationServices from "../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
-import userServices from "../Services/UserServices/UserServices";
-import FishingClassReservationHistory from "../Components/Common/FishingClassReservationHistory";
-import FishingClassReservationHistoryByClient from "../Components/Common/FishingClassReservationHistoryByClient";
+
+import FishingClassReservationHistoryByClient from "../Components/Common/FishingClassReservationClientAll";
 import complaintServices from "../Services/ComplaintServices/ComplaintServices";
 
 export default function FishingClassReservationHistoryByClientContainer() {

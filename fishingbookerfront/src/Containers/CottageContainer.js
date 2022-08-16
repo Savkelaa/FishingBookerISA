@@ -3,7 +3,7 @@ import { useLocation, useHistory } from "react-router";
 import cottageServices from "../Services/CottageServices/CottageServices";
 import background from "../Assets/img/background.jpg";
 import "../App.css";
-import Navbarr from "../Components/Common/Navbarr";
+import Navbarr from "../Components/Common/Navbarr-Home";
 import Footerr from "../Components/Common/Footerr";
 import FcForm from "../Components/Common/FcForm";
 import CottageForm from "../Components/Common/CottageForm";

@@ -11,8 +11,14 @@ export default function Navbarr() {
       </NavbarBrand>
       <Navbar.Toggle className="coloring" />
       <Nav>
-        <Nav.Link href="instructorHomePage">Home Page</Nav.Link>
-        <Nav.Link href="fishingClassByInstructor">Fishing Classes</Nav.Link>
+        <Nav.Link href="allBoats">Boats</Nav.Link>
+        <Nav.Link href="allCottages">Cottages</Nav.Link>
+        <Nav.Link href="allInstructors">Instructors</Nav.Link>
+        <Nav.Link href="allBoatOwners">BoatOwners</Nav.Link>
+        <Nav.Link href="allCottageOwners">CottageOwners</Nav.Link>
+        <Nav.Link href="login">Login</Nav.Link>
+        <Nav.Link href="userRegistration">Register</Nav.Link>
+        
 
         <NavDropdown title="Reservations">
           <NavDropdown.Item href="currentReservations">

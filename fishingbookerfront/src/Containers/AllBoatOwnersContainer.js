@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Footerr from "../Components/Common/Footerr";
-import Navbarr from "../Components/Common/Navbarr";
+import Navbarr from "../Components/Common/Navbarr-Home";
 import boatServices from "../Services/BoatServices/BoatServices";
 import BoatOwners from "../Components/Common/BoatOwners";
 import userServices from "../Services/UserServices/UserServices";
@@ -40,7 +40,7 @@ export default function AllBoatOwnersContainer() {
 
   return (
     <div>
-      <NavbarAdmin></NavbarAdmin>
+      <Navbarr></Navbarr>
       <BoatOwners
         boatOwners={boatOwners}
         updateBoatOwnerHandler={updateBoatOwner}

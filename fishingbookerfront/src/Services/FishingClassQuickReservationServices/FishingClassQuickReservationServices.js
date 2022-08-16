@@ -22,7 +22,7 @@ const fishingClassQuickReservationServices = {
 
   getAllFishingClassReservationsByClient: (clientId) => {
     return axios.get(
-      `${process.env.REACT_APP_API_URL}fishingClassReservationsClient?clientId=${clientId}`
+      `${process.env.REACT_APP_API_URL}fishingClassQuickReservationsByClient?clientId=${clientId}`
     );
   },
 
@@ -117,6 +117,32 @@ const fishingClassQuickReservationServices = {
   getTotalPriceCompletedCottageQuickReservations: () => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}priceCompletedCottageQuickReservation`
+    );
+  },
+
+  //CLIENT-------------------------------------------------------------------
+
+  getAllFishingClassReservationsByClientDateAsc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}finishedFishingClassQuickReservationsByClientSortedByDateAsc?clientId=${clientId}`
+    );
+  },
+
+  getAllFishingClassReservationsByClientDateDesc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}finishedFishingClassQuickReservationsByClientSortedByDateDesc?clientId=${clientId}`
+    );
+  },
+
+  getAllFishingClassReservationsByClientDurationAsc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}finishedFishingClassQuickReservationsByClientSortedByDurationAsc?clientId=${clientId}`
+    );
+  },
+
+  getAllFishingClassReservationsByClientDurationDesc: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}finishedFishingClassQuickReservationsByClientSortedByDurationDesc?clientId=${clientId}`
     );
   },
 };

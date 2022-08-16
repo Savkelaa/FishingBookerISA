@@ -45,18 +45,7 @@ export default function BoatOwners({ boatOwners, updateBoatOwnerHandler }) {
                         Explanation of registration: {boatOwner.explanation}
                       </ListGroupItem>
                     </ListGroup>
-                    <Card.Body>
-                      <Button
-                        style={{ width: "8rem" }}
-                        variant="outline-danger"
-                        onClick={() => {
-                          boatOwner.deleted = "true";
-                          updateBoatOwnerHandler(boatOwner);
-                        }}
-                      >
-                        Delete
-                      </Button>
-                    </Card.Body>
+                    
                   </Card>
                 </div>
               </div>

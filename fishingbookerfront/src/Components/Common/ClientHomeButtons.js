@@ -15,7 +15,22 @@ export default function ClientHomeButtons() {
         <div className="d-flex justify-content-between align-items-center experience"></div>
         <Link to="fishingClassReservationHistoryByClient">
           <button className="btn btn-primary profile-button" type="button">
-            History of reservations
+            History of Fishing Class reservations
+          </button>
+        </Link>
+        <Link to="fishingClassReservationClientAll">
+          <button className="btn btn-primary profile-button" type="button">
+            Allf Fishing Class reservations
+          </button>
+        </Link>
+        <Link to="cottageReservationHistoryByClient">
+          <button className="btn btn-primary profile-button" type="button">
+            CottageReservationHistory
+          </button>
+        </Link>
+        <Link to="cottageReservationClientAll">
+          <button className="btn btn-primary profile-button" type="button">
+            AllCottageReservation
           </button>
         </Link>
         <Link to="fishingClassFutureReservationByClient">
@@ -23,6 +38,17 @@ export default function ClientHomeButtons() {
             Future reservations
           </button>
         </Link>
+        <Link to="boatReservationClientAll">
+          <button className="btn btn-primary profile-button" type="button">
+           All Boat reservations
+          </button>
+        </Link>
+        <Link to="boatReservationHistoryClient">
+          <button className="btn btn-primary profile-button" type="button">
+            History Boat reservations
+          </button>
+        </Link>
+       
 
         <button className="btn btn-primary profile-button" type="button">
           Create reservation

@@ -35,6 +35,7 @@ export default function CottageCard({ cottages }) {
                         Number of beds : {cottage.numBeds}
                       </ListGroupItem>
                       <ListGroupItem>Price: {cottage.price} euro</ListGroupItem>
+                      <ListGroupItem>Rate: {cottage.averageRate} </ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                       <Link to={`/cottage/${cottage.id}`}>

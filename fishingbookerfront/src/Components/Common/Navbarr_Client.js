@@ -11,7 +11,7 @@ export default function Navbarr() {
       </NavbarBrand>
       <Navbar.Toggle className="coloring" />
       <Nav>
-        <Nav.Link href="instructorHomePage">Home Page</Nav.Link>
+        <Nav.Link href="clientHomePage">Home Page</Nav.Link>
         <Nav.Link href="fishingClassByInstructor">Fishing Classes</Nav.Link>
 
         <NavDropdown title="Reservations">
