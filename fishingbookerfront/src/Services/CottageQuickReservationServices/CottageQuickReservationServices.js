@@ -9,7 +9,7 @@ const cottageQuickReservationServices = {
 
   getAllCottageQuickReservations: () => {
     return axios.get(
-      `${process.env.REACT_APP_API_URL}cottageQuickReservations`
+      `${process.env.REACT_APP_API_URL}cottageQuickReservations2`
     );
   },
 
@@ -95,6 +95,21 @@ const cottageQuickReservationServices = {
   getAllCottageQuickReservationByClientDurationDesc: (clientId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}allFinishedCottageQuickReservationsByClientSortedByDurationDesc?clientId=${clientId}`
+    );
+  },
+
+  UPCottageReservation: (BoatQuickReservation ) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}cottageQuickReservations/${BoatQuickReservation.id}}`,
+      BoatQuickReservation
+    );
+  },
+
+
+  createCottageQuickReservationAction: (cottageAction) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}cottageQuickReservations`,
+      cottageAction
     );
   },
 };
