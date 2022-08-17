@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import rateService from "../../Services/BoatServices/RateServices";
 import {
   Card,
@@ -11,7 +11,21 @@ import "../../App.css";
 import { Link } from "react-router-dom";
 
 export default function BoatCard({ boats }) {
+  var a;
 
+  /*boats.forEach(element => {
+    rateService.getRateBoatById(element.id).then((result)=> {
+      // here you can use the result of promiseB
+      console.log(result);
+  });
+  });*/
+
+  rateService.getRateBoatById(2).then((result)=> {
+    // here you can use the result of promiseB
+
+    a=result.data;
+    console.log(result.data);
+});
  /* boats.forEach(element => {
   //  var a=rateService.getRateBoatById(element.id);
   var a=0;
@@ -24,6 +38,23 @@ export default function BoatCard({ boats }) {
     console.log(a);
    
   }); */
+/*function proba(val){
+  rateService.getRateBoatById(val)
+    .then(val2 =>{
+      return 1;
+    })
+}*/
+
+ /* boats.forEach(element => {
+    rateService.getRateBoatById(element.id)
+      .then(val => {
+        element.averageRate=val.data;
+        console.log(element);
+      })
+  });
+*/
+
+    
   return (
     <div>
       {boats.map((boat) => (
@@ -49,8 +80,8 @@ export default function BoatCard({ boats }) {
                       </ListGroupItem>
                       <ListGroupItem>Max Speed: {boat.maxSpeed}</ListGroupItem>
                       <ListGroupItem>Status: {boat.status}</ListGroupItem>
-                      <ListGroupItem>Price: {boat.averageRate} euro</ListGroupItem>
-                      <ListGroupItem>Rate: {boat.averageRate} </ListGroupItem>
+                      <ListGroupItem>Price: {boat.price} euro</ListGroupItem>
+                      <ListGroupItem>Rate: {a} </ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                       <Link to={`/boat/${boat.id}`}>

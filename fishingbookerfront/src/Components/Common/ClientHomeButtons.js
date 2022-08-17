@@ -48,6 +48,13 @@ export default function ClientHomeButtons() {
             History Boat reservations
           </button>
         </Link>
+
+
+        <Link to="/boatCurrentReservation2">
+          <button className="btn btn-primary profile-button" type="button">
+            QuickCottageReservation
+          </button>
+        </Link>
        
 
         <button className="btn btn-primary profile-button" type="button">
