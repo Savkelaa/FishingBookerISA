@@ -79,6 +79,9 @@ import CottageReservationClientAllContainer from "./Containers/CottageReservatio
 import FishingClassReservationClientAllContainer from "./Containers/FishingClassReservationClientAllContainer"
 import BoatCurrentReservationsContainer2 from "./Containers/BoatCurrentReservations2"
 import CreateBoatReservationContainer2 from "./Containers/CreateBoatReservationContainer2";
+import CottageCurrentReservationsContainer2 from "./Containers/CottageCurrentReservation2";
+import CreateCottageActionContainer2 from "./Containers/CreateCottageActionContainer2";
+import CreateCottageReservationContainer2 from "./Containers/CreateCottageReservationContainer2"
 
 
 
@@ -229,17 +232,12 @@ function App() {
             <CottageReservationClientAllContainer></CottageReservationClientAllContainer>
           </Route>
 
-          <Route path="/createCottageQuickReservationAction/:id">
-            <CreateCottageActionContainer></CreateCottageActionContainer>
-          </Route>
-
+         
           <Route path="/cottageUpcomingReservation">
             <CottageUpcomingReservationsContainer></CottageUpcomingReservationsContainer>
           </Route>
 
-          <Route path="/cottageCurrentReservation">
-            <CottageCurrentReservationsContainer></CottageCurrentReservationsContainer>
-          </Route>
+         
 
           <Route path="/clientsByCottageOwner">
             <ClientsByCottageOwnerContainer></ClientsByCottageOwnerContainer>
@@ -253,9 +251,7 @@ function App() {
             <CottageAvailabilityPeriodContainer></CottageAvailabilityPeriodContainer>
           </Route>
 
-          <Route path="/createCottageReservation/:id">
-            <CreateCottageReservationContainer></CreateCottageReservationContainer>
-          </Route>
+         
 
       
 
@@ -341,8 +337,34 @@ function App() {
           <Route path = "/createBoatReservation2/:id">
             <CreateBoatReservationContainer2></CreateBoatReservationContainer2>
           </Route>
-
+//--------- SAD COTTAGE
           
+          <Route path="/cottageCurrentReservation">
+            <CottageCurrentReservationsContainer></CottageCurrentReservationsContainer>
+          </Route>
+
+          <Route path="/createCottageQuickReservationAction/:id">
+            <CreateCottageActionContainer></CreateCottageActionContainer>
+          </Route>
+
+
+          <Route path="/cottageCurrentReservation2">
+            <CottageCurrentReservationsContainer2></CottageCurrentReservationsContainer2>
+          </Route>
+
+          <Route path="/createCottageQuickReservationAction2/:id">
+            <CreateCottageActionContainer2></CreateCottageActionContainer2>
+          </Route>
+
+          <Route path="/createCottageReservation/:id">
+            <CreateCottageReservationContainer></CreateCottageReservationContainer>
+          </Route>
+
+          <Route path="/createCottageReservation2/:id">
+            <CreateCottageReservationContainer2></CreateCottageReservationContainer2>
+          </Route>
+
+
 
         </Switch>
       </Router>
