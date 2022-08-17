@@ -7,6 +7,13 @@ const boatQuickReservationServices = {
     );
   },
 
+  getAllBoatQuickReservations: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}boatQuickReservations2`
+    );
+  },
+
+
   getAllBoatReservationsByOwner: (ownerId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}boatReservationsByOwner?boatOwnerId=${ownerId}`
@@ -38,6 +45,17 @@ const boatQuickReservationServices = {
       boat
     );
   },
+  UPBoatReservation: (BoatQuickReservation ) => {
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}boatQuickReservations/${BoatQuickReservation.id}}`,
+      BoatQuickReservation
+    );
+  },
+
+
+
+
+  
 
   getFreeBoatQuickReservation: (boatId) => {
     return axios.get(

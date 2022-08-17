@@ -9,6 +9,7 @@ import NavbarAdmin from "../Components/Common/NavbarAdmin";
 
 function AllBoatsContainer() {
   const [boats, setBoats] = useState([]);
+  const [avgRate, setavgRate]= useState([]);
 
   useEffect(() => {
     boatServices

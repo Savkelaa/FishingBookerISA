@@ -77,6 +77,9 @@ import BoatReservationHistoryClientContainer from "./Containers/BoatReservationH
 import BoatReservationClientAllContainer from "./Containers/BoatReservationClientAllContainer"
 import CottageReservationClientAllContainer from "./Containers/CottageReservationClientAllContainer"
 import FishingClassReservationClientAllContainer from "./Containers/FishingClassReservationClientAllContainer"
+import BoatCurrentReservationsContainer2 from "./Containers/BoatCurrentReservations2"
+import CreateBoatReservationContainer2 from "./Containers/CreateBoatReservationContainer2";
+
 
 
 function App() {
@@ -254,6 +257,8 @@ function App() {
             <CreateCottageReservationContainer></CreateCottageReservationContainer>
           </Route>
 
+      
+
           <Route path="/calendar">
             <CalendarContainer></CalendarContainer>
           </Route>
@@ -298,13 +303,9 @@ function App() {
             <BoatReservationClientAllContainer></BoatReservationClientAllContainer>
           </Route>
 
-          <Route path = "/boatCurrentReservation">
-            <BoatCurrentReservationsContainer></BoatCurrentReservationsContainer>
-          </Route>
+        
 
-          <Route path = "/createBoatReservation/:id">
-            <CreateBoatReservationContainer></CreateBoatReservationContainer>
-          </Route>
+       
 
           <Route path = "/createBoatQuickReservationAction/:id">
             <CreateBoatActionContainer></CreateBoatActionContainer>
@@ -321,6 +322,27 @@ function App() {
           <Route path = "/boatOwnerCreateReport/:id">
             <BoatOwnerCreateReportContainer></BoatOwnerCreateReportContainer>
           </Route>
+
+
+          //------------------------------------------------------OVO SAD REMINO ZA QUICK Reservation
+          <Route path = "/boatCurrentReservation">
+            <BoatCurrentReservationsContainer></BoatCurrentReservationsContainer>
+          </Route>
+
+          <Route path = "/boatCurrentReservation2">
+            <BoatCurrentReservationsContainer2></BoatCurrentReservationsContainer2>
+          </Route>
+
+//ne treba dupla za ovo
+          <Route path = "/createBoatReservation/:id">
+            <CreateBoatReservationContainer></CreateBoatReservationContainer>
+          </Route>
+
+          <Route path = "/createBoatReservation2/:id">
+            <CreateBoatReservationContainer2></CreateBoatReservationContainer2>
+          </Route>
+
+          
 
         </Switch>
       </Router>

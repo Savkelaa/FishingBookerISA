@@ -7,6 +7,12 @@ const cottageQuickReservationServices = {
     );
   },
 
+  getAllCottageQuickReservations: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}cottageQuickReservations`
+    );
+  },
+
   getAllCottageReservationsByOwner: (ownerId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}cottageReservationsByOwner?cottageOwnerId=${ownerId}`
