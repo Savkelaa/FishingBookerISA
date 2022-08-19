@@ -14,6 +14,12 @@ const fishingClassQuickReservationServices = {
     );
   },
 
+  getAllFishingClassReservationsFree: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingClassQuickReservations2`
+    );
+  },
+
   getAllFishingClassQuickReservationsByInstructor: (instructorId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}fishingClassQuickReservationInstructor?instructorId=${instructorId}`

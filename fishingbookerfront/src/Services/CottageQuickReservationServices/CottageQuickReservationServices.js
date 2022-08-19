@@ -105,6 +105,13 @@ const cottageQuickReservationServices = {
     );
   },
 
+  DELCottageReservation: (CottageQuickReservation ) => {
+    return axios.delete(
+      `${process.env.REACT_APP_API_URL}cottageQuickReservations/${CottageQuickReservation.id}}`,
+      CottageQuickReservation
+    );
+  },
+
 
   createCottageQuickReservationAction: (cottageAction) => {
     return axios.post(

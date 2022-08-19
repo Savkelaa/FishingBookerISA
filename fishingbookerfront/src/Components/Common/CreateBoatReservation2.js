@@ -29,7 +29,8 @@ export default function CreateBoatReservation({
       boat: { id: id },
     });
     reservation.client=logedClient;
-   boatQuickReservationServices.UPBoatReservation(id, reservation);
+    reservation.status="booked";
+   //boatQuickReservationServices.UPBoatReservation(id, reservation);
    boatQuickReservationServices.createBoatQuickReservationAction(reservation);
    
   }
@@ -61,7 +62,7 @@ export default function CreateBoatReservation({
                         name="submit"
                         className="btn btn-success"
                       >
-                        Potvrdi
+                        Confirm
                       </button>
                     </div>
                   </div>
