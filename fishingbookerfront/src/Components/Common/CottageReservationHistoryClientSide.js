@@ -53,6 +53,7 @@ export default function CottageReservationHistory({
                         <Card.Title className="cardTitle">
                           Cottage: {reservation.cottage.name}
                         </Card.Title>
+                        
                         <Card.Text>
                           Description:{" "}
                           {reservation.cottage.promoDescription}

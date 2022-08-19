@@ -81,7 +81,10 @@ import BoatCurrentReservationsContainer2 from "./Containers/BoatCurrentReservati
 import CreateBoatReservationContainer2 from "./Containers/CreateBoatReservationContainer2";
 import CottageCurrentReservationsContainer2 from "./Containers/CottageCurrentReservation2";
 import CreateCottageActionContainer2 from "./Containers/CreateCottageActionContainer2";
-import CreateCottageReservationContainer2 from "./Containers/CreateCottageReservationContainer2"
+import CreateCottageReservationContainer2 from "./Containers/CreateCottageReservationContainer2";
+import FishingClassReservationHistoryContainer2 from "./Containers/FishingClassReservationHistoryContainer2";
+import CreateFishingClassReservationContainer2 from "./Containers/CreateFishingClassReservationContainer2"
+
 
 
 
@@ -105,9 +108,7 @@ function App() {
           <Route path="/createQuickReservation/:id">
             <CreateFishingClassQuickReservationContainer></CreateFishingClassQuickReservationContainer>
           </Route>
-          <Route path="/createReservation/:id">
-            <CreateFishingClassReservationContainer></CreateFishingClassReservationContainer>
-          </Route>
+      
           <Route path="/userRegistration">
             <UserRegistrationContainer></UserRegistrationContainer>
           </Route>
@@ -168,9 +169,7 @@ function App() {
           <Route path="/currentReservations">
             <CurrentReservationsContainer></CurrentReservationsContainer>
           </Route>
-          <Route path="/fishingClassReservationHistory">
-            <FishingClassReservationHistoryContainer></FishingClassReservationHistoryContainer>
-          </Route>
+         
           <Route path="/fishingClassReservationHistoryByClient">
             <FishingClassReservationHistoryByClientContainer></FishingClassReservationHistoryByClientContainer>
           </Route>
@@ -362,6 +361,23 @@ function App() {
 
           <Route path="/createCottageReservation2/:id">
             <CreateCottageReservationContainer2></CreateCottageReservationContainer2>
+          </Route>
+//-----------Fishing className
+
+          <Route path="/createReservation/:id">
+            <CreateFishingClassReservationContainer></CreateFishingClassReservationContainer>
+          </Route>
+
+          <Route path="/fishingClassReservationHistory">
+            <FishingClassReservationHistoryContainer></FishingClassReservationHistoryContainer>
+          </Route>
+
+          <Route path="/createReservation2/:id">
+            <CreateFishingClassReservationContainer2></CreateFishingClassReservationContainer2>
+          </Route>
+
+          <Route path="/fishingClassReservationClientCreate2">
+            <FishingClassReservationHistoryContainer2></FishingClassReservationHistoryContainer2>
           </Route>
 
 

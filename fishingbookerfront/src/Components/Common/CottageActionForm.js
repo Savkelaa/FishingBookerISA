@@ -105,6 +105,7 @@ export default function CottageActionForm({
                       id="price"
                     />
                   </div>
+                  
 
                   <h6 for="website">Additional items</h6>
                 <div className="tags-input">

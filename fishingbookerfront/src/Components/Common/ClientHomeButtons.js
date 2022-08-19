@@ -52,13 +52,19 @@ export default function ClientHomeButtons() {
 
         <Link to="/boatCurrentReservation2">
           <button className="btn btn-primary profile-button" type="button">
-            QuickBoatReservation
+            Create QuickBoatReservation
           </button>
         </Link>
 
         <Link to="/cottageCurrentReservation2">
           <button className="btn btn-primary profile-button" type="button">
-            QuickCottageReservation
+            Create QuickCottageReservation
+          </button>
+        </Link>
+
+        <Link to="/fishingClassReservationClientCreate2">
+          <button className="btn btn-primary profile-button" type="button">
+            Create FishingClassQuickReservation
           </button>
         </Link>
        

@@ -23,14 +23,7 @@ export default function FishingClassReservationHistory({
   currentReservations.forEach((reservation) => {
     const startDate = new Date(reservation.startDate);
     const endDate = new Date(reservation.finishDate);
-    if (today > endDate) {
-      console.log("✅ Reservation is past.");
-      currReservations.push(reservation);
-    } else {
-      console.log("⛔️ date is not in the range");
-      console.log("reservation.startDate", startDate);
-      console.log("reservation.endDate", endDate);
-    }
+    currReservations.push(reservation);
   });
 
   console.log("currentReservationssssss", currReservations);
@@ -67,38 +60,6 @@ export default function FishingClassReservationHistory({
                           End date: {reservation.finishDate}
                         </Card.Text>
                       </Card.Body>
-                      <ListGroup className="list-group-flush">
-                        <ListGroupItem>
-                          <Card.Title className="cardTitle">
-                            {reservation.client.name}{" "}
-                            {reservation.client.surname}
-                          </Card.Title>
-
-                          <Card.Text>
-                            {" "}
-                            Email: {reservation.client.email}
-                          </Card.Text>
-                          <Card.Text>
-                            {" "}
-                            Explanation of registration:{" "}
-                            {reservation.client.explanation}
-                          </Card.Text>
-                          <Card.Text>
-                            {" "}
-                            Address: {reservation.client.address}{" "}
-                            {reservation.client.city}{" "}
-                            {reservation.client.country}
-                          </Card.Text>
-                          <Card.Text>
-                            {" "}
-                            Number: {reservation.client.number}
-                          </Card.Text>
-                          <Card.Text>
-                            {" "}
-                            Penalty: {reservation.client.penalty}
-                          </Card.Text>
-                        </ListGroupItem>
-                      </ListGroup>
                       <Link
                         reservation={reservation}
                         to={`/createReservation2/${reservation.fishingClass.id}`}

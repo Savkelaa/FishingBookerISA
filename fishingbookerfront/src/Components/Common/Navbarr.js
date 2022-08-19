@@ -11,12 +11,12 @@ export default function Navbarr() {
       </NavbarBrand>
       <Navbar.Toggle className="coloring" />
       <Nav>
-        <Nav.Link href="instructorHomePage">Home Page</Nav.Link>
-        <Nav.Link href="fishingClassByInstructor">Fishing Classes</Nav.Link>
+        <Nav.Link href="clientHomePage">Home Page</Nav.Link>
+      
 
-        <NavDropdown title="Reservations">
-          <NavDropdown.Item href="currentReservations">
-            Current Reservations
+        <NavDropdown title="Service">
+          <NavDropdown.Item href="allInstructors">
+            Instructors
           </NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="allCottages">
@@ -27,8 +27,20 @@ export default function Navbarr() {
           </NavDropdown.Item>
         </NavDropdown>
 
-        <Nav.Link href="calendar">Schedule</Nav.Link>
-        <Nav.Link href="clientsByInstructor">My Clients</Nav.Link>
+        <NavDropdown title="CottageReservations">
+          <NavDropdown.Item href="cottageReservationClientAll">
+            All
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="cottageReservationHistoryByClient">
+            In history
+          </NavDropdown.Item>
+          <NavDropdown.Item href="allBoats">
+            In future
+          </NavDropdown.Item>
+        </NavDropdown>
+
+        <Nav.Link href="login">Logout</Nav.Link>
       </Nav>
     </Navbar>
   );

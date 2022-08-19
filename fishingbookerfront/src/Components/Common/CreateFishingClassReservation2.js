@@ -1,10 +1,14 @@
 import React, { useRef } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import cottageQuickReservationServices from "../../Services/CottageQuickReservationServices/CottageQuickReservationServices";
+import fishingClassQuickReservationServices from "../../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
 
-export default function CreateCottageReservation({
-  createCottageReservationHandler,
+
+export default function CreateFishingClassReservation({
+  createFishingClassReservationHandler,
+  tags,
+  addTags,
+  removeTags,
 }) {
   const startDate = useRef();
   const finishDate = useRef();
@@ -14,30 +18,29 @@ export default function CreateCottageReservation({
 
 
   var logedClient = JSON.parse(localStorage.getItem("Client"));
+
+  
   const reservation = JSON.parse(localStorage.getItem("reservation"));
   console.log("reservation", reservation);
 
   function saveHandler(e) {
-    createCottageReservationHandler({
+    createFishingClassReservationHandler({
       startDate: reservation.startDate,
       finishDate: reservation.finishDate,
+      place: reservation.place,
       price: reservation.price,
-      status: "booked",
+      status: "active",
       client: logedClient,
-      cottage: { id: id },
+      fishingClass: { id: id },
     });
     reservation.client=logedClient;
-    reservation.status="booked";
-  //  cottageQuickReservationServices.UPCottageReservation(reservation);
-    cottageQuickReservationServices.createCottageQuickReservationAction(reservation);
+    fishingClassQuickReservationServices.createFishingClassQuickReservation(reservation);
     
   }
 
   console.log("id", id);
 
   return (
-  
-
     <form action="javascript:void(0);" onSubmit={saveHandler}>
       <div className="container">
         <div className="row gutters">
@@ -48,10 +51,7 @@ export default function CreateCottageReservation({
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <h5 className="mb-2 text-primary">Create Reservation</h5>
                   </div>
-                  
-             
-
-                  
+      
                 </div>
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -61,7 +61,6 @@ export default function CreateCottageReservation({
                         id="submit"
                         name="submit"
                         className="btn btn-success"
-                        
                       >
                         Create
                       </button>
@@ -74,6 +73,5 @@ export default function CreateCottageReservation({
         </div>
       </div>
     </form>
-   
   );
 }

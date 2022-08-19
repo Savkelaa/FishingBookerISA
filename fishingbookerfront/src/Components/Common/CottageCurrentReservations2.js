@@ -57,6 +57,10 @@ export default function CottageCurrentReservations({
                         <Card.Text>
                           Start date: {reservation.startDate}
                         </Card.Text>
+
+                        <Card.Text>
+                          Start date: {reservation.id}
+                        </Card.Text>
                         <Card.Text>
                           End date: {reservation.finishDate}
                         </Card.Text>
