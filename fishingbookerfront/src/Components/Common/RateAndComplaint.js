@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import fishingClassService from "../../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
 import rateService from "../../Services/RateServices/RateServices";
 import instructor from "../../Services/UserServices/UserServices";
+import complainService from "../../Services/ComplaintServices/ComplaintServices"
 
 import {
   Card,
@@ -33,6 +34,22 @@ export default function RateAndComplaint({
     request:"true"
   }
 
+  const rateClass = {
+    rate:0,
+    fishingClass:reservation.fishingClass, 
+    client:logedClient,
+    accepted:"false",
+    request:"true"
+  }
+  const complaint={
+      description:"Los instruktor!",
+      active:"true",
+      client:logedClient,
+      instructor:reservation.fishingClass.instructor
+
+  }
+  
+
   return (
     <div>
       <Card.Body>
@@ -40,19 +57,12 @@ export default function RateAndComplaint({
           <h6 for="text">Please rate this fishing Class: </h6>
           <input ref={rate1} type="text" className="form-control" id="start" />
           <button
-            onClick={() =>
-              addFishingClassRateHandler({
-                accepted: "false",
-                request: "true",
-                rate: rate1.current.value,
-                client: { id: logedClient.id },
-                fishingClass: {
-                  id: reservation.fishingClass.id,
-                },
-              })
-             
-            }
-            className="btn btn-success"
+            onClick={() =>{
+              rateClass.rate=rate1.current.value;
+              rateService.createFishingClassRate(rateClass);
+              }
+              }
+              className="btn btn-success"
           >
             Rate
           </button>
@@ -86,14 +96,8 @@ export default function RateAndComplaint({
           <input ref={zalba} type="text" className="form-control" />
           <button
             onClick={() => {
-              addInstructorComplaintHandler({
-                active: "true",
-                description: zalba.current.value,
-                client: { id: logedClient.id },
-                instructor: {
-                  id: reservation.fishingClass.instructor.id,
-                },
-              });
+                complaint.description=zalba.current.value;
+                complainService.createInstructorComplaint(complaint);
             }}
             className="btn btn-danger"
           >

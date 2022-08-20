@@ -11,6 +11,18 @@ const complaintServices = {
     );
   },
 
+  getAllBoatComplaintRequests: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}boatComplaints`
+    );
+  },
+
+  getAllCottageComplaintRequests: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}cottageComplaints`
+    );
+  },
+
   updateInstructorComplaint: (complaint) => {
     return axios.put(
       `${process.env.REACT_APP_API_URL}instructorComplaints/${complaint.id}`,
@@ -21,6 +33,21 @@ const complaintServices = {
   createInstructorComplaint: (complaint) => {
     return axios.post(
       `${process.env.REACT_APP_API_URL}instructorComplaints`,
+      complaint
+    );
+  },
+
+  createBoatComplaint: (complaint) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}boatComplaints`,
+      complaint
+    );
+  },
+
+
+  createCottageComplaint: (complaint) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}cottageComplaints`,
       complaint
     );
   },
