@@ -12,9 +12,6 @@ import {
 } from "react-bootstrap";
 
 export default function RateAndComplaint({
-  addInstructorRateHandler,
-  addInstructorComplaintHandler,
-  addFishingClassRateHandler,
   reservation,
 }) {
   var logedClient = JSON.parse(localStorage.getItem("Client"));
@@ -27,7 +24,7 @@ export default function RateAndComplaint({
 
   const rate = {
     rate:0,
-    instructor:reservation.fishingClass.instructor, 
+    cottageOwner:reservation.cottage.cottageOwner, 
     client:logedClient,
     accepted:"false",
     request:"true"
@@ -37,28 +34,22 @@ export default function RateAndComplaint({
     <div>
       <Card.Body>
         <div className="popup">
-          <h6 for="text">Please rate this fishing Class: </h6>
+          <h6 for="text">Please rate cottage: </h6>
           <input ref={rate1} type="text" className="form-control" id="start" />
           <button
             onClick={() =>
-              addFishingClassRateHandler({
-                accepted: "false",
-                request: "true",
-                rate: rate1.current.value,
-                client: { id: logedClient.id },
-                fishingClass: {
-                  id: reservation.fishingClass.id,
-                },
-              })
-             
-            }
-            className="btn btn-success"
+                {
+                    rate.rate=rate2.current.value;
+                    rateService.createInstructorRate(rate);
+                    }
+                    }
+                    className="btn btn-success"
           >
             Rate
           </button>
           <br></br>
           <br></br>
-          <h6 for="text">Please rate this Instructor: </h6>
+          <h6 for="text">Please rate owner: </h6>
           <input
             ref={rate2}
             type="refusalReason"
@@ -77,30 +68,7 @@ export default function RateAndComplaint({
           </button>
         </div>
       </Card.Body>
-      <Card.Body>
-        <div className="popup">
-          <h6 for="text">
-            Make a complaint for: {reservation.fishingClass.instructor.name}{" "}
-            {reservation.fishingClass.instructor.surname}
-          </h6>
-          <input ref={zalba} type="text" className="form-control" />
-          <button
-            onClick={() => {
-              addInstructorComplaintHandler({
-                active: "true",
-                description: zalba.current.value,
-                client: { id: logedClient.id },
-                instructor: {
-                  id: reservation.fishingClass.instructor.id,
-                },
-              });
-            }}
-            className="btn btn-danger"
-          >
-            Complain
-          </button>
-        </div>
-      </Card.Body>
+
     </div>
   );
 }

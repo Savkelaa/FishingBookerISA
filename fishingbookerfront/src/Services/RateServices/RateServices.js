@@ -47,6 +47,49 @@ const rateServices = {
     );
   },
 
+  createInstructorRate: (rate) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}instructorRates`,
+      rate
+    );
+  },
+  
+
+  createCottageRate: (rate) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}cottageRates`,
+      rate
+    );
+  },
+
+  createCottageOwnerRate: (rate) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}cottageOwnerRates`,
+      rate
+    );
+  },
+
+  createBoatRate: (rate) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}boatRates`,
+      rate
+    );
+  },
+
+  createBoatOwnerRate: (rate) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}boatOwnerRates`,
+      rate
+    );
+  },
+
+  createFishingClassRate: (rate) => {
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}fishingClassRates`,
+      rate
+    );
+  },
+
   //UPDATE COTTAGE AND COTTAGEOWNER RATE
   updateCottageRate: (rate) => {
     return axios.put(

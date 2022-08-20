@@ -102,14 +102,7 @@ export default function FishingClassReservationHistoryByClient({
                         </ListGroupItem>
                       </ListGroup>
 
-                      <RateAndComplaint
-                        reservation={reservation}
-                        addInstructorRateHandler={addInstructorRateHandler}
-                        addFishingClassRateHandler={addFishingClassRateHandler}
-                        addInstructorComplaintHandler={
-                          addInstructorComplaintHandler
-                        }
-                      ></RateAndComplaint>
+           
                     </Card>
                   </div>
                 </div>

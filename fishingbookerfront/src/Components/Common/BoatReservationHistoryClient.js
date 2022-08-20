@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import RateAndComplaint from "./RateAndComplaintBoat";
 import {
   Card,
   ListGroup,
@@ -99,7 +100,9 @@ export default function BoatReservationHistory({
                           </Card.Text>
                         </ListGroupItem>
                       </ListGroup>
-                      
+                      <RateAndComplaint
+                        reservation={reservation}
+                      ></RateAndComplaint>
                     </Card>
                   </div>
                 </div>
