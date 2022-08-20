@@ -8,6 +8,7 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Popup from "./Popup";
+import RateAndComplaint from "./RateAndComplaintCottage";
 
 export default function CottageReservationHistory({
   finishedReservations,
@@ -103,7 +104,10 @@ export default function CottageReservationHistory({
                           </Card.Text>
                         </ListGroupItem>
                       </ListGroup>
-                      
+                      <RateAndComplaint
+                        reservation={reservation}
+                   
+                      ></RateAndComplaint>
                     </Card>
                   </div>
                 </div>
