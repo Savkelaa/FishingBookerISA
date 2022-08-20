@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import fishingClassService from "../../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
 import rateService from "../../Services/RateServices/RateServices";
 import instructor from "../../Services/UserServices/UserServices";
+import complainService from "../../Services/ComplaintServices/ComplaintServices"
 
 import {
   Card,
@@ -24,11 +25,25 @@ export default function RateAndComplaint({
 
   const rate = {
     rate:0,
+    boat:reservation.boat, 
+    client:logedClient,
+    accepted:"false",
+    request:"true"
+  }
+  const rateOwner={
+    rate:0,
     boatOwner:reservation.boat.boatOwner, 
     client:logedClient,
     accepted:"false",
     request:"true"
   }
+
+  const complaint={
+    description:"Los instruktor!",
+    client:logedClient,
+    boatQuickReservation:reservation
+
+}
 
   return (
     <div>
@@ -38,8 +53,8 @@ export default function RateAndComplaint({
           <input ref={rate1} type="text" className="form-control" id="start" />
           <button
            onClick={() =>{
-            rate.rate=rate2.current.value;
-            rateService.createBoatOwnerRate(rate);
+            rate.rate=rate1.current.value;
+            rateService.createBoatRate(rate);
             }
             }
             className="btn btn-success"
@@ -57,13 +72,31 @@ export default function RateAndComplaint({
           />
           <button
             onClick={() =>{
-            rate.rate=rate2.current.value;
-            rateService.createBoatOwnerRate(rate);
+            rateOwner.rate=rate2.current.value;
+            rateService.createBoatOwnerRate(rateOwner);
             }
             }
             className="btn btn-success"
           >
             Rate
+          </button>
+        </div>
+      </Card.Body>
+      <Card.Body>
+        <div className="popup">
+          <h6 for="text">
+            Make a complaint for: {reservation.boat.boatOwner.name}{" "}
+            {reservation.boat.boatOwner.surname}
+          </h6>
+          <input ref={zalba} type="text" className="form-control" />
+          <button
+            onClick={() => {
+                complaint.description=zalba.current.value;
+                complainService.createBoatComplaint(complaint);
+            }}
+            className="btn btn-danger"
+          >
+            Complain
           </button>
         </div>
       </Card.Body>

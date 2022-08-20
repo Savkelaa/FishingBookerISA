@@ -82,6 +82,7 @@ const rateServices = {
       rate
     );
   },
+  
 
   createFishingClassRate: (rate) => {
     return axios.post(
