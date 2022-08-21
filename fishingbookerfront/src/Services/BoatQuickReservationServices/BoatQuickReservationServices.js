@@ -22,7 +22,7 @@ const boatQuickReservationServices = {
 
   getAllBoatReservationsByClient2: (clientId) => {
     return axios.get(
-      `${process.env.REACT_APP_API_URL}boatReservationsClient?clientId=${clientId}`
+      `${process.env.REACT_APP_API_URL}allBoatReservationsByClient?clientId=${clientId}`
     );
   },
   getAllBoatReservationsByClient: (clientId) => {

@@ -87,6 +87,15 @@ import CreateFishingClassReservationContainer2 from "./Containers/CreateFishingC
 import QuickBoatFuture from "./Containers/BoatQuickFuture";
 import QuickCottageFuture from "./Containers/CottageQuickFuture";
 import QuickFishingClassFuture from "./Containers/FishingClassCancelContainer";
+import SelectDatesOrdinaryCottage from "./Containers/CreateOrdinaryCottageReservationContainer";
+import CreateOrdinaryCottage from "./Containers/OrdinaryCottagesContainer";
+import OrdinaryCottageReservationAll from "./Containers/CottageOrdinaryReservationsAllContainer";
+import SelectDatesOrdinaryBoat from "./Containers/CreateOrdinaryBoatReservationContainer";
+import CreateOrdinaryBoat from "./Containers/OrdinaryBoatsContainer";
+import OrdinaryBoatReservationAll from "./Containers/BoatOrdinaryReservationsAllContainer";
+import SelectDatesOrdinaryFishingClass from "./Containers/CreateOrdinaryFishingClassReservationContainer";
+import CreateOrdinaryFishingClass from "./Containers/OrdinaryFishingClassContainer";
+import OrdinaryFishingClassReservationAll from "./Containers/FishingClassOrdinaryReservationsAllContainer";
 
 
 
@@ -214,9 +223,7 @@ function App() {
             <CottagesByOwnerContainer></CottagesByOwnerContainer>
           </Route>
 
-          <Route path="/createCottage">
-            <CreateCottageContainer></CreateCottageContainer>
-          </Route>
+        
 
           <Route path="/changePasswordCottageOwner">
             <ChangePasswordCottageOwnerContainer></ChangePasswordCottageOwnerContainer>
@@ -397,6 +404,51 @@ function App() {
             <QuickFishingClassFuture></QuickFishingClassFuture>
           </Route>
 
+//----------obicne REZ
+
+          <Route path="/createCottage">
+            <CreateCottageContainer></CreateCottageContainer>
+          </Route>
+//--------cottage
+          <Route path="/selectDatesOrdinaryCottage">
+            <SelectDatesOrdinaryCottage></SelectDatesOrdinaryCottage>
+          </Route>
+
+          <Route path="/createOrdinaryCottage">
+            <CreateOrdinaryCottage></CreateOrdinaryCottage>
+          </Route>
+
+          <Route path="/OrdinaryCottageReservationAll">
+            <OrdinaryCottageReservationAll></OrdinaryCottageReservationAll>
+          </Route>
+
+//-----boat
+          <Route path="/selectDatesOrdinaryBoat">
+            <SelectDatesOrdinaryBoat></SelectDatesOrdinaryBoat>
+          </Route>
+
+          <Route path="/createOrdinaryBoat">
+            <CreateOrdinaryBoat></CreateOrdinaryBoat>
+          </Route>
+
+          <Route path="/OrdinaryBoatReservationAll">
+            <OrdinaryBoatReservationAll></OrdinaryBoatReservationAll>
+          </Route>
+
+//---------fishingclass
+
+          <Route path="/selectDatesOrdinaryFishingClass">
+            <SelectDatesOrdinaryFishingClass></SelectDatesOrdinaryFishingClass>
+          </Route>
+
+          <Route path="/createOrdinaryFishingClass">
+            <CreateOrdinaryFishingClass></CreateOrdinaryFishingClass>
+          </Route>
+
+          <Route path="/OrdinaryFishingClassReservationAll">
+            <OrdinaryFishingClassReservationAll></OrdinaryFishingClassReservationAll>
+          </Route>
+          
 
         </Switch>
       </Router>

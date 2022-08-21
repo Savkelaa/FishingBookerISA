@@ -39,6 +39,13 @@ const fishingClassQuickReservationServices = {
     );
   },
 
+  getAllFishingClassReservations2ByClient: (clientId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingClassReservationsClient?clientId=${clientId}`
+    );
+  },
+ 
+
   createFishingClassReservation: (fishingClassReservation) => {
     return axios.post(
       `${process.env.REACT_APP_API_URL}fishingClassReservations`,
@@ -46,6 +53,13 @@ const fishingClassQuickReservationServices = {
     );
   },
 
+  getAllFishingClass: () => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}fishingClass`
+    );
+  },
+
+  
   //RATES
   createInstructorRate: (rate) => {
     return axios.post(`${process.env.REACT_APP_API_URL}instructorRates`, rate);
