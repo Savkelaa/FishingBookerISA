@@ -21,7 +21,7 @@ const cottageQuickReservationServices = {
 
   getAllCottageReservationsByClient: (clientId) => {
     return axios.get(
-      `${process.env.REACT_APP_API_URL}cottageReservationsClient?clientId=${clientId}`
+      `${process.env.REACT_APP_API_URL}allReservationsByClient?clientId=${clientId}`
     );
   },
 
