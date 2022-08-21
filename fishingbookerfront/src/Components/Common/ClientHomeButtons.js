@@ -82,6 +82,26 @@ export default function ClientHomeButtons() {
         <button className="btn btn-primary profile-button" type="button">
           Make a complaint
         </button>
+
+        <Link to="/boatQuickReservationsFuture">
+          <button className="btn btn-primary profile-button" type="button">
+            Cancel BoatQuickReservation
+          </button>
+        </Link>
+
+        <Link to="/cottageQuickReservationsFuture">
+          <button className="btn btn-primary profile-button" type="button">
+            Cancel CottageQuickReservation
+          </button>
+        </Link>
+
+        <Link to="/fishingClassQuickReservationsFuture">
+          <button className="btn btn-primary profile-button" type="button">
+            Cancel FishingClassQuickReservation
+          </button>
+        </Link>
+
+      
       </div>
     </div>
   );
