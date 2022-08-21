@@ -52,7 +52,11 @@ const boatQuickReservationServices = {
     );
   },
 
-
+  deleteBoatQuickReservation: (boatId) => {
+    return axios.delete(
+      `${process.env.REACT_APP_API_URL}boatQuickReservations/${boatId}`
+    );
+  },
 
 
   

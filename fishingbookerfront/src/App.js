@@ -83,7 +83,10 @@ import CottageCurrentReservationsContainer2 from "./Containers/CottageCurrentRes
 import CreateCottageActionContainer2 from "./Containers/CreateCottageActionContainer2";
 import CreateCottageReservationContainer2 from "./Containers/CreateCottageReservationContainer2";
 import FishingClassReservationHistoryContainer2 from "./Containers/FishingClassReservationHistoryContainer2";
-import CreateFishingClassReservationContainer2 from "./Containers/CreateFishingClassReservationContainer2"
+import CreateFishingClassReservationContainer2 from "./Containers/CreateFishingClassReservationContainer2";
+import QuickBoatFuture from "./Containers/BoatQuickFuture";
+import QuickCottageFuture from "./Containers/CottageQuickFuture";
+import QuickFishingClassFuture from "./Containers/FishingClassCancelContainer";
 
 
 
@@ -380,6 +383,19 @@ function App() {
             <FishingClassReservationHistoryContainer2></FishingClassReservationHistoryContainer2>
           </Route>
 
+//-----------------------future
+
+          <Route path="/boatQuickReservationsFuture">
+            <QuickBoatFuture></QuickBoatFuture>
+          </Route>
+
+          <Route path="/cottageQuickReservationsFuture">
+            <QuickCottageFuture></QuickCottageFuture>
+          </Route>
+
+          <Route path="/fishingClassQuickReservationsFuture">
+            <QuickFishingClassFuture></QuickFishingClassFuture>
+          </Route>
 
 
         </Switch>
