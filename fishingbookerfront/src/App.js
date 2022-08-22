@@ -96,6 +96,9 @@ import OrdinaryBoatReservationAll from "./Containers/BoatOrdinaryReservationsAll
 import SelectDatesOrdinaryFishingClass from "./Containers/CreateOrdinaryFishingClassReservationContainer";
 import CreateOrdinaryFishingClass from "./Containers/OrdinaryFishingClassContainer";
 import OrdinaryFishingClassReservationAll from "./Containers/FishingClassOrdinaryReservationsAllContainer";
+import OrdinaryBoatFuture from "./Containers/BoatOrdinaryFuture"
+import OrdinaryCottageFuture from "./Containers/CottageOrdinaryFuture"
+import OrdinaryFishingClassFuture from "./Containers/FishingClassOrdinaryCancelContainer"
 
 
 
@@ -396,12 +399,24 @@ function App() {
             <QuickBoatFuture></QuickBoatFuture>
           </Route>
 
+          <Route path="/boatOrdinaryReservationsFuture">
+            <OrdinaryBoatFuture></OrdinaryBoatFuture>
+          </Route>
+
           <Route path="/cottageQuickReservationsFuture">
             <QuickCottageFuture></QuickCottageFuture>
           </Route>
 
+          <Route path="/cottageOrdinaryReservationsFuture">
+            <OrdinaryCottageFuture></OrdinaryCottageFuture>
+          </Route>
+
           <Route path="/fishingClassQuickReservationsFuture">
             <QuickFishingClassFuture></QuickFishingClassFuture>
+          </Route>
+
+          <Route path="/fishingClassOrdinaryReservationsFuture">
+            <OrdinaryFishingClassFuture></OrdinaryFishingClassFuture>
           </Route>
 
 //----------obicne REZ

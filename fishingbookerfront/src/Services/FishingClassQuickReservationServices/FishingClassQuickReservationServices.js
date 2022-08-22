@@ -15,6 +15,14 @@ const fishingClassQuickReservationServices = {
     );
   },
 
+
+  DELFishingClassOrdinaryReservation: (fishingClassQuickReservationId ) => {
+    return axios.delete(
+      `${process.env.REACT_APP_API_URL}fishingClassReservations/${fishingClassQuickReservationId}`
+      
+    );
+  },
+
   getAllFishingClassReservationsByInstructor: (instructorId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}fishingClassReservationInstructor?instructorId=${instructorId}`
