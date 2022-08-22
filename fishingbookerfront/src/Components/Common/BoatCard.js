@@ -11,48 +11,38 @@ import "../../App.css";
 import { Link } from "react-router-dom";
 
 export default function BoatCard({ boats }) {
-  var a;
+ 
 
-  /*boats.forEach(element => {
-    rateService.getRateBoatById(element.id).then((result)=> {
-      // here you can use the result of promiseB
-      console.log(result);
-  });
-  });*/
-
-  rateService.getRateBoatById(2).then((result)=> {
-    // here you can use the result of promiseB
-
-    a=result.data;
-    console.log(result.data);
-});
- /* boats.forEach(element => {
-  //  var a=rateService.getRateBoatById(element.id);
-  var a=0;
-    rateService.getRateBoatById(element.id).then(function(result) {
-      // here you can use the result of promiseB
-      a=result;
-  });
-  
-    element.averageRate=1;
-    console.log(a);
-   
-  }); */
-/*function proba(val){
-  rateService.getRateBoatById(val)
-    .then(val2 =>{
-      return 1;
-    })
-}*/
-
- /* boats.forEach(element => {
-    rateService.getRateBoatById(element.id)
-      .then(val => {
-        element.averageRate=val.data;
-        console.log(element);
+  const [avgRate, setavgRate]= useState([]);
+  const [avgRate2, setavgRate2]= useState([]);
+/*
+  useEffect(() => {
+    rateService
+    .getRateBoatById(1)
+      .then((data) => {
+        setavgRate(data.data);
       })
-  });
+      .catch((error) => console.log(`error`, error));
+  }, [avgRate2]);
 */
+
+  
+boats.forEach(element => {
+  console.log(element)
+  rateService
+    .getRateBoatById(element.id)
+      .then((data) => {
+        setavgRate(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+    element.averageRate=avgRate;
+})
+
+
+
+
+
+
 
     
   return (
@@ -81,7 +71,7 @@ export default function BoatCard({ boats }) {
                       <ListGroupItem>Max Speed: {boat.maxSpeed}</ListGroupItem>
                       <ListGroupItem>Status: {boat.status}</ListGroupItem>
                       <ListGroupItem>Price: {boat.price} euro</ListGroupItem>
-                      <ListGroupItem>Rate: {a} </ListGroupItem>
+                      <ListGroupItem>Rate: {avgRate} </ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                       <Link to={`/boat/${boat.id}`}>

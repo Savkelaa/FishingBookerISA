@@ -119,9 +119,9 @@ export default function ClientHomeButtons() {
           </button>
         </Link>
 
-        <Link to="/OrdinaryBoatReservationAll">
+        <Link to="/OrdinaryFishingClassReservationAll">
           <button className="btn btn-primary profile-button" type="button">
-            All Ordinary Boat Reservations
+            All Ordinary FishingClass Reservations
           </button>
         </Link>
 
@@ -137,6 +137,25 @@ export default function ClientHomeButtons() {
             All Ordinary FishingClass Reservations
           </button>
         </Link>
+
+        <Link to="/boatOrdinaryReservationsFuture">
+          <button className="btn btn-primary profile-button" type="button">
+            Future BoatReservation ORDINARY
+          </button>
+        </Link>
+
+        <Link to="/cottageOrdinaryReservationsFuture">
+          <button className="btn btn-primary profile-button" type="button">
+            Future Ordinary Cottage Reservations
+          </button>
+        </Link>
+        
+        <Link to="/fishingClassOrdinaryReservationsFuture">
+          <button className="btn btn-primary profile-button" type="button">
+            Future Ordinary FishingClass Reservations
+          </button>
+        </Link>
+        
 
         
 
