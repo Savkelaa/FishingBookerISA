@@ -189,7 +189,7 @@ const userServices = {
   },
   getAllCottageOwnerDeleteRequests: () => {
     return axios.get(
-      `${process.env.REACT_APP_API_URL}cottageOwnerDeleteRequests`
+      `${process.env.REACT_APP_API_URL}cottageOwnerRequests`
     );
   },
   getAllBoatOwnerDeleteRequests: () => {

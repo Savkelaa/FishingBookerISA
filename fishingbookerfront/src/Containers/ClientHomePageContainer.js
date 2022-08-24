@@ -131,9 +131,20 @@ export default function ClientHomePage() {
 
   useEffect(() => {}, [client]);
 
-  function sendInstructorDeleteRequest(instructor) {
+  /*function sendInstructorDeleteRequest(instructor) {
     userServices
       .instructorSendDeleteRequest(instructor)
+      .then((data) => {
+        console.log("sucessfuly sent a instructor delete request");
+        alert("sucessfuly sent a instructor delete request");
+      })
+      .catch((error) => {
+        console.log("Something wen't wrong try again");
+      });
+  }*/
+  function sendInstructorDeleteRequest(instructor) {
+    userServices
+      .clientSendDeleteRequest(instructor)
       .then((data) => {
         console.log("sucessfuly sent a instructor delete request");
         alert("sucessfuly sent a instructor delete request");
