@@ -156,9 +156,25 @@ export default function ClientHomeButtons() {
           </button>
         </Link>
         
+        <Link to="/cottageOrdinaryReservationHistory">
+          <button className="btn btn-primary profile-button" type="button">
+            History Ordinary Cottage Reservations
+          </button>
+        </Link>
 
+        <Link to="/boatOrdinaryReservationHistory">
+          <button className="btn btn-primary profile-button" type="button">
+            History Ordinary Boat Reservations
+          </button>
+        </Link>
+
+        <Link to="/fishingClassOrdinaryReservationHistory">
+          <button className="btn btn-primary profile-button" type="button">
+            History Ordinary Fishing Class Reservations
+          </button>
+        </Link>
+       
         
-
       
       </div>
     </div>

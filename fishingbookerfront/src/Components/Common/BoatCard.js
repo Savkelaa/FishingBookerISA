@@ -26,7 +26,7 @@ export default function BoatCard({ boats }) {
   }, [avgRate2]);
 */
 
-  
+  /*
 boats.forEach(element => {
   console.log(element)
   rateService
@@ -37,7 +37,7 @@ boats.forEach(element => {
       .catch((error) => console.log(`error`, error));
     element.averageRate=avgRate;
 })
-
+*/
 
 
 

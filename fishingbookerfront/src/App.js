@@ -99,6 +99,9 @@ import OrdinaryFishingClassReservationAll from "./Containers/FishingClassOrdinar
 import OrdinaryBoatFuture from "./Containers/BoatOrdinaryFuture"
 import OrdinaryCottageFuture from "./Containers/CottageOrdinaryFuture"
 import OrdinaryFishingClassFuture from "./Containers/FishingClassOrdinaryCancelContainer"
+import CottageOrdinaryReservationHistoryContainer from "./Containers/CottageOrdinaryReservationHistoryContainer";
+import BoatOrdinaryReservationHistoryContainer from "./Containers/BoatOrdinaryReservationHistoryContainer";
+import FishingClassOrdinaryHistoryContainer from "./Containers/FishingClassOrdinaryReservationHistoryContainer"
 
 
 
@@ -463,7 +466,21 @@ function App() {
           <Route path="/OrdinaryFishingClassReservationAll">
             <OrdinaryFishingClassReservationAll></OrdinaryFishingClassReservationAll>
           </Route>
-          
+ //----------history         
+
+          <Route path="/cottageOrdinaryReservationHistory">
+            <CottageOrdinaryReservationHistoryContainer></CottageOrdinaryReservationHistoryContainer>
+          </Route>
+
+
+   
+          <Route path="/boatOrdinaryReservationHistory">
+            <BoatOrdinaryReservationHistoryContainer></BoatOrdinaryReservationHistoryContainer>
+          </Route>
+
+          <Route path="/fishingClassOrdinaryReservationHistory">
+            <FishingClassOrdinaryHistoryContainer></FishingClassOrdinaryHistoryContainer>
+          </Route>
 
         </Switch>
       </Router>
