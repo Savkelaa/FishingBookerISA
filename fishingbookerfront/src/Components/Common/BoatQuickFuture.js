@@ -35,7 +35,7 @@ export default function BoatCurrentReservations({
     <div>
       <div className="App">
         <div className="header">
-          <h1 style={{ textAlign: "center" }}> Current Reservations </h1>
+          <h1 style={{ textAlign: "center" }}> Future Reservations </h1>
         </div>
         {currReservations.map((reservation) => (
           <div className="container">

@@ -27,16 +27,70 @@ export default function Navbarr() {
           </NavDropdown.Item>
         </NavDropdown>
 
-        <NavDropdown title="CottageReservations">
-          <NavDropdown.Item href="cottageReservationClientAll">
-            All
+        <NavDropdown title="History of reservations">
+          <NavDropdown.Item href="cottageOrdinaryReservationHistory">
+            Cottage
+          </NavDropdown.Item>
+          <NavDropdown.Item href="boatOrdinaryReservationHistory">
+            Boat
+          </NavDropdown.Item>
+          <NavDropdown.Item href="fishingClassOrdinaryReservationHistory">
+            FishingClass
           </NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="cottageReservationHistoryByClient">
-            In history
+            QuickCottage
           </NavDropdown.Item>
-          <NavDropdown.Item href="allBoats">
-            In future
+          <NavDropdown.Item href="boatReservationHistoryClient">
+            QuickBoat
+          </NavDropdown.Item>
+          <NavDropdown.Item href="fishingClassReservationHistoryByClient">
+            QuickFishingClass
+          </NavDropdown.Item>
+        </NavDropdown>
+
+
+        <NavDropdown title="Future reservations">
+          <NavDropdown.Item href="cottageOrdinaryReservationsFuture">
+            Cottage
+          </NavDropdown.Item>
+          <NavDropdown.Item href="boatOrdinaryReservationsFuture">
+            Boat
+          </NavDropdown.Item>
+          <NavDropdown.Item href="fishingClassOrdinaryReservationsFuture">
+            FishingClass
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="cottageQuickReservationsFuture">
+            QuickCottage
+          </NavDropdown.Item>
+          <NavDropdown.Item href="boatQuickReservationsFuture">
+            QuickBoat
+          </NavDropdown.Item>
+          <NavDropdown.Item href="fishingClassQuickReservationsFuture">
+            QuickFishingClass
+          </NavDropdown.Item>
+        </NavDropdown>
+
+        <NavDropdown title="All reservations">
+          <NavDropdown.Item href="OrdinaryCottageReservationAll">
+            Cottage
+          </NavDropdown.Item>
+          <NavDropdown.Item href="OrdinaryBoatReservationAll">
+            Boat
+          </NavDropdown.Item>
+          <NavDropdown.Item href="OrdinaryFishingClassReservationAll">
+            FishingClass
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="cottageReservationClientAll">
+            QuickCottage
+          </NavDropdown.Item>
+          <NavDropdown.Item href="boatReservationClientAll">
+            QuickBoat
+          </NavDropdown.Item>
+          <NavDropdown.Item href="fishingClassReservationClientAll">
+            QuickFishingClass
           </NavDropdown.Item>
         </NavDropdown>
 

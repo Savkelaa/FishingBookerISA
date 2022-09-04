@@ -32,7 +32,7 @@ export default function BoatReservationHistory({
     <div>
       <div className="App">
         <div className="header">
-          <h1 style={{ textAlign: "center" }}> Reservation History </h1>
+          <h1 style={{ textAlign: "center" }}> All reservations </h1>
         </div>
         {currReservations.map((reservation) => (
           <div className="container">

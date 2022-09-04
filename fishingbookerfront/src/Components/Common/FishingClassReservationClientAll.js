@@ -40,7 +40,7 @@ export default function FishingClassReservationHistoryByClient({
         <div className="header">
           <h1 style={{ textAlign: "center" }}>
             {" "}
-            Fishing Class Reservation History{" "}
+            Fishing Class Reservations{" "}
           </h1>
         </div>
         {hisReservations.map((reservation) => (

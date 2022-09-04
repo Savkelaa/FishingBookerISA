@@ -13,7 +13,7 @@ export default function ClientHomeButtons() {
     <div className="col-md-4">
       <div className="p-3 py-5">
         <div className="d-flex justify-content-between align-items-center experience"></div>
-        <Link to="fishingClassReservationHistoryByClient">
+        {/* <Link to="fishingClassReservationHistoryByClient">
           <button className="btn btn-primary profile-button" type="button">
             History of Fishing Class reservations
           </button>
@@ -47,7 +47,7 @@ export default function ClientHomeButtons() {
           <button className="btn btn-primary profile-button" type="button">
             History Boat reservations
           </button>
-        </Link>
+        </Link> */}
 
 
         <Link to="/boatCurrentReservation2">
@@ -69,7 +69,7 @@ export default function ClientHomeButtons() {
         </Link>
        
 
-        <button className="btn btn-primary profile-button" type="button">
+        {/* <button className="btn btn-primary profile-button" type="button">
           Create reservation
         </button>
         <button className="btn btn-primary profile-button" type="button">
@@ -81,8 +81,8 @@ export default function ClientHomeButtons() {
         </button>
         <button className="btn btn-primary profile-button" type="button">
           Make a complaint
-        </button>
-
+        </button> */}
+{/* 
         <Link to="/boatQuickReservationsFuture">
           <button className="btn btn-primary profile-button" type="button">
             Cancel BoatQuickReservation
@@ -99,7 +99,7 @@ export default function ClientHomeButtons() {
           <button className="btn btn-primary profile-button" type="button">
             Cancel FishingClassQuickReservation
           </button>
-        </Link>
+        </Link> */}
 
         <Link to="/selectDatesOrdinaryCottage">
           <button className="btn btn-primary profile-button" type="button">
@@ -107,11 +107,11 @@ export default function ClientHomeButtons() {
           </button>
         </Link>
 
-        <Link to="/OrdinaryCottageReservationAll">
+        {/* <Link to="/OrdinaryCottageReservationAll">
           <button className="btn btn-primary profile-button" type="button">
             All Ordinary Cottage Reservations
           </button>
-        </Link>
+        </Link> */}
 
         <Link to="/selectDatesOrdinaryBoat">
           <button className="btn btn-primary profile-button" type="button">
@@ -119,11 +119,11 @@ export default function ClientHomeButtons() {
           </button>
         </Link>
 
-        <Link to="/OrdinaryFishingClassReservationAll">
+        {/* <Link to="/OrdinaryFishingClassReservationAll">
           <button className="btn btn-primary profile-button" type="button">
             All Ordinary FishingClass Reservations
           </button>
-        </Link>
+        </Link> */}
 
 
         <Link to="/selectDatesOrdinaryFishingClass">
@@ -132,7 +132,7 @@ export default function ClientHomeButtons() {
           </button>
         </Link>
 
-        <Link to="/OrdinaryFishingClassReservationAll">
+        {/* <Link to="/OrdinaryFishingClassReservationAll">
           <button className="btn btn-primary profile-button" type="button">
             All Ordinary FishingClass Reservations
           </button>
@@ -173,7 +173,7 @@ export default function ClientHomeButtons() {
             History Ordinary Fishing Class Reservations
           </button>
         </Link>
-       
+        */}
         
       
       </div>
