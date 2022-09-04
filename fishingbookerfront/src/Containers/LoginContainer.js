@@ -185,7 +185,9 @@ function LoginContainer() {
         console.log("Something wen't wrong try again", error);
       });
   }
-
+  // localStorage.setItem("InstructorsFollow", JSON.stringify([]));
+  // localStorage.setItem("CottagesFollow", JSON.stringify([]));
+  // localStorage.setItem("BoatsFollow", JSON.stringify([]));
   return (
     <div>
       <NavbarLogin></NavbarLogin>

@@ -102,6 +102,8 @@ import OrdinaryFishingClassFuture from "./Containers/FishingClassOrdinaryCancelC
 import CottageOrdinaryReservationHistoryContainer from "./Containers/CottageOrdinaryReservationHistoryContainer";
 import BoatOrdinaryReservationHistoryContainer from "./Containers/BoatOrdinaryReservationHistoryContainer";
 import FishingClassOrdinaryHistoryContainer from "./Containers/FishingClassOrdinaryReservationHistoryContainer"
+import FollowSee from "./Containers/FollowSeeContainer"
+import Followings from "./Containers/FollowingsContainter"
 
 
 
@@ -481,7 +483,16 @@ function App() {
           <Route path="/fishingClassOrdinaryReservationHistory">
             <FishingClassOrdinaryHistoryContainer></FishingClassOrdinaryHistoryContainer>
           </Route>
+//---------------------FOLLOW
 
+            <Route path="/follow">
+            <FollowSee></FollowSee>
+          </Route>
+
+
+          <Route path="/followings">
+            <Followings></Followings>
+          </Route>
         </Switch>
       </Router>
     </div>

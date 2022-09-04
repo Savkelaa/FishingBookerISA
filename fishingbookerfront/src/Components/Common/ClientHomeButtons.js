@@ -132,6 +132,20 @@ export default function ClientHomeButtons() {
           </button>
         </Link>
 
+
+        <Link to="/follow">
+          <button className="btn btn-primary profile-button" type="button">
+            Follow
+          </button>
+        </Link>
+
+        <Link to="/followings">
+          <button className="btn btn-primary profile-button" type="button">
+            Followings
+          </button>
+        </Link>
+      
+
         {/* <Link to="/OrdinaryFishingClassReservationAll">
           <button className="btn btn-primary profile-button" type="button">
             All Ordinary FishingClass Reservations
