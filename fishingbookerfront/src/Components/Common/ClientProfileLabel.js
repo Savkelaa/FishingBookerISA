@@ -51,15 +51,6 @@ export default function ClientProfileLabel({
               //value={logedClient.surname}
             />
           </div>
-          <div className="col-md-6">
-            <label className="labels">Surname</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter id"
-              value={logedClient.id}
-            />
-          </div>
         </div>
         <div className="row mt-3">
           <div className="col-md-12">
@@ -92,22 +83,14 @@ export default function ClientProfileLabel({
               //value={logedClient.country}
             />
           </div>
+      
           <div className="col-md-12">
-            <label className="labels">Email</label>
-            <input
-              ref={email}
-              type="text"
-              className="form-control"
-              placeholder={logedClient.email}
-              value={logedClient.email}
-            />
-          </div>
-          <div className="col-md-12">
-            <label className="labels">Password</label>
+            <label className="labels">Penalty</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter password"
+              placeholder={logedClient.penalty}
+              value={logedClient.penalty}
             />
           </div>
           <div className="col-md-12">
@@ -139,6 +122,17 @@ export default function ClientProfileLabel({
               value={logedClient.points}
             />
           </div>
+          <div className="col-md-12">
+            <label className="labels">Email</label>
+            <input
+              ref={email}
+              type="text"
+              className="form-control"
+              disabled = 'true'
+              placeholder={logedClient.email}
+              value={logedClient.email}
+            />
+          </div>
         </div>
 
         <div className="mt-5 text-center">
@@ -150,7 +144,7 @@ export default function ClientProfileLabel({
               logedClient.address = address.current.value;
               logedClient.city = city.current.value;
               logedClient.country = country.current.value;
-              logedClient.email = email.current.value;
+             // logedClient.email = email.current.value;
               logedClient.number = number.current.value;
               logedClient.explanation = explanation.current.value;
               
