@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,9 @@ public class CottageQuickReservationService {
 	public List<CottageQuickReservation> getAllCottageQuickReservations(){
 		return this.CottageQuickReservationRepository.findAll();
 	}
+	public List<CottageQuickReservation> getAllCottageQuickReservations2(){
+		return this.CottageQuickReservationRepository.findAll2();
+	}
 
 	public Double getTotalPriceComplatedCottageQuickReservations(){
 		return this.CottageQuickReservationRepository.getTotalPriceComplatedCottageQuickReservations();
@@ -51,9 +56,9 @@ public class CottageQuickReservationService {
 	 return ResponseEntity.ok().body(cottageQuickReservation);
 	}
 	
-
+	@Transactional
 	public CottageQuickReservation createCottageQuickReservation(CottageQuickReservation cottageQuickReservation) {
-		List<Client> subscribers = clientRepository.getAllSubscribersByFishingClass(cottageQuickReservation.getCottage().getId());
+	/*	List<Client> subscribers = clientRepository.getAllSubscribersByFishingClass(cottageQuickReservation.getCottage().getId());
 		for (Client client : subscribers)
 		{
 			try {
@@ -63,7 +68,7 @@ public class CottageQuickReservationService {
 				logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 			}
 		}
-		
+		*/
 		return CottageQuickReservationRepository.save(cottageQuickReservation);
 	}
 	

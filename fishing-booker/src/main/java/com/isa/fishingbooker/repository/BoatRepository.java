@@ -8,6 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import com.isa.fishingbooker.model.Boat;
 import com.isa.fishingbooker.model.Boat;
+import org.springframework.data.jpa.repository.Lock;
+import org.springframework.data.jpa.repository.QueryHints;
+import org.springframework.data.mapping.AccessOptions.SetOptions.Propagation;
+
+import javax.persistence.LockModeType;
+import javax.persistence.QueryHint;
+import javax.transaction.Transactional;
 
 @Repository
 public interface BoatRepository extends JpaRepository<Boat, Integer> {
@@ -16,6 +23,7 @@ public interface BoatRepository extends JpaRepository<Boat, Integer> {
 	@Query(value = "SELECT * FROM boat"
 			+ " WHERE boat_owner_id = :boatOwnerId AND name like :boatName%", nativeQuery = true)
 	List<Boat> getBoatsByOwnerAndName(Integer boatOwnerId, String boatName);
+
 	
 	@Query(value = "SELECT * FROM boat"
 			+ " WHERE boat_owner_id = :boatOwnerId", nativeQuery = true)
@@ -38,6 +46,18 @@ public interface BoatRepository extends JpaRepository<Boat, Integer> {
 	
 	@Query(value="select * from boat order by price desc",nativeQuery=true)
 	List<Boat> getAllBoatsSortedByPriceDesc();
+	
+	@Query(value="select * from boat where price < :prices",nativeQuery=true)
+	List<Boat> getAllBoatsPrices(Integer prices);
+	
+	@Query(value="select * from boat where address = :prices",nativeQuery=true)
+	List<Boat> getAllBoatsAddress(String prices);
+	
+	@Lock(LockModeType.PESSIMISTIC_WRITE)
+	@QueryHints({@QueryHint(name = "javax.persistence.lock.timeout", value = "0")})
+	Boat findLockedById(Long id);
+
+	
 	
 	
 }

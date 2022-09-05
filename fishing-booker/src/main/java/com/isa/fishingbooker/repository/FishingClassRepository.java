@@ -3,10 +3,16 @@ package com.isa.fishingbooker.repository;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.LockModeType;
+import javax.persistence.QueryHint;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.QueryHints;
 import org.springframework.stereotype.Repository;
 
+import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.model.FishingClass;
 import com.isa.fishingbooker.model.FishingClassBehavioralRule;
 
@@ -27,7 +33,9 @@ public interface FishingClassRepository extends JpaRepository<FishingClass, Inte
 			+ "WHERE instructor_id = :instructorId", nativeQuery = true)
 	List<FishingClass> getFishingClassByInstructor(Integer instructorId);
 
-
+	@Lock(LockModeType.PESSIMISTIC_WRITE)
+	@QueryHints({@QueryHint(name = "javax.persistence.lock.timeout", value = "0")})
+	FishingClass findLockedById(Long id);
 
 
 }

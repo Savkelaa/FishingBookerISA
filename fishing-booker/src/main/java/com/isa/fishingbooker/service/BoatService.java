@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,7 +33,7 @@ public class BoatService {
 	public List<Boat> getAllBoats(){
 		return this.BoatRepository.findAll();
 	}
-		
+
 	public ResponseEntity<Boat> getBoatById(int boatId)
 		throws ResourceNotFoundException{
 		Boat boat = BoatRepository.findById(boatId).orElseThrow(() -> new ResourceNotFoundException("Boat not found for this id :: " + boatId));
@@ -159,5 +161,10 @@ public class BoatService {
 		double numReservations = boatReservationRepository.CountYearlyBoatReservations(boatId) + boatQuickReservationRepository.CountYearlyBoatQuickReservations(boatId);
 		return numReservations;
 	}
+	@Transactional
+	public Boat findLockedById(Long id){
+		return BoatRepository.findLockedById(id);
+	}
+	
 	
 }

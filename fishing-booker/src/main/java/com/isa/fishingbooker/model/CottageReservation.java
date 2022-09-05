@@ -58,7 +58,7 @@ public class CottageReservation {
     @JoinColumn(name="client_id", nullable = true)
     private Client client;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="cottage_id", nullable = false)
     private Cottage cottage;
 	

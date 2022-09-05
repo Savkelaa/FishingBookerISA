@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.model.FishingClass;
 import org.slf4j.Logger;
@@ -69,7 +71,7 @@ public class FishingClassReservationService {
 		return FishingClassReservationRepository.getFishingClassByClient(clientId);
 	}
 
-
+	@Transactional
 	public FishingClassReservation createFishingClassReservation(FishingClassReservation fishingClassReservation) {
 		try {
 			System.out.println("Thread id: " + Thread.currentThread().getId());

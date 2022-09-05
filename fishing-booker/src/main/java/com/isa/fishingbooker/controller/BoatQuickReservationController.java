@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.isa.fishingbooker.model.BoatReservation;
+import com.isa.fishingbooker.repository.BoatQuickReservationRepository;
 import com.isa.fishingbooker.model.BoatQuickReservation;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +32,16 @@ public class BoatQuickReservationController {
 
 	@Autowired
 	private BoatQuickReservationService boatQuickReservationService;
+	private BoatQuickReservationRepository boatQuickReservationREPOSITORY;
 
 	@GetMapping("/boatQuickReservations")
 	public List<BoatQuickReservation> getAllBoatQuickReservations() {
 		return this.boatQuickReservationService.getAllBoatQuickReservations();
+	}
+	
+	@GetMapping("/boatQuickReservations2")
+	public List<BoatQuickReservation> getAllBoatQuickReservations2() {
+		return this.boatQuickReservationService.getAllBoatQuickReservations2();
 	}
 
 	@GetMapping("/boatQuickReservations/{id}")

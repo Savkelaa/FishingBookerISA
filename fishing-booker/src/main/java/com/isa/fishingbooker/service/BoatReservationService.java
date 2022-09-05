@@ -1,14 +1,19 @@
 package com.isa.fishingbooker.service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.PessimisticLockingFailureException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,15 +21,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
+import com.isa.fishingbooker.model.AdditionalService;
+import com.isa.fishingbooker.model.Boat;
+import com.isa.fishingbooker.model.BoatOwner;
 import com.isa.fishingbooker.model.BoatReservation;
+import com.isa.fishingbooker.model.Client;
 import com.isa.fishingbooker.model.BoatReservation;
+import com.isa.fishingbooker.repository.BoatOwnerRepository;
+import com.isa.fishingbooker.repository.BoatRepository;
 import com.isa.fishingbooker.repository.BoatReservationRepository;
+import com.isa.fishingbooker.repository.ClientRepository;
 
 @Service
 public class BoatReservationService {
 
 	@Autowired
 	private BoatReservationRepository BoatReservationRepository;
+	
+	private BoatRepository boatRepository;
+	
+	private ClientRepository clientRepo;
+	
+	private BoatOwnerRepository ownerRepo;
 	
 	private Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -55,7 +73,7 @@ public class BoatReservationService {
 		return BoatReservationRepository.getBoatReservationsByOwner(boatOwnerId);
 	}
 
-	
+	@Transactional
 	public BoatReservation createBoatReservation(BoatReservation boatReservation) {
 		try {
 			System.out.println("Thread id: " + Thread.currentThread().getId());
@@ -124,4 +142,7 @@ public class BoatReservationService {
 	public List<BoatReservation> getAllFinishedBoatReservationByClientSortedByDurationDesc(Integer clientId){
 		return BoatReservationRepository.getAllFinishedBoatReservationByClientSortedByDurationDesc(clientId);
 	}
+	
+	
+	
 }

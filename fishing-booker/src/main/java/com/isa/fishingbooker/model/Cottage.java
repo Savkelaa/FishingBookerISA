@@ -3,6 +3,7 @@ package com.isa.fishingbooker.model;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -93,7 +94,7 @@ public class Cottage {
 	
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="cottage",fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CottageBehavioralRule> behavioralRules ;
 	
 	@Column(name="averageRate")

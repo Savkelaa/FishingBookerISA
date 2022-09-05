@@ -34,19 +34,19 @@ public class ClientController {
 	@Autowired
 	private EmailService emailService;
 
-	@PostMapping("/signup/async")
-	public String signUpAsync(Client user){
-
-		//slanje emaila
-		try {
-			System.out.println("Thread id: " + Thread.currentThread().getId());
-			emailService.sendNotificaitionAsync(user);
-		}catch( Exception e ){
-			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
-		}
-
-		return "success";
-	}
+//	@PostMapping("/signup/async")
+//	public String signUpAsync(Client user){
+//
+//		//slanje emaila
+//		try {
+//			System.out.println("Thread id: " + Thread.currentThread().getId());
+//			emailService.sendNotificaitionAsync(user);
+//		}catch( Exception e ){
+//			logger.info("Greska prilikom slanja emaila: " + e.getMessage());
+//		}
+//
+//		return "success";
+//	}
 
 	@Autowired 
 	private ClientService clientService;

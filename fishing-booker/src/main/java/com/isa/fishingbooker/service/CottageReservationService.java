@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import com.isa.fishingbooker.model.CottageQuickReservation;
 
 import org.slf4j.Logger;
@@ -53,6 +55,7 @@ public class CottageReservationService {
 		return CottageReservationRepository.getCottageReservationsByCottageOwner(cottageOwnerId);
 	}
 
+	@Transactional
 	public CottageReservation createCottageReservation(CottageReservation cottageReservation) {
 		try {
 			System.out.println("Thread id: " + Thread.currentThread().getId());

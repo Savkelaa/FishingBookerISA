@@ -48,20 +48,20 @@ public class FishingClassService {
 		return fishingClassRepository.getFishingClassByInstructor(instructorId);
 	}
 
-	public Double getWeeklyFishingClassReservation(Integer fishingClassId) {
-		double numReservations = fishingClassReservationRepository.CountWeeklyFishingClassReservations(fishingClassId) + fishingClassQuickReservationRepository.CountWeeklyFishingClassQuickReservations(fishingClassId);
-		return numReservations;
-	}
-
-	public Double getMonthlyFishingClassReservation(Integer fishingClassId) {
-		double numReservations = fishingClassReservationRepository.CountMonthlyFishingClassReservations(fishingClassId) + fishingClassQuickReservationRepository.CountMonthlyFishingClassQuickReservations(fishingClassId);
-		return numReservations;
-	}
-
-	public Double getYearlyFishingClassReservation(Integer fishingClassId) {
-		double numReservations = fishingClassReservationRepository.CountYearlyFishingClassReservations(fishingClassId) + fishingClassQuickReservationRepository.CountYearlyFishingClassQuickReservations(fishingClassId);
-		return numReservations;
-	}
+//	public Double getWeeklyFishingClassReservation(Integer fishingClassId) {
+//		double numReservations = fishingClassReservationRepository.CountWeeklyFishingClassReservations(fishingClassId) + fishingClassQuickReservationRepository.CountWeeklyFishingClassQuickReservations(fishingClassId);
+//		return numReservations;
+//	}
+//
+//	public Double getMonthlyFishingClassReservation(Integer fishingClassId) {
+//		double numReservations = fishingClassReservationRepository.CountMonthlyFishingClassReservations(fishingClassId) + fishingClassQuickReservationRepository.CountMonthlyFishingClassQuickReservations(fishingClassId);
+//		return numReservations;
+//	}
+//
+//	public Double getYearlyFishingClassReservation(Integer fishingClassId) {
+//		double numReservations = fishingClassReservationRepository.CountYearlyFishingClassReservations(fishingClassId) + fishingClassQuickReservationRepository.CountYearlyFishingClassQuickReservations(fishingClassId);
+//		return numReservations;
+//	}
 
 
 	public List<FishingClass> getAllFishingClass(){
@@ -74,38 +74,38 @@ public class FishingClassService {
 	 return ResponseEntity.ok().body(fishingClass);
 	}
 
-	public Double getWeeklyIncomeByFishingClass(Integer fishingClassId) {
-		double income = 0;
-		if (fishingClassReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId) != null) {
-			income += fishingClassReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId);
-		}
-		if (fishingClassQuickReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId) != null) {
-			income += fishingClassQuickReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId);
-		}
-		return income;
-	}
+//	public Double getWeeklyIncomeByFishingClass(Integer fishingClassId) {
+//		double income = 0;
+//		if (fishingClassReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId) != null) {
+//			income += fishingClassReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId);
+//		}
+//		if (fishingClassQuickReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId) != null) {
+//			income += fishingClassQuickReservationRepository.CountWeeklyIncomeFishingClassReservations(fishingClassId);
+//		}
+//		return income;
+//	}
+//
+//	public Double getMonthlyIncomeByFishingClass(Integer fishingClassId) {
+//		double income = 0;
+//		if (fishingClassReservationRepository.CountMonthlyIncomeFishingClassReservations(fishingClassId) != null) {
+//			income += fishingClassReservationRepository.CountMonthlyIncomeFishingClassReservations(fishingClassId);
+//		}
+//		if (fishingClassQuickReservationRepository.CountMonthlyFishingClassQuickReservations(fishingClassId) != null) {
+//			income += fishingClassQuickReservationRepository.CountMonthlyFishingClassQuickReservations(fishingClassId);
+//		}
+//		return income;
+//	}
 
-	public Double getMonthlyIncomeByFishingClass(Integer fishingClassId) {
-		double income = 0;
-		if (fishingClassReservationRepository.CountMonthlyIncomeFishingClassReservations(fishingClassId) != null) {
-			income += fishingClassReservationRepository.CountMonthlyIncomeFishingClassReservations(fishingClassId);
-		}
-		if (fishingClassQuickReservationRepository.CountMonthlyFishingClassQuickReservations(fishingClassId) != null) {
-			income += fishingClassQuickReservationRepository.CountMonthlyFishingClassQuickReservations(fishingClassId);
-		}
-		return income;
-	}
-
-	public Double getYearlyIncomeByFishingClass(Integer fishingClassId) {
-		double income = 0;
-		if (fishingClassReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId) != null) {
-			income += fishingClassReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId);
-		}
-		if (fishingClassQuickReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId) != null) {
-			income += fishingClassQuickReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId);
-		}
-		return income;
-	}
+//	public Double getYearlyIncomeByFishingClass(Integer fishingClassId) {
+//		double income = 0;
+//		if (fishingClassReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId) != null) {
+//			income += fishingClassReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId);
+//		}
+//		if (fishingClassQuickReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId) != null) {
+//			income += fishingClassQuickReservationRepository.CountYearlyIncomeFishingClassReservations(fishingClassId);
+//		}
+//		return income;
+//	}
 
 
 	public FishingClass createFishingClass(FishingClass fishingClass) {

@@ -2,10 +2,16 @@ package com.isa.fishingbooker.repository;
 
 import java.util.List;
 
+import javax.persistence.LockModeType;
+import javax.persistence.QueryHint;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.QueryHints;
 import org.springframework.stereotype.Repository;
 
+import com.isa.fishingbooker.model.CottageQuickReservation;
 import com.isa.fishingbooker.model.FishingClassQuickReservation;
 import com.isa.fishingbooker.model.FishingClassReservation;
 import com.isa.fishingbooker.model.FishingClassQuickReservation;
@@ -16,6 +22,9 @@ public interface FishingClassQuickReservationRepository extends JpaRepository<Fi
 
 	@Query(value="select * from fishing_class_quick_reservation where client_id=:clientId",nativeQuery=true)
 	List<FishingClassQuickReservation> getAllFishingClassQuickReservationByClient(Integer clientId);
+	
+	@Query(value="select * from fishing_class_quick_reservation where status='free'",nativeQuery=true)
+	List<FishingClassQuickReservation> getAllFishingClassQuickReservationFree();
 	
 	@Query(value="select * from fishing_class_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId ", nativeQuery=true)
 	List<FishingClassQuickReservation> getAllFinishedFishingClassQuickReservationByClient(Integer clientId);
@@ -84,34 +93,11 @@ public interface FishingClassQuickReservationRepository extends JpaRepository<Fi
 			+ "where fishing_class_quick_reservation.id = :fishingClassId\r\n"
 			+ "", nativeQuery=true)
     Integer getPriceQuickReservationByFishingClass(Integer fishingClassId);
-
-
-	@Query(value = "select count (*) from fishing_class_quick_reservation where fishing_class_id = :fishingClassId "
-			+ "and finish_date > current_date-350\r\n", nativeQuery = true)
-	Double CountYearlyFishingClassQuickReservations(Integer fishingClassId);
-
-	@Query(value = "select count (*) from fishing_class_quick_reservation where fishing_class_id = :fishingClassId "
-			+ "and finish_date > current_date-30\r\n", nativeQuery = true)
-	Double CountMonthlyFishingClassQuickReservations(Integer fishingClassId);
-
-	@Query(value = "select count (*) from fishing_class_quick_reservation where fishing_class_id = :fishingClassId "
-			+ "and finish_date > current_date-7\r\n", nativeQuery = true)
-	Double CountWeeklyFishingClassQuickReservations(Integer fishingClassId);
-
-
-	@Query(value = "select sum(price) from fishing_class_quick_reservation"
-			+ " where finish_date > current_date-7 and finish_date < current_date and fishing_class_id = :fishingClassId"
-			, nativeQuery = true)
-	Double CountWeeklyIncomeFishingClassReservations(Integer fishingClassId);
-
-	@Query(value = "select sum(price) from fishing_class_quick_reservation where finish_date > current_date-30 and finish_date < current_date"
-			+ " and fishing_class_id = :fishingClassId"
-			, nativeQuery = true)
-	Double CountMonthlyIncomeFishingClassReservations(Integer fishingClassId);
-
-	@Query(value = "select sum(price) from fishing_class_quick_reservation where finish_date > current_date-350 and finish_date < current_date"
-			+ " and fishing_class_id = :fishingClassId"
-			, nativeQuery = true)
-	Double CountYearlyIncomeFishingClassReservations(Integer fishingClassId);
-
+	
+	@Query(value="select q from fishing_class_quick_reservation q where q.id=:id  ", nativeQuery=true)
+	@Lock(LockModeType.PESSIMISTIC_WRITE)
+	@QueryHints({@QueryHint(name = "javax.persistence.lock.timeout", value = "0")})
+	FishingClassQuickReservation getLock(Long id);
+	
+	
 }

@@ -70,18 +70,19 @@ public class CottageQuickReservation {
     @JoinColumn(name="client_id", nullable = true)
     private Client client;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.REMOVE)
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="cottage_id", nullable = false)
     private Cottage cottage;
 	
-	;
+	
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CottageReport> cottageReports ;
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="cottageQuickReservation",fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CottageComplaint> cottageComplaint ;
 	
 	@ManyToMany(fetch = FetchType.EAGER)

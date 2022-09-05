@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.isa.fishingbooker.model.Client;
+import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.model.CottageOwner;
 import com.isa.fishingbooker.model.Instructor;
 
@@ -80,6 +81,12 @@ public interface InstructorRepository extends JpaRepository<Instructor, Integer>
 			"WHERE cottage_owner_id = :cottageOwnerId and finish_date < CURRENT_TIMESTAMP;",nativeQuery=true)
 	Integer getNuberOfPastCottageQuickReservationsByCottageOwner(Integer cottageOwnerId);
 
+	
+	@Query(value="select * from instructor where price < :prices",nativeQuery=true)
+	List<Instructor> getAllInstructorsPrice(Integer prices);
+	
+	@Query(value="select * from instructor where country = :prices",nativeQuery=true)
+	List<Instructor> getAllInstructorsCountry(String prices);
 
 
 

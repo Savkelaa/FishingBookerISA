@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -91,7 +92,7 @@ public class BoatQuickReservation {
     private List<FishingEquipment> fishingEquipment ;
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="boatQuickReservation",fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="boatQuickReservation",fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     private List<BoatReport> boatReports ;
 	
 	@JsonIgnore
