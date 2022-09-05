@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import boatServices from "../../Services/BoatServices/BoatServices";
 import rateService from "../../Services/BoatServices/RateServices";
 import {
   Card,
@@ -6,6 +7,7 @@ import {
   ListGroupItem,
   CardGroup,
   Button,
+  Container
 } from "react-bootstrap";
 import "../../App.css";
 import { Link } from "react-router-dom";
@@ -13,9 +15,50 @@ import { Link } from "react-router-dom";
 export default function BoatCard({ boats }) {
  
 
+  const [mappedBoats, setMappedBoats]=useState(boats)
   const [avgRate, setavgRate]= useState([]);
   const [avgRate2, setavgRate2]= useState([]);
-/*
+  const [sortBoats, setSortBoats]=useState(true)
+
+
+  useEffect(() => {
+    boatServices
+      .getAllBoats()
+
+      .then((data) => {
+        setMappedBoats(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+  }, []);
+
+ 
+function SortPriceASC(){
+  const numAscending = [...mappedBoats].sort((a, b) => a.price - b.price);
+  setMappedBoats(numAscending)
+}
+function SortPriceDESC(){
+  const numAscending = [...mappedBoats].sort((a, b) => b.price - a.price);
+  setMappedBoats(numAscending)
+}
+function SortLengthASC(){
+  const numAscending = [...mappedBoats].sort((a, b) => a.length - b.length);
+  setMappedBoats(numAscending)
+}
+function SortLengthDESC(){
+  const numAscending = [...mappedBoats].sort((a, b) => b.length - a.length);
+  setMappedBoats(numAscending)
+}
+function SortNameASC(){
+  const numAscending = [...mappedBoats].sort((a, b) => a.name > b.name ? 1 : -1);
+  setMappedBoats(numAscending)
+}
+function SortNameDESC(){
+  const numAscending = [...mappedBoats].sort((a, b) => a.name < b.name ? 1 : -1);
+  setMappedBoats(numAscending)
+}
+ 
+  
+  /*
   useEffect(() => {
     rateService
     .getRateBoatById(1)
@@ -43,11 +86,30 @@ boats.forEach(element => {
 
 
 
-
     
   return (
     <div>
-      {boats.map((boat) => (
+      <Container className="cardContainer">
+      <Card>
+      <Button onClick={()=>{
+        SortPriceASC()
+       
+      }}>Sort PriceASC</Button>
+            <Button onClick={()=>{
+        SortPriceDESC()
+       
+      }}>Sort PriceDESC</Button>
+            <Button onClick={()=>{
+        SortNameASC()
+       
+      }}>Sort NameASC</Button>
+       <Button onClick={()=>{
+        SortNameDESC()
+       
+      }}>Sort NameDESC</Button>
+      </Card>
+      </Container>
+      {mappedBoats?.map((boat) => (
         <div className="container">
           <div className="row gutters">
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

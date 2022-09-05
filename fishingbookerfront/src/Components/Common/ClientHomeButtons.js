@@ -1,13 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Button } from "react-bootstrap";
+import { Link,useHistory } from "react-router-dom";
 
 export default function ClientHomeButtons() {
   // const newTo = {
   //   pathname: "/fishingClassesByInstructor",
   //  param1: { fishingClassesByInstructor },
   // };
-
+  const [logedClient, setLogedClient] = useState(JSON.parse(localStorage.getItem("Client")))
   // console.log("troeolo", fishingClassesByInstructor);
+  const navigate = useHistory()
 
   return (
     <div className="col-md-4">
@@ -48,25 +51,74 @@ export default function ClientHomeButtons() {
             History Boat reservations
           </button>
         </Link> */}
+        <Button onClick={()=>{
+          if(logedClient.penalty>3){
+            alert("You have more than 3 penalties. Wait for the next month, until then u can't book anything")
+          }else{
+            navigate.push("/boatCurrentReservation2")
+          }
+        }}>Create QuickBoatReservation</Button>
 
+        <Button onClick={()=>{
+          if(logedClient.penalty>3){
+            alert("You have more than 3 penalties. Wait for the next month, until then u can't book anything")
+          }else{
+            navigate.push("/cottageCurrentReservation2")
+          }
+        }}>Create QuickCottageReservation</Button>
+        <Button onClick={()=>{
+          if(logedClient.penalty>3){
+            alert("You have more than 3 penalties. Wait for the next month, until then u can't book anything")
+          }else{
+            navigate.push("/fishingClassReservationClientCreate2")
+          }
+        }}>Create FishingClassQuickReservation</Button>        
+        <Button onClick={()=>{
+          if(logedClient.penalty>3){
+            alert("You have more than 3 penalties. Wait for the next month, until then u can't book anything")
+          }else{
+            navigate.push("/selectDatesOrdinaryCottage")
+          }
+        }}>Create CottageReservation ORDINARY</Button>
+        <Button onClick={()=>{
+          if(logedClient.penalty>3){
+            alert("You have more than 3 penalties. Wait for the next month, until then u can't book anything")
+          }else{
+            navigate.push("/selectDatesOrdinaryBoat")
+          }
+        }}>Create BoatReservation ORDINARY</Button>
 
-        <Link to="/boatCurrentReservation2">
-          <button className="btn btn-primary profile-button" type="button">
+        <Button onClick={()=>{
+          if(logedClient.penalty>3){
+            alert("You have more than 3 penalties. Wait for the next month, until then u can't book anything")
+          }else{
+            navigate.push("/selectDatesOrdinaryFishingClass")
+          }
+        }}>Create FishingClassReservation ORDINARY</Button> 
+        
+        
+        
+        
+        
+        
+        
+        {/* <Link to="/boatCurrentReservation2"> 
+          <button className="btn btn-primary profile-button" type="button" >
             Create QuickBoatReservation
           </button>
-        </Link>
-
+         </Link> */}
+{/* 
         <Link to="/cottageCurrentReservation2">
           <button className="btn btn-primary profile-button" type="button">
             Create QuickCottageReservation
           </button>
-        </Link>
-
+        </Link> */}
+{/* 
         <Link to="/fishingClassReservationClientCreate2">
           <button className="btn btn-primary profile-button" type="button">
             Create FishingClassQuickReservation
           </button>
-        </Link>
+        </Link> */}
        
 
         {/* <button className="btn btn-primary profile-button" type="button">
@@ -100,12 +152,12 @@ export default function ClientHomeButtons() {
             Cancel FishingClassQuickReservation
           </button>
         </Link> */}
-
+{/* 
         <Link to="/selectDatesOrdinaryCottage">
           <button className="btn btn-primary profile-button" type="button">
             Create CottageReservation ORDINARY
           </button>
-        </Link>
+        </Link> */}
 
         {/* <Link to="/OrdinaryCottageReservationAll">
           <button className="btn btn-primary profile-button" type="button">
@@ -113,24 +165,24 @@ export default function ClientHomeButtons() {
           </button>
         </Link> */}
 
-        <Link to="/selectDatesOrdinaryBoat">
+        {/* <Link to="/selectDatesOrdinaryBoat">
           <button className="btn btn-primary profile-button" type="button">
             Create BoatReservation ORDINARY
           </button>
-        </Link>
+        </Link> */}
 
         {/* <Link to="/OrdinaryFishingClassReservationAll">
           <button className="btn btn-primary profile-button" type="button">
             All Ordinary FishingClass Reservations
           </button>
         </Link> */}
-
+{/* 
 
         <Link to="/selectDatesOrdinaryFishingClass">
           <button className="btn btn-primary profile-button" type="button">
             Create FishingClassReservation ORDINARY
           </button>
-        </Link>
+        </Link> */}
 
 
         <Link to="/follow">

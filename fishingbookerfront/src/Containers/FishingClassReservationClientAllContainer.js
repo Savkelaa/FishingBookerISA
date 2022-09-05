@@ -13,10 +13,11 @@ export default function FishingClassReservationHistoryByClientContainer() {
   const [fishingClassRates, setFishingClassRates] = useState([]);
   const [instructorRates, setInstructorRates] = useState([]);
   const [complaints, setComplaints] = useState([]);
+  var logedClient = JSON.parse(localStorage.getItem("Client"));
 
   useEffect(() => {
     fishingClassQuickReservationServices
-      .getAllFishingClassReservationsByClient(9)
+      .getAllFishingClassReservationsByClient(logedClient.id)
       .then((data) => {
         setReservationHistory(data.data);
       })

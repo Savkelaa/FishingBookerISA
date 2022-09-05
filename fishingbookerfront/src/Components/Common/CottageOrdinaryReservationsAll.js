@@ -13,40 +13,66 @@ import Popup from "./Popup";
 export default function CottageReservationHistory({
   finishedReservations,
 }) {
-  console.log("finishedReservations", finishedReservations);
-  const timeElapsed = Date.now();
-  const today = new Date(timeElapsed);
 
-  //  const date = new Date("2022-05-19");
 
-  var currReservations = [];
-/*  var logedClient = JSON.parse(localStorage.getItem("Client"));
-  const [finishedReservations2, setFinishedReservations2] = useState([]);
+
+  const [mappedFinishedReservations, setMappedFinishedReservations] = useState(finishedReservations);
+  const [logedClient, setLogedClient] = useState(JSON.parse(localStorage.getItem("Client")))
   useEffect(() => {
     cottageQuickReservationServices
     .getAllCottageReservationsByClient(logedClient.id)
       .then((data) => {
-        setFinishedReservations2(data.data);
+        setMappedFinishedReservations(data.data);
       })
       .catch((error) => console.log(`error`, error));
-  }, []); */
-
-  finishedReservations.forEach((reservation) => {
-    const startDate = new Date(reservation.startDate);
-    const endDate = new Date(reservation.finishDate);
-    currReservations.push(reservation);
-
-  });
-
-  console.log("finishedReservationssssss", currReservations);
-
+  }, []);
+  function SortPriceASC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => a.price - b.price);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortPriceDESC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => b.price - a.price);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortLengthASC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => a.length - b.length);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortLengthDESC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => b.length - a.length);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortDateASC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => a.startDate > b.startDate ? 1 : -1);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortDateDESC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => a.startDate < b.startDate ? 1 : -1);
+    setMappedFinishedReservations(numAscending)
+  }
   return (
     <div>
       <div className="App">
         <div className="header">
           <h1 style={{ textAlign: "center" }}> All Reservations  </h1>
         </div>
-        {currReservations.map((reservation) => (
+        <Button onClick={()=>{
+        SortPriceASC()
+       
+      }}>Sort PriceASC</Button>
+            <Button onClick={()=>{
+        SortPriceDESC()
+       
+      }}>Sort PriceDESC</Button>
+            <Button onClick={()=>{
+        SortDateASC()
+       
+      }}>Sort DateASC</Button>
+       <Button onClick={()=>{
+        SortDateDESC()
+       
+      }}>Sort DateDESC</Button>
+        {mappedFinishedReservations?.map((reservation) => (
           <div className="container">
             <div className="row gutters">
               <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

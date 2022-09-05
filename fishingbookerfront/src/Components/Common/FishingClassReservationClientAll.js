@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   ListGroup,
@@ -6,10 +6,8 @@ import {
   CardGroup,
   Button,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import complaintServices from "../../Services/ComplaintServices/ComplaintServices";
-import Popup from "./Popup";
-import RateAndComplaint from "./RateAndComplaint";
+
+import fishingClassQuickReservationServices from "../../Services/FishingClassQuickReservationServices/FishingClassQuickReservationServices";
 
 export default function FishingClassReservationHistoryByClient({
   reservationHistory,
@@ -17,22 +15,44 @@ export default function FishingClassReservationHistoryByClient({
   addFishingClassRateHandler,
   addInstructorComplaintHandler,
 }) {
-  console.log("reservationHistory", reservationHistory);
-  const timeElapsed = Date.now();
-  const today = new Date(timeElapsed);
 
-  var hisReservations = [];
 
-  reservationHistory.forEach((reservation) => {
-    const startDate = new Date(reservation.startDate);
-    const endDate = new Date(reservation.finishDate);
-    hisReservations.push(reservation);
+  const [mappedFinishedReservations, setMappedFinishedReservations] = useState(reservationHistory);
+  const [logedClient, setLogedClient] = useState(JSON.parse(localStorage.getItem("Client")))
+  
+  useEffect(() => {
+    fishingClassQuickReservationServices
+      .getAllFishingClassReservationsByClient(logedClient.id)
+      .then((data) => {
+        setMappedFinishedReservations(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+  }, []);
 
-  });
-  var logedClient = JSON.parse(localStorage.getItem("Client"));
-  console.log("logedClient", logedClient);
-
-  console.log("hisReservations", hisReservations);
+  function SortPriceASC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => a.price - b.price);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortPriceDESC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => b.price - a.price);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortLengthASC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => a.length - b.length);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortLengthDESC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => b.length - a.length);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortDateASC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => a.startDate > b.startDate ? 1 : -1);
+    setMappedFinishedReservations(numAscending)
+  }
+  function SortDateDESC(){
+    const numAscending = [...mappedFinishedReservations].sort((a, b) => a.startDate < b.startDate ? 1 : -1);
+    setMappedFinishedReservations(numAscending)
+  }
 
   return (
     <div>
@@ -43,7 +63,23 @@ export default function FishingClassReservationHistoryByClient({
             Fishing Class Reservations{" "}
           </h1>
         </div>
-        {hisReservations.map((reservation) => (
+        <Button onClick={()=>{
+        SortPriceASC()
+       
+      }}>Sort PriceASC</Button>
+            <Button onClick={()=>{
+        SortPriceDESC()
+       
+      }}>Sort PriceDESC</Button>
+            <Button onClick={()=>{
+        SortDateASC()
+       
+      }}>Sort DateASC</Button>
+       <Button onClick={()=>{
+        SortDateDESC()
+       
+      }}>Sort DateDESC</Button>
+        {mappedFinishedReservations?.map((reservation) => (
           <div className="container">
             <div className="row gutters">
               <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
