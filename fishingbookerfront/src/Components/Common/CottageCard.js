@@ -10,6 +10,7 @@ import {
 import "../../App.css";
 import cottageServices from "../../Services/CottageServices/CottageServices";
 import { Link } from "react-router-dom";
+import rateServices from "../../Services/RateServices/RateServices";
 
 export default function CottageCard({ cottages }) {
   console.log("cottages", cottages);
@@ -36,12 +37,12 @@ function SortPriceDESC(){
   const numAscending = [...mappedCottages].sort((a, b) => b.price - a.price);
   setMappedCottages(numAscending)
 }
-function SortLengthASC(){
-  const numAscending = [...mappedCottages].sort((a, b) => a.length - b.length);
+function SortRateASC(){
+  const numAscending = [...mappedCottages].sort((a, b) => a.averageRate - b.averageRate);
   setMappedCottages(numAscending)
 }
-function SortLengthDESC(){
-  const numAscending = [...mappedCottages].sort((a, b) => b.length - a.length);
+function SortRateDESC(){
+  const numAscending = [...mappedCottages].sort((a, b) => b.averageRate - a.averageRate);
   setMappedCottages(numAscending)
 }
 function SortNameASC(){
@@ -51,6 +52,22 @@ function SortNameASC(){
 function SortNameDESC(){
   const numAscending = [...mappedCottages].sort((a, b) => a.name < b.name ? 1 : -1);
   setMappedCottages(numAscending)
+}function rate(){
+  const array=[]
+   mappedCottages.map(element => {
+    rateServices
+    .getAvgRateByCottage(element?.id)
+    .then((data) => {
+      element.averageRate=data.data;
+     // console.log(data.data)
+     console.log(element)
+      
+    })
+    console.log(mappedCottages)
+  });
+ 
+  
+ 
 }
  
   return (
@@ -71,6 +88,21 @@ function SortNameDESC(){
         SortNameDESC()
        
       }}>Sort NameDESC</Button>
+<Button onClick={()=>{
+        SortRateASC()
+       
+      }}>Sort RateASC</Button>
+       <Button onClick={()=>{
+        SortRateDESC()
+       
+      }}>Sort RateDESC</Button>
+
+
+      
+<Button onClick={()=>{
+       rate()
+       
+      }}>GetRates</Button>
       {mappedCottages?.map((cottage) => (
         <div className="container">
           <div className="row gutters">

@@ -50,6 +50,10 @@ public class InstructorRateService {
 		return InstructorRateRepository.save(instructorRate);
 	}
 	
+	public Double getCottageAvgRate( Integer cottageId){
+		return this.InstructorRateRepository.getInstructorAvgRate(cottageId);
+	}
+		
 	
 	public ResponseEntity<InstructorRate> updateInstructorRate(Integer instructorRateId,
 			 @RequestBody InstructorRate instructorRateDetails) throws ResourceNotFoundException {

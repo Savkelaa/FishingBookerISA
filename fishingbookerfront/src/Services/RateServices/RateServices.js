@@ -133,6 +133,11 @@ const rateServices = {
     );
   },
 
+  getAvgRateByInstructor: (cottageId) => {
+    return axios.get(
+      `${process.env.REACT_APP_API_URL}instructorAvgRate?cottageId=${cottageId}`
+    );
+  },
   getAvgRateByBoat: (boatId) => {
     return axios.get(
       `${process.env.REACT_APP_API_URL}boatAvgRate?boatId=${boatId}`
