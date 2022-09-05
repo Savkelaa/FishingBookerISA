@@ -23,6 +23,8 @@ export default function ClientProfileLabel({
   const email = useRef();
   const number = useRef();
   const explanation = useRef();
+  const penalty =useRef();
+  const loyalty= useRef()
 
   return (
     <div className="col-md-5 border-right">
@@ -87,6 +89,8 @@ export default function ClientProfileLabel({
           <div className="col-md-12">
             <label className="labels">Penalty</label>
             <input
+            ref={penalty}
+              disabled = 'true'
               type="text"
               className="form-control"
               placeholder={logedClient.penalty}
@@ -106,16 +110,19 @@ export default function ClientProfileLabel({
           <div className="col-md-12">
             <label className="labels">Explanation of Registration</label>
             <input
+            disabled = 'true'
               ref={explanation}
               type="text"
               className="form-control"
               placeholder={logedClient.explanation}
-              //value={logedClient.explanation}
+              value={logedClient.explanation}
             />
           </div>
           <div className="col-md-12">
             <label className="labels">Points For Loyalty Program</label>
             <input
+            ref={loyalty}
+              disabled = 'true'
               type="text"
               className="form-control"
               placeholder="points"
@@ -139,6 +146,10 @@ export default function ClientProfileLabel({
           <button    className="btn btn-success profile-button"
             type="button"
             onClick={() => {
+              if(name.current.value=='' || surname.current.value==''){
+                alert("U need to fill at least name and surname")
+                return
+              }
               logedClient.name = name.current.value;
               logedClient.surname = surname.current.value;
               logedClient.address = address.current.value;

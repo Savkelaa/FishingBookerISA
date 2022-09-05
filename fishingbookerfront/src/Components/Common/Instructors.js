@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import userServices from "../../Services/UserServices/UserServices";
 import {
   Card,
   ListGroup,
@@ -6,18 +7,69 @@ import {
   CardGroup,
   Button,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Popup from "./Popup";
+
 
 export default function Instructors({ instructors, updateInstructorHandler }) {
   console.log("instructors", instructors);
 
+  const [mappedInstructors, setMappedInstructors] = useState(instructors);
+
+  useEffect(() => {
+    userServices
+      .getAllInstructors()
+      .then((data) => {
+        setMappedInstructors(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+  }, []);
+
+  function SortPriceASC(){
+    const numAscending = [...mappedInstructors].sort((a, b) => a.price - b.price);
+    setMappedInstructors(numAscending)
+  }
+  function SortPriceDESC(){
+    const numAscending = [...mappedInstructors].sort((a, b) => b.price - a.price);
+    setMappedInstructors(numAscending)
+  }
+  function SortAddressASC(){
+    const numAscending = [...mappedInstructors].sort((a, b) => a.address > b.address ? 1 : -1);
+    setMappedInstructors(numAscending)
+  }
+  function SortAddressDESC(){
+    const numAscending = [...mappedInstructors].sort((a, b) => a.address < b.address ? 1 : -1);
+    setMappedInstructors(numAscending)
+  }
+  function SortNameASC(){
+    const numAscending = [...mappedInstructors].sort((a, b) => a.name > b.name ? 1 : -1);
+    setMappedInstructors(numAscending)
+  }
+  function SortNameDESC(){
+    const numAscending = [...mappedInstructors].sort((a, b) => a.name < b.name ? 1 : -1);
+    setMappedInstructors(numAscending)
+  }
+
   return (
     <div>
+       <Button onClick={()=>{
+        SortAddressASC()
+       
+      }}>Sort AddressASC</Button>
+            <Button onClick={()=>{
+        SortAddressDESC()
+       
+      }}>Sort AddressESC</Button>
+            <Button onClick={()=>{
+        SortNameASC()
+       
+      }}>Sort NameASC</Button>
+       <Button onClick={()=>{
+        SortNameDESC()
+       
+      }}>Sort NameDESC</Button>
       <div className="header">
         <h1 style={{ textAlign: "center" }}> All Instructors </h1>
       </div>
-      {instructors.map((instructor) => (
+      {mappedInstructors?.map((instructor) => (
         <div className="container">
           <div className="row gutters">
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

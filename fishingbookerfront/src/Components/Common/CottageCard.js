@@ -1,4 +1,5 @@
 import React from "react";
+import  { useState, useEffect } from "react";
 import {
   Card,
   ListGroup,
@@ -7,13 +8,70 @@ import {
   Button,
 } from "react-bootstrap";
 import "../../App.css";
+import cottageServices from "../../Services/CottageServices/CottageServices";
 import { Link } from "react-router-dom";
 
 export default function CottageCard({ cottages }) {
   console.log("cottages", cottages);
+
+  const [mappedCottages, setMappedCottages]=useState(cottages)
+
+  useEffect(() => {
+    cottageServices
+      .getAllCottages()
+
+      .then((data) => {
+        setMappedCottages(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+  }, []);
+
+
+ 
+function SortPriceASC(){
+  const numAscending = [...mappedCottages].sort((a, b) => a.price - b.price);
+  setMappedCottages(numAscending)
+}
+function SortPriceDESC(){
+  const numAscending = [...mappedCottages].sort((a, b) => b.price - a.price);
+  setMappedCottages(numAscending)
+}
+function SortLengthASC(){
+  const numAscending = [...mappedCottages].sort((a, b) => a.length - b.length);
+  setMappedCottages(numAscending)
+}
+function SortLengthDESC(){
+  const numAscending = [...mappedCottages].sort((a, b) => b.length - a.length);
+  setMappedCottages(numAscending)
+}
+function SortNameASC(){
+  const numAscending = [...mappedCottages].sort((a, b) => a.name > b.name ? 1 : -1);
+  setMappedCottages(numAscending)
+}
+function SortNameDESC(){
+  const numAscending = [...mappedCottages].sort((a, b) => a.name < b.name ? 1 : -1);
+  setMappedCottages(numAscending)
+}
+ 
   return (
     <div>
-      {cottages.map((cottage) => (
+      <Button onClick={()=>{
+        SortPriceASC()
+       
+      }}>Sort PriceASC</Button>
+            <Button onClick={()=>{
+        SortPriceDESC()
+       
+      }}>Sort PriceDESC</Button>
+            <Button onClick={()=>{
+        SortNameASC()
+       
+      }}>Sort NameASC</Button>
+       <Button onClick={()=>{
+        SortNameDESC()
+       
+      }}>Sort NameDESC</Button>
+      {mappedCottages?.map((cottage) => (
         <div className="container">
           <div className="row gutters">
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
