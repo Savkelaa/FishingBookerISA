@@ -54,6 +54,7 @@ export default function NavbarAdmin() {
             Create loyalty category
           </NavDropdown.Item>
         </NavDropdown>
+        <Nav.Link href="login">Logout</Nav.Link>
       </Nav>
     </Navbar>
   );

@@ -14,5 +14,8 @@ public interface InstructorRateRepository extends JpaRepository<InstructorRate, 
 
     @Query(value = "Select * from instructor_rate where accepted='false' and request='true'", nativeQuery = true)
     List<InstructorRate> getAllInstructorRateRequests();
+    
+    @Query(value = "Select avg(rate) from instructor_rate where accepted = 'true' and instructor_id = :cottageId", nativeQuery = true)
+    Double getInstructorAvgRate(Integer cottageId);
 
 }

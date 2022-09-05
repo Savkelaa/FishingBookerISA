@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.InstructorRate;
+import com.isa.fishingbooker.repository.InstructorRateRepository;
 import com.isa.fishingbooker.service.InstructorRateService;
 
 @CrossOrigin
@@ -26,6 +28,7 @@ public class InstructorRateController {
 
 	@Autowired
 	private InstructorRateService instructorRateService;
+	private InstructorRateRepository instructorRepository;
 
 	@GetMapping("/instructorRates")
 	public List<InstructorRate> getAllInstructorRates() {
@@ -43,7 +46,11 @@ public class InstructorRateController {
 		return instructorRateService.getInstructorRateById(instructorRateId);
 	}
 
-
+	@GetMapping("/instructorAvgRate")
+	public Double getCottageAvgRate(@RequestParam(value="cottageId")  Integer cottageId)
+	{
+		return instructorRateService.getCottageAvgRate(cottageId);
+	}
 
 
 	@PostMapping("/instructorRates")

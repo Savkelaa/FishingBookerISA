@@ -7,6 +7,7 @@ import {
   CardGroup,
   Button,
 } from "react-bootstrap";
+import rateServices from "../../Services/RateServices/RateServices";
 
 
 export default function Instructors({ instructors, updateInstructorHandler }) {
@@ -23,12 +24,12 @@ export default function Instructors({ instructors, updateInstructorHandler }) {
       .catch((error) => console.log(`error`, error));
   }, []);
 
-  function SortPriceASC(){
-    const numAscending = [...mappedInstructors].sort((a, b) => a.price - b.price);
+  function SortRateASC(){
+    const numAscending = [...mappedInstructors].sort((a, b) => a.averageRate - b.averageRate);
     setMappedInstructors(numAscending)
   }
-  function SortPriceDESC(){
-    const numAscending = [...mappedInstructors].sort((a, b) => b.price - a.price);
+  function SortRateDESC(){
+    const numAscending = [...mappedInstructors].sort((a, b) => b.averageRate - a.averageRate);
     setMappedInstructors(numAscending)
   }
   function SortAddressASC(){
@@ -47,7 +48,23 @@ export default function Instructors({ instructors, updateInstructorHandler }) {
     const numAscending = [...mappedInstructors].sort((a, b) => a.name < b.name ? 1 : -1);
     setMappedInstructors(numAscending)
   }
-
+  function rate(){
+    const array=[]
+     mappedInstructors.map(element => {
+      rateServices
+      .getAvgRateByInstructor(element?.id)
+      .then((data) => {
+        element.averageRate=data.data;
+       // console.log(data.data)
+       console.log(element)
+        
+      })
+      console.log(mappedInstructors)
+    });
+   
+    
+   
+  }
   return (
     <div>
        <Button onClick={()=>{
@@ -66,6 +83,22 @@ export default function Instructors({ instructors, updateInstructorHandler }) {
         SortNameDESC()
        
       }}>Sort NameDESC</Button>
+
+<Button onClick={()=>{
+        SortRateASC()
+       
+      }}>Sort RateASC</Button>
+       <Button onClick={()=>{
+        SortRateDESC()
+       
+      }}>Sort RateDESC</Button>
+
+
+
+<Button onClick={()=>{
+       rate()
+       
+      }}>GetRates</Button>
       <div className="header">
         <h1 style={{ textAlign: "center" }}> All Instructors </h1>
       </div>

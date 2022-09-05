@@ -40,12 +40,12 @@ function SortPriceDESC(){
   const numAscending = [...mappedBoats].sort((a, b) => b.price - a.price);
   setMappedBoats(numAscending)
 }
-function SortLengthASC(){
-  const numAscending = [...mappedBoats].sort((a, b) => a.length - b.length);
+function SortRateASC(){
+  const numAscending = [...mappedBoats].sort((a, b) => a.rate - b.rate);
   setMappedBoats(numAscending)
 }
-function SortLengthDESC(){
-  const numAscending = [...mappedBoats].sort((a, b) => b.length - a.length);
+function SortRateDESC(){
+  const numAscending = [...mappedBoats].sort((a, b) => b.rate - a.rate);
   setMappedBoats(numAscending)
 }
 function SortNameASC(){
@@ -56,7 +56,24 @@ function SortNameDESC(){
   const numAscending = [...mappedBoats].sort((a, b) => a.name < b.name ? 1 : -1);
   setMappedBoats(numAscending)
 }
+function rate(){
+  const array=[]
+   mappedBoats.map(element => {
+    rateService
+    .getRateBoatById(element?.id)
+    .then((data) => {
+      element.rate=data.data;
+     // console.log(data.data)
+     console.log(element)
+      
+    })
+    console.log(mappedBoats)
+  });
  
+  
+ 
+}
+  
   
   /*
   useEffect(() => {
@@ -107,6 +124,21 @@ boats.forEach(element => {
         SortNameDESC()
        
       }}>Sort NameDESC</Button>
+
+<Button onClick={()=>{
+        SortRateASC()
+       
+      }}>Sort RateASC</Button>
+       <Button onClick={()=>{
+        SortRateDESC()
+       
+      }}>Sort RateDESC</Button>
+
+
+<Button onClick={()=>{
+       rate()
+       
+      }}>GetRates</Button>
       </Card>
       </Container>
       {mappedBoats?.map((boat) => (
@@ -133,7 +165,7 @@ boats.forEach(element => {
                       <ListGroupItem>Max Speed: {boat.maxSpeed}</ListGroupItem>
                       <ListGroupItem>Status: {boat.status}</ListGroupItem>
                       <ListGroupItem>Price: {boat.price} euro</ListGroupItem>
-                      <ListGroupItem>Rate: {avgRate} </ListGroupItem>
+                      <ListGroupItem>Rate: {boat.rate} </ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                       <Link to={`/boat/${boat.id}`}>
