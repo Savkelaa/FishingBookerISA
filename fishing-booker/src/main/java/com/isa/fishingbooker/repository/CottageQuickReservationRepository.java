@@ -2,11 +2,17 @@ package com.isa.fishingbooker.repository;
 
 import java.util.List;
 
+import javax.persistence.LockModeType;
+import javax.persistence.QueryHint;
+
 import com.isa.fishingbooker.model.FishingClassReservation;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.QueryHints;
 import org.springframework.stereotype.Repository;
 
+import com.isa.fishingbooker.model.Boat;
 import com.isa.fishingbooker.model.CottageQuickReservation;
 import com.isa.fishingbooker.model.CottageReservation;
 
@@ -15,6 +21,9 @@ public interface CottageQuickReservationRepository extends JpaRepository<Cottage
 
 	@Query(value="select * from cottage_quick_reservation where client_id=:clientId",nativeQuery=true)
 	List<CottageQuickReservation> getAllCottageQuickReservationByClient(Integer clientId);
+	
+	@Query(value="select * from cottage_quick_reservation where status='free'",nativeQuery=true)
+	List<CottageQuickReservation> findAll2();
 	
 	@Query(value="select * from cottage_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId ", nativeQuery=true)
 	List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClient(Integer clientId);
@@ -97,4 +106,8 @@ public interface CottageQuickReservationRepository extends JpaRepository<Cottage
 	@Query(value="select * from cottage_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId order by finish_date-start_date desc ", nativeQuery=true)
 	List<CottageQuickReservation> getAllFinishedCottageQuickReservationByClientSortedByDurationDesc(Integer clientId);
 
+	@Query(value="select q from cottage_quick_reservation q where q.id=:id  ", nativeQuery=true)
+	@Lock(LockModeType.PESSIMISTIC_WRITE)
+	@QueryHints({@QueryHint(name = "javax.persistence.lock.timeout", value = "0")})
+	CottageQuickReservation getLock(Long id);
 }

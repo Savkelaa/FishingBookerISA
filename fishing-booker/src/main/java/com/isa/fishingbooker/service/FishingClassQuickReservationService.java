@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import com.isa.fishingbooker.controller.UserController;
 import com.isa.fishingbooker.dto.FishingClassQuickReservationAdditionalServices;
 import com.isa.fishingbooker.model.*;
@@ -41,6 +43,11 @@ public class FishingClassQuickReservationService {
 	public List<FishingClassQuickReservation> getAllFishingClassQuickReservations(){
 		return this.FishingClassQuickReservationRepository.findAll();
 	}
+	
+	public List<FishingClassQuickReservation> getAllFishingClassQuickReservationsFree(){
+		return this.FishingClassQuickReservationRepository.getAllFishingClassQuickReservationFree();
+	}
+	
 
 	public Double getTotalPriceCompletedFishingClassQuickReservations(){
 		return this.FishingClassQuickReservationRepository.getTotalPriceCompletedFishingClassQuickReservations();
@@ -90,7 +97,7 @@ public class FishingClassQuickReservationService {
 	 return ResponseEntity.ok().body(fishingClassQuickReservation);
 	}
 	
-	
+	@Transactional
 	public FishingClassQuickReservation createFishingClassQuickReservation(FishingClassQuickReservation fishingClassQuickReservation) {
 		List<Client> subscribers = clientRepository.getAllSubscribersByFishingClass(fishingClassQuickReservation.getFishingClass().getId());
 		for (Client client : subscribers)

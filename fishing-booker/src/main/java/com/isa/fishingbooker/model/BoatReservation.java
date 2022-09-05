@@ -78,4 +78,14 @@ public class BoatReservation {
 	@JsonIgnore
     @OneToMany(mappedBy="boatReservation",fetch=FetchType.LAZY)
     private List<BoatComplaint> boatComplaints ;
+
+	public Object getEntityId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setOwnerPresent(Object ownerPresent) {
+		// TODO Auto-generated method stub
+		
+	}
 }

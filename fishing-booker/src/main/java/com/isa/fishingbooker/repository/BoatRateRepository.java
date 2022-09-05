@@ -17,4 +17,6 @@ public interface BoatRateRepository extends JpaRepository<BoatRate, Integer> {
     @Query(value = "Select avg(rate) from boat_rate where accepted = 'true' and boat_id = :boatId", nativeQuery = true)
     Double getBoatAvgRate(Integer boatId);
     
+    @Query(value = "Select avg(rate) from boat_rate where boat_id = :boatId", nativeQuery = true)
+    Double getBoatRates(Integer boatId);
 }

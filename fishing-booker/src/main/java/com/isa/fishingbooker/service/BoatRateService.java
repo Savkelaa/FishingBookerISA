@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatRate;
@@ -38,6 +39,9 @@ public class BoatRateService {
 	 return ResponseEntity.ok().body(boatRate);
 	}
 
+	public Double getRatesByBoat(Integer boatId){
+		return BoatRateRepository.getBoatRates(boatId);
+	}
 
 	public List<BoatRate> getAllBoatRateRequests(){
 		return this.BoatRateRepository.getAllBoatRateRequests();

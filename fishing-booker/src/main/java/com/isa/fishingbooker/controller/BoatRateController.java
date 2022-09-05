@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.isa.fishingbooker.exception.ResourceNotFoundException;
 import com.isa.fishingbooker.model.BoatRate;
+import com.isa.fishingbooker.model.Cottage;
 import com.isa.fishingbooker.service.BoatRateService;
 
 @CrossOrigin
@@ -42,6 +43,11 @@ public class BoatRateController {
 	@GetMapping("/boatRateRequests")
 	public List<BoatRate> getAllBoatRateRequests() {
 		return this.boatRateService.getAllBoatRateRequests();
+	}
+	
+	@GetMapping("/ratesByBoat")
+	public Double getRatesByBoat(@RequestParam (value = "boatId") Integer boatId){
+		return boatRateService.getRatesByBoat(boatId);
 	}
 
 	@PostMapping("/boatRates")

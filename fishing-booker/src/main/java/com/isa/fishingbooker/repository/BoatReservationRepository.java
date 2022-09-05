@@ -1,11 +1,18 @@
 package com.isa.fishingbooker.repository;
 
+import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import com.isa.fishingbooker.model.BoatReservation;
+
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.mapping.AccessOptions.SetOptions.Propagation;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
 
 import com.isa.fishingbooker.model.BoatReservation;
 import com.isa.fishingbooker.model.BoatReservation;
@@ -75,4 +82,10 @@ public interface BoatReservationRepository extends JpaRepository<BoatReservation
 			+ " and boat_id = :boatId"
 			, nativeQuery = true)
 	Double CountYearlyIncomeBoatReservations(Integer boatId);
+	
+	
+	
+
+	
+
 }

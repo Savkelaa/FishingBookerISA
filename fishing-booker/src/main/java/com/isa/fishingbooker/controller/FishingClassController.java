@@ -40,36 +40,36 @@ public class FishingClassController {
 		return fishingClassService.getFishingClassByInstructorAndName(instructorId, fishingclassName);
 	}
 
-	@GetMapping("/weeklyFishingClassReservation")
-	public Double getWeeklyFishingClassReservation(@RequestParam (value = "fishingClassId") Integer fishingClassId){
-		return fishingClassService.getWeeklyFishingClassReservation(fishingClassId);
-	}
-
-	@GetMapping("/monthlyFishingClassReservation")
-	public Double getMonthlyFishingClassReservation(@RequestParam (value = "fishingClassId") Integer fishingClassId){
-		return fishingClassService.getMonthlyFishingClassReservation(fishingClassId);
-	}
-
-	@GetMapping("/yearlyFishingClassReservation")
-	public Double getYearlyFishingClassReservation(@RequestParam (value = "fishingClassId") Integer fishingClassId){
-		return fishingClassService.getYearlyFishingClassReservation(fishingClassId);
-	}
-
-
-	@GetMapping("/yearlyFishingClassIncome")
-	public Double getYearlyFishingClassIncome(@RequestParam (value = "fishingClassId") Integer fishingClassId) {
-		return fishingClassService.getYearlyIncomeByFishingClass(fishingClassId);
-	}
-
-	@GetMapping("/monthlyFishingClassIncome")
-	public Double getMonthlyFishingClassIncome(@RequestParam (value = "fishingClassId") Integer fishingClassId) {
-		return fishingClassService.getMonthlyIncomeByFishingClass(fishingClassId);
-	}
-
-	@GetMapping("/weeklyFishingClassIncome")
-	public Double getWeeklyFishingClassIncome(@RequestParam (value = "fishingClassId") Integer fishingClassId) {
-		return fishingClassService.getWeeklyIncomeByFishingClass(fishingClassId);
-	}
+//	@GetMapping("/weeklyFishingClassReservation")
+//	public Double getWeeklyFishingClassReservation(@RequestParam (value = "fishingClassId") Integer fishingClassId){
+//		return fishingClassService.getWeeklyFishingClassReservation(fishingClassId);
+//	}
+//
+//	@GetMapping("/monthlyFishingClassReservation")
+//	public Double getMonthlyFishingClassReservation(@RequestParam (value = "fishingClassId") Integer fishingClassId){
+//		return fishingClassService.getMonthlyFishingClassReservation(fishingClassId);
+//	}
+//
+//	@GetMapping("/yearlyFishingClassReservation")
+//	public Double getYearlyFishingClassReservation(@RequestParam (value = "fishingClassId") Integer fishingClassId){
+//		return fishingClassService.getYearlyFishingClassReservation(fishingClassId);
+//	}
+//
+//
+//	@GetMapping("/yearlyFishingClassIncome")
+//	public Double getYearlyFishingClassIncome(@RequestParam (value = "fishingClassId") Integer fishingClassId) {
+//		return fishingClassService.getYearlyIncomeByFishingClass(fishingClassId);
+//	}
+//
+//	@GetMapping("/monthlyFishingClassIncome")
+//	public Double getMonthlyFishingClassIncome(@RequestParam (value = "fishingClassId") Integer fishingClassId) {
+//		return fishingClassService.getMonthlyIncomeByFishingClass(fishingClassId);
+//	}
+//
+//	@GetMapping("/weeklyFishingClassIncome")
+//	public Double getWeeklyFishingClassIncome(@RequestParam (value = "fishingClassId") Integer fishingClassId) {
+//		return fishingClassService.getWeeklyIncomeByFishingClass(fishingClassId);
+//	}
 
 
 	@GetMapping("/fishingClassInstructor")

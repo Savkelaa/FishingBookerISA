@@ -114,7 +114,7 @@ public class Boat {
     private BoatOwner boatOwner;
 	
 	@Column(name="averageRate")
-	private Long averageRate;
+	private Double averageRate;
 	
 	
 }

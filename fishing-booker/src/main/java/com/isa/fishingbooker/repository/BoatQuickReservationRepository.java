@@ -2,13 +2,19 @@ package com.isa.fishingbooker.repository;
 
 import java.util.List;
 
+import javax.persistence.LockModeType;
+import javax.persistence.QueryHint;
+
 import com.isa.fishingbooker.model.BoatReservation;
+import com.isa.fishingbooker.model.FishingClassQuickReservation;
 import com.isa.fishingbooker.model.BoatQuickReservation;
 import com.isa.fishingbooker.model.BoatQuickReservation;
 import com.isa.fishingbooker.model.BoatQuickReservation;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.QueryHints;
 import org.springframework.stereotype.Repository;
 
 import com.isa.fishingbooker.model.BoatQuickReservation;
@@ -19,6 +25,9 @@ public interface BoatQuickReservationRepository extends JpaRepository<BoatQuickR
 
 	@Query(value="select * from boat_quick_reservation where client_id=:clientId",nativeQuery=true)
 	List<BoatQuickReservation> getAllBoatQuickReservationByClient(Integer clientId);
+	
+	@Query(value="select * from boat_quick_reservation where status='free'",nativeQuery=true)
+	List<BoatQuickReservation> getAllBoatQuickReservationFREE();
 	
 	@Query(value="select * from boat_quick_reservation where finish_date <CURRENT_TIMESTAMP and client_id=:clientId ", nativeQuery=true)
 	List<BoatQuickReservation> getAllFinishedBoatQuickReservationByClient(Integer clientId);
@@ -91,6 +100,12 @@ public interface BoatQuickReservationRepository extends JpaRepository<BoatQuickR
 			+ " and boat_id = :boatId"
 			, nativeQuery = true)
 	Double CountYearlyIncomeBoatReservations(Integer boatId);
+	
+	
+	@Query(value="select q from boat_quick_reservation q where q.id=:id  ", nativeQuery=true)
+	@Lock(LockModeType.PESSIMISTIC_WRITE)
+	@QueryHints({@QueryHint(name = "javax.persistence.lock.timeout", value = "0")})
+	BoatQuickReservation getLock(Long id);
 
 	
 }

@@ -48,6 +48,11 @@ public class CottageQuickReservationController {
 	public List<CottageQuickReservation> getAllCottageQuickReservations() {
 		return this.cottageQuickReservationService.getAllCottageQuickReservations();
 	}
+	
+	@GetMapping("/cottageQuickReservations2")
+	public List<CottageQuickReservation> getAllCottageQuickReservations2() {
+		return this.cottageQuickReservationService.getAllCottageQuickReservations2();
+	}
 
 	@GetMapping("/priceCompletedCottageQuickReservation")
 	public Double getTotalPriceComplatedCottageQuickReservations()
@@ -70,7 +75,7 @@ public class CottageQuickReservationController {
 	@PostMapping("/cottageQuickReservations")
 	public CottageQuickReservation createCottageQuickReservation(@RequestBody CottageQuickReservation cottageQuickReservation) {
 		
-		List<Client> subscribers = clientRepository.getAllSubscribersByBoat(cottageQuickReservation.getCottage().getId());
+	/*	List<Client> subscribers = clientRepository.getAllSubscribersByBoat(cottageQuickReservation.getCottage().getId());
 		for (Client client : subscribers)
 		{
 			try {
@@ -79,8 +84,8 @@ public class CottageQuickReservationController {
 			}catch( Exception e ){
 				logger.info("Greska prilikom slanja emaila: " + e.getMessage());
 			}
-		}
-		return cottageQuickReservationService.createCottageQuickReservation(cottageQuickReservation);
+		}*/
+		return cottageQuickReservationService.createCottageQuickReservation(cottageQuickReservation); 
 	}
 
 	@PutMapping("/cottageQuickReservations/{id}")

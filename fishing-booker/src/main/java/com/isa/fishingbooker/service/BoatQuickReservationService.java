@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,10 @@ public class BoatQuickReservationService {
 		return this.BoatQuickReservationRepository.findAll();
 	}
 	
+	public List<BoatQuickReservation> getAllBoatQuickReservations2() {
+		return BoatQuickReservationRepository.getAllBoatQuickReservationFREE();
+	}
+	
 	public List<BoatQuickReservation> getBoatQuickReservationsByOwner(Integer boatOwnerId) {
 		return BoatQuickReservationRepository.getBoatQuickReservationsByOwner(boatOwnerId);
 	}
@@ -63,6 +69,7 @@ public class BoatQuickReservationService {
 		return this.BoatQuickReservationRepository.getTotalPriceCompletedBoatQuickReservations();
 	}
 
+	@Transactional
 	public BoatQuickReservation createBoatQuickReservation(BoatQuickReservation boatQuickReservation) {
 		
 		List<Client> subscribers = clientRepository.getAllSubscribersByBoat(boatQuickReservation.getBoat().getId());
