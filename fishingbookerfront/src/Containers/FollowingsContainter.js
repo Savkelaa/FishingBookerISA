@@ -25,16 +25,31 @@ function AllBoatsContainer() {
 
 
   function unfollowCottage(cottage){
-    cottages.pop(cottage)
-    localStorage.setItem("CottagesFollow", JSON.stringify(cottages));
+    let newCottages=cottages
+    for(let i=0;i<newCottages.length;i++){
+      if(newCottages[i]===cottage){
+        newCottages.splice(i, 1); 
+      }
+    }
+    localStorage.setItem("CottagesFollow", JSON.stringify(newCottages));
   }
   function unfollowBoat(boat){
-    boats.pop(boat)
-    localStorage.setItem("BoatsFollow", JSON.stringify(boats));
+   let newBoats=boats
+    for(let i=0;i<newBoats.length;i++){
+      if(newBoats[i]===boat){
+        newBoats.splice(i, 1); 
+      }
+    }
+    localStorage.setItem("BoatsFollow", JSON.stringify(newBoats));
 }
 function unfollowInstructor(instructor){
-    cottages.pop(instructor)
-    localStorage.setItem("InstructorsFollow", JSON.stringify(instructors));
+  let newInstructors
+  for(let i=0;i<newInstructors.length;i++){
+    if(newInstructors[i]===instructor){
+      newInstructors.splice(i, 1); 
+    }
+  }
+    localStorage.setItem("InstructorsFollow", JSON.stringify(newInstructors));
 }
   
   return (
