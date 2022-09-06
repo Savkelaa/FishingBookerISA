@@ -14,3 +14,6 @@ fishing-booker
 postgresql: database fishingBooker
 
 eclipse: localhost:8081
+
+
+CLIENT: username:maki3@gmail.com password:a
