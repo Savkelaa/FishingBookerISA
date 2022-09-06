@@ -8,7 +8,9 @@ import boatService from "../Services/BoatServices/BoatServices";
 
 export default function CurrentReservationsContainer() {
   const [currentReservations, setCurrentReservations] = useState([]);
-  
+  const [cant, setCant] = useState(JSON.parse(localStorage.getItem("cant3")))
+  var start = JSON.parse(localStorage.getItem("StartDate"));
+  var finish = JSON.parse(localStorage.getItem("FinishDate"));
 
   useEffect(() => {
     boatService.getAllBoats()
@@ -19,6 +21,22 @@ export default function CurrentReservationsContainer() {
 
  
   }, []);
+
+  if(cant!==null){
+    cant.forEach(element=>{
+      for( let i = 0; i < currentReservations.length; i++){ 
+     
+        if ( currentReservations[i].id == element.id &&  ((element.date1>=start && element.date1<finish) || (element.date1<start && element.date2>start)) ) { 
+         
+            currentReservations.splice(i, 1); 
+        }
+    
+    }
+    
+    })
+    
+  }
+
 
   return (
     <div>

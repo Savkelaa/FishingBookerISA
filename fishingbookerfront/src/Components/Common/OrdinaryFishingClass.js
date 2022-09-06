@@ -19,12 +19,71 @@ export default function CurrentReservations({ currentReservations}) {
   var start = JSON.parse(localStorage.getItem("StartDate"));
   var finish = JSON.parse(localStorage.getItem("FinishDate"));
   console.log(start);
+  const [tags, setTags] = useState([]);
+  const [cant, setCant] = useState(JSON.parse(localStorage.getItem("cant")))
+
+
+
+  function forbidde(fishing) {
+    fishing.date1=start
+    fishing.date2=finish
+    let newFishing=[]
+    if(cant!==null)
+      newFishing=cant;
+  
+    newFishing.push(fishing);
+    setCant(newFishing)
+    localStorage.setItem("cant", JSON.stringify(newFishing));
+  }
 
   var currReservations = [];
   currentReservations.forEach(element =>{
     currReservations.push(element);
   });
 
+//   function getAvaillable(){
+  
+//   if(cant!==null){
+//     cant.forEach(element=>{
+//       for( let i = 0; i < currReservations.length; i++){ 
+     
+//         if ( currReservations[i].id == element.id) { 
+//           console.log("eo element")
+//           console.log(element)
+//           console.log("eo curr")
+//           console.log(currReservations[i])
+//             currReservations.splice(i, 1); 
+//         }
+    
+//     }
+    
+//     })
+    
+//   }
+//   console.log(currReservations)
+// }
+
+
+  useEffect(() => {
+    fishingClassServices
+      .getAllAdditionalServiceNames()
+      .then((data) => {
+        setTags(data.data);
+      })
+      .catch((error) => console.log(`error`, error));
+  }, []);
+
+  const removeTags = (indexToRemove) => {
+    setTags([...tags.filter((_, index) => index !== indexToRemove)]);
+  };
+  const addTags = (event) => {
+    if (event.target.value !== "") {
+      setTags([...tags, event.target.value]);
+      //  props.selectedTags([...tags, event.target.value]);
+
+      event.target.value = "";
+    }
+  };
 
   
   var reservationObject ={
@@ -41,6 +100,7 @@ export default function CurrentReservations({ currentReservations}) {
     <div>
       <div className="App">
         <div className="header">
+          
           <h1 style={{ textAlign: "center" }}> Current reservations </h1>
         </div>
         {currReservations?.map((reservation) => (
@@ -66,10 +126,33 @@ export default function CurrentReservations({ currentReservations}) {
                                 reservationObject.fishingClass=reservation;   
                                 fishingClassServices.createFishingClassReservation(reservationObject);                            
                                 alert("Uspesno");
-                                
+                                forbidde(reservation)
                         }
                         }
                         >Book</Button>
+                             <h6 for="website">Additional items</h6>
+                <div className="tags-input">
+                  <ul id="tags">
+                    {tags?.map((tag, index) => (
+                      <li key={index} className="tag">
+                        <span className="tag-title">{tag}</span>
+                        <span
+                          className="tag-close-icon"
+                          onClick={() => removeTags(index)}
+                        >
+                          x
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <input
+                    type="text"
+                    onKeyUp={(event) =>
+                      event.key === "Shift" ? addTags(event) : null
+                    }
+                    placeholder="Press shift to add tags"
+                  />
+                </div>
                       </Card.Body>
                     </Card>
                   </div>
@@ -80,7 +163,7 @@ export default function CurrentReservations({ currentReservations}) {
         ))}
       
 
-
+ 
       </div>
     </div>
   );

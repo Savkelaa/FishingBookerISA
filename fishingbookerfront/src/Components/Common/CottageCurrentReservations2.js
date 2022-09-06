@@ -33,7 +33,7 @@ export default function CottageCurrentReservations({
     <div>
       <div className="App">
         <div className="header">
-          <h1 style={{ textAlign: "center" }}> Current Reservations </h1>
+          <h1 style={{ textAlign: "center" }}> Booking cottage reservation </h1>
         </div>
         {currReservations.map((reservation) => (
           <div className="container">
@@ -79,7 +79,7 @@ export default function CottageCurrentReservations({
                               )
                             }
                           >
-                            Book a new ordinary reservation for this client
+                            Book 
                           </Button>
                         </Card.Body>
                       </Link>
